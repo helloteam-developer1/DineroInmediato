@@ -1,0 +1,12 @@
+/********** Template CSS **********/
+/* variables de colores */
+:root {
+    --green: #06da3b;
+}
+
+
+/* ejemplo  */
+
+.contenido{
+    background-color: var(--green);
+}
