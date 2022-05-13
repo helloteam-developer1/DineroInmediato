@@ -35,20 +35,19 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 shadow">
         <a href="index.html" class="navbar-brand p-0">
-            <h1 class="m-0 text-dark">Logo</h1>
+            <img src="{{ asset('img/logo.png')}}"  class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link active text-dark">Home</a>
-                <a href="about.html" class="nav-item nav-link text-dark">About</a>
-                <a href="service.html" class="nav-item nav-link text-dark">Services</a>
-                <a href="contact.html" class="nav-item nav-link text-dark">Contact</a>
+                <a href="index.html" class="nav-item nav-link active text-dark">Inicio</a>
+                <a href="about.html" class="nav-item nav-link text-dark">Acerca de Nosotros</a>
             </div>
-            <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-            <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Botones</a>
+            
+            <a href="" class="btn btn-outline-secondary py-2 px-4 ms-3">Inicio de Sesión</a>
+            <a href="" class="btn btn-primary py-2 px-4 ms-3">¡Solicitalo ya!</a>
         </div>
     </nav>
     <main>
