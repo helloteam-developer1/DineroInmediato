@@ -4,6 +4,7 @@
     --secondary: #34AD54;
     --light: #EEF9FF;
     --dark: #091E3E;
+    --naranja: #f29100;
 }
 
 
@@ -85,7 +86,11 @@ h6,
     transition: .5s;
 }
 
-.btn-primary,
+.btn-primary{
+   background-color: var(--naranja);
+   color: white;
+   border-color: var(--naranja);
+}
 .btn-secondary {
     color: #FFFFFF;
     box-shadow: inset 0 0 0 50px transparent;
@@ -124,16 +129,21 @@ h6,
 
 
 /*** Navbar ***/
+.navbar{
+    height: 80px !important;
+
+}
 .navbar-dark .navbar-nav .nav-link {
     font-family: 'Nunito', sans-serif;
     position: relative;
     margin-left: 25px;
     padding: 35px 0;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     transition: .5s;
 }
+
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
     padding: 20px 0;
