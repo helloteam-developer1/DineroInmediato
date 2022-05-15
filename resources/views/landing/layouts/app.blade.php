@@ -26,7 +26,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/b34d6606d6.js" crossorigin="anonymous"></script>
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -49,7 +49,7 @@
                 <a href="index.html" class="nav-item nav-link active text-dark">Inicio</a>
                 <a href="about.html" class="nav-item nav-link text-dark">Acerca de Nosotros</a>
             </div>
-            
+
             <a href="" class="btn btn-outline-secondary py-2 px-4 ms-3">Inicio de Sesión</a>
             <a href="" class="btn btn-primary py-2 px-4 ms-3">¡Solicitalo ya!</a>
         </div>
@@ -59,7 +59,47 @@
             @yield('content')
         </div>
     </main>
+    <x-package-alert titulo="terminos-condiciones" idm="terminosCondiciones"/>
+    <x-package-alert titulo="quienes-somos" idm="quienesSomos"/>
+    <x-package-alert titulo="acerca-nosotros" idm="acercaNosotros"/>
+    <x-package-alert titulo="politica-privacidad" idm="politicaPrivacidad"/>
+    <footer>
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 mt-5">
+                    <span style="color: #617E21;"><strong>Informaci&oacute;n legal</strong></span>
+                    <div class="text-white">
+                        <span data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="pointer"> Terminos y condiciones 20 </span>
+                    </div>
+                    <div class="text-white">
+                        <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer"> Pol&iacute;tica y aviso de privacidad </span>
+                    </div>
 
+                </div>
+                <div class="col-xs-12 col-md-4 mt-5">
+                    <span style="color: #617E21;">
+                        <strong>Acerca al cliente</strong>
+                    </span>
+                    <div class="text-white">
+                        <span class="pointer"> Preguntas Frecuentes </span>
+                    </div>
+                    <div class="text-white">
+                        <span data-bs-toggle="modal" data-bs-target="#quienesSomos" class="pointer"> Qui&eacute;nes somos? </span>
+                    </div>
+                    <div class="text-white">
+                        <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer"> Acerca de nosotros </span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4 mt-5">
+                    <span class="text-dark"><strong>Contactanos</strong></span>
+                    <form>
+                        <input type="text" class="form-control mb-3" placeholder="Correo">
+                        <input type="text" class="form-control mb-3" placeholder="Comentario">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -71,6 +111,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
+
 </body>
 
 </html>
