@@ -126,6 +126,7 @@
                     </form>
                     <div>
                         <span class="text-dark"><strong>¿Te gusto la p&aacute;gina?</strong></span>
+
                     </div>
                 </div>
             </div>
