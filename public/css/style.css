@@ -6,8 +6,17 @@
     --dark: #091E3E;
     --naranja: #f29100;
 }
-
-
+/*** eligenos titulos ***/
+.eligenos {
+    font-size: 23px;
+    text-align: center;
+}
+.text-justify{
+    text-align: justify;
+}
+.titulo{
+    color: var(--naranja);
+}
 /*** Spinner ***/
 .spinner {
     width: 40px;
