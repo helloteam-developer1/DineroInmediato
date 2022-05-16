@@ -17,6 +17,7 @@ class modal extends Component
      */
     public function __construct($titulo, $idm)
     {
+
         $this->idm = $idm;
 
         $this->getContentModal($titulo);
@@ -30,7 +31,6 @@ class modal extends Component
      */
     public function render()
     {
-
         return view('components.landing.modal.modal-landing');
     }
 

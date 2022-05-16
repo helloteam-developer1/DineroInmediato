@@ -59,10 +59,11 @@
             @yield('content')
         </div>
     </main>
-    <x-package-alert titulo="terminos-condiciones" idm="terminosCondiciones"/>
-    <x-package-alert titulo="quienes-somos" idm="quienesSomos"/>
-    <x-package-alert titulo="acerca-nosotros" idm="acercaNosotros"/>
-    <x-package-alert titulo="politica-privacidad" idm="politicaPrivacidad"/>
+    <x-modal-footer titulo="terminos-condiciones" idm="terminosCondiciones"/>
+    <x-modal-footer titulo="quienes-somos" idm="quienesSomos"/>
+    <x-modal-footer titulo="acerca-nosotros" idm="acercaNosotros"/>
+    <x-modal-footer titulo="politica-privacidad" idm="politicaPrivacidad"/>
+
     <footer>
         <div class="container pb-5">
             <div class="row">
