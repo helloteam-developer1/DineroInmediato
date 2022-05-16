@@ -2,7 +2,7 @@
 
   <!-- Modal -->
   <div class="modal fade" id="{{ $idm }}" tabindex="-1" aria-labelledby="{{ $idm }}Label" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header" >
           <h5 class="modal-title col-11 text-center" style="color: #459F47" id="{{ $idm }}Label">{{ $titulo }}</h5>
