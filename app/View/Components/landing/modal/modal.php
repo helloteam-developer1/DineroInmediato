@@ -56,7 +56,7 @@ class modal extends Component
         if ($titulo === 'acerca-nosotros'){
 
             $this->titulo = 'Acerca de nosotros';
-            $this->contenido = $this->contentModal();
+            $this->contenido = $this->contentAcercade();
         }
 
         // MODAL POLITICA DE PRIVACIDAD
@@ -137,5 +137,16 @@ class modal extends Component
             Al proporcionarnos sus datos usted reconoce que entiende y acepta la recopilación y transmisión de su información y datos personales por parte de Hello México, Agencia de contenidos digitales S.A. de C.V,  según se señala en el presente Aviso de Privacidad.
 
              ';
+    }
+    public function contentAcercade(){
+        return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae pellentesque odio. Praesent auctor finibus justo, sit amet posuere neque imperdiet in. Integer eu ipsum posuere, mattis justo et, pharetra erat. Curabitur viverra, lorem sit amet venenatis fermentum, sem arcu ullamcorper enim, sit amet aliquet quam nisl vel turpis. Ut et orci id elit elementum auctor. Pellentesque sed vulputate sapien. Sed lacinia neque sit amet magna hendrerit facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam efficitur consequat quam, eget pellentesque nibh scelerisque sed. Sed eleifend nisl non auctor consectetur. Phasellus a viverra nisi. Quisque porta in orci vitae posuere.
+
+        Ut congue tempus turpis nec semper. Vestibulum orci turpis, porta eu nulla sed, blandit consequat magna. Aliquam laoreet pulvinar ligula et efficitur. Phasellus euismod, turpis nec tincidunt gravida, quam nibh fringilla justo, vel sagittis lacus libero at arcu. Donec consectetur sem at orci vulputate, sit amet eleifend nisl molestie. Suspendisse lorem urna, accumsan a posuere eget, interdum eu urna. Fusce imperdiet leo sit amet sagittis lacinia. Pellentesque finibus augue ut magna semper, nec mollis sapien interdum.
+
+        Sed at mauris nibh. Pellentesque vel convallis neque, sed consequat nibh. Nunc eget convallis est, quis laoreet est. Nunc nec interdum est. Fusce eu purus ac massa pellentesque luctus. Vivamus molestie dui vel eros consequat, eu tincidunt arcu posuere. Sed id auctor felis. Cras bibendum a felis ut sagittis. Vestibulum rutrum tellus tincidunt purus porttitor consectetur. Donec congue lacus quam, ac volutpat justo elementum sed. Nulla et mattis dui. In ac consequat lorem. Sed ultrices maximus ultricies. Phasellus eu diam ante.
+
+        Sed fermentum odio lacus, in ultricies diam malesuada quis. Donec auctor risus neque, in cursus tellus sollicitudin at. Proin ut ipsum leo. Praesent quis ex nec magna pharetra luctus vel ac lorem. Vivamus id nisl felis. Nullam non porta est. Praesent luctus erat id tincidunt vehicula. Suspendisse a tellus consectetur, aliquet massa eget, ultrices turpis. Quisque feugiat eros sed arcu commodo congue. Nam pharetra ligula eu bibendum ornare.
+
+        Aliquam a ex aliquet, hendrerit nulla eget, imperdiet elit. Curabitur sit amet neque quis neque efficitur vestibulum. Vestibulum sed feugiat nunc. Praesent tempor vehicula ipsum mollis vehicula. Donec nunc lacus, accumsan nec accumsan sit amet, eleifend sed lacus. Etiam sed porta purus. Sed bibendum vehicula odio, pretium lacinia magna scelerisque convallis. Nullam vitae varius sapien, nec scelerisque nulla. Ut elementum gravida sollicitudin. Nulla fermentum pulvinar est, non mollis lorem. In malesuada velit nibh, in aliquet magna porttitor vel. Ut in sem at lorem mollis finibus. Phasellus malesuada suscipit libero, ac pharetra libero rhoncus vitae.';
     }
 }

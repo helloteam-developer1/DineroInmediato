@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="utf-8">
     <title>Dinero Inmediato</title>
@@ -55,6 +56,7 @@
     <main>
         <div>
             @yield('content')
+
         </div>
     </main>
 
@@ -89,6 +91,7 @@
         </div>
     </section>
 
+
     <footer>
         <div class="container pb-5">
             <div class="row">
@@ -110,7 +113,7 @@
                         <strong>Acerca al cliente</strong>
                     </span>
                     <div class="text-white">
-                        <span class="pointer"> Preguntas Frecuentes </span>
+                        <a href="/preguntasfrec" style="color: white"><span class="pointer"> Preguntas Frecuentes</span></a>
                     </div>
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#quienesSomos" class="pointer"> Qui&eacute;nes somos? </span>
@@ -126,7 +129,7 @@
                     </form>
                     <div>
                         <span class="text-dark"><strong>¿Te gusto la p&aacute;gina?</strong></span>
-
+                        <img src="{{ asset('img/landing/index/Grupo 63.png') }}" alt="dislikeAndLike">
                     </div>
                 </div>
             </div>
