@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-< lang="en">
+<lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -57,6 +57,7 @@
     <main>
         <div>
             @yield('content')
+
         </div>
     </main>
 
@@ -85,7 +86,6 @@
         </div>
     </section>
 
-
     <x-package-alert titulo="terminos-condiciones" idm="terminosCondiciones"/>
     <x-package-alert titulo="quienes-somos" idm="quienesSomos"/>
     <x-package-alert titulo="acerca-nosotros" idm="acercaNosotros"/>
@@ -108,7 +108,7 @@
                         <strong>Acerca al cliente</strong>
                     </span>
                     <div class="text-white">
-                        <span class="pointer"> Preguntas Frecuentes </span>
+                        <a href="/preguntasfrec" style="color: white"><span class="pointer"> Preguntas Frecuentes</span></a>
                     </div>
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#quienesSomos" class="pointer"> Qui&eacute;nes somos? </span>
