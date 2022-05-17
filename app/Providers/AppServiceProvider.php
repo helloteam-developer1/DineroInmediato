@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::component('package-alert', modal::class);
+        Blade::component('modal-footer', modal::class);
     }
 }
