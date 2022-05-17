@@ -150,6 +150,7 @@ h6,
 /*** Navbar ***/
 .navbar{
     height: 80px !important;
+    background-color: #FFFFFF;
 
 }
 .navbar-dark .navbar-nav .nav-link {
