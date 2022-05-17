@@ -17,6 +17,13 @@
 .text-center{
     text-align: center;
 }
+.centrar{
+    position: relative;
+    top: 10%;
+    left: 20%;
+    right: 10%;
+    bottom: 20%;
+}
 .titulo{
     color: var(--naranja);
 }

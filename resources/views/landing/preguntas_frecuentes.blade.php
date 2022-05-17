@@ -1,7 +1,7 @@
 @extends('landing.layouts.app')
 @section('content')
-<div class="text-justify" style="background-color: white" >
-    <h2 class="texto-solicita-verde text-center texto-solicita-verde">Preguntas frecuentes</h2>
+<div class="text-justify" style="background: white">
+    <h2 class="text-center texto-solicita-verde">Preguntas frecuentes</h2>
     <div class="centrar">
     <ol>
         <li>Titulo</li>
