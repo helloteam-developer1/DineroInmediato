@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <img src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%"">
+            <img src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%">
         </div>
 
         <div class="col-12 bg-gray mb-5">
