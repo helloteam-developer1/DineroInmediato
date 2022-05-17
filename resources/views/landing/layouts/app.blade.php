@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-< lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Dinero Inmediato</title>
@@ -60,6 +58,12 @@
         </div>
     </main>
 
+    <x-modal-footer titulo="terminos-condiciones" idm="terminosCondiciones"/>
+    <x-modal-footer titulo="quienes-somos" idm="quienesSomos"/>
+    <x-modal-footer titulo="acerca-nosotros" idm="acercaNosotros"/>
+    <x-modal-footer titulo="politica-privacidad" idm="politicaPrivacidad"/>
+
+
     <section style="background-color: #FFFF">
         <div class="container pb-5 text-center">
             <br>
@@ -85,11 +89,6 @@
         </div>
     </section>
 
-
-    <x-package-alert titulo="terminos-condiciones" idm="terminosCondiciones"/>
-    <x-package-alert titulo="quienes-somos" idm="quienesSomos"/>
-    <x-package-alert titulo="acerca-nosotros" idm="acercaNosotros"/>
-    <x-package-alert titulo="politica-privacidad" idm="politicaPrivacidad"/>
     <footer>
         <div class="container pb-5">
             <div class="row">
@@ -101,7 +100,10 @@
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer"> Pol&iacute;tica y aviso de privacidad </span>
                     </div>
-
+                    <div class="mt-5">
+                        <img src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
+                        <img src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
+                    </div>
                 </div>
                 <div class="col-xs-12 col-md-4 mt-5">
                     <span style="color: #617E21;">
@@ -118,11 +120,14 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4 mt-5">
-                    <span class="text-dark"><strong>Contactanos</strong></span>
+                    <span class="text-dark"><strong>Para recibir m&aacutes; informaci&oacute;n, ingresa tu correo</strong></span>
                     <form>
                         <input type="text" class="form-control mb-3" placeholder="Correo">
-                        <input type="text" class="form-control mb-3" placeholder="Comentario">
                     </form>
+                    <div>
+                        <span class="text-dark"><strong>¿Te gusto la p&aacute;gina?</strong></span>
+
+                    </div>
                 </div>
             </div>
         </div>
