@@ -39,12 +39,12 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 shadow">
         <a href="index.html" class="navbar-brand p-0">
-            <img src="{{ asset('img/logo.png')}}"  class="d-inline-block align-text-top">
+            <img src="{{ asset('img/logo.png')}}" width="100"  class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse bg-white  p-3" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="index.html" class="nav-item nav-link active text-dark">Inicio</a>
                 <a href="about.html" class="nav-item nav-link text-dark">Acerca de Nosotros</a>
@@ -67,48 +67,106 @@
     <x-modal-footer titulo="politica-privacidad" idm="politicaPrivacidad"/>
 
     <footer>
-        <div class="container pb-5">
-            <div class="row">
-                <div class="col-xs-12 col-md-4 mt-5">
-                    <span style="color: #617E21;"><strong>Informaci&oacute;n legal</strong></span>
+        <div class="container grid grid-cols-3 pt-5 pb-3 justify-items-center centerTextMovile">
+
+            {{-- contacto  Mobile --}}
+
+            <div class="grid grid-cols-1 col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 contactMobile block sm:block md:hidden lg:hidden xl:hidden">
+                <div>
+                    <span class="text-dark"><strong>Contactanos</strong></span>
+                </div>
+                <div>
+
+                    <form>
+                        <div class="max-w-2xl mx-auto">
+
+
+                            <div class="relative mb-6">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                    </div>
+                                    <input type="text" id="input-group-1" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo">
+                                </div>
+
+                                <div class="flex">
+                                    <textarea type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario"></textarea>
+                                </div>
+                                <div class="text-right mt-3">
+                                    <button class="btn w-100 p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+            </div>
+
+
+            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 ">
+                <span style="color: #617E21;"><strong>Informaci&oacute;n legal</strong></span>
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="pointer"> Terminos y condiciones 20 </span>
                     </div>
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer"> Pol&iacute;tica y aviso de privacidad </span>
                     </div>
-                    <div class="mt-5">
-                        <img src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
-                        <img src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-4 mt-5">
-                    <span style="color: #617E21;">
-                        <strong>Acerca al cliente</strong>
-                    </span>
-                    <div class="text-white">
-                        <a href="/preguntasfrec" style="color: white"><span class="pointer"> Preguntas Frecuentes</span></a>
-                    </div>
-                    <div class="text-white">
-                        <span data-bs-toggle="modal" data-bs-target="#quienesSomos" class="pointer"> Qui&eacute;nes somos? </span>
-                    </div>
-                    <div class="text-white">
-                        <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer"> Acerca de nosotros </span>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-4 mt-5">
-                    <span class="text-dark"><strong>Para recibir m&aacutes; informaci&oacute;n, ingresa tu correo</strong></span>
-                    <form>
-                        <input type="text" class="form-control mb-3" placeholder="Correo">
-                    </form>
-                    <div>
+                    <div class="mt-5" >
                         <span class="text-dark"><strong>¿Te gusto la p&aacute;gina?</strong></span>
-                        <img src="{{ asset('img/landing/index/Grupo 63.png') }}" alt="dislikeAndLike">
+
+                            <img src="{{ asset('img/landing/index/Grupo 63.png') }}" width="50%" alt="dislikeAndLike">
+
                     </div>
-                </div>
             </div>
+            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2">
+                <span style="color: #617E21;">
+                    <strong>Acerca al cliente</strong>
+                </span>
+                <div class="text-white">
+                    <a href="/preguntasfrec" style="color: white"><span class="pointer"> Preguntas Frecuentes</span></a>
+                </div>
+                <div class="text-white">
+                    <span data-bs-toggle="modal" data-bs-target="#quienesSomos" class="pointer"> Qui&eacute;nes somos? </span>
+                </div>
+                <div class="text-white">
+                    <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer"> Acerca de nosotros </span>
+                </div>
+
+                <div class="mt-5 input-group icons">
+                    <img class="mr-5" src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
+                    <img  src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
+                </div>
+
+            </div>
+
+            {{-- contacto Escritorio --}}
+            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 hidden sm:hidden md:block lg:block xl:block">
+                <span class="text-dark"><strong>Contactanos</strong></span>
+                    <form>
+                        <div class="max-w-2xl mx-auto">
+
+
+                                <div class="relative mb-6">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                    </div>
+                                    <input type="text" id="input-group-1" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo">
+                                </div>
+
+                                <div class="flex">
+                                    <textarea type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario"></textarea>
+                                </div>
+                                <div class="text-right mt-3">
+                                    <button class="btn p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
+                                </div>
+
+                        </div>
+                    </form>
+
+            </div>
+            <div class="col-span-3 text-white text-center mt-5"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong> </div>
         </div>
     </footer>
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
