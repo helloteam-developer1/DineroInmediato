@@ -18,11 +18,7 @@
     text-align: center;
 }
 .centrar{
-    position: relative;
-    top: 10%;
-    left: 20%;
-    right: 10%;
-    bottom: 20%;
+    margin: 0 0 0 100px;
 }
 .titulo{
     color: var(--naranja);
@@ -524,3 +520,28 @@ h6,
 footer{
     background-color: #f29100 !important
 }
+
+
+    @media screen and (max-width: 1024px) {
+        .centerTextMovile{
+            text-align: center;
+        }
+        .icons{
+            padding-left: 20px;
+        }
+
+    }
+
+    @media screen and (min-width: 1024px) {
+        .centerTextMovile{
+            text-align: center;
+        }
+        .icons{
+            padding-left: 20px;
+        }
+
+        .collapse{
+            background-color: transparent !important;
+
+        }
+    }
