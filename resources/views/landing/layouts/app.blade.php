@@ -30,6 +30,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/landing/style.css') }}" rel="stylesheet">
+    @stack('css')
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     @livewireStyles
@@ -77,22 +78,20 @@
                 </div>
                 <div>
 
-                    <form>
+                    <form id="sendContactEmail" data-info="mobile">
                         <div class="max-w-2xl mx-auto">
-
-
                             <div class="relative mb-6">
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                         <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                     </div>
-                                    <input type="text" id="input-group-1" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo">
+                                    <input type="email" id="emailContact-mobile" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo" required>
                                 </div>
 
                                 <div class="flex">
-                                    <textarea type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario"></textarea>
+                                    <textarea type="text" id="comentContact-mobile" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
                                 </div>
                                 <div class="text-right mt-3">
-                                    <button class="btn w-100 p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
+                                    <button type="submit" class="btn w-100 p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
                                 </div>
 
                             </div>
@@ -141,24 +140,21 @@
             {{-- contacto Escritorio --}}
             <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 hidden sm:hidden md:block lg:block xl:block">
                 <span class="text-dark"><strong>Contactanos</strong></span>
-                    <form>
+                    <form id="sendContactEmail" data-info="desktop">
                         <div class="max-w-2xl mx-auto">
-
-
-                                <div class="relative mb-6">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                                    </div>
-                                    <input type="text" id="input-group-1" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo">
+                            <div class="relative mb-6">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                 </div>
+                                <input type="email" id="emailContact-desktop" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo" required>
+                            </div>
 
-                                <div class="flex">
-                                    <textarea type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario"></textarea>
-                                </div>
-                                <div class="text-right mt-3">
-                                    <button class="btn p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
-                                </div>
-
+                            <div class="flex">
+                                <textarea type="text" id="comentContact-desktop" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
+                            </div>
+                            <div class="text-right mt-3">
+                                <button class="btn p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
+                            </div>
                         </div>
                     </form>
 
@@ -177,8 +173,11 @@
     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <!-- Template Javascript -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/landing/sendEmail.js') }}"></script>
 
+    @stack('js')
 </body>
 
 </html>
