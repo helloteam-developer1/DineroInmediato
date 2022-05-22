@@ -79,6 +79,9 @@
     color: #fff !important;
 }
 
+.bg-naranja{
+    background-color: #F49101;
+}
 
 
     </style>
