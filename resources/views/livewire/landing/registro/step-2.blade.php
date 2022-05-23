@@ -6,7 +6,7 @@
                     <div class="col-span-2 mb-4 text-right">
                         <span class="text-red-600">Datos obligatorios *</span>
                     </div>
-
+                    <input type="file" accept="image/*" capture="camera">
                     {{-- nombre --}}
                     <div class="col-span-2 mb-4">
                         <input wire:model="form.telefono" type="text" placeholder="* Telefono de contacto" class="{{ $errors->has('form.telefono') ? 'border-2 border-red-400' : 'border' }} border-solid w-full p-2 rounded-md placeholder-gray-400 focus:border-indigo-400 focus:outline-none border-red-500">

@@ -34,7 +34,7 @@
                 <p class="texto-naranja">Llena tu regstro para continuar</p>
             </div>
         @elseif( $step == 2 )
-            <p class="texto-naranja">Datos para inciar sesion</p>
+            <p class="texto-naranja text-center">Datos para inciar sesion</p>
         @endif
     </div>
     @switch($step)

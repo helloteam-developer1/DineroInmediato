@@ -20,6 +20,7 @@ class RegistroComponent extends Component
         'email' => null,
         'password' => null,
         'confirm_password' => null,
+        'test' => null,
     ];
 
     public function render()
