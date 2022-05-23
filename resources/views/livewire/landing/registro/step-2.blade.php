@@ -24,7 +24,7 @@
                         <input wire:model="form.confirm_password" type="text" placeholder="* Verificar contraseña" class="{{ $errors->has('form.confirm_password') ? 'border-2 border-red-400' : 'border' }} border-solid w-full p-2 rounded-md placeholder-gray-400 focus:border-indigo-400 focus:outline-none border-red-500">
                     </div>
 
-                    <div class="col-span-1 text-left">
+                    <div class="col-span-1  text-left">
                         <button wire:click="$set('step', 1)" class="btn bg-verde text-white">Regresar</button>
                     </div>
                     <div class="col-span-1 text-right">
