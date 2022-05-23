@@ -15,6 +15,11 @@ class RegistroComponent extends Component
         'antiguedad' => null,
         'rama_empresa' => null,
         'banco_nomina' => null,
+        // step dos
+        'telefono' => null,
+        'email' => null,
+        'password' => null,
+        'confirm_password' => null,
     ];
 
     public function render()
@@ -24,14 +29,26 @@ class RegistroComponent extends Component
 
     public function stepOne()
     {
+        // $this->validate([
+        //     'form.name' => 'required',
+        //     'form.curp' => 'required',
+        //     'form.fecha_nacimiento' => 'required',
+        //     'form.empresa_trabaja' => 'required',
+        //     'form.antiguedad' => 'required',
+        //     'form.rama_empresa' => 'required',
+        //     'form.banco_nomina' => 'required',
+        // ]);
+
+        $this->step = 2;
+    }
+
+    public function stepTwo()
+    {
         $this->validate([
-            'form.name' => 'required',
-            'form.curp' => 'required',
-            'form.fecha_nacimiento' => 'required',
-            'form.empresa_trabaja' => 'required',
-            'form.antiguedad' => 'required',
-            'form.rama_empresa' => 'required',
-            'form.banco_nomina' => 'required',
+            'form.telefono' => 'required',
+            'form.email' => 'required',
+            'form.password' => 'required',
+            'form.confirm_password' => 'required',
         ]);
 
         $this->step = 2;
