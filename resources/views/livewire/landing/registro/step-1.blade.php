@@ -8,6 +8,15 @@
                     </div>
 
                     {{-- nombre --}}
+
+
+
+
+                    <div class="col-span-2 mb-4">
+                        <input type="file" accept="image/*" capture="camera" placeholder="* Nombre completo" class=" border-solid w-full p-2 rounded-md placeholder-gray-400 focus:border-indigo-400 focus:outline-none border-red-500">
+
+                    </div>
+
                     <div class="col-span-2 mb-4">
                         <input wire:model="form.name" type="text" placeholder="* Nombre completo" class="{{ $errors->has('form.name') ? 'border-2 border-red-400' : 'border' }} border-solid w-full p-2 rounded-md placeholder-gray-400 focus:border-indigo-400 focus:outline-none border-red-500">
 

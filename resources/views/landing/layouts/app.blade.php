@@ -101,7 +101,7 @@
             </div>
 
 
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 ">
+            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
                 <span style="color: #617E21;"><strong>Informaci&oacute;n legal</strong></span>
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="pointer"> Terminos y condiciones 20 </span>
@@ -109,14 +109,15 @@
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer"> Pol&iacute;tica y aviso de privacidad </span>
                     </div>
-                    <div class="mt-5" >
+                    <div class="mt-5 " >
                         <span class="text-dark"><strong>¿Te gusto la p&aacute;gina?</strong></span>
-
-                            <img src="{{ asset('img/landing/index/Grupo 63.png') }}" width="50%" alt="dislikeAndLike">
-
+                        <center>
+                            <img class="imgManosmobile" src="{{ asset('img/landing/index/Grupo 63.png') }}" width="50%" alt="dislikeAndLike">
+                        </center>
+                            <img class="imgManosdesk" src="{{ asset('img/landing/index/Grupo 63.png') }}" width="50%" alt="dislikeAndLike">
                     </div>
             </div>
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2">
+            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
                 <span style="color: #617E21;">
                     <strong>Acerca al cliente</strong>
                 </span>
@@ -138,7 +139,7 @@
             </div>
 
             {{-- contacto Escritorio --}}
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 hidden sm:hidden md:block lg:block xl:block">
+            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 hidden sm:hidden md:block lg:block xl:block grisd-footer">
                 <span class="text-dark"><strong>Contactanos</strong></span>
                     <form id="sendContactEmail" data-info="desktop">
                         <div class="max-w-2xl mx-auto">
