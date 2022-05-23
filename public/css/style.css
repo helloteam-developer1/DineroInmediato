@@ -529,6 +529,16 @@ footer{
         .icons{
             padding-left: 20px;
         }
+        .grisd-footer{
+            text-align: center;
+            justify-self: center;
+        }
+        .imgManosmobile{
+            display: block;
+         }
+        .imgManosdesk{
+            display: none;
+         }
 
     }
 
@@ -542,6 +552,14 @@ footer{
 
         .collapse{
             background-color: transparent !important;
-
         }
+        .grisd-footer{
+            text-align: left;
+        }
+        .imgManosmobile{
+            display: none;
+         }
+        .imgManosdesk{
+            display: block;
+         }
     }
