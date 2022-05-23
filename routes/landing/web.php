@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::GET('/',function(){
-
-    return view('landing.index');
+    if ( env('APP_ENV') === 'local' ) {
+        return view('landing.index');
+    }else {
+        return view('construccion');
+    }
 
 })->name('home');
 
