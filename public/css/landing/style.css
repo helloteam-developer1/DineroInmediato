@@ -37,12 +37,18 @@ body{
     color: #3C3C3B;
 }
 
+.titulo{
+    color: var(--naranja);
+    font-size: 1rem;
+}
+
+.texto-pequeno{
+    font-size: 1rem;
+    color: #3C3C3B;
+}
 
 .div-calcular{
-
     background-color: #fff;
-
-
 }
 .text-green{
     color: #39A935;
@@ -55,12 +61,7 @@ body{
         position: relative;
         margin-top:10px;
   }
-
-
-
-
   /* ESTUILOS SLIDER */
-
 
   input[type=range] {
     border: none;
