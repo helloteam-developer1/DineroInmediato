@@ -60,6 +60,7 @@
                         </div>
                         <br>
                         <div class="text-center"> <a  onclick="calcular()" class="btn btn-calcular btn-lg">Calcular </a> </div>
+                        <br>
                     </div>
 
                 </div>
