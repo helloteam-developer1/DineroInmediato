@@ -41,78 +41,18 @@
 
                 </div>
 
+
                 <div class="bg-blue-300 col-span-2 mr-10" id="ImgIndex">
-                    <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%"">
+                    <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%">
                 </div>
                 <div style="background: #E9E7E7"  class="col-span-4 pb-5">
-                    <div class="grid grid-cols-3">
-
-                        <div class="col-span-3 text-center mt-5 mb-5">
-                            <p class="texto-solicita-negro">Solicita el prestamo en <span class="texto-solicita-verde">sencillos pasos</span></p>
-                        </div>
-                        <div class="text-center">
-                            <center>
-                                <img class="mb-3" src="{{ asset('img/landing/index/Grupo 56.png') }}" alt="" width="100px">
-                            </center>
-                           <div>
-                            <span class="texto-pequeno-gris">Registrate</span>
-                           </div>
-                        </div>
-                        <div class="text-center">
-                            <center>
-
-                                <img class="mb-3" src="{{ asset('img/landing/index/Grupo 55.png') }}" alt="" width="100px">
-                            </center>
-                            <div>
-                                <span class="texto-pequeno-gris">Validaremos tu solicitud de cr&eacute;dito</span>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <center>
-
-                                <img class="mb-3" src="{{ asset('img/landing/index/Grupo 247.png') }}" alt="" width="100px">
-                            </center>
-                            <div>
-                                <span class="texto-pequeno-gris">Tienes el dinero en menos de 74 horas</span>
-                            </div>
-                        </div>
-                    </div>
+                    @include('landing.components.solicita-prestamo')
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="container my-5">
-        <div class="grid gap-3 grid-cols-4 justify-items-center">
-            <div class="col-span-4 mb-5">
-                <h2 class="titulo text-2xl" >¿Por qué elegirnos?</h2>
-            </div>
-            <div class="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span:1">
-                <center>
-                    <img src="{{ asset('img/landing/index/Enmascarar grupo 12.png') }}">
-                </center>
-                <p class="eligenos">Tu préstamo inmediato sin salir de casa</p>
-            </div>
-            <div class="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span:1">
-                <center>
-                    <img src="{{ asset('img/landing/index/Enmascarar grupo 11.png') }}">
-                </center>
-                <p class="eligenos">Préstamo confiable</p>
-            </div>
-            <div class="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span:1">
-                <center>
-                    <img src="{{ asset('img/landing/index/Enmascarar grupo 10.png') }}">
-                </center>
-                <p class="eligenos">Plazo de 1 a 6 meses </p>
-            </div>
-            <div class="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span:1">
-                <center>
-                    <img src="{{ asset('img/landing/index/Enmascarar grupo 9.png') }}">
-                </center>
-                <p class="eligenos">Opciones de pago</p>
-            </div>
-        </div>
-    </section>
+   @include('landing.components.porque-elegirnos')
 
 @stop

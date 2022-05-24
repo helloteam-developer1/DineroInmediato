@@ -17,9 +17,14 @@
 .text-center{
     text-align: center;
 }
+.centrar{
+    margin: 0 0 0 100px;
+}
 .titulo{
     color: var(--naranja);
 }
+
+
 /*** Spinner ***/
 .spinner {
     width: 40px;
@@ -109,11 +114,20 @@ h6,
 }
 
 .btn-primary:hover {
-    box-shadow: inset 0 0 0 0 var(--primary);
+    box-shadow: inset 0 0 0 100px var(--naranja);
+    border: #34AD54;
+    color: white;
 }
 
-.btn-secondary:hover {
+.btn-calcular{
+    color: white;
+    background-color: #38A937;
+    font-weight: bold;
+}
+
+.btn-secondary:hover, .btn-outline-secondary:hover {
     box-shadow: inset 0 0 0 0 var(--secondary);
+    color: white;
 }
 
 .btn-square {
@@ -256,6 +270,15 @@ h6,
     .carousel-caption h1 {
         font-size: 30px;
         font-weight: 600 !important;
+    }
+}
+
+@media(max-width: 844px){
+    .btn-calcular{
+        color: white;
+        background-color: #38A937;
+        font-weight: bold;
+        width: 15rem;
     }
 }
 
@@ -526,6 +549,16 @@ footer{
         .icons{
             padding-left: 20px;
         }
+        .grisd-footer{
+            text-align: center;
+            justify-self: center;
+        }
+        .imgManosmobile{
+            display: block;
+         }
+        .imgManosdesk{
+            display: none;
+         }
 
     }
 
@@ -539,6 +572,14 @@ footer{
 
         .collapse{
             background-color: transparent !important;
-
         }
+        .grisd-footer{
+            text-align: left;
+        }
+        .imgManosmobile{
+            display: none;
+         }
+        .imgManosdesk{
+            display: block;
+         }
     }
