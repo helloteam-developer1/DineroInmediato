@@ -28,3 +28,6 @@ Route::get('register/step', [RegisterController::class, 'steps'])->name('registe
 Route::get('email', function(){
     return view('landing.mail.contact.contact');
 });
+Route::get('test', function(){
+    return view('test');
+});

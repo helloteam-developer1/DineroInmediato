@@ -5,10 +5,10 @@ $(document).on('submit', '#sendContactEmail', function (e) {
     const mode = $(this).attr('data-info');
 
 
+    form.append( '_token', $(`#csrf_token`).val() );
     form.append( 'email', $(`#emailContact-${mode}`).val() );
     form.append( 'comment', $(`#comentContact-${mode}`).val() );
     sendEmail(form);
-
 
 });
 
