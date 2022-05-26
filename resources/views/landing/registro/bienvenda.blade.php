@@ -76,7 +76,7 @@
 
         </div>
     </section>
-
+    @include('landing.components.porque-elegirnos')
 
     @include('landing.registro.modales.credito-rechazado')
     @include('landing.registro.modales.credito-aprobado')

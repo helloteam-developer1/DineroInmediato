@@ -14,7 +14,12 @@
         </div>
         @for ($i = 0; $i <= 6; $i++)
             <div class="text-justify my-3">
-            <p> <strong>*</strong> ¿Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus? </p>
+            <p>
+                <strong>*</strong>
+                ¿Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus?
+                ¿Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus?
+                ¿Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus?
+            </p>
             </div>
         @endfor
 
