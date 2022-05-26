@@ -538,7 +538,11 @@ h6,
 
 
 footer{
-    background-color: #f29100 !important
+    background-color: #f29100 !important;
+}
+
+.inputContact{
+    border-radius: 5px !important;
 }
 
 

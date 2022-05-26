@@ -23,14 +23,30 @@ body{
 }
 
 .texto-solicita-negro{
-    font-size: 2rem;
-    color: #000;
+    font-size: 2.5rem !important;
+    color: #363636;
 }
 
+.eligenos{
+    font-size: 25px;
+    color: #363636;
+}
+
+.texto-gris{
+    color: #363636 !important;
+}
+
+.font-24{
+    font-size: 24px !important
+}
+
+.textoResaltado{
+    margin-top: 30px !important;
+}
 
 .texto-solicita-verde{
     font-size: 2rem;
-    color: #4A9D22;
+    color: #52ba42;
 }
 .texto-pequeno-gris{
     font-size: 1.5rem;
@@ -51,7 +67,7 @@ body{
     background-color: #fff;
 }
 .text-green{
-    color: #39A935;
+    color: #52ba42;
 }
 
 
@@ -149,4 +165,8 @@ body{
   .btn-verde{
     background-color: #38A937;
     color: #fff;
+  }
+
+  .itemNav{
+      font-size: 22px !important;
   }
