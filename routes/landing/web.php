@@ -22,9 +22,12 @@ Route::GET('/preguntasfrec', function(){
 Route::post('sendEmail', [ContactEmailController::class, 'send']);
 
 
-Route::get('register', [RegisterController::class, 'bienvenida']);
+Route::get('register', [RegisterController::class, 'bienvenida'])->name('register');
 Route::get('register/step', [RegisterController::class, 'steps'])->name('register.steps');
 
 Route::get('email', function(){
     return view('landing.mail.contact.contact');
+});
+Route::get('test', function(){
+    return view('test');
 });

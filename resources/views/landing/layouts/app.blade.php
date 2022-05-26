@@ -142,6 +142,8 @@
             <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 hidden sm:hidden md:block lg:block xl:block grisd-footer">
                 <span class="text-dark"><strong>Contactanos</strong></span>
                     <form id="sendContactEmail" data-info="desktop">
+                        <input hidden id="csrf_token" type="text" value="{{ csrf_token() }}" name="_token">
+
                         <div class="max-w-2xl mx-auto">
                             <div class="relative mb-6">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
