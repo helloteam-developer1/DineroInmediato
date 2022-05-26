@@ -1,7 +1,12 @@
 @extends('landing.layouts.app')
-
 @section('content')
-
+    <style>
+        @media screen and (max-width: 1024px) {
+            #ImgIndex{
+                display: none;
+            }
+        }
+    </style>
     @push('css')
         <link rel="stylesheet" href="{{ asset('css/landing/modals.css') }}">
     @endpush
@@ -66,8 +71,8 @@
                 </div>
 
 
-                <div class="bg-blue-300 col-span-2 mr-10" id="ImgIndex">
-                    <img class="" src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%">
+                <div class=" col-span-2 mr-10" id="ImgIndex">
+                    <img class="" src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" >
                 </div>
                 <div style="background: #E9E7E7" class="col-span-4 pb-5">
                     @include('landing.components.solicita-prestamo')
