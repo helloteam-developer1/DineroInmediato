@@ -39,7 +39,7 @@ class modal extends Component
     {
         if ($titulo === 'terminos-condiciones'){
 
-            $this->titulo = 'terminos y condiciones 20';
+            $this->titulo = 'T&eacute;rminos y condiciones';
             $this->contenido = $this->contentModal();
         }
 

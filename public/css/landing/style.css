@@ -44,6 +44,11 @@ body{
     margin-top: 30px !important;
 }
 
+.btn-verde:hover{
+
+    color: #e0fc70;
+}
+
 .texto-solicita-verde{
     font-size: 2rem;
     color: #52ba42;

@@ -41,6 +41,12 @@
         .solicita:hover{
             background: #f5a82d !important;
         }
+        .btn-verde:{
+            background: #38A937
+        }
+        .btn-verde:hover{
+            color: #e0fc70;
+        }
     </style>
 </head>
 
@@ -79,7 +85,7 @@
 
             {{-- contacto  Mobile --}}
 
-            <div class="grid grid-cols-1 col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 contactMobile block sm:block md:hidden lg:hidden xl:hidden">
+            <div class="grid grid-cols-1 col-span-4 sm:col-span-4 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 contactMobile block sm:block md:hidden lg:hidden xl:hidden">
                 <div>
                     <span class="text-dark font-24"><strong>Cont&aacute;ctanos</strong></span>
                 </div>
@@ -108,10 +114,10 @@
             </div>
 
 
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
+            <div class="col-span-4 sm:col-span-4 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
                 <span class="font-24" style="color: #617E21;"><strong>Informaci&oacute;n legal</strong></span>
                     <div class="text-white">
-                        <span data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="pointer font-24"> Terminos y condiciones 20 </span>
+                        <span data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="pointer font-24"> Terminos y condiciones </span>
                     </div>
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer font-24"> Pol&iacute;tica y aviso de privacidad </span>
@@ -127,7 +133,7 @@
                         </div>
                     </div>
             </div>
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
+            <div class="col-span-4 sm:col-span-4 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
                 <span style="color: #617E21;">
                     <strong class="font-24">Acerca al cliente</strong>
                 </span>
@@ -166,7 +172,7 @@
                                 <textarea rows="5" type="text" id="comentContact-desktop" class=" inputContact font-24 rounded-none rounded-r-lg bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
                             </div>
                             <div class="text-right mt-3">
-                                <button class="btn px-5 text-white" style="background: #38A937; font-size: 32px"> <strong>Enviar</strong> </button>
+                                <button class="btn px-5 text-white btn-verde" style=" font-size: 32px"> <strong>Enviar</strong> </button>
                             </div>
                         </div>
                     </form>

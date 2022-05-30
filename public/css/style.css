@@ -311,6 +311,10 @@ h6,
     margin-left: -75px;
 }
 
+.btn-verde:hover{
+
+    color: #e0fc70;
+}
 .section-title.section-title-sm::before {
     width: 90px;
     height: 3px;
@@ -551,7 +555,7 @@ footer{
             text-align: center;
         }
         .icons{
-            padding-left: 20px;
+            padding-left: 50px;
         }
         .grisd-footer{
             text-align: center;
