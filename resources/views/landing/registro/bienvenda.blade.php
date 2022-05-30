@@ -1,11 +1,16 @@
 @extends('landing.layouts.app')
 @section('content')
     <style>
+        .font-22{
+            font-size: 22px;
+        }
         @media screen and (max-width: 1024px) {
             #ImgIndex{
                 display: none;
             }
         }
+
+
     </style>
     @push('css')
         <link rel="stylesheet" href="{{ asset('css/landing/modals.css') }}">
@@ -22,11 +27,11 @@
                 <div
                     class="bg-white col-span-4 ms:col-span-4 md:col-span-4 lg:col-span-2 row-span-2 grid grid-cols-1 gap-0 pt-20 pr-5 pl-5 lg:pr-20 lg:pl-20 ml-12 mr-12 sm:mr-12 md:mr-12 lg:mr-0">
                     <div>
-                        <h1 class="text-center texto-solicita-verde">Mensaje de Bienvenida</h1>
+                        <h1 class="text-center texto-solicita-verde texto-solicita-negro">Mensaje de Bienvenida</h1>
                         <br>
-                        <h3 class="texto-pequeno text-justify">Necesitas un préstamo de emergencia, no te preocupes, nosotros
+                        <h3 class="texto-pequeno text-justify font-22">Necesitas un préstamo de emergencia, no te preocupes, nosotros
                             te ayudamos. Para saber si eres candidato o no.</h3>
-                        <h3 class="titulo">Ingresa tus datos en la siguiente calculadora.</h3>
+                        <h3 class="titulo font-22">Ingresa tus datos en la siguiente calculadora.</h3>
                         <br>
                         <input class="form-control" type="text" placeholder="Nombre">
                         <br>
@@ -64,7 +69,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="text-center"> <a  onclick="calcular()" class="btn btn-calcular btn-lg">Calcular </a> </div>
+                            <div class="text-center"> <a  onclick="calcular()" class="btn btn-calcular btn btn-verde px-5" style="font-size: 32px">Calcular </a> </div>
                         <br>
                     </div>
 
@@ -81,7 +86,7 @@
 
         </div>
     </section>
-
+    @include('landing.components.porque-elegirnos')
 
     @include('landing.registro.modales.credito-rechazado')
     @include('landing.registro.modales.credito-aprobado')

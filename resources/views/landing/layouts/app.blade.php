@@ -33,26 +33,39 @@
     @stack('css')
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     @livewireStyles
     @livewireScripts
+
+    <style>
+        .solicita:hover{
+            background: #f5a82d !important;
+        }
+        .btn-verde:{
+            background: #38A937
+        }
+        .btn-verde:hover{
+            color: #e0fc70;
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 shadow">
         <a href="index.html" class="navbar-brand p-0">
-            <img src="{{ asset('img/logo.png')}}" width="100"  class="d-inline-block align-text-top">
+            <img src="{{ asset('img/logo.png')}}" width="180"  class="d-inline-block align-text-top ml-10" style="margin-top: 40px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
         <div class="collapse navbar-collapse bg-white  p-3" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link active text-dark">Inicio</a>
-                <a href="about.html" class="nav-item nav-link text-dark">Acerca de Nosotros</a>
+                <a href="index.html" class="nav-item nav-link active text-dark itemNav">Inicio</a>
+                <a href="about.html" class="nav-item nav-link text-dark itemNav">Acerca de Nosotros</a>
             </div>
 
-            <a href="" class="btn btn-outline-secondary py-2 px-4 ms-3">Inicio de Sesión</a>
-            <a href="" class="btn btn-primary py-2 px-4 ms-3">¡Solicitalo ya!</a>
+            <a href="" class="btn btn-outline-secondary py-2 px-4 ms-3 itemNav">Inicio de Sesión</a>
+            <a href="" class="btn btn-primary py-2 px-4 ms-3 itemNav solicita">¡Solicita tu pr&eacute;stamo ya!</a>
         </div>
     </nav>
     <main>
@@ -68,13 +81,13 @@
     <x-modal-footer titulo="politica-privacidad" idm="politicaPrivacidad"/>
 
     <footer>
-        <div class="container grid grid-cols-3 pt-5 pb-3 justify-items-center centerTextMovile">
+        <div class="container grid grid-cols-4 pt-5 pb-3 justify-items-center centerTextMovile">
 
             {{-- contacto  Mobile --}}
 
-            <div class="grid grid-cols-1 col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 contactMobile block sm:block md:hidden lg:hidden xl:hidden">
+            <div class="grid grid-cols-1 col-span-4 sm:col-span-4 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 contactMobile block sm:block md:hidden lg:hidden xl:hidden">
                 <div>
-                    <span class="text-dark"><strong>Contactanos</strong></span>
+                    <span class="text-dark font-24"><strong>Cont&aacute;ctanos</strong></span>
                 </div>
                 <div>
 
@@ -101,34 +114,37 @@
             </div>
 
 
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
-                <span style="color: #617E21;"><strong>Informaci&oacute;n legal</strong></span>
+            <div class="col-span-4 sm:col-span-4 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
+                <span class="font-24" style="color: #617E21;"><strong>Informaci&oacute;n legal</strong></span>
                     <div class="text-white">
-                        <span data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="pointer"> Terminos y condiciones 20 </span>
+                        <span data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="pointer font-24"> Terminos y condiciones </span>
                     </div>
                     <div class="text-white">
-                        <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer"> Pol&iacute;tica y aviso de privacidad </span>
+                        <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer font-24"> Pol&iacute;tica y aviso de privacidad </span>
                     </div>
                     <div class="mt-5 " >
-                        <span class="text-dark"><strong>¿Te gusto la p&aacute;gina?</strong></span>
-                        <center>
-                            <img class="imgManosmobile" src="{{ asset('img/landing/index/Grupo 63.png') }}" width="50%" alt="dislikeAndLike">
-                        </center>
+                        <span class="text-dark font-24 mb-4" ><strong>¿Te gust&oacute; la p&aacute;gina?</strong></span>
+                        <div class="mt-3">
+
+                            <center>
+                                <img class="imgManosmobile " src="{{ asset('img/landing/index/Grupo 63.png') }}" width="50%" alt="dislikeAndLike">
+                            </center>
                             <img class="imgManosdesk" src="{{ asset('img/landing/index/Grupo 63.png') }}" width="50%" alt="dislikeAndLike">
+                        </div>
                     </div>
             </div>
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
+            <div class="col-span-4 sm:col-span-4 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 grisd-footer">
                 <span style="color: #617E21;">
-                    <strong>Acerca al cliente</strong>
+                    <strong class="font-24">Acerca al cliente</strong>
                 </span>
                 <div class="text-white">
-                    <a href="/preguntasfrec" style="color: white"><span class="pointer"> Preguntas Frecuentes</span></a>
+                    <a href="/preguntasfrec" style="color: white"><span class="pointer font-24"> Preguntas Frecuentes</span></a>
                 </div>
                 <div class="text-white">
-                    <span data-bs-toggle="modal" data-bs-target="#quienesSomos" class="pointer"> Qui&eacute;nes somos? </span>
+                    <span data-bs-toggle="modal" data-bs-target="#quienesSomos" class="pointer font-24"> Qui&eacute;nes somos? </span>
                 </div>
                 <div class="text-white">
-                    <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer"> Acerca de nosotros </span>
+                    <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer font-24"> Acerca de nosotros </span>
                 </div>
 
                 <div class="mt-5 input-group icons">
@@ -139,9 +155,9 @@
             </div>
 
             {{-- contacto Escritorio --}}
-            <div class="col-span-3 sm:col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 my-2 hidden sm:hidden md:block lg:block xl:block grisd-footer">
-                <span class="text-dark"><strong>Contactanos</strong></span>
-                    <form id="sendContactEmail" data-info="desktop">
+            <div class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-2 w-100 my-2 hidden sm:hidden md:block lg:block xl:block grisd-footer">
+                <form id="sendContactEmail" data-info="desktop">
+                        <span class="text-dark font-24 ml-10"><strong>Cont&aacute;ctanos</strong></span>
                         <input hidden id="csrf_token" type="text" value="{{ csrf_token() }}" name="_token">
 
                         <div class="max-w-2xl mx-auto">
@@ -149,20 +165,20 @@
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                 </div>
-                                <input type="email" id="emailContact-desktop" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo" required>
+                                <input type="email" id="emailContact-desktop" class=" inputContact font-24 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo" required>
                             </div>
 
                             <div class="flex">
-                                <textarea type="text" id="comentContact-desktop" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
+                                <textarea rows="5" type="text" id="comentContact-desktop" class=" inputContact font-24 rounded-none rounded-r-lg bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
                             </div>
                             <div class="text-right mt-3">
-                                <button class="btn p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
+                                <button class="btn px-5 text-white btn-verde" style=" font-size: 32px"> <strong>Enviar</strong> </button>
                             </div>
                         </div>
                     </form>
 
             </div>
-            <div class="col-span-3 text-white text-center mt-5"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong> </div>
+            <div class="col-span-4 text-white text-center mt-5"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong> </div>
         </div>
     </footer>
 
