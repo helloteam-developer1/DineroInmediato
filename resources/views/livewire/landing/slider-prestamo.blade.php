@@ -11,6 +11,13 @@
             <i class="fa-solid fa-plus plus-prestamo pointer" wire:click="updatePrestamo(true)"></i>
         </div>
         <div class="col-span-3">
-            <input id="prestamo" wire:model="prestamo" type="range" class="form-range" min="0" max="3000">
+            <p class="range">
+                <input type="range" wire:model="prestamo" min="0" max="3000" value="25" step="1" id="prestamo">
+                <output hidden></output>
+
+            </p>
+            {{-- <input wire:ignore id="prestamo" wire:model="prestamo"  type="range" max="3000"  > --}}
         </div>
+
+
 </div>
