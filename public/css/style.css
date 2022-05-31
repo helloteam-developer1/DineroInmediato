@@ -497,4 +497,27 @@ footer{
     }
 
 
-    
+    @media screen and (max-width: 765px) {
+      .imgLogo{
+          width: 100px !important;
+      }
+
+      .cuantoNecestas{
+          margin-top: -50px;
+      }
+
+      .prestamoMovil{
+        margin-top: -50px;
+      }
+
+      .btnSiguenteMovil{
+          padding-bottom: 20px !important;
+      }
+
+      .sliderTiempoMovil{
+        margin-top: -25px;
+      }
+    }
+
+
+

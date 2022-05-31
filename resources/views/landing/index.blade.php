@@ -32,15 +32,17 @@
 
         <div class="grid grid-cols-2  bg-green-900 gap-0  relative " style="background: #A5D541">
             <div
-              class=" divcalculadoraItems drop-shadow-lg row-span-3 bg-white grid grid-rows-6 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-32 xl:ml-32">
+              class=" divcalculadoraItems drop-shadow-lg row-span-3 bg-white grid grid-rows-6 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 divCalculadora ml-0 sm:ml-0 md:ml-0 lg:ml-10 xl:ml-10 pb-10">
                 @include('landing.components.content-calculadora')
+
             </div>
+
             <div
-              class="drop-shadow-lg row-span-3 bg-white grid grid-rows-8 grid-cols-1 divcalculadoraItemsDos col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-32 xl:ml-32" style="display: none">
+              class="drop-shadow-lg row-span-3 bg-white grid grid-rows-8 grid-cols-1 divcalculadoraItemsDos col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-10 xl:ml-10" style="display: none">
                 @include('landing.components.content-calculadora-calculo')
             </div>
 
-            <div class="col-start-2 col-span-2 mr-32">
+            <div class="col-start-2 col-span-2 mr-10">
                 <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex">
             </div>
             <div class="col-span-2">
