@@ -25,18 +25,21 @@
             }
         }
     </style>
-
+    @push('css')
+        <link rel="stylesheet" href="{{ asset('css/landing/modals.css') }}">
+    @endpush
     <section class="">
 
         <div class="grid grid-cols-2  bg-green-900 gap-0  relative " style="background: #A5D541">
             <div
-              class="drop-shadow-lg row-span-3 bg-white grid grid-rows-6 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-32 xl:ml-32">
-
+              class=" divcalculadoraItems drop-shadow-lg row-span-3 bg-white grid grid-rows-6 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-32 xl:ml-32">
                 @include('landing.components.content-calculadora')
-                @include('landing.components.content-calculadora-calculo')
-
-
             </div>
+            <div
+              class="drop-shadow-lg row-span-3 bg-white grid grid-rows-8 grid-cols-1 divcalculadoraItemsDos col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-32 xl:ml-32" style="display: none">
+                @include('landing.components.content-calculadora-calculo')
+            </div>
+
             <div class="col-start-2 col-span-2 mr-32">
                 <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex">
             </div>
@@ -85,15 +88,52 @@
     </section>
 
    @include('landing.components.porque-elegirnos')
-
+   @include('landing.registro.modales.credito-rechazado')
+   @include('landing.registro.modales.credito-aprobado')
+   @include('landing.registro.modales.abandonar-linea')
    @push('js')
+   <script src="{{ asset('js/landing/modal-register.js') }}"></script>
     <script>
+        let prestamo = 1;
+        let tiempo = 1;
+
         $(document).on('click', '#btnSig', function (e) {
-            $('.calculadoraItems').fadeIn(300).addClass('hidden') ;
+            prestamo = $('#prestamo').val();
+            tiempo = $('#tiempo').val();
+            $('.divcalculadoraItems').hide();
+            $('.divcalculadoraItemsDos').show() ;
 
-            $('.calculadoraItemsDos').removeClass('hidden') ;
+            $('.calculadoraItems').fadeOut(1000);
 
+           $('.calculadoraItemsDos').fadeIn(1500);
         });
+
+      const calcular = () => {
+        let ingesoMensual = $('#ingresoMensual').val();
+        let creditoHimpotecario = document.getElementById('op3').checked;
+
+        const acreditaIngresoMnesual = getIngresoMensual(ingesoMensual, 3);
+
+        if( creditoHimpotecario && acreditaIngresoMnesual ){
+            openModal('credito-aprobado');
+        }
+        else{
+            openModal('credito-rechazado');
+        }
+
+      }
+
+    const getIngresoMensual = (ingesoMensual, multiplicar) => {
+        const ingeso_mensual_calculado = ( parseInt(ingesoMensual) * parseInt(multiplicar) );
+        console.log(ingeso_mensual_calculado, prestamo);
+
+        if( ingeso_mensual_calculado > prestamo ) {
+
+            return true
+        }
+
+        return false;
+    }
     </script>
    @endpush
 @stop
