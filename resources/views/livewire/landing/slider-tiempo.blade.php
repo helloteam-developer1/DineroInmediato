@@ -1,13 +1,13 @@
-<div class="grid grid-cols-3 ">
+<div class="grid grid-cols-3 m-2 mr-4">
         <div class="col-span-1 text-start self-center">
             <i class="fa-solid fa-minus plus-prestamo pointer menos" wire:click="updateTiempo(false)"></i>
-            <span class="texto-gris font-24" ><strong>1 mes</strong></span>
+            <span class="texto-gris fontinfo" ><strong>1 mes</strong></span>
         </div>
         <div class="col-span-1 text-center">
-            <span class="text-green textoResaltado" style="font-size: 2.3rem;"><strong>{{ $tiempo }} mes</strong></span>
+            <span class="text-green textoResaltado valorCambiar" style="font-size: 2.3rem;"><strong>{{ $tiempo }} mes</strong></span>
         </div>
         <div class="col-span-1 text-end self-center">
-            <span class="texto-gris font-24"><strong>6 meses</strong></span>
+            <span class="texto-gris fontinfo"><strong>6 meses</strong></span>
             <i class="fa-solid fa-plus plus-prestamo pointer mas" wire:click="updateTiempo(true)"></i>
         </div>
 

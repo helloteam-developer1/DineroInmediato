@@ -38,7 +38,7 @@
             </div>
 
             <div
-              class="drop-shadow-lg row-span-3 bg-white grid grid-rows-8 grid-cols-1 divcalculadoraItemsDos col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-10 xl:ml-10" style="display: none">
+              class="drop-shadow-lg row-span-3 bg-white grid grid-rows-8 grid-cols-1 divcalculadoraItemsDos col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 divCalculadora ml-0 sm:ml-0 md:ml-0 lg:ml-10 xl:ml-10" style="display: none">
                 @include('landing.components.content-calculadora-calculo')
             </div>
 
@@ -47,38 +47,35 @@
             </div>
             <div class="col-span-2">
 
-                <div class="grid grid-cols-3 pb-4" style=" background: #EBE7E8">
+                <div class="grid grid-cols-3 pb-4 px-4 " style=" background: #EBE7E8">
 
-                    <div class="col-span-3 text-center mt-5 mb-5">
-                        <p class="texto-solicita-negro">Solicita el prestamo en <strong class="text-green">sencillos pasos</strong></p>
+                    <div class="col-span-3 text-center mt-5 mb-5 titulosMobile">
+                        <p class="texto-solicita-negro">Solicita el prestamo en <br> <strong class="text-green">sencillos pasos</strong></p>
                     </div>
-                    <div class="text-center">
-                        <center>
-                            <img class="mb-3" src="{{ asset('img/landing/index/Grupo 56.png') }}" alt="" width="100px">
-                        </center>
+                    <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
                        <div>
-                        <span class="texto-pequeno-gris">Registrate</span>
+                            <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 56.png') }}" width="100px">
+                       </div>
+                        <div>
+                            <span class="texto-pequeno-gris">Registrate</span>
                        </div>
                     </div>
-                    <div class="text-center">
-                        <center>
-
-                            <img class="mb-3" src="{{ asset('img/landing/index/Grupo 55.png') }}" alt="" width="100px">
-                        </center>
+                    <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
+                       <div>
+                            <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 55.png') }}" width="100px">
+                       </div>
                         <div>
                             <span class="texto-pequeno-gris">Validaremos tu solicitud <br> de cr&eacute;dito</span>
-                        </div>
+                       </div>
                     </div>
-                    <div class="text-center">
-                        <center>
-
-                            <img class="mb-3" src="{{ asset('img/landing/index/Grupo 247.png') }}" alt="" width="100px">
-                        </center>
+                    <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
+                       <div>
+                            <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 247.png') }}" width="100px">
+                       </div>
                         <div>
                             <span class="texto-pequeno-gris">Tienes el dinero <br> muy rapido</span>
-                        </div>
+                       </div>
                     </div>
-
                 </div>
 
 

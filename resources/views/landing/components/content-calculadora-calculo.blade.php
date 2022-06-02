@@ -1,25 +1,25 @@
-<div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden">
-    <h1 class="text-center texto-solicita-verde texto-solicita-negro">Mensaje de Bienvenida</h1>
+<div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden msjBienvenda">
+    <h1 class="text-center texto-solicita-verde texto-solicita-negro mb-3">Mensaje de Bienvenida</h1>
 </div>
 
-<div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden">
-    <p class="texto-pequeno text-left" style="font-size: 28px;">
+<div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden ">
+    <p class="texto-pequeno text-left font-28 mb-3">
         Necesitas un préstamo de emergencia, no te preocupes, nosotros
         te ayudamos. Para saber si eres candidato o no.
     </p>
-    <h3 class="titulo text-left mb-5" style="font-size: 28px;">Ingresa tus datos en la siguiente calculadora.</h3>
+    <h3 class="titulo text-left mb-5 font-28">Ingresa tus datos en la siguiente calculadora.</h3>
 </div>
 
 <div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden mb-4">
-    <input class="form-control" type="text" placeholder="Nombre" style="font-size: 28px;">
+    <input class="form-control" type="text" placeholder="Nombre">
 </div>
 <div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden mb-4">
-    <input class="form-control" type="text" placeholder="Trabajo" style="font-size: 28px;">
+    <input class="form-control" type="text" placeholder="Trabajo">
 </div>
-<div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden mb-4">
-    <input id="ingresoMensual" class="form-control" type="number" placeholder="Cual es tu ingreso mensual?" style="font-size: 28px;">
+<div class="row-span-1 col-span-1 text-center calculadoraItemsDos font-28 hidden mb-4">
+    <input id="ingresoMensual" class="form-control " type="number" placeholder="Cual es tu ingreso mensual?"  >
 </div>
-<div style="font-size: 28px;" class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos">
+<div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos font-28 mt-3">
     <div class="col-span-6">
         <p>¿Tienes tarjeta de nomina?</p>
     </div>
@@ -34,7 +34,7 @@
 
 </div>
 
-<div style="font-size: 28px;" class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos">
+<div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos font-28">
     <div class=" col-span-6 ">
         <p>Cuentas con crédito Hipotecario?</p>
     </div>
@@ -50,5 +50,5 @@
 </div>
 
     <br>
-        <div class="text-center"> <a  onclick="calcular()" class="btn btn-calcular btn btn-verde px-5 calculadoraItemsDos hidden" style="font-size: 32px">Calcular </a> </div>
+        <div class="text-center my-4"> <a  onclick="calcular()" class="btn btn-calcular btn btn-verde px-5 calculadoraItemsDos hidden" style="font-size: 32px">Calcular </a> </div>
     <br>
