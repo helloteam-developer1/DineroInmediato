@@ -577,6 +577,21 @@ footer{
       .msjBienvenda{
           margin-top: -50px !important;
       }
+
+
+
+
+      .btnLogin{
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .btnLogin:checked{
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
     }
 
 
