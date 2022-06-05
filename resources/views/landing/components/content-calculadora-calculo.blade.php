@@ -9,7 +9,7 @@
 </div>
 
 <div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden mb-4">
-    <input class="form-control" type="text" placeholder="Nombre">
+    <input class="form-control" type="text" placeholder="Nombre" id="nombre">
 </div>
 <div class="row-span-1 col-span-1 text-center calculadoraItemsDos hidden mb-4">
     <input class="form-control" type="text" placeholder="Trabajo">

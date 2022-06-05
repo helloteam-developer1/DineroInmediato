@@ -109,6 +109,9 @@
         });
 
       const calcular = () => {
+        console.log($('#nombre').val().lenght);
+
+        return;
         let ingesoMensual = $('#ingresoMensual').val();
         let creditoHimpotecario = document.getElementById('op3').checked;
 
@@ -125,7 +128,7 @@
 
     const getIngresoMensual = (ingesoMensual, multiplicar) => {
         const ingeso_mensual_calculado = ( parseInt(ingesoMensual) * parseInt(multiplicar) );
-        console.log(ingeso_mensual_calculado, prestamo);
+
 
         if( ingeso_mensual_calculado > prestamo ) {
 
