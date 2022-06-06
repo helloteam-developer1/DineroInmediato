@@ -1,6 +1,6 @@
 <div class="grid grid-cols-3 m-2 mr-4">
         <div class="col-span-1 text-start self-center">
-            <i class="fa-solid fa-minus plus-prestamo pointer menos" wire:click="updateTiempo(false)"></i>
+            <i class="fa-solid fa-minus plus-prestamo pointer menos" ></i>
             <span class="texto-gris fontinfo" ><strong>1 mes</strong></span>
         </div>
         <div class="col-span-1 text-center">
@@ -8,7 +8,7 @@
         </div>
         <div class="col-span-1 text-end self-center">
             <span class="texto-gris fontinfo"><strong>6 meses</strong></span>
-            <i class="fa-solid fa-plus plus-prestamo pointer mas" wire:click="updateTiempo(true)"></i>
+            <i class="fa-solid fa-plus plus-prestamo pointer mas" ></i>
         </div>
 
 
@@ -40,16 +40,26 @@
         }
     });
     $('.mas').click(function (e) {
+        let tiempo = $('#tiempo').val();
 
-        $('#tiempo').val(@this.tiempo + 1)
-        sliders();
+        if (tiempo < 6) {
+
+            $('#tiempo').val(parseInt(tiempo) + parseInt(1))
+            $('#showTiempo').html(`${parseInt(tiempo) + parseInt(1)} mes`);
+            sliders();
+        }
     });
 
     $('.menos').click(function (e) {
+        let tiempo = $('#tiempo').val();
 
-$('#tiempo').val(@this.tiempo - 1)
-sliders();
-});
+        if (tiempo > 0) {
+
+            $('#tiempo').val(parseInt(tiempo) - parseInt(1))
+            $('#showTiempo').html(`${parseInt(tiempo) - parseInt(1)} mes`);
+            sliders();
+        }
+    });
 </script>
 
 </div>

@@ -1,4 +1,4 @@
-all_modals = ['credito-rechazado','credito-aprobado', 'abandonar-linea']
+all_modals = ['credito-rechazado','credito-aprobado', 'abandonar-linea', 'email-enviado']
 all_modals.forEach((modal)=>{
     const modalSelected = document.querySelector('.'+modal);
     modalSelected.classList.remove('fadeIn');

@@ -15,12 +15,15 @@ $(document).on('submit', '#sendContactEmail', function (e) {
 
 
 const sendEmail = async(data) => {
+
     try {
 
         const res = await axios.post('/sendEmail', data);
         const {response} = res.data;
 
-        if (response) console.log("se envio");
+        if (response) {
+            openModal('email-enviado');
+        }
 
     } catch (error) {
 

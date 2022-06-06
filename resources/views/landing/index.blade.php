@@ -80,13 +80,13 @@
 
    @include('landing.components.porque-elegirnos')
    @section('modales')
-   <button data-bs-toggle="modal" data-bs-target="#abandonarLineaCredito" >abandonarLineaCredito</button>
+
     @include('landing.registro.modales.credito-rechazado')
     @include('landing.registro.modales.credito-aprobado')
     @include('landing.registro.modales.abandonar-linea')
    @endsection
    @push('js')
-   <script src="{{ asset('js/landing/modal-register.js') }}"></script>
+
     <script>
 
 

@@ -115,7 +115,7 @@
 
         </div>
     </main>
-
+    @include('landing.modales.email')
     @yield('modales')
 
     <x-modal-footer titulo="terminos-condiciones" idm="terminosCondiciones"/>
@@ -238,7 +238,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/landing/sendEmail.js') }}"></script>
-
+    <script src="{{ asset('js/landing/modal-register.js') }}"></script>
     @stack('js')
 </body>
 
