@@ -107,6 +107,7 @@
         });
 
       const calcular = () => {
+
           $('.erorrs').remove();
           //validacion nombre
         if( $('#nombre').val().length == 0 ){
@@ -126,9 +127,23 @@
             return;
         }
 
+          //validacion tarjeta nomina
+          if( !$('#op1').prop('checked') && !$('#op2').prop('checked') ){
+            $('.erorrs').remove();
+            $('#divtarjetaNomina').after(`<div class="text-left"><small class="text-danger erorrs">El campo Tienes tarjeta de nomina es requerido</small></div>`);
+            return;
+        }
+          //validacion credto hipotecaro
+          if( !$('#op3').prop('checked') && !$('#op4').prop('checked') ){
+            $('.erorrs').remove();
+            $('#divCredito').after(`<div class="text-left"><small class="text-danger erorrs">El campo Cuentas con crédito Hipotecario es requerido</small></div>`);
+            return;
+        }
+
 
         let ingesoMensual = $('#ingresoMensual').val();
         let tarjetaNomina = document.getElementById('op1').checked;
+
 
         const acreditaIngresoMnesual = getIngresoMensual(ingesoMensual, 3);
 
@@ -142,10 +157,10 @@
       }
 
     const getIngresoMensual = (ingesoMensual, multiplicar) => {
-        const ingeso_mensual_calculado = ( parseInt(ingesoMensual) * parseInt(multiplicar) );
+        const ingeso_mensual_calculado = ( parseInt(prestamo) * parseInt(multiplicar) );
 
 
-        if( ingeso_mensual_calculado > prestamo ) {
+        if( ingesoMensual > ingeso_mensual_calculado ) {
 
             return true
         }

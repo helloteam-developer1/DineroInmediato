@@ -19,7 +19,7 @@
 <div class="row-span-1 col-span-1 text-center calculadoraItemsDos  hidden mb-4">
     <input id="ingresoMensual" class="form-control " type="number" placeholder="Cual es tu ingreso mensual?"  >
 </div>
-<div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos   mt-3">
+<div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos mt-3" id="divtarjetaNomina">
     <div class="col-span-6">
         <p>¿Tienes tarjeta de nomina?</p>
     </div>
@@ -34,7 +34,7 @@
 
 </div>
 
-<div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos ">
+<div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos " id="divCredito">
     <div class=" col-span-6 ">
         <p>Cuentas con crédito Hipotecario?</p>
     </div>
