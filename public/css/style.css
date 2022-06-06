@@ -397,6 +397,10 @@ h6,
     transition: .3s .15s;
 }
 
+.textCalcualdora{
+    font-size: 28px;
+}
+
 .team-item .team-img img,
 .blog-item .blog-img img  {
     transition: .5s;
@@ -407,6 +411,9 @@ h6,
     transform: scale(1.15);
 }
 
+.font-28{
+    font-size: 20px !important;
+}
 
 /*** Miscellaneous ***/
 @media (min-width: 991.98px) {
@@ -497,4 +504,115 @@ footer{
     }
 
 
-    
+
+
+    @media screen and (max-width: 765px) {
+      .imgLogo{
+          width: 100px !important;
+      }
+
+      .cuantoNecestas{
+          margin-top: -50px;
+      }
+
+      .textCalcualdora{
+          font-size: 20px;
+      }
+      .prestamoMovil{
+        margin-top: -50px;
+      }
+
+      .sliderTiempoMovil{
+        margin-top: -50px !important;
+      }
+
+      .btnSiguenteMovil{
+          padding-bottom: 20px !important;
+      }
+
+      .sliderTiempoMovil{
+        margin-top: -25px;
+      }
+
+      .valorCambiar{
+        font-size: 2rem !important;
+      }
+
+      .fontinfo{
+          font-size: 18px !important;
+      }
+
+
+      /* pasos */
+
+      .texto-solicita-negro{
+          font-size: 1.5rem !important;
+      }
+
+      .images{
+          width: 50px;
+      }
+
+
+      .texto-pequeno-gris{
+          font-size: 0.7rem !important;
+      }
+
+      .titulo{
+        font-size: 1.5rem !important;
+      }
+
+      .imgPorqueElejirnos{
+        width: 80%;
+      }
+
+      .eligenos{
+          font-size: 1rem !important;
+      }
+
+
+      /* calculadora */
+      .font-28{
+          font-size: 20px !important;
+      }
+
+      .msjBienvenda{
+          margin-top: -50px !important;
+      }
+
+
+
+      .marginTop{
+          margin-top: 30px !important;
+      }
+
+      .marginBottom{
+          margin-bottom: 15px !important;
+      }
+
+      #btnSig{
+
+        margin-top: 35px !important;
+
+      }
+
+      .btnLogin{
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .btnLogin:checked{
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }

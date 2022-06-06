@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2 credito-aprobado fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
+<div class="hidden grid grid-cols-2 credito-aprobado fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
     style="background: rgba(0,0,0,.7);">
     <div
         class="border border-teal-500 shadow-lg modal-container bg-white w-11/12 sm:w-11/12 md:w-2/5 lg:w-2/5 xl:w-2/5   mx-auto rounded shadow-lg z-50 overflow-y-auto">

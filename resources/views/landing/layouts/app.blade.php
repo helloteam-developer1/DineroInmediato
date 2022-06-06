@@ -80,28 +80,28 @@
 <div class="">
   <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 ">
   <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 shadow z-40">
-    <div x-data="{ open: true }" class="flex flex-col  mx-auto md:items-center md:justify-between md:flex-row md:px-30 lg:px-32">
-      <div class="flex flex-row items-center justify-between p-4  ">
+    <div x-data="{ open: false }" class="flex flex-col mx-auto md:items-center md:justify-between md:flex-row px-5">
+      <div class="flex flex-row items-center justify-between">
         <a href="{{ route('home') }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
-            <img src="{{ asset('img/logo.png')}}" width="180">
+            <img src="{{ asset('img/logo.png')}}" width="120" class="imgLogo my-3">
         </a>
         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-10 h-10">
             <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
             <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
           </svg>
         </button>
       </div>
       <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row items-center">
-        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav" href="{{ route('home') }}">Inicio</a>
-        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav"  >Acerca de Nosotros</a>
-        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
-            <button class="btn btn-outline-secondary itemNav">Inicio de Sesión</button>
+        <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav" href="{{ route('home') }}">Inicio</a>
+        <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav"  data-bs-toggle="modal" data-bs-target="#acercaNosotros" style="cursor:pointer">Acerca de Nosotros</a>
+        <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+            <button class="btn btn-outline-secondary itemNav btnLogin">Inicio de Sesión</button>
         </a>
-        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+        {{-- <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
 
             <button class="btn  itemNav solicita">¡Solicita tu pr&eacute;stamo ya!</button>
-        </a>
+        </a> --}}
 
       </nav>
     </div>
@@ -115,6 +115,8 @@
 
         </div>
     </main>
+
+    @yield('modales')
 
     <x-modal-footer titulo="terminos-condiciones" idm="terminosCondiciones"/>
     <x-modal-footer titulo="quienes-somos" idm="quienesSomos"/>
@@ -138,11 +140,11 @@
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                         <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                     </div>
-                                    <input type="email" id="emailContact-mobile" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo" required>
+                                    <input type="email" id="emailContact-mobile" class=" text-gray-900 text-sm   focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo" required>
                                 </div>
 
                                 <div class="flex">
-                                    <textarea type="text" id="comentContact-mobile" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
+                                    <textarea type="text" id="comentContact-mobile" class="  bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm   p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
                                 </div>
                                 <div class="text-right mt-3">
                                     <button type="submit" class="btn w-100 p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
@@ -188,7 +190,7 @@
                     <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer font-24"> Acerca de nosotros </span>
                 </div>
 
-                <div class="mt-5 input-group icons">
+                <div class="mt-5 input-group icons   w-full">
                     <img class="mr-5" src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
                     <img  src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
                 </div>
@@ -213,13 +215,13 @@
                                 <textarea rows="5" type="text" id="comentContact-desktop" class=" inputContact font-24 rounded-none rounded-r-lg bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
                             </div>
                             <div class="text-right mt-3">
-                                <button class="btn px-5 text-white btn-verde" style=" font-size: 32px"> <strong>Enviar</strong> </button>
+                                <button class="btn px-5 text-white btn-verde" style=" font-size: 28px"> <strong>Enviar</strong> </button>
                             </div>
                         </div>
                     </form>
 
             </div>
-            <div class="col-span-4 text-white text-center mt-5"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong> </div>
+            <div class="col-span-4 text-white text-center mt-4"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong> </div>
         </div>
     </footer>
 

@@ -10,8 +10,8 @@
         }
 
         .divCalculadora{
-            padding-left: 9rem; /* 144px */
-            padding-right: 9rem; /* 144px */
+            padding-left: 10%; /* 144px */
+            padding-right: 10%; /* 144px */
         }
 
         @media screen and (max-width: 1024px) {
@@ -29,77 +29,75 @@
         <link rel="stylesheet" href="{{ asset('css/landing/modals.css') }}">
     @endpush
     <section class="">
-
-        <div class="grid grid-cols-2  bg-green-900 gap-0  relative " style="background: #A5D541">
+        <div class="grid grid-cols-2" style="background: #A5D541">
             <div
-              class=" divcalculadoraItems drop-shadow-lg row-span-3 bg-white grid grid-rows-6 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-10 xl:ml-10">
+                class=" divcalculadoraItems drop-shadow-lg row-span-3 bg-white grid grid-rows-7 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 ml-10 z-40 mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 divCalculadora ml-0 sm:ml-0 md:ml-0 lg:ml-10 xl:ml-10 pb-10">
                 @include('landing.components.content-calculadora')
             </div>
             <div
-              class="drop-shadow-lg row-span-3 bg-white grid grid-rows-8 grid-cols-1 divcalculadoraItemsDos col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 pt-24 ml-10 z-40 mr-10 sm:mr-10 md:mr-10 lg:mr-0 xl:mr-0 divCalculadora ml-10 sm:ml-10 md:ml-10 lg:ml-10 xl:ml-10" style="display: none">
-                @include('landing.components.content-calculadora-calculo')
-            </div>
-
-            <div class="col-start-2 col-span-2 mr-10 row-span-1">
-                <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex">
-            </div>
-            <div class="col-span-2">
-
-                <div class="grid grid-cols-3 pb-4" style=" background: #EBE7E8">
-
-                    <div class="col-span-3 text-center mt-5 mb-5">
-                        <p class="texto-solicita-negro">Solicita el prestamo en <strong class="text-green">sencillos pasos</strong></p>
-                    </div>
-                    <div class="text-center">
-                        <center>
-                            <img class="mb-3" src="{{ asset('img/landing/index/Grupo 56.png') }}" alt="" width="100px">
-                        </center>
-                       <div>
-                        <span class="texto-pequeno-gris">Registrate</span>
-                       </div>
-                    </div>
-                    <div class="text-center">
-                        <center>
-
-                            <img class="mb-3" src="{{ asset('img/landing/index/Grupo 55.png') }}" alt="" width="100px">
-                        </center>
-                        <div>
-                            <span class="texto-pequeno-gris">Validaremos tu solicitud <br> de cr&eacute;dito</span>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <center>
-
-                            <img class="mb-3" src="{{ asset('img/landing/index/Grupo 247.png') }}" alt="" width="100px">
-                        </center>
-                        <div>
-                            <span class="texto-pequeno-gris">Tienes el dinero <br> muy rapido</span>
-                        </div>
-                    </div>
-
+            class="divcalculadoraItemsDos  drop-shadow-lg row-span-3 bg-white grid grid-rows-7 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 ml-10 z-40 mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 divCalculadora ml-0 sm:ml-0 md:ml-0 lg:ml-10 xl:ml-10 pb-10" style="display: none">
+              @include('landing.components.content-calculadora-calculo')
+          </div>
+            <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 grid grid-cols-1">
+                <div class="mr-10">
+                    <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex">
                 </div>
+                <div>
+                    <div class="w-full grid pb-4 px-2 " style=" background: #EBE7E8">
 
-
+                        <div class="col-span-3 text-center mt-3 mb-2 titulosMobile">
+                            <p class="texto-solicita-negro">Solicita el prestamo en <br> <strong class="text-green">sencillos pasos</strong></p>
+                        </div>
+                        <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
+                           <div>
+                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 56.png') }}" width="70px">
+                           </div>
+                            <div>
+                                <span class="texto-pequeno-gris">Registrate</span>
+                           </div>
+                        </div>
+                        <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
+                           <div>
+                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 55.png') }}" width="70px">
+                           </div>
+                            <div>
+                                <span class="texto-pequeno-gris">Validaremos tu solicitud <br> de cr&eacute;dito</span>
+                           </div>
+                        </div>
+                        <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
+                           <div>
+                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 247.png') }}" width="70px">
+                           </div>
+                            <div>
+                                <span class="texto-pequeno-gris">Tienes el dinero <br> muy rapido</span>
+                           </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-
     </section>
 
    @include('landing.components.porque-elegirnos')
-   @include('landing.registro.modales.credito-rechazado')
-   @include('landing.registro.modales.credito-aprobado')
-   @include('landing.registro.modales.abandonar-linea')
+   @section('modales')
+   <button data-bs-toggle="modal" data-bs-target="#abandonarLineaCredito" >abandonarLineaCredito</button>
+    @include('landing.registro.modales.credito-rechazado')
+    @include('landing.registro.modales.credito-aprobado')
+    @include('landing.registro.modales.abandonar-linea')
+   @endsection
    @push('js')
    <script src="{{ asset('js/landing/modal-register.js') }}"></script>
     <script>
+
+
         let prestamo = 1;
         let tiempo = 1;
 
         $(document).on('click', '#btnSig', function (e) {
             prestamo = $('#prestamo').val();
             tiempo = $('#tiempo').val();
+            console.log(prestamo);
+            console.log(tiempo);
             $('.divcalculadoraItems').hide();
             $('.divcalculadoraItemsDos').show() ;
 
@@ -109,15 +107,32 @@
         });
 
       const calcular = () => {
-        console.log($('#nombre').val().lenght);
+          $('.erorrs').remove();
+          //validacion nombre
+        if( $('#nombre').val().length == 0 ){
+            $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">El campo nombre es requerido</small></div>`);
+            return;
+        }
 
-        return;
+          //validacion trabajo
+        if( $('#trabajo').val().length == 0 ){
+            $('#trabajo').after(`<div class="text-left"><small class="text-danger erorrs">El campo trabajo es requerido</small></div>`);
+            return;
+        }
+
+          //validacion nombre
+        if( $('#ingresoMensual').val().length == 0 ){
+            $('#ingresoMensual').after(`<div class="text-left"><small class="text-danger erorrs">El campo ingreso mensual es requerido</small></div>`);
+            return;
+        }
+
+
         let ingesoMensual = $('#ingresoMensual').val();
-        let creditoHimpotecario = document.getElementById('op3').checked;
+        let tarjetaNomina = document.getElementById('op1').checked;
 
         const acreditaIngresoMnesual = getIngresoMensual(ingesoMensual, 3);
 
-        if( creditoHimpotecario && acreditaIngresoMnesual ){
+        if( tarjetaNomina && acreditaIngresoMnesual ){
             openModal('credito-aprobado');
         }
         else{
