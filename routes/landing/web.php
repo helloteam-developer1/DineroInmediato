@@ -31,3 +31,19 @@ Route::get('email', function(){
 Route::get('test', function(){
     return view('test');
 });
+
+Route::get('/signin', function(){
+    return view('landing/sesion/signin');
+})->name('singin');
+
+Route::get('/modal', function(){
+    return view('landing/sesion/modal/_modal2');
+});
+
+Route::get('/signin-recover1', function(){
+    return view('landing.sesion.recover-step1');
+})->name('recover1');
+
+Route::get('/signin-recover2', function(){
+    return view('landing.sesion.recover-password');
+})->name('recover2');
