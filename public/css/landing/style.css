@@ -14,7 +14,6 @@
     font-weight: normal;
   }
 
-
 body{
     background-color: #fff;
     font-family: 'Carot Sans';
@@ -23,8 +22,6 @@ body{
     font-size: 40px;
     color: #52ba42;
 }
-
-
 
 .btn-close{
     color: #363636;
@@ -375,7 +372,7 @@ body{
         padding-bottom: 15px;
     }
     .texto-solicita-verde{
-        font-size: 45px;
+        font-size: 20px;
         color: #52ba42;
     }
     
