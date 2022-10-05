@@ -38,43 +38,67 @@
     @livewireStyles
     @livewireScripts
 
-    
+    <style>
+        .solicita:hover{
+            background: #da8b0c !important;
+
+            color: white;
+
+        }
+        .solicita{
+            background: #f5a82d !important;
+            color: white;
+        }
+        .btn-verde:{
+            background: #38A937
+        }
+        .btn-verde:hover{
+            color: #e0fc70;
+        }
+
+    </style>
 </head>
 
-<body>
-   {{--Menú--}}
- @include('components.landing.cuerpo._menu')
-
-{{--Formulario recuperar contraseña correo--}}
-  <div class="content cent sin">
+<body >
     
-        <div class="row cent sin">
-            
-                <div class="col-1"></div>
-                <div class="col-8">
-                    <p class="texto-solicita-verde" >Recuperar contraseña</p>
-                    <div class="">
-                        <p class="texto-gris" style="text-align: justify; padding-bottom:20px;">Para recuperar tu contraseña, escribe tu correo electrónico y te enviaremos un correo electrónico con las 
-                            instrucciones para recuperarla.
-                        </p>
-                        <input type="email" class="form-control"  placeholder="Correo electrónico o telefono">
-                        <br /> 
-                        <a href="{{route('recover2')}}" class="btn btn-verde btn-md" style="margin-top: 30px; font-weight:800;">Recuperar Contraseña</a>    
-                    </div>
+{{--Menú--}}
+@include('components.landing.cuerpo._menu')
+
+{{--Mi perfil--}}
+    <div class="content cent">
+        <div class="" style="text-align:left;">
+            <p class="texto-solicita-verde" style="padding-bottom: 25px; padding-top:15px; text-align:center;">Mi pérfil</p>
+            <br />
+            <p>Nombre: <input placeholder=" Juan Gutiérrez Mora"></p>
+            <br />
+            <p>Telefono: <input placeholder=" 0987654321"></p>    
+            <br />
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Correo</label>
                 </div>
-                <div class="col-1"></div>
+                <div class="col-auto">
+                 <input class="form-control" placeholder="Juan09@correo.com">
+                </div>
             </div>
+            <br />
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Contraseña</label>
+                </div>
+                <div class="col-auto">
+                  <a class="btn btn-gris" href="{{route('miperfil')}}" style="height: 35px;">Cambiar contraseña</a>
+                </div>
+            </div>
+            <center><a href="" class="btn btn-verde" style=" margin-top:20px;">Guardar cambios</a></center>
         </div>
-        <br />
- </div>
-
-
+    </div>
 
 
 
 {{--Fotter--}}
 
-    @include('components.landing.cuerpo._fotter')
+    @include('components.landing.cuerpo._fotter')  
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

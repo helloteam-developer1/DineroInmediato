@@ -1,0 +1,58 @@
+
+@font-face {
+    font-family: 'Carot Sans';
+    src: url('../../fonts/CarotSans-Regular.otf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+/* variables de colores */
+:root {
+    --green: #06da3b;
+    --gray: #E9E7E7;
+    --naranja: #f29100;
+    --blanco: #fff;
+    --gris: #838383;
+}
+
+body{
+    background-color: #fff;
+    font-family: 'Carot Sans';
+}
+.texto-solicita-verde{
+    font-size: 40px;
+    color: #52ba42;
+}
+.btn-verde{
+    background-color: var(--green);
+    color: var(--blanco);
+}
+.btn-gris{
+    background-color: var(--gris);
+    color: var(--blanco);
+}
+
+.content{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    word-break:break-all;
+}
+.cent{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.center{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+.sin{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

@@ -38,43 +38,52 @@
     @livewireStyles
     @livewireScripts
 
-    
+    <style>
+        .solicita:hover{
+            background: #da8b0c !important;
+
+            color: white;
+
+        }
+        .solicita{
+            background: #f5a82d !important;
+            color: white;
+        }
+        .btn-verde:{
+            background: #38A937
+        }
+        .btn-verde:hover{
+            color: #e0fc70;
+        }
+
+    </style>
 </head>
 
-<body>
-   {{--Menú--}}
- @include('components.landing.cuerpo._menu')
-
-{{--Formulario recuperar contraseña correo--}}
-  <div class="content cent sin">
+<body >
     
-        <div class="row cent sin">
-            
-                <div class="col-1"></div>
-                <div class="col-8">
-                    <p class="texto-solicita-verde" >Recuperar contraseña</p>
-                    <div class="">
-                        <p class="texto-gris" style="text-align: justify; padding-bottom:20px;">Para recuperar tu contraseña, escribe tu correo electrónico y te enviaremos un correo electrónico con las 
-                            instrucciones para recuperarla.
-                        </p>
-                        <input type="email" class="form-control"  placeholder="Correo electrónico o telefono">
-                        <br /> 
-                        <a href="{{route('recover2')}}" class="btn btn-verde btn-md" style="margin-top: 30px; font-weight:800;">Recuperar Contraseña</a>    
-                    </div>
-                </div>
-                <div class="col-1"></div>
-            </div>
-        </div>
+{{--Menú--}}
+@include('components.landing.cuerpo._menu')
+
+{{--Editor de perfil--}}
+<div class="row" style="padding-bottom: 120px; padding-top:90px;">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <p class="texto-solicita-verde cent">Mi Pérfil</p>
+        <input type="text" class="form-control" placeholder="Nombre de usuario">
+        <input type="text" class="form-control" placeholder="Contraseña actual">
+        <input type="text" class="form-control" placeholder="Nueva contraseña">
+        <input type="text" class="form-control" placeholder="Verifique su nueva contraseña">
         <br />
- </div>
-
-
-
-
+       <center> <a class="btn btn-verde btn-md " href="" style="marggin-top: 20px; width: 250px;">Confirmar</a></center>
+    </div>
+    <div class="col-3"></div>
+    <div>
+    </div>
+</div>
 
 {{--Fotter--}}
 
-    @include('components.landing.cuerpo._fotter')
+    @include('components.landing.cuerpo._fotter')  
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

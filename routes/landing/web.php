@@ -47,3 +47,11 @@ Route::get('/signin-recover1', function(){
 Route::get('/signin-recover2', function(){
     return view('landing.sesion.recover-password');
 })->name('recover2');
+
+Route::get('/modal1', function(){
+    return view('landing.sesion.modal._modal');
+});
+
+Route::get('/modal2', function(){
+    return view('landing.sesion.modal._modal2');
+});

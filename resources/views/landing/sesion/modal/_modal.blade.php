@@ -79,7 +79,7 @@
         <center><h5 class="texto-solicita-verde" id="exampleModalLabel" style="padding-top: 25px;">Cambio Exitoso</h5></center>
          <div>
           <p class="texto-pequeno" style="margin-top: 25px; margin-bottom:15px;">Se ha creado tu contraseña con exito, ya puedes ingresar nuevamente a nuestra aplicación.</p>
-          <center><a class="btn btn- btn-verde" href="{{ route('signin') }}">Iniciar sesión</a></center>
+          <center><a class="btn btn- btn-verde" href="{{ route('singin') }}">Iniciar sesión</a></center>
         </div>
       </div>
     </div>
