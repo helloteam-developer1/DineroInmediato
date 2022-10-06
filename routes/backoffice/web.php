@@ -15,6 +15,18 @@ Route::get('/miPrestamo', function(){
     return view('appCliente.miPrestamo');
 })->name('miPrestamo');
 
+Route::get('/cliente-docu-infor', function(){
+    return view('appCliente.clienteDocuInfor');
+})->name('cliente-docu-infor');
+
+Route::get('/ajustes-contacto', function(){
+    return view('appCliente.clienteMenuAjustesContacto');
+})->name('ajustes-contacto');
+
+Route::get('/cliente-notificaciones', function(){
+    return view('appCliente.clienteNotificaciones');
+})->name('cliente-notificaciones');
+
 Route::get('/contacto', function(){
     return view('backoffice.contacto');
 
