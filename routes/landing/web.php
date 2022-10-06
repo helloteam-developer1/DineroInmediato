@@ -55,3 +55,7 @@ Route::get('/modal1', function(){
 Route::get('/modal2', function(){
     return view('landing.sesion.modal._modal2');
 });
+
+Route::get('/registro-usuarios', function(){
+    return view('livewire.registroJCST.default');
+});
