@@ -67,7 +67,7 @@
 {{--Mi perfil--}}
     <div class="content cent">
         <div class="" style="text-align:left;">
-            <p class="texto-solicita-verde" style="padding-bottom: 25px; padding-top:15px; text-align:center;">Mi pérfil</p>
+            <p class="texto-solicita-verde" style="padding-bottom: 5px; text-align:center;">Mi pérfil</p>
             <br />
             <p>Nombre: <input placeholder=" Juan Gutiérrez Mora"></p>
             <br />
@@ -90,7 +90,9 @@
                   <a class="btn btn-gris" href="{{route('miperfil')}}" style="height: 35px;">Cambiar contraseña</a>
                 </div>
             </div>
-            <center><a href="" class="btn btn-verde" style=" margin-top:20px;">Guardar cambios</a></center>
+            <div>
+            <center><a href="" class="btn btn-verde btn-block btn-lg" style=" margin-top:80px;">Guardar cambios</a></center>
+            </div>
         </div>
     </div>
 

@@ -49,11 +49,11 @@
             background: #f5a82d !important;
             color: white;
         }
-        .btn-verde:{
-            background: #38A937
-        }
         .btn-verde:hover{
             color: #e0fc70;
+        }
+        .texto-g{
+            color: #474747;
         }
 
     </style>
@@ -66,13 +66,12 @@
 
 {{--Mi perfil--}}
     <div class="content cent">
-        <div class="">
-            <p class="texto-solicita-verde">Recuperar contraseña</p>
-            <p>Para recuperar tu contraseña, escribe tu correo electrónico y te enviaremos un correo electrónico con las instrucciones para recuperarla.</p>
+        <div class="" style="text-align:center; margin-bottom:40px;">
+            <p class="texto-solicita-verde" style="padding-bottom: 5px; text-align:center;">Contacto</p>
             <br />
-            <input type="text" class="form-control Carot ExtraLight" placeholder="correo electrónico o telefono">
+            <p class="Carot ExtraLight texto-g">Si tienes alguna duda y quieres ponerte en contacto con nosotros escríbenos a</p>           
             <br />
-            <a href="{{route('recover2')}}" class="btn btn-verde btn-block">Aceptar</a>
+            <a class="mailto" href="mailto:credito@dineroinmediato.mx">credito@dineroinmediato.mx</a>
         </div>
     </div>
 

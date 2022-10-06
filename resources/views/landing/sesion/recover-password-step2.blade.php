@@ -30,7 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landing/style.css') }}" rel="stylesheet">
     @stack('css')
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -59,22 +59,35 @@
     </style>
 </head>
 
-<body >
-    
+<body>
+   
 {{--Menú--}}
 @include('components.landing.cuerpo._menu')
 
-{{--Mi perfil--}}
-    <div class="content cent">
-        <div class="">
-            <p class="texto-solicita-verde">Recuperar contraseña</p>
-            <p>Para recuperar tu contraseña, escribe tu correo electrónico y te enviaremos un correo electrónico con las instrucciones para recuperarla.</p>
-            <br />
-            <input type="text" class="form-control Carot ExtraLight" placeholder="correo electrónico o telefono">
-            <br />
-            <a href="{{route('recover2')}}" class="btn btn-verde btn-block">Aceptar</a>
+
+  <div class="content cent">
+    
+        <div class="row cent">
+            
+            
+                <p class="texto-solicita-verde" style="padding-bottom: 25px; padding-top:15px;">Recuperar contraseña</p>
+                <div class="">
+                    <input type="password" class="form-control Carot ExtraLight"  placeholder="Contraseña Actual">
+                    <br />
+                    <input type="password" class="form-control Carot ExtraLight"  placeholder="Nueva contraseña">
+                    <br /> 
+                    <input type="password" class="form-control Carot ExtraLight" placeholder="Confirmar contraseña">
+
+                    <a href="" class="btn btn-verde btn-md" style="margin-top: 30px; ">Aceptar</a>    
+                </div>
+                
+                
+            </div>
         </div>
-    </div>
+        <br />
+ </div>
+
+
 
 
 

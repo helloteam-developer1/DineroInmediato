@@ -85,11 +85,11 @@
     <div class="content cent" >
         <center>
             <div>
-                    <p class="texto-solicita-verde">Inicio de sesión</p>
-                    <input type="email" placeholder="Correo electrónico o teléfono" class="form-control" required>
+                    <p class="texto-solicita-verde Medium Carot">Inicio de sesión</p>
+                    <input type="email" placeholder="Correo electrónico o teléfono" class="form-control Carot ExtraLight" required>
                     <br />
-                    <input type="password" placeholder="Contraseña" class="form-control" required>
-                    <center><p class="text-green" style="padding-top:20px; padding-bottom:20px;">¿Olvidaste tu contraseña?. <a href="{{route('recover1')}}" class="vinculo" style=" text-decoration: underline; ">Haz clic aquí para recuperarla</a></p></center>
+                    <input type="password" placeholder="Contraseña" class="form-control Carot ExtraLight" required>
+                    <center><p class="text-green Carot Sans" style="padding-top:20px; padding-bottom:20px;">¿Olvidaste tu contraseña?. <a href="{{route('recover1')}}" class="vinculo" style=" text-decoration: underline; ">Haz clic aquí para recuperarla</a></p></center>
                     <div>
                         <a  class="btn btn-verde btn-md btn-block" href="/" style="float: left;">Regresar</a>
                         <a  class="btn btn-naranja btn-md btn-block" href="/" style="float: right;">Continuar</a>

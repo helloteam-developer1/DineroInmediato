@@ -14,4 +14,9 @@ Route::get('/edit-perfil', function(){
 Route::get('/miPrestamo', function(){
     return view('appCliente.miPrestamo');
 })->name('miPrestamo');
+
+Route::get('/contacto', function(){
+    return view('backoffice.contacto');
+
+})->name('contacto');
 ?>
