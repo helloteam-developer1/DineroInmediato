@@ -65,7 +65,7 @@
             </div>
             <br />
             <div class="row">
-                <div class="term" >
+                <div class="term" style="border: solid 1px black;">
                     <center>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="exampleCheck1">

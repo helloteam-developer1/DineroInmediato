@@ -77,11 +77,15 @@ input[type=text], select {
     font-size: 18px;
 
 }
+
 .btn-verde{
     background-color: var(--green);
     color:white;
     font-weight: 500;
     float: left;
+}
+.term{
+    width: 100%;
 }
 .btn-verde:hover{
     background-color: var(--green);
@@ -130,6 +134,9 @@ input[type=text], select {
     margin-left: -470px;
     
 }
+.alinear{
+    vertical-align: middle;
+}
 .informacion3{
     text-align: justify;
     font-size: 20px;
@@ -140,14 +147,12 @@ input[type=text], select {
 .subrayado{
     text-decoration: underline;
     color: var(--negro);
-    margin-left: -115px;
-    font-size: 18px;
+    margin-left: 2px;
+    font-size: 15px;
+    
 }
 
-.term{
-    margin-left: 260px;
-    margin-bottom: 50px;
-}
+
 .subrayadot{
     text-decoration: underline;
     color: var(--negro);
@@ -448,12 +453,13 @@ input[type=text], select {
     }
     .esp{
         margin-top: 1px;
+        width: auto;
     }
     .informacion2{
         text-align: justify;
         font-size: 15px;
         color: var(--negro);
-        margin-left: -160px;
+        margin-left: -80px;
     }
     .informacion3{
         text-align: justify;
@@ -467,11 +473,6 @@ input[type=text], select {
         margin-left: -13px;
         font-size: 13px;
     }
-    .term{
-        margin-left: 1px;
-        margin-bottom: 50px;
-    }
-
     }
 @media (max-width: 390px){
 .texto-verde{
@@ -494,7 +495,7 @@ input[type=text], select {
 
 .content{
     padding-top: 10px;
-    padding-right: 20px;
+    padding-right: 10px;
     padding-left: 20px;
     padding-bottom: 15px;
 }
@@ -610,13 +611,13 @@ input[type=text], select {
 }
 .informacion2{
     text-align: justify;
-    font-size: 15px;
+    font-size: 13px;
     color: var(--negro);
     margin-left: -1px;
 }
 .informacion3{
     text-align: justify;
-    font-size: 15px;
+    font-size: 13px;
     color: var(--negro);
     margin-left: 20px;
 }
@@ -624,19 +625,21 @@ input[type=text], select {
     text-decoration: underline;
     color: var(--negro);
     margin-left: 1px;
-    font-size: 13px;
+    font-size: 11px;
 }
-.term{
-    margin-left: 1px;
-    margin-bottom: 50px;
-}
-.subrayadot{
+.rayadot{
     text-decoration: underline;
     color: var(--negro);
     margin-left: -13px;
     font-size: 13px;
 }
-.esp{
-    margin-top: 30px;
+
+.acp{
+    width: 50%;
 }
+.term{
+    font-size: 15px;
+}
+
+
 }
