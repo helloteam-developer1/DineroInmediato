@@ -10,7 +10,7 @@ use Illuminate\Validation\Rules\Password as RulesPassword;
 
 class Wizard extends Component
 {
-    public $currentStep = 1;
+    public $currentStep = 3;
 
     /*first step */
     public $nombre, $curp , $fecha_nacimiento, $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
