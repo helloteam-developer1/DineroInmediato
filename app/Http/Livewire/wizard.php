@@ -35,21 +35,21 @@ class Wizard extends Component
     {
         
         $validatedData = $this->validate([
-             /*'nombre' => 'required|min:15|max:30|regex:/^[\pL\s\-]+$/u',
+             'nombre' => 'required|min:15|max:30|regex:/^[\pL\s\-]+$/u',
              'curp' => 'required|min:18|max:18|alpha_num', 
              'fecha_nacimiento' => 'required|numeric',
              'empresa_trabajo' => 'required',
              'antiguedad' => 'required|',
              'rama_empresa'=> 'required|min:30|max:90|alpha|regex:/^[\pL\s\-]+$/u',
              'banco_nomina'=> 'required|min:3|max:22|alpha'
-             */
+             /*
              'nombre' => 'required',
              'curp' => 'required', 
              'fecha_nacimiento' => 'required',
              'empresa_trabajo' => 'required',
              'antiguedad' => 'required',
              'rama_empresa'=> 'required',
-             'banco_nomina'=> 'required'
+             'banco_nomina'=> 'required'*/
         ]);
         
         $this->currentStep = 2;
