@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\landing\ContactEmailController;
 use App\Http\Controllers\landing\RegisterController;
+use App\Http\Controllers\landing\LoginController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,39 +24,30 @@ Route::post('sendEmail', [ContactEmailController::class, 'send']);
 
 
 Route::get('register', [RegisterController::class, 'bienvenida'])->name('register');
-Route::get('register/step', [RegisterController::class, 'steps'])->name('register.steps');
 
-Route::get('email', function(){
-    return view('landing.mail.contact.contact');
-});
+
 Route::get('test', function(){
     return view('test');
 });
-
-Route::get('/signin', function(){
-    return view('landing/sesion/signin');
-})->name('singin');
 
 Route::get('/modal', function(){
     return view('landing/sesion/modal/_modal2');
 });
 
-Route::get('/signin-recover1', function(){
-    return view('landing.sesion.recover-step1');
-})->name('recover1');
+/*Juan Carlos Segura Torres*/
 
-Route::get('/signin-recover2', function(){
-    return view('landing.sesion.recover-password');
-})->name('recover2');
-
-Route::get('/modal1', function(){
-    return view('landing.sesion.modal._modal');
-});
-
-Route::get('/modal2', function(){
-    return view('landing.sesion.modal._modal2');
-});
+Route::resource('/login', LoginController::class);
 
 Route::get('/registro-usuarios', function(){
     return view('livewire.registroJCST.default');
-});
+})->name('registro-usuario');
+
+Route::get('/recover1', function(){
+    return view('landing.sesion.recover-step1');
+})->name('recover1');
+Route::get('/recover2', function(){
+    return view('landing.sesion.recover-password');
+})->name('recover2');
+Route::get('/recover3', function(){
+    return view('landing.sesion.recover-password-step2');
+})->name('cambio_password');

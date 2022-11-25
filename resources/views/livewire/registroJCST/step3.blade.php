@@ -11,13 +11,12 @@
         <br />
         {{--Campos para subir datos--}}
         
-    
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-5"><p class="texto">INE (frente)</p></div>
                 <div class="col-5">
-                    <button class="btn btn-gris" onclick="document.getElementById('getFile').click()">Adjuntar archivo</button>
-                    <input type='file' id="getFile" style="display: none">
+                    <a class="btn btn-gris" onclick="document.getElementById('getFileine_frente').click()">Adjuntar archivo</a>
+                    <input type='file' id="getFileine_frente" style="display: none" name="ine_frente" wire:model="ine_frente"> 
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -26,8 +25,8 @@
                 <div class="col-2"></div>
                 <div class="col-5"><p class="texto">INE (reverso)</p></div>
                 <div class="col-5">
-                    <button class="btn btn-gris" onclick="document.getElementById('getFile').click()">Adjuntar archivo</button>
-                    <input type='file' id="getFile" style="display:none">
+                    <a class="btn btn-gris" onclick="document.getElementById('getFileine_reverso').click()">Adjuntar archivo</a>
+                    <input type='file' id="getFileine_reverso" style="display:none" name="ine_reverso" wire:model="ine_reverso">
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -36,8 +35,8 @@
                 <div class="col-2"></div>
                 <div class="col-5"><p class="texto">Comprobante de comicilio<p></div>
                 <div class="col-5">
-                    <button class="btn btn-gris" onclick="document.getElementById('getFile').click()">Adjuntar archivo</button>
-                    <input type='file' id="getFile" style="display:none">
+                    <a class="btn btn-gris" onclick="document.getElementById('getFilecomp_dom').click()">Adjuntar archivo</a>
+                    <input type='file' id="getFilecomp_dom" style="display:none" name="comp_dom" wire:model="comp_dom">
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -46,8 +45,8 @@
                 <div class="col-2"></div>
                 <div class="col-5"><p class="texto">Tomate una foto con tu INE </p></div>
                 <div class="col-5">
-                    <button class="btn btn-gris" onclick="document.getElementById('getFile').click()">Adjuntar archivo</button>
-                    <input type='file' id="getFile" style="display:none">
+                    <a class="btn btn-gris" onclick="document.getElementById('getFilefoto_cine').click()">Adjuntar archivo</a>
+                    <input type='file' id="getFilefoto_cine" style="display:none" name="foto_cine" wire:model="foto_cine">
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -64,8 +63,9 @@
                 <div class="col-1"></div>
             </div>
             <br />
+            {{--Botones formulario 3--}}
             <div class="row">
-                <div class="term" style="border: solid 1px black;">
+                <div class="term" >
                     <center>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="exampleCheck1">
@@ -81,24 +81,15 @@
                         </a>
                     </center>
                     <div class="esp">
-                        <a  class="btn btn-verde btn-md btn-block" href="/" style="float: left;">Regresar</a>
-                        <a  class="btn btn-naranja btn-md btn-block" href="/" style="float: right;">Continuar</a>
+                        <button  class="btn btn-verde btn-md btn-block" wire:click="back(2)" style="float: left;">Regresar</button>
+                        <button  class="btn btn-naranja btn-md btn-block" wire:click="submitForm" style="float: right;">Continuar</button>
                     </div>
                 </div>
             </div>
     
-               
+        
             </div>
-         
-            <br />
-    
-            
-            
-            <br />
-        {{--Botones formulario 3--}}
-       
-       
-    
+        
        </div>
        <div class="col-1"></div>
        

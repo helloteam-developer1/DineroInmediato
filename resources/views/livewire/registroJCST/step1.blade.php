@@ -11,12 +11,12 @@
             <div class="col justify-content-center con-form"  style="margin-bottom: 50px;">
                     <p class="titulo-rojo ">Datos obligatorios (*)</p>
                     <!--Input Nombre-->
-                    <input type="text" placeholder="* Nombre completo" class="form-control" wire:model="nombre">
+                    <input type="text" placeholder="* Nombre completo" class="form-control" wire:model="nombre" name="nombre">
                     @error('nombre') <span class="error">{{ $message }}</span> @enderror
                     <!--Input de CURP-->
                     <div class="row">
                         <div class="col-lg">
-                            <input type="text" placeholder="* CURP" class="form-control input-c" wire:model="curp" >
+                            <input type="text" placeholder="* CURP" class="form-control input-c" wire:model="curp" name="curp">
                             @error('curp') <span class="error">{{ $message }}</span> @enderror
                         </div>    
                         <div class="col-auto flex-right">
@@ -34,10 +34,10 @@
                         </div>
                     </div> 
                 <!--Lugar de trabajo -->    
-                <input type="text" placeholder="* Empresa donde trabajas" class="form-control" wire:model="empresa_trabajo">
+                <input type="text" placeholder="* Empresa donde trabajas" class="form-control" wire:model="empresa_trabajo" name="empresa_trabajo"
                 @error('empresa_trabajo') <span class="error">{{ $message }}</span> @enderror
                 <!--Select Antiguedad-->
-                <select class="form-select" wire:model="antiguedad">
+                <select class="form-select" wire:model="antiguedad" name="antiguedad">
                     <option>* Antigüedad de su trabajo actual</option>
                     <option value="de 0 a 3 meses ">De 0 a 3 meses </option>
                     <option value="de 3 a 6 meses">De 3 a 6 meses</option>
@@ -54,7 +54,7 @@
                 @include('livewire.registroJCST._rama')
                 
                 <!--Banco de Cuentas-->
-                <select class="form-select" wire:model="banco_nomina" name="empresas">
+                <select class="form-select" wire:model="banco_nomina" name="banco_nomina">
                     <option>* Banco de cuenta de nomina</option>
                     
                     @foreach ($empresas as $e)
@@ -66,8 +66,8 @@
     
                 {{--Botones del formulario 1--}}
                 <div>
-                    <a  class="btn btn-verde btn-md btn-block" href="/" style="float: left;">Regresar</a>
-                    <a  class="btn btn-naranja btn-md btn-block" href="/" style="float: right;">Continuar</a>
+                    <a  class="btn btn-verde btn-md btn-block"  style="float: left;" wire:click="{{route('home')}}">Regresar</a>
+                    <a class="btn btn-naranja btn-md btn-block"  wire:click="firstStepSubmit" style="float: right;">Continuar</a>
                 </div>
               
     

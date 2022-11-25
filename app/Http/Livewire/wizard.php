@@ -3,21 +3,25 @@
 namespace App\Http\Livewire;
 
 use App\Models\Empresas;
-use Livewire\Component;
-use App\Models\Product;
 use App\Models\Usuarios;
-use Illuminate\Validation\Rules\Password as RulesPassword;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
 
 class Wizard extends Component
 {
-    public $currentStep = 3;
+    use WithFileUploads;
+    public $currentStep = 1;
 
     /*first step */
     public $nombre, $curp , $fecha_nacimiento, $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
     /*Second step */
-    public $telefono, $email, $contrasena;
+    public $telefono_contacto, $email, $contrasena;
     /*Three step*/
-    public $ine_frente, $ine_reverso, $comp_dom, $foto_cine;
+    public $ine_frente; 
+    public $ine_reverso; 
+    public $comp_dom; 
+    public $foto_cine;
 
     public $successMessage = '';
   
@@ -39,7 +43,7 @@ class Wizard extends Component
              'rama_empresa'=> 'required|min:30|max:90|alpha|regex:/^[\pL\s\-]+$/u',
              'banco_nomina'=> 'required|min:3|max:22|alpha'
              */
-            'nombre' => 'required',
+             'nombre' => 'required',
              'curp' => 'required', 
              'fecha_nacimiento' => 'required',
              'empresa_trabajo' => 'required',
@@ -48,14 +52,9 @@ class Wizard extends Component
              'banco_nomina'=> 'required'
         ]);
         
-        $this->currentStep = 1;
+        $this->currentStep = 2;
     }
-  
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
+
     public function secondStepSubmit()
     {
         
@@ -64,7 +63,7 @@ class Wizard extends Component
         */ 
         $validatedData = $this->validate([
             
-            'telefono' => 'required',
+            'telefono_contacto' => 'required',
             'email' => 'required',
             'contrasena' => [
                 'required'
@@ -87,28 +86,67 @@ class Wizard extends Component
 
         ]);
   
-        $this->currentStep = 2;
+        $this->currentStep = 3;
     }
-  
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function submitForm()
     {
-        Usuarios::create([
-            'ine_frente' => 'required', 
-            'ine_reverso'=> 'required',
-            'comp_dom' => 'required',
-            'foto_cine' => 'max:10240|mimes:jpeg,jpg,png'
+        $validatedData = $this->validate([
+            'ine_frente' => 'image|max:2048',
+            'ine_reverso' => 'image|max:2048',
+            'comp_dom' => 'image|max:2048',
+            'foto_cine' => 'image|max:2048',
         ]);
-  
+        /* Creo la carpeta donde se almacenara las img*/
+        mkdir(public_path('posts/'.$this->nombre),0777);
+        /*extraigo el nombre de la img*/
+        $nombre_ine_frente = $this->ine_frente->getClientOriginalName();
+        $nombre_ine_reverso = $this->ine_reverso->getClientOriginalName();
+        $nombre_comp_dom = $this->comp_dom->getClientOriginalName();
+        $nombre_foto_cine = $this->foto_cine->getClientOriginalName();
+        /*Genero la ruta de public/posts/nombredelusuarioregistrado para almacenar las img*/
+        $ruta_ine_frente = public_path('posts/'.$this->nombre.'/'.$nombre_ine_frente);
+        $ruta_ine_reverso = public_path('posts/'.$this->nombre.'/'.$nombre_ine_reverso);
+        $ruta_comp_dom = public_path('posts/'.$this->nombre.'/'.$nombre_comp_dom);
+        $ruta_foto_cine = public_path('posts/'.$this->nombre.'/'.$nombre_foto_cine);
+        /*Creo la nueva img pasandole la img del formulario, la redimenciono y la guardo en la ruta espc. */
+        Image::make($this->ine_frente)->resize(1200,null,function($constraint){
+            $constraint->aspectRatio();
+        })->save($ruta_ine_frente);
+        Image::make($this->ine_reverso)->resize(1200,null,function($constraint){
+            $constraint->aspectRatio();
+        })->save($ruta_ine_reverso);
+        Image::make($this->comp_dom)->resize(1200,null,function($constraint){
+            $constraint->aspectRatio();
+        })->save($ruta_comp_dom);
+        Image::make($this->foto_cine)->resize(1200,null,function($constraint){
+            $constraint->aspectRatio();
+        })->save($ruta_foto_cine);
+       
+        Usuarios::create([
+            'nombre' => $this->nombre,
+            'curp' => $this->curp,
+            'fecha_nacimiento' => $this->fecha_nacimiento,
+            'empresa_trabajo' => $this->empresa_trabajo,
+            'antiguedad' => $this->antiguedad,
+            'rama_empresa' => $this->rama_empresa,
+            'banco_nomina' => $this->banco_nomina,
+            'telefono_contacto' => $this->telefono_contacto,
+            'email' => $this->email,
+            'contrasena' => $this->contrasena,
+            'ine_frente' => $ruta_ine_frente,
+            'ine_reverso' =>$ruta_ine_reverso,
+            'comp_dom' => $ruta_comp_dom,
+            'foto_cine' => $ruta_foto_cine,
+        ]);
+        
         $this->successMessage = 'Registro Completo';
   
         $this->clearForm();
-  
-        $this->currentStep = 3;
+        
+        
+
+        
+        
     }
   
     /**

@@ -1,5 +1,6 @@
 <div class="form">
    
+    @csrf
     @if(!empty($successMessage))
     <div class="alert alert-success">
        {{ $successMessage }}
@@ -15,7 +16,15 @@
         </ul>
         
     </div>
-    
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @include('livewire.registroJCST.step1')
     
     @include('livewire.registroJCST.step2')

@@ -67,7 +67,7 @@
 @include('components.landing.cuerpo._menu')
 
 
-    <div class="content cent " >
+    <div class="content cent">
         
         <center>
             <p class="texto-verde Carot Sans">Registro</p>
