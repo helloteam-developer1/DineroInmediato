@@ -7,15 +7,14 @@
                 <p class="titulo-rojo">Campos (*)</p>
                 
                 <input class="form-control" type="text" placeholder="* Telefono de contacto" name="telefono_contacto" wire:model="telefono_contacto" name="telefono_contacto">
-                @error('telefono') <span class="error">{{ $message }}</span> @enderror
-                <input type="text" class="form-control" placeholder="* Correo electrónico" wire:model="email" name="email" accept=".jpg, .jpeg, .png"><br/>
+                @error('telefono_contacto') <span class="error">{{ $message }}</span> @enderror
+                <input type="text" class="form-control" placeholder="* Correo electrónico" wire:model="email" name="email" ><br/>
                 @error('email') <span class="error">{{ $message }}</span> @enderror
-                <input type="password" class="form-control" placeholder="* Contraseña" wire:model="contrasena" name="contrasena" accept=".jpg, .jpeg, .png">
-                @error('contrasena') <span class="error">{{ $message }}</span> @enderror
+                <input type="password" class="form-control" placeholder="* Contraseña" wire:model="password" name="password" >
+                @error('password') <span class="error">{{ $message }}</span> @enderror
                 <br />
-                <input type="password" class="form-control" placeholder="* Verificar contraseña" name="password_confirmation" accept=".jpg, .jpeg, .png">
-                
-                
+                <input type="password" class="form-control" placeholder="* Verificar contraseña" wire:model="password_confirmation" name="password_confirmation">
+                @error('password_confirmation') <span class="error">{{ $message }}</span> @enderror
     
                 <br />
             {{--Botones del formulario 2--}}

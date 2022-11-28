@@ -16,7 +16,7 @@
                 <div class="col-5"><p class="texto">INE (frente)</p></div>
                 <div class="col-5">
                     <a class="btn btn-gris" onclick="document.getElementById('getFileine_frente').click()">Adjuntar archivo</a>
-                    <input type='file' id="getFileine_frente" style="display: none" name="ine_frente" wire:model="ine_frente"> 
+                    <input type='file' id="getFileine_frente" style="display: none" name="ine_frente" wire:model="ine_frente" accept=".jpg, .jpeg, .png"> 
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="col-5"><p class="texto">INE (reverso)</p></div>
                 <div class="col-5">
                     <a class="btn btn-gris" onclick="document.getElementById('getFileine_reverso').click()">Adjuntar archivo</a>
-                    <input type='file' id="getFileine_reverso" style="display:none" name="ine_reverso" wire:model="ine_reverso">
+                    <input type='file' id="getFileine_reverso" style="display:none" name="ine_reverso" wire:model="ine_reverso" accept=".jpg, .jpeg, .png">
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -36,7 +36,7 @@
                 <div class="col-5"><p class="texto">Comprobante de comicilio<p></div>
                 <div class="col-5">
                     <a class="btn btn-gris" onclick="document.getElementById('getFilecomp_dom').click()">Adjuntar archivo</a>
-                    <input type='file' id="getFilecomp_dom" style="display:none" name="comp_dom" wire:model="comp_dom">
+                    <input type='file' id="getFilecomp_dom" style="display:none" name="comp_dom" wire:model="comp_dom" accept=".jpg, .jpeg, .png">
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="col-5"><p class="texto">Tomate una foto con tu INE </p></div>
                 <div class="col-5">
                     <a class="btn btn-gris" onclick="document.getElementById('getFilefoto_cine').click()">Adjuntar archivo</a>
-                    <input type='file' id="getFilefoto_cine" style="display:none" name="foto_cine" wire:model="foto_cine">
+                    <input type='file' id="getFilefoto_cine" style="display:none" name="foto_cine" wire:model="foto_cine" accept=".jpg, .jpeg, .png">
                 </div>
                 <div class="col-2"></div>
             </div>

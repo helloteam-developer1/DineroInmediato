@@ -1,6 +1,6 @@
-<label>Rama de la empresa: 
-    <input list="rama" />
-</label>
+
+<input class="form-control" placeholder="* Rama de la empresa" wire:model="rama_empresa" style="margin-bottom:20px;" name="rama_empresa" list="rama"/>
+@error('rama_empresa') <span class="error">{{ $message }}</span> @enderror
 
 <datalist id="rama">
 <option>Compraventa de fierro viejo (chatarra) y desechos de metales no ferrosos. </option>

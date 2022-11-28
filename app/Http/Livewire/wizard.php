@@ -4,19 +4,22 @@ namespace App\Http\Livewire;
 
 use App\Models\Empresas;
 use App\Models\Usuarios;
+
 use Livewire\Component;
 use Livewire\WithFileUploads;
+
 use Intervention\Image\Facades\Image;
+use Illuminate\Validation\Rules\Password;
 
 class Wizard extends Component
 {
     use WithFileUploads;
-    public $currentStep = 1;
+    public $currentStep = 2;
 
     /*first step */
     public $nombre, $curp , $fecha_nacimiento, $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
     /*Second step */
-    public $telefono_contacto, $email, $contrasena;
+    public $telefono_contacto, $email, $password, $password_confirmation, $confirmacion;
     /*Three step*/
     public $ine_frente; 
     public $ine_reverso; 
@@ -36,20 +39,14 @@ class Wizard extends Component
         
         $validatedData = $this->validate([
              'nombre' => 'required|min:15|max:30|regex:/^[\pL\s\-]+$/u',
-             'curp' => 'required|min:18|max:18|alpha_num', 
-             'fecha_nacimiento' => 'required|numeric',
-             'empresa_trabajo' => 'required',
+             'fecha_nacimiento' => 'required|after:1932-12-30|before:2022-11-25',
+             'empresa_trabajo' => 'required|min:5|max:30',
              'antiguedad' => 'required|',
-             'rama_empresa'=> 'required|min:30|max:90|alpha|regex:/^[\pL\s\-]+$/u',
-             'banco_nomina'=> 'required|min:3|max:22|alpha'
-             /*
-             'nombre' => 'required',
-             'curp' => 'required', 
-             'fecha_nacimiento' => 'required',
-             'empresa_trabajo' => 'required',
-             'antiguedad' => 'required',
-             'rama_empresa'=> 'required',
-             'banco_nomina'=> 'required'*/
+             'rama_empresa'=> 'required|min:25|max:600',
+             'banco_nomina'=> 'required|min:3|max:22|alpha',
+             'curp' => 'required|min:18|max:18'
+             
+             
         ]);
         
         $this->currentStep = 2;
@@ -62,28 +59,17 @@ class Wizard extends Component
         Telefono, email, contraseña,
         */ 
         $validatedData = $this->validate([
-            
-            'telefono_contacto' => 'required',
-            'email' => 'required',
-            'contrasena' => [
-                'required'
-                ]
-    
-
-
-            /*'telefono' => 'required|numeric|digits_between:8,10',
-            'email' => 'email:rfc,dns',
-            'contrasena' => [
+            /*'password' => [
                 'required',
-                RulesPassword::min(8) // Debe tener por lo menos 12 caracteres
-                ->mixedCase() // Debe tener mayúsculas + minúsculas
-                ->letters() // Debe incluir letras
-                ->numbers() // Debe incluir números
-                ->symbols(), //Debe incluir símolos
-                ]
-    
-            */
-
+                'confirmed',
+                'max:40',
+                Password::min(8)->mixedCase()->letters()->numbers()->symbols()->uncompromised(),]
+                'telefono_contacto' => 'required|numeric|digits_between:8,10',
+                'email' => 'email:rfc,dns',
+            ]*/
+            
+            
+            'password' => 'required| confirmed|min:4',
         ]);
   
         $this->currentStep = 3;
@@ -132,7 +118,7 @@ class Wizard extends Component
             'banco_nomina' => $this->banco_nomina,
             'telefono_contacto' => $this->telefono_contacto,
             'email' => $this->email,
-            'contrasena' => $this->contrasena,
+            'password' => $this->password,
             'ine_frente' => $ruta_ine_frente,
             'ine_reverso' =>$ruta_ine_reverso,
             'comp_dom' => $ruta_comp_dom,
@@ -177,4 +163,5 @@ class Wizard extends Component
         $this->contrasena=''; 
         
     }
+
 }

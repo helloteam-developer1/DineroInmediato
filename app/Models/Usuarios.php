@@ -10,7 +10,7 @@ class Usuarios extends Model
     use HasFactory;
     protected $fillable = [
         'nombre', 'curp', 'fecha_nacimiento', 'empresa_trabajo', 'antiguedad','rama_empresa',
-         'banco_nomina', 'telefono_contacto', 'email', 'contrasena', 'ine_frente','ine_reverso', 
+         'banco_nomina', 'telefono_contacto', 'email', 'password', 'ine_frente','ine_reverso', 
          'comp_dom', 'foto_cine'
     ];
 }

@@ -50,8 +50,9 @@
                 </select>
                 @error('antiguedad') <span class="error">{{ $message }}</span> @enderror
                 <br />
-                <!--Incluyo el autocompletable que esta en _rama-->
-                @include('livewire.registroJCST._rama')
+                <!--Incluyo el autocompletable que esta en _lista de view registro JCST-->
+                
+                            @include('livewire.registroJCST._lista')
                 
                 <!--Banco de Cuentas-->
                 <select class="form-select" wire:model="banco_nomina" name="banco_nomina">

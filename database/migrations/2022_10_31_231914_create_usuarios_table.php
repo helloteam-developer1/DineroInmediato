@@ -24,7 +24,7 @@ class CreateUsuariosTable extends Migration
             $table->string('banco_nomina');
             $table->string('telefono_contacto');
             $table->string('email');
-            $table->string('contrasena');
+            $table->string('password');
             $table->string('ine_frente');
             $table->string('ine_reverso'); 
             $table->string('comp_dom'); 
