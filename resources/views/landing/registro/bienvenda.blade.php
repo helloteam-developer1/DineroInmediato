@@ -107,7 +107,7 @@
                     openModal('credito-rechazado');
                 }
             }
-        </script
+        </script>
     @endpush
 
 @stop

@@ -14,7 +14,7 @@ use Illuminate\Validation\Rules\Password;
 class Wizard extends Component
 {
     use WithFileUploads;
-    public $currentStep = 2;
+    public $currentStep = 1;
 
     /*first step */
     public $nombre, $curp , $fecha_nacimiento, $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
