@@ -101,6 +101,7 @@
 
 
                 if(document.getElementById('op3').checked && document.getElementById('op1').checked){
+                    alert('Registro con exito');
                     openModal('credito-aprobado');
                 }
                 else{

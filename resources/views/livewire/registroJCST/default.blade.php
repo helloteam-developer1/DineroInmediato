@@ -95,6 +95,7 @@
     <script src="{{ asset('js/landing/sendEmail.js') }}"></script>
     <script src="{{ asset('js/landing/modal-register.js') }}"></script>
     @stack('js')
+  
 </body>
 
 </html>

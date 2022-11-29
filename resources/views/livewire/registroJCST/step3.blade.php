@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-bottom: 20px; margin-top:20px;">
     <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="step-3">
         <div class="col-1"></div>
         
@@ -65,28 +65,30 @@
             <br />
             {{--Botones formulario 3--}}
             <div class="row">
-                <div class="term" >
-                    <center>
+                <div style="margin-left: 125px;" >
+                
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="exampleCheck1">
-                        <label class="form-check-label informacion2" for="exampleCheck1">
+                        
+                        <label class="form-check-label informacion2" for="test">
+                            <input class="form-check-input" type="checkbox" value="" id="test" style="margin-bottom: 15px;">
                           Acepto que mi información sea investigada en buro de crédito.
                         </label>
+                        
                       </div>
                       <p class="form-check-label informacion3" for="flexCheckDefault">
-                        Al hacer clic en "Continuar", estarás aceptando el
-                      </p>
-                      <a href="" data-toggle="modal" data-target="#aviso" class="subrayadot">
-                          AVISO DE PRIVACIDAD y TÉRMINOS Y CONDICIONES
-                        </a>
-                    </center>
-                    <div class="esp">
-                        <button  class="btn btn-verde btn-md btn-block" wire:click="back(2)" style="float: left;">Regresar</button>
-                        <button  class="btn btn-naranja btn-md btn-block" wire:click="submitForm" style="float: right;">Continuar</button>
-                    </div>
+                        Al hacer clic en "Continuar", estarás aceptando el 
+                      </p> <a href="" data-toggle="modal" data-target="#aviso" class="subrayadot">
+                        AVISO DE PRIVACIDAD y TÉRMINOS Y CONDICIONES
+                    </a>
+                     
                 </div>
             </div>
-    
+            <div class="row">
+                <div class="esp" style="margin-top: 25px; margin-bottom:25px;">
+                    <button  class="btn btn-verde btn-md btn-block" wire:click="back(2)" style="float: left;">Regresar</button>
+                    <button  class="btn btn-naranja btn-md btn-block" wire:click="submitForm" style="float: right; display: none;" id="continuar">Continuar</button>
+                </div>
+            </div>
         
             </div>
         
@@ -95,5 +97,18 @@
        
     </div>
     </div>
+    <script>
+            var checkbox = document.getElementById('test');
+            checkbox.addEventListener("change", validaCheckbox, false);
+            
+            function validaCheckbox(){
+            var checked = checkbox.checked;
+            if(checked){
+                document.getElementById('continuar').style.display = 'block';
+            }else{
+                document.getElementById('continuar').style.display = 'none';
+            }
+        }
+    </script>
     {{--Ventana modal--}}
     @include('livewire/registroJCST/modales/_modal')
