@@ -3,14 +3,17 @@
 namespace App\Http\Livewire;
 
 use App\Models\Empresas;
-use App\Models\Usuarios;
+use App\Models\User;
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Mail;
+
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password;
 
 class Wizard extends Component
 {
@@ -107,7 +110,7 @@ class Wizard extends Component
         })->save($ruta_foto_cine);
         
         $password = Hash::make($this->password);
-        Usuarios::create([
+        User::create([
             'nombre' => $this->nombre,
             'curp' => $this->curp,
             'fecha_nacimiento' => $this->fecha_nacimiento,
@@ -126,9 +129,15 @@ class Wizard extends Component
         
         $this->successMessage = 'Registro Completo';
   
-        $this->clearForm();
-
-        return redirect()->route('home');
+        $credenciales = [
+            'email' => $this->email,
+            'password' => $this->password
+        ];
+        if(Auth::attempt($credenciales)){
+            return redirect()->route('dashboard');
+        }else{
+            redirect()->route('registro-usuario')->with('status','Credenciales Incorrectas');
+        }
      
         
         

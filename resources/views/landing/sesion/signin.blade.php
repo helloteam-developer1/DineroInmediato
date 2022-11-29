@@ -85,18 +85,27 @@
     <div class="content cent" >
         <center>
             <div>
+                <form action="{{route('login.store')}}" method="POST">
+                    @csrf
                     <p class="texto-solicita-verde Medium Carot">Inicio de sesión</p>
-                    <input type="email" placeholder="Correo electrónico o teléfono" class="form-control Carot ExtraLight" required>
+                    <input name="email" type="email" placeholder="Correo electrónico o teléfono" class="form-control Carot ExtraLight"  required>
                     <br />
-                    <input type="password" placeholder="Contraseña" class="form-control Carot ExtraLight" required>
+                    <input name="password" type="password" placeholder="Contraseña" class="form-control Carot ExtraLight"  required>
                     <center><p class="text-green Carot Sans" style="padding-top:20px; padding-bottom:20px;">¿Olvidaste tu contraseña?. <a href="{{route('recover1')}}" class="vinculo" style=" text-decoration: underline; ">Haz clic aquí para recuperarla</a></p></center>
                     <div>
-                        <a  class="btn btn-verde btn-md btn-block" href="/" style="float: left;">Regresar</a>
-                        <a  class="btn btn-naranja btn-md btn-block" href="/" style="float: right;">Continuar</a>
+                        <a  class="btn btn-verde btn-md btn-block" href="{{route('home')}}" style="float: left;">Regresar</a>
+                        <button  class="btn btn-naranja btn-md " style="float: right; background:#da8b0c
+                        ;" type="submit">Continuar</button>
                     </div>
+                </form>
             </div>        
         </center>
     </div>
+@if (session('status'))
+<script>
+    alert("{{session('status')}}");
+</script>
+@endif
 
 
 
