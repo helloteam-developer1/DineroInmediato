@@ -10,7 +10,7 @@
                 @error('telefono_contacto') <span class="error">{{ $message }}</span> @enderror
                 <input type="text" class="form-control" placeholder="* Correo electrónico" wire:model="email" name="email" ><br/>
                 @error('email') <span class="error">{{ $message }}</span> @enderror
-                <input type="password" class="form-control" placeholder="* Contraseña" wire:model="password" name="password" >
+                <input type="password" class="form-control" placeholder="* Contraseña" wire:model="password" name="password" style="margin-top:10px; ">
                 @error('password') <span class="error">{{ $message }}</span> @enderror
                 <br />
                 <input type="password" class="form-control" placeholder="* Verificar contraseña" wire:model="password_confirmation" name="password_confirmation">

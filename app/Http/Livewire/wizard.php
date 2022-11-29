@@ -4,11 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Empresas;
 use App\Models\Usuarios;
-
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
 class Wizard extends Component
@@ -59,17 +60,14 @@ class Wizard extends Component
         Telefono, email, contraseña,
         */ 
         $validatedData = $this->validate([
-            /*'password' => [
+            'telefono_contacto' => 'required|numeric|digits_between:8,10',
+            'email' => 'email:rfc,dns',
+            'password' => [
                 'required',
                 'confirmed',
                 'max:40',
-                Password::min(8)->mixedCase()->letters()->numbers()->symbols()->uncompromised(),]
-                'telefono_contacto' => 'required|numeric|digits_between:8,10',
-                'email' => 'email:rfc,dns',
-            ]*/
-            
-            
-            'password' => 'required| confirmed|min:4',
+                Password::min(8)->mixedCase()->letters()->numbers()->symbols()->uncompromised()  
+            ]
         ]);
   
         $this->currentStep = 3;
@@ -107,7 +105,8 @@ class Wizard extends Component
         Image::make($this->foto_cine)->resize(1200,null,function($constraint){
             $constraint->aspectRatio();
         })->save($ruta_foto_cine);
-       
+        
+        $password = Hash::make($this->password);
         Usuarios::create([
             'nombre' => $this->nombre,
             'curp' => $this->curp,
@@ -118,7 +117,7 @@ class Wizard extends Component
             'banco_nomina' => $this->banco_nomina,
             'telefono_contacto' => $this->telefono_contacto,
             'email' => $this->email,
-            'password' => $this->password,
+            'password' => $password,
             'ine_frente' => $ruta_ine_frente,
             'ine_reverso' =>$ruta_ine_reverso,
             'comp_dom' => $ruta_comp_dom,
@@ -128,6 +127,10 @@ class Wizard extends Component
         $this->successMessage = 'Registro Completo';
   
         $this->clearForm();
+
+        return redirect()->route('home');
+     
+        
         
         
 
