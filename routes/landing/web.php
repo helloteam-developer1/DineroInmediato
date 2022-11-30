@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\landing\CalculadoraRegistro;
 use App\Http\Controllers\landing\ContactEmailController;
 use App\Http\Controllers\landing\RegisterController;
 use App\Http\Controllers\landing\LoginController;
@@ -51,3 +52,5 @@ Route::get('/recover2', function(){
 Route::get('/recover3', function(){
     return view('landing.sesion.recover-password-step2');
 })->name('cambio_password');
+
+Route::resource('/registros-calculadora', CalculadoraRegistro::class);

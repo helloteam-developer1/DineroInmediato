@@ -2,6 +2,7 @@
   
 namespace App\Http\Livewire;
 
+use App\Mail\landing\RegistroMail;
 use App\Models\Empresas;
 use App\Models\User;
 
@@ -134,6 +135,10 @@ class Wizard extends Component
             'password' => $this->password
         ];
         if(Auth::attempt($credenciales)){
+            $datos = ['email' => $this->email, 'password'=> $this->password];
+            $correo = new RegistroMail($datos);
+            $email = Auth::user()->email;
+            Mail::to($email)->send($correo);
             return redirect()->route('dashboard');
         }else{
             redirect()->route('registro-usuario')->with('status','Credenciales Incorrectas');
