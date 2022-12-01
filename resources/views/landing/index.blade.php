@@ -28,7 +28,7 @@
     @push('css')
         <link rel="stylesheet" href="{{ asset('css/landing/modals.css') }}">
     @endpush
-   <form method="POST" action="">
+
 
     <section class="">
         <div class="grid grid-cols-2" style="background: #A5D541">
@@ -89,7 +89,7 @@
     @include('landing.registro.modales.abandonar-linea')
    @endsection
    @push('js')
-   </form>
+
     <script>
 
 

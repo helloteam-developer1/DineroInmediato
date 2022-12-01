@@ -38,10 +38,60 @@
                 </div>
                 <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 text-center ">
                         <button
-                        class="focus:outline-none modal-close w-full bg-naranja px-2 py-2 text-white text-sm" onclick="location.href='{{route('registro-usuario')}}'">Si, quiero hacer uso de mi l&iacute;nea de cr&eacute;dito</button>
+                        class="focus:outline-none modal-close w-full bg-naranja px-2 py-2 text-white text-sm" onclick="enviar()">Sai, quiero hacer uso de mi l&iacute;nea de cr&eacute;dito</button>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+function enviar(){
+    
+        var credito;
+        var nomina;
+        var prestamo = $('#prestamo').val();
+        console.log(prestamo);
+        var tiempo = $('#tiempo').val();
+        console.log(tiempo);
+        var nombre = $('#nombre').val();
+        console.log(nombre);
+        var trabajo = $('#trabajo').val();
+        console.log(trabajo);
+        var ingreso = $('#ingresoMensual').val();
+        console.log(ingreso);
+        if($('#op1').prop('checked')){
+            nomina = "si";
+            console.log(nomina);
+        }
+        if($('#op2').prop('checked')){
+            nomina = "no";
+            console.log(nomina);
+        }
+        if($('#op3').prop('checked')){
+            credito = "si";
+            console.log(credito);
+        }
+        if($('#op4').prop('checked')){
+            credito = "no";
+            console.log(credito);
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: "{{route('registros-calculadora.store')}}",
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{prestamo:prestamo,tiempo:tiempo,nombre:nombre,trabajo:trabajo,ingreso:ingreso,nomina:nomina,credito:credito},
+            success:function(data){
+                mostrarMensaje(data.mensaje);
+
+            }
+        });
+      
+        location.href="registro-usuarios";
+    }
+</script>
