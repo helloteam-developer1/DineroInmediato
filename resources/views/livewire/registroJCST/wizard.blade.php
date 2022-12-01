@@ -6,7 +6,12 @@
        {{ $successMessage }}
     </div>
     @endif
-      
+    
+    @if(!empty($errorMessage))
+    <div class="alert alert-warning" role="alert">
+        {{$errorMessage}}
+    </div>
+    @endif
     <div class="text-center">
         <!-- progressbar -->
         <ul class="progressbar">
