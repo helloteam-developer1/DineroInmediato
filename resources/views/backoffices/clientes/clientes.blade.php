@@ -69,6 +69,31 @@
       width: 150px;
       height: 40px;
     }
+    .boton-aceptar-solic{
+      width: 150px;
+    }
+    .boton-rechazar-solic{
+      width: 170px;
+    }
+    .boton-falta-inf{
+      width: 250px;
+    }
+    footer{
+      width: 100%;
+      height: 50vh;
+      background-color: #f29100;
+    }
+    .footer-enlaces{
+        width: 100%;
+        text-decoration: none;
+        color: white;
+    }
+    .footer-enlaces:hover{
+        color: white;
+    }
+    textarea{
+        height: 100px;
+    }
   </style>
 </head>
 <body>
@@ -132,10 +157,10 @@
       <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
               <div class="row">
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-10 offset-md-1 offset-lg-2">
+                  <div class="col-12 col-sm-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
                     <div class="input-group">
-                      <p class="my-2">De</p> <input type="date" class="mx-4" placeholder=" / / "> <img src="{{ asset('img/backoffices/CALENDARIO.PNG') }}"class="my-2" width="30" height="30" alt="">
-                      <p class="mx-3 my-2">a</p> <input type="date" class="mx-4" placeholder=" / / "><img src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-2" width="30" height="30" alt="">
+                      <p class="my-2 mx-2">De</p> <input type="date" class="mx-4" placeholder=""> <img src="{{ asset('img/backoffices/CALENDARIO.PNG') }}"class="my-2 mx-2" width="30" height="30" alt="">
+                      <p class="mx-3 my-2">a</p> <input type="date" class="mx-4" placeholder=""><img src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-2" width="30" height="30" alt="">
                       <div class="input-wrapper">
                         <input type="search" name="" id="" class="mx-4 " placeholder="Buscar">
                         <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
@@ -157,21 +182,22 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
-                      <div class="table-responsive">
+                      <div class="table-responsive text-center">
                         <table class="table table-bordered border-secondary table-striped">
                           <thead>
                             <tr>
-                              <th scope="col">numero de cuenta</th>
-                              <th scope="col">ocupacion</th>
-                              <th scope="col">Ingreso Mensual</th>
-                              <th scope="col">Cuenta con un</th>
+                              <th scope="col">NumerodeCuenta</th>
+                              <th scope="col">Ocupacion</th>
+                              <th scope="col">IngresoMensual</th>
+                              <th scope="col">Cuentaconun</th>
                               <th scope="col">CURP</th>
-                              <th scope="col">fecha de</th>
-                              <th scope="col">Nom de</th>
+                              <th scope="col">Fechade</th>
+                              <th scope="col">Nomde</th>
                               <th scope="col">Ramo</th>
                               <th scope="col">Telefono</th>
-                              <th scope="col">Correo electronico</th>
-                              <th scope="col">Documentacion</th>
+                              <th scope="col">Correoelectronico</th>
+                              <th scope="col">Documentación</th>
+                              <th scope="col">Acciones</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -187,6 +213,9 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
                               </tr>
                               <tr>
                                 <td>Datos</td>
@@ -200,6 +229,9 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
                               </tr>
                               <tr>
                                 <td>Datos</td>
@@ -213,6 +245,9 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
                               </tr>
                               <tr>
                                 <td>Datos</td>
@@ -226,6 +261,9 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
                               </tr>
                               <tr>
                                 <td>Datos</td>
@@ -239,6 +277,73 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
+                              </tr>
+                              <tr>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
+                              </tr>
+                              <tr>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
+                              </tr>
+                              <tr>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
+                              </tr>
+                              <tr>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td>Datos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color boton-aceptar-solic">Aceptar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-rechazar-solic">Rechazar Solicitud</button></td>
+                                <td><button class="btn boton-color boton-falta-inf">Falta inf por com. o es inc.</button></td>
                               </tr>
                             </tbody>
                         </table>
@@ -248,9 +353,84 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid mt-5">
+      <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="row">
+                  <div class="col-12 col-sm-12 col-md-10 col-lg-2 offset-md-1 offset-lg-8">
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
+                        <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link text-dark" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link text-dark" href="#">Siguientes</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- fin tabla de elementos buscados-->
 
-    <!-- footer --->
+    <!--  inicio footer --->
+    <footer class="mt-5">
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        {{--  inicio footer apartado informacion legal --}}
+                        <div class="col-12 col-sm-12 col-md- col-lg-3">
+                            <div class="container-fluid my-5 mx-5">
+                                <p> Información legal</p>
+                                <a href="#" class="footer-enlaces">Terminos y Condiciones 20</a><br/>
+                                <a href="#" class="footer-enlaces">Politica y Aviso de Privacidad</a><br/>
+                                <p>¿Te gusta la pagina?</p>
+                                <span>icono</span>
+                                <span>icono</span>
+                            </div>
+                        </div>
+                        {{--  fin footer apartado informacion legal --}}
+                         {{--  inicio footer apartado Atencion al Cliente --}}
+                        <div class="col-12 col-sm-12 col-md- col-lg-3">
+                            <div class="container-fluid my-5">
+                                <p>Atencion al Cliente</p>
+                                <a href="#" class="footer-enlaces">Preguntas Frecuentes</a><br/>
+                                <a href="#" class="footer-enlaces">¿Quienes somos?</a><br/>
+                                <a href="#" class="footer-enlaces">Acerca de nosotros</a><br/>
+                                <span> icon face</span>
+                                <span>icon inst</span>
+                            </div>
+                        </div>
+                        {{--  fin footer apartado Atencion al Cliente --}}
+                        {{--  inicio footer apartado Contactanos --}}
+                        <div class="col-12 col-sm-12 col-md- col-lg-6">
+                            <div class="container-fluid my-5 mx-2">
+                                <p>contactanos</p>
+                                <form action="">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <input type="email" name="" id="" placeholder="Email">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <textarea  name="" id="" cols="30" rows="10" placeholder="Comentario"></textarea>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <input type="submit" value="Enviar">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        {{--  fin footer apartado Contactanos --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--  fin footer --->
+
 
   <!-- scripts --->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
