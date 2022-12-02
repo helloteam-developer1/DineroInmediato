@@ -32,9 +32,10 @@ class Wizard extends Component
     public $ine_reverso; 
     public $comp_dom; 
     public $foto_cine;
-
+    /*Mensajes de error o exito*/
     public $successMessage = '';
     public $errorMessage = '';
+    
     public function render()
     {
         $empresas = Empresas::get();
@@ -57,10 +58,8 @@ class Wizard extends Component
         $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->nombre]);
 
         if($consulta){
-            
            $this->currentStep = 2;
-            $consulta2 = $consulta;
-           $this->successMessage = json_encode($consulta2);
+        
         }else{
             $this->errorMessage = "No has llenado la calculadora previamente o tus datos son erroneos.";
         }
@@ -91,13 +90,13 @@ class Wizard extends Component
     public function submitForm()
     {
         $validatedData = $this->validate([
-            'ine_frente' => 'image|max:2048',
-            'ine_reverso' => 'image|max:2048',
-            'comp_dom' => 'image|max:2048',
-            'foto_cine' => 'image|max:2048',
+            'ine_frente' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'ine_reverso' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'comp_dom' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'foto_cine' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
         /* Creo la carpeta donde se almacenara las img*/
-        if(file_exists($this->nombre)){
+        
             mkdir(public_path('posts/'.$this->nombre),0777);
             /*extraigo el nombre de la img*/
             $nombre_ine_frente = $this->ine_frente->getClientOriginalName();
@@ -124,6 +123,7 @@ class Wizard extends Component
             })->save($ruta_foto_cine);
             
             $password = Hash::make($this->password);
+            $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->nombre]);
             User::create([
                 'nombre' => $this->nombre,
                 'curp' => $this->curp,
@@ -139,6 +139,12 @@ class Wizard extends Component
                 'ine_reverso' =>$ruta_ine_reverso,
                 'comp_dom' => $ruta_comp_dom,
                 'foto_cine' => $ruta_foto_cine,
+                'prestamo' => $consulta[0]->prestamo,
+                'tiempo' => $consulta[0]->tiempo,
+                'trabajo' => $consulta[0]->trabajo,
+                'ingreso' => $consulta[0]->ingreso,
+                'nomina' => $consulta[0]->nomina,
+                'credito' => $consulta[0]->credito
             ]);
             
             $this->successMessage = 'Registro Completo';
@@ -154,10 +160,9 @@ class Wizard extends Component
                 Mail::to($email)->send($correo);
                 return redirect()->route('dashboard');
             }
-        }else{
-            $this->errorMessage = "No has llenado la calculadora previamente o tus datos son erroneos.";
-        } 
-     
+            
+       
+                 
         
         
         
