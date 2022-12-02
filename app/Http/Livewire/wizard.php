@@ -95,6 +95,7 @@ class Wizard extends Component
             'comp_dom' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
             'foto_cine' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
+        $ruta_file ="/posts/".$this->nombre;
         /* Creo la carpeta donde se almacenara las img*/
         
             mkdir(public_path('posts/'.$this->nombre),0777);
@@ -163,7 +164,7 @@ class Wizard extends Component
             
        
                  
-        
+       
         
         
 
