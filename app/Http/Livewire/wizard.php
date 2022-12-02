@@ -76,7 +76,7 @@ class Wizard extends Component
         */ 
         $validatedData = $this->validate([
             'telefono_contacto' => 'required|numeric|digits_between:8,10',
-            'email' => 'email:rfc,dns',
+            'email' => 'email:rfc,dns|unique:users',
             'password' => [
                 'required',
                 'confirmed',
@@ -95,9 +95,9 @@ class Wizard extends Component
             'comp_dom' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
             'foto_cine' => 'mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
-        $ruta_file ="/posts/".$this->nombre;
+        $rutabusqueda = public_path('posts/'.$this->nombre);
         /* Creo la carpeta donde se almacenara las img*/
-        
+        if(!file_exists($rutabusqueda)){
             mkdir(public_path('posts/'.$this->nombre),0777);
             /*extraigo el nombre de la img*/
             $nombre_ine_frente = $this->ine_frente->getClientOriginalName();
@@ -161,6 +161,10 @@ class Wizard extends Component
                 Mail::to($email)->send($correo);
                 return redirect()->route('dashboard');
             }
+        }else{
+            $this->errorMessage = "Ya tenemos tu información, solo se puede hacer un registro por persona";
+        }
+            
             
        
                  
