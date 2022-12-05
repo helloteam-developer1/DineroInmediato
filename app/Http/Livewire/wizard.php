@@ -49,7 +49,7 @@ class Wizard extends Component
             'fecha_nacimiento' => 'required|after:1932-12-30|before:2022-11-25',
             'empresa_trabajo' => 'required|min:5|max:30',
             'antiguedad' => 'required|',
-            'rama_empresa'=> 'required|min:25|max:600',
+            'rama_empresa'=> 'required|min:25',
             'banco_nomina'=> 'required|min:3|max:30',
             'curp' => 'required|min:18|max:18'
             

@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 text-center ">
                         <button
-                        class="focus:outline-none modal-close w-full bg-naranja px-2 py-2 text-white text-sm" onclick="enviar()">Sai, quiero hacer uso de mi l&iacute;nea de cr&eacute;dito</button>
+                        class="focus:outline-none modal-close w-full bg-naranja px-2 py-2 text-white text-sm" onclick="enviar()">Si, quiero hacer uso de mi l&iacute;nea de cr&eacute;dito</button>
 
                 </div>
             </div>
