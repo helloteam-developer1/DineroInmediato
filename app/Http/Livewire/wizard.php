@@ -99,30 +99,10 @@ class Wizard extends Component
         /* Creo la carpeta donde se almacenara las img*/
         if(!file_exists($rutabusqueda)){
             mkdir(public_path('posts/'.$this->nombre),0777);
-            /*extraigo el nombre de la img*/
-            $nombre_ine_frente = $this->ine_frente->getClientOriginalName();
-            $nombre_ine_reverso = $this->ine_reverso->getClientOriginalName();
-            $nombre_comp_dom = $this->comp_dom->getClientOriginalName();
-            $nombre_foto_cine = $this->foto_cine->getClientOriginalName();
-            /*Genero la ruta de public/posts/nombredelusuarioregistrado para almacenar las img*/
-            $ruta_ine_frente = public_path('posts/'.$this->nombre.'/'.$nombre_ine_frente);
-            $ruta_ine_reverso = public_path('posts/'.$this->nombre.'/'.$nombre_ine_reverso);
-            $ruta_comp_dom = public_path('posts/'.$this->nombre.'/'.$nombre_comp_dom);
-            $ruta_foto_cine = public_path('posts/'.$this->nombre.'/'.$nombre_foto_cine);
-            /*Creo la nueva img pasandole la img del formulario, la redimenciono y la guardo en la ruta espc. */
-            Image::make($this->ine_frente)->resize(1200,null,function($constraint){
-                $constraint->aspectRatio();
-            })->save($ruta_ine_frente);
-            Image::make($this->ine_reverso)->resize(1200,null,function($constraint){
-                $constraint->aspectRatio();
-            })->save($ruta_ine_reverso);
-            Image::make($this->comp_dom)->resize(1200,null,function($constraint){
-                $constraint->aspectRatio();
-            })->save($ruta_comp_dom);
-            Image::make($this->foto_cine)->resize(1200,null,function($constraint){
-                $constraint->aspectRatio();
-            })->save($ruta_foto_cine);
             
+            
+            
+
             $password = Hash::make($this->password);
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->nombre]);
             User::create([
@@ -136,10 +116,10 @@ class Wizard extends Component
                 'telefono_contacto' => $this->telefono_contacto,
                 'email' => $this->email,
                 'password' => $password,
-                'ine_frente' => $ruta_ine_frente,
+                /*'ine_frente' => $ruta_ine_frente,
                 'ine_reverso' =>$ruta_ine_reverso,
                 'comp_dom' => $ruta_comp_dom,
-                'foto_cine' => $ruta_foto_cine,
+                'foto_cine' => $ruta_foto_cine,*/
                 'prestamo' => $consulta[0]->prestamo,
                 'tiempo' => $consulta[0]->tiempo,
                 'trabajo' => $consulta[0]->trabajo,
@@ -150,16 +130,14 @@ class Wizard extends Component
             
             $this->successMessage = 'Registro Completo';
   
-            $credenciales = [
-                'email' => $this->email,
-                'password' => $this->password
-            ];
+            $credenciales = [ 'email' => $this->email, 'password' => $this->password];
             if(Auth::attempt($credenciales)){
                 $datos = ['email' => $this->email, 'password'=> $this->password];
                 $correo = new RegistroMail($datos);
-                $email = Auth::user()->email;
-                Mail::to($email)->send($correo);
+                Mail::to($this->email)->send($correo);
                 return redirect()->route('dashboard');
+            }else{
+                return "Ocurrio un error, Login";
             }
         }else{
             $this->errorMessage = "Ya tenemos tu información, solo se puede hacer un registro por persona";
