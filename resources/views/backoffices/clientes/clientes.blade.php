@@ -7,104 +7,7 @@
   <title>Clientes</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-  <style>
-    h1{
-      color: #38a937;
-    }
-    .boton-color{
-      background-color: #38a937;
-      color: white
-    }
-    .posision{
-      float: left;
-    }
-    .subtitulo{
-      color:#f29100;
-    }
-    .enlace{
-      text-decoration: none;
-      color: black;
-    }
-    .enlace:hover{
-      color: #f29100;
-    }
-    h4{
-      text-align:center;
-    }
-    p{
-      font-weight: bold;
-    }
-    input[type="date"]{
-      width: 90px;
-      height: 40px;
-      border: none;
-      background-color: #ebe7e8;
-    }
-    input[type="search"]{
-      width: 90px;
-      height: 40px;
-      border: none;
-      background-color: #ebe7e8;
-      box-sizing: border-box;
-      color: #191919;
-      padding: 15px 15px 15px 35px;
-      width: 100%;
-    }
-    .input-wrapper {
-      position: relative;
-      width: 271px;
-    }
-    .input-icon {
-      color: #191919;
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    input[type="submit"]{
-      width: 150px;
-      height: 40px;
-    }
-    .boton-aceptar-solic{
-      width: 150px;
-    }
-    .boton-rechazar-solic{
-      width: 170px;
-    }
-    .boton-falta-inf{
-      width: 250px;
-    }
-    footer{
-      width: 100%;
-
-      background-color: #f29100;
-    }
-    .footer-enlaces{
-        width: 100%;
-        font-size: 20px;
-        text-decoration: none;
-        color: white;
-    }
-    .footer-enlaces:hover{
-        color: white;
-    }
-    textarea{
-        height: 200px;
-    }
-    .footer-p{
-      color: #617E21;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .modal-footer{
-        font-size: 22px;
-        text-align: justify;
-    }
-  </style>
+<link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
 </head>
 <body>
     <!-- navbar --->
@@ -115,7 +18,7 @@
         <div class="collapse navbar-collapse mx-5" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="{{ asset('img/backoffices/CLIENTES.png')}}"  width="20" alt="CLIENTES"> Clientes</a>
+              <a class="nav-link" href="/clientes"><img src="{{ asset('img/backoffices/CLIENTES.png')}}" style="color: #38a937;" width="20" alt="CLIENTES"> Clientes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><img src="{{ asset('img/backoffices/ICONO_NOTIFICACIONES.svg')}}"  width="20" alt="NOTIFICACION"> Notificaciones</a>
@@ -137,9 +40,10 @@
     </nav>
 
     <!-- content principal --->
-    <!-- inicio de tabla de creditos-->
+    <!--inicio de titulo-->
     <h1 class="text-center my-5">Clientes</h1>
-
+    <!--fin de titulo-->
+    <!-- inicio de tabla de creditos-->
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -148,7 +52,7 @@
                         <table class="table table-bordered creditos m">
                             <thead>
                               <tr>
-                                <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" class="posision" width="50" alt=""><h4 class="subtitulo"><a href="#" class="enlace">Solicitudes de Crédito</a></h4></th>
+                                <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" class="posision" width="50" alt=""><h4><a href="#" class="subtitulo">Solicitudes de Crédito</a></h4></th>
                                 <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" class="posision" width="60" alt=""><h4 class=""><a href="#" class="enlace">Clientes Vigentes</a></h4></th>
                                 <th scope="col"><img src="{{ asset('img/backoffices/CRE_FIN_GRIS.png') }}" class="posision" width="70" alt=""><h4><a href="#" class="enlace">Crédito Finalizado</a></h4></th>
                                 <th scope="col"><img src="{{ asset('img/backoffices/CRE_VEN_NARANJA.png') }}" class="posision" width="60" alt=""><h4><a href="#" class="enlace">Cartera Vencida</a></h4></th>
@@ -193,7 +97,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                       <div class="table-responsive text-center">
-                        <table class="table table-bordered border-secondary table-striped">
+                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-Solicitud">
                           <thead>
                             <tr>
                               <th scope="col">NumerodeCuenta</th>
@@ -357,11 +261,160 @@
                               </tr>
                             </tbody>
                         </table>
+                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-clientes">
+                            <thead>
+                              <tr>
+                                <th scope="col" class="px-5 ">NumeredeCredito</th>
+                                <th scope="col" class="px-5">NumerodeCliente</th>
+                                <th scope="col" class="px-5">Nombre</th>
+                                <th scope="col">lineadeCreditoAut</th>
+                                <th scope="col">TarjetadeNómReg</th>
+                                <th scope="col" class="px-5">TabladeAmortización</th>
+                                <th scope="col">NumParcilidades</th>
+                                <th scope="col" class="px-5">TabladePago</th>
+                                <th scope="col" class="px-5">NumerodePago</th>
+                                <th scope="col" class="px-5">EnviarCarteraVencida</th>
+                                <th scope="col" class="px-5">MasInformación</th>
+                                <th scope="col" class="px-5">FinalizarCredito</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>123890</td>
+                                <td>NC989862</td>
+                                <td>Alberto Ledezm</td>
+                                <td>1200</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>2 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>4 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>123567</td>
+                                <td>NC967457</td>
+                                <td>Jóse Garcia Hern</td>
+                                <td>800</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>3 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>6pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>134780</td>
+                                <td>NC567834</td>
+                                <td>Danna Peña Mar</td>
+                                <td>2500</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>3 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>6pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>09897</td>
+                                <td>NC234569</td>
+                                <td>Ivan Segura Rico</td>
+                                <td>300</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>1 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>4 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>00457</td>
+                                <td>NC092345</td>
+                                <td>Adrian Uribe Sos</td>
+                                <td>1200</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>4 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>6 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>14590</td>
+                                <td>NC125678</td>
+                                <td>Pedro Sierra Flor</td>
+                                <td>1500</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>2 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>4 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>00089</td>
+                                <td>NC234569</td>
+                                <td>Susana Gutiérrez</td>
+                                <td>Datos</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>8 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>9 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>07584</td>
+                                <td>NC673456</td>
+                                <td>Roberto Villagón</td>
+                                <td>700</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>7 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>8 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                              <tr>
+                                <td>02342</td>
+                                <td>NC19802</td>
+                                <td>Luis Gómez Loi</td>
+                                <td>3000</td>
+                                <td>si</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>2 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td>4 pagos</td>
+                                <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
+                              </tr>
+                            </tbody>
+                          </table>
                       </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+
     </div>
 
     <!--inicio de modal mostrar documento-->
@@ -418,7 +471,7 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-                                <button type="button" class="btn px-4 my-2" style="background-color: #38a937; color:white; margin-right: 165px;" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn px-4 my-2" style="background-color: #38a937; color:white; margin-right: 160px;" data-bs-dismiss="modal">Cerrar</button>
                                 <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;">Volver</button>
                             </div>
                         </div>
