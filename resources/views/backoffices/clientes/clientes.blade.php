@@ -266,7 +266,7 @@
                         </table>
                         <!--fin tabla de solicitudes--->
                         <!--inicio tabla de clientes--->
-                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-Clientes">
+                        <table class="table  table-bordered border-secondary table-light table-striped" id="tabla-Clientes">
                             <thead>
                               <tr>
                                 <th scope="col" class="px-5">Numero de Crédito</th>
