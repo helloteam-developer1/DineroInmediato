@@ -125,7 +125,7 @@ h1{
     color: black;
   }
   .enlace:hover{
-    color: #f29100;
+    color: black;
   }
   h4{
     text-align:center;
@@ -166,7 +166,7 @@ h1{
     width: 150px;
     height: 40px;
   }
-  #tabla-Solicitud{
+  #tabla-Clientes{
     display: none;
   }
   .boton-aceptar-solic{

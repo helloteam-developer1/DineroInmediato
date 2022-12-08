@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse mx-5" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/clientes"><img src="{{ asset('img/backoffices/CLIENTES.png')}}" style="color: #38a937;" width="20" alt="CLIENTES"> Clientes</a>
+              <a class="nav-link" href="/clientes" style="color: #38a937;"><img src="{{ asset('img/backoffices/CLIENTES.png')}}"  width="20" alt="CLIENTES"> Clientes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><img src="{{ asset('img/backoffices/ICONO_NOTIFICACIONES.svg')}}"  width="20" alt="NOTIFICACION"> Notificaciones</a>
@@ -49,11 +49,11 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-8  offset-lg-2">
-                        <table class="table table-bordered creditos m">
+                        <table class="table table-bordered creditos ">
                             <thead>
                               <tr>
-                                <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" class="posision" width="50" alt=""><h4><a href="#" class="subtitulo">Solicitudes de Crédito</a></h4></th>
-                                <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" class="posision" width="60" alt=""><h4 class=""><a href="#" class="enlace">Clientes Vigentes</a></h4></th>
+                                <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" id="imgSolicitudNaranja" class="posision" width="50" alt=""><img src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}" id="imgSolicitudGris" style="display: none" class="posision" width="50" alt=""><h4><a href="#" class="subtitulo" id="solicitudes" >Solicitudes de Crédito</a></h4></th>
+                                <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" id="imgClientesGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CLI_CRE_VIG_NAR.png') }}"id="imgClientesNaranja" style="display: none" class="posision" width="60" alt=""><h4><a href="#" class="enlace" id="clientes">Clientes Vigentes</a></h4></th>
                                 <th scope="col"><img src="{{ asset('img/backoffices/CRE_FIN_GRIS.png') }}" class="posision" width="70" alt=""><h4><a href="#" class="enlace">Crédito Finalizado</a></h4></th>
                                 <th scope="col"><img src="{{ asset('img/backoffices/CRE_VEN_NARANJA.png') }}" class="posision" width="60" alt=""><h4><a href="#" class="enlace">Cartera Vencida</a></h4></th>
                               </tr>
@@ -97,21 +97,24 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                       <div class="table-responsive text-center">
+                        <!--inicio tabla de solicitudes--->
                         <table class="table table-bordered border-secondary table-light table-striped" id="tabla-Solicitud">
                           <thead>
                             <tr>
-                              <th scope="col">NumerodeCuenta</th>
-                              <th scope="col">Ocupacion</th>
-                              <th scope="col">IngresoMensual</th>
-                              <th scope="col">Cuentaconun</th>
-                              <th scope="col">CURP</th>
-                              <th scope="col">Fechade</th>
-                              <th scope="col">Nomde</th>
-                              <th scope="col">Ramo</th>
-                              <th scope="col">Telefono</th>
-                              <th scope="col">CorreoElectronico</th>
-                              <th scope="col">Documentación</th>
-                              <th scope="col">Acciones</th>
+                              <th scope="col" class="px-5">Numero de Cuenta</th>
+                              <th scope="col" class="px-5">Ocupación</th>
+                              <th scope="col" class="px-5">Ingreso Mensual</th>
+                              <th scope="col" class="px-5">Cuenta con un</th>
+                              <th scope="col" class="px-5">CURP</th>
+                              <th scope="col" class="px-5">Fecha de</th>
+                              <th scope="col" class="px-5">Nom de</th>
+                              <th scope="col" class="px-5">Ramo</th>
+                              <th scope="col" class="px-5">Telefono</th>
+                              <th scope="col" class="px-5">Correo Electronico</th>
+                              <th scope="col" class="px-5">Documentación</th>
+                              <th scope="col" class="px-5">Acciones</th>
+                              <th></th>
+                              <th></th>
                             </tr>
                           </thead>
                           <tbody>
@@ -261,21 +264,23 @@
                               </tr>
                             </tbody>
                         </table>
-                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-clientes">
+                        <!--fin tabla de solicitudes--->
+                        <!--inicio tabla de clientes--->
+                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-Clientes">
                             <thead>
                               <tr>
-                                <th scope="col" class="px-5 ">NumeredeCredito</th>
-                                <th scope="col" class="px-5">NumerodeCliente</th>
+                                <th scope="col" class="px-5">Numero de Crédito</th>
+                                <th scope="col" class="px-5">Numero de Cliente</th>
                                 <th scope="col" class="px-5">Nombre</th>
-                                <th scope="col">lineadeCreditoAut</th>
-                                <th scope="col">TarjetadeNómReg</th>
-                                <th scope="col" class="px-5">TabladeAmortización</th>
-                                <th scope="col">NumParcilidades</th>
-                                <th scope="col" class="px-5">TabladePago</th>
-                                <th scope="col" class="px-5">NumerodePago</th>
-                                <th scope="col" class="px-5">EnviarCarteraVencida</th>
-                                <th scope="col" class="px-5">MasInformación</th>
-                                <th scope="col" class="px-5">FinalizarCredito</th>
+                                <th scope="col" class="px-5">linea de Crédito Aut</th>
+                                <th scope="col" class="px-5">Tarjeta de Nóm Reg</th>
+                                <th scope="col" class="px-5">Tabla de Amortización</th>
+                                <th scope="col" class="px-5">Num Parcilidades</th>
+                                <th scope="col" class="px-5">Tabla de Pago</th>
+                                <th scope="col" class="px-5">Numero de Pago</th>
+                                <th scope="col" class="px-5">Enviar Cartera Vencida</th>
+                                <th scope="col" class="px-5">Mas Información</th>
+                                <th scope="col" class="px-5">Finalizar Crédito</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -406,7 +411,8 @@
                                 <td><button class="btn boton-color px-4 mx-4">Finalizar</button></td>
                               </tr>
                             </tbody>
-                          </table>
+                        </table>
+                        <!--fin tabla de clientes--->
                       </div>
                     </div>
                 </div>
@@ -874,7 +880,7 @@
 
   <!-- scripts --->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+  <script src="{{ asset('js/backoffice/clientes.js') }}"></script>
 
 </body>
 </html>
