@@ -290,9 +290,9 @@
                                 <td>Alberto Ledezm</td>
                                 <td>1200</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>2 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>4 pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -304,9 +304,9 @@
                                 <td>Jóse Garcia Hern</td>
                                 <td>800</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>3 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>6pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -318,9 +318,9 @@
                                 <td>Danna Peña Mar</td>
                                 <td>2500</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>3 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>6pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -332,9 +332,9 @@
                                 <td>Ivan Segura Rico</td>
                                 <td>300</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>1 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>4 pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -346,9 +346,9 @@
                                 <td>Adrian Uribe Sos</td>
                                 <td>1200</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>4 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>6 pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -360,9 +360,9 @@
                                 <td>Pedro Sierra Flor</td>
                                 <td>1500</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>2 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>4 pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -374,9 +374,9 @@
                                 <td>Susana Gutiérrez</td>
                                 <td>Datos</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>8 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>9 pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -388,9 +388,9 @@
                                 <td>Roberto Villagón</td>
                                 <td>700</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>7 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>8 pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
@@ -402,9 +402,9 @@
                                 <td>Luis Gómez Loi</td>
                                 <td>3000</td>
                                 <td>si</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaAmortizacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>2 pagos</td>
-                                <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
+                                <td><button class="btn boton-color px-4 mx-4"><a href="/tablaPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td>4 pagos</td>
                                 <td><button class="btn boton-color px-4 mx-4">Enviar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4">Ver</button></td>
