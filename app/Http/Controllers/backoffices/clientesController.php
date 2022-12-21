@@ -17,4 +17,7 @@ class clientesController extends Controller
     public function tablaPagos(){
         return view('backoffices.clientes.tablaPagos');
     }
+    public function masInformacion(){
+        return view('backoffices.clientes.masInformacion');
+    }
 }

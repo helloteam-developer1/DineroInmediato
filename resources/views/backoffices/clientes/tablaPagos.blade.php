@@ -12,32 +12,49 @@
 </head>
 <body>
   <!-- navbar --->
-  <nav class="navbar navbar-expand-lg navbar-light border shadow">
-    <div class="container-fluid">
-      <img src="{{ asset('img/logo.png') }}" width="120" class="my-2 mx-5" alt="logo">
-      <div class=" col-sm-4 col-md-4 col-lg-5"></div>
-      <div class="collapse navbar-collapse mx-5" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/clientes" style="color: #38a937;"><img src="{{ asset('img/backoffices/CLIENTES.png')}}"  width="20" alt="CLIENTES"> Clientes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img src="{{ asset('img/backoffices/ICONO_NOTIFICACIONES.svg')}}"  width="20" alt="NOTIFICACION"> Notificaciones</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{{ asset('img/backoffices/ICONO AJUSTES.svg')}}"  width="20" alt="Ajustes">
-              Ajustes
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#"><img src="{{ asset('img/backoffices/ICONO_PERFIL.svg')}}"  width="15" alt="perfil">Perfil</a></li>
-              <hr>
-              <li><a class="dropdown-item" href="#"><img src="{{ asset('img/backoffices/ICONO_CONTACTO.svg')}}"  width="15" alt="contacto">Contacto</a></li>
-            </ul>
-          </li>
-        </ul>
+  <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand navbar-light border shadow">
+      <div class="container-fluid">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="row">
+                  <div class=" col-8 col-ms-2 col-md-6 col-lg-2  offset-4 offset-md-4 offset-lg-1">
+                      <img src="{{ asset('img/logo.png') }}" width="120" class="my-2 ms-2" alt="logo">
+                  </div>
+                  <div class=" col-12 col-sm-10 col-md-6 col-lg-4 offset-sm-2 offset-md-4 mt-4">
+                      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                          <ul class="navbar-nav">
+                              <li class="nav-item">
+                                  <a class="nav-link" href="/clientes" style="color: #38a937;"><img
+                                          src="{{ asset('img/backoffices/CLIENTES.png') }}" width="20"
+                                          alt="CLIENTES"> Clientes</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#"><img
+                                          src="{{ asset('img/backoffices/ICONO_NOTIFICACIONES.svg') }}" width="20"
+                                          alt="NOTIFICACION"> Notificaciones</a>
+                              </li>
+                              <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                      role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="20"
+                                          alt="Ajustes">
+                                      Ajustes
+                                  </a>
+                                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                      <li><a class="dropdown-item" href="#"><img
+                                                  src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15"
+                                                  alt="perfil">Perfil</a></li>
+                                      <hr>
+                                      <li><a class="dropdown-item" href="#"><img
+                                                  src="{{ asset('img/backoffices/ICONO_CONTACTO.svg') }}"
+                                                  width="15" alt="contacto">Contacto</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
   </nav>
 
   <!--inicio de titulo-->
@@ -52,12 +69,12 @@
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-2 offset-md-4 offset-lg-6">
                   <div class="input-group">
                     <div class="input-wrapper">
-                      <input type="search" name="" id="" class="ms-1" placeholder="Buscar">
+                      <input type="search" name="" id="" class="ms-1 mt-2" placeholder="Buscar">
                       <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                       </svg>
                     </div>
-                    <input type="submit" value="Buscar" class="btn boton-color px-2 ms-4">
+                    <input type="submit" value="Buscar" class="btn boton-color px-2 ms-4 mt-2">
                   </div>
                 </div>
               </div>
@@ -76,14 +93,14 @@
                         <table class="table table-bordered border-secondary table-light table-striped" id="tabla-amortizacion">
                           <thead>
                             <tr>
-                              <th scope="col" class="px-5">Numero de crédito</th>
-                              <th scope="col" class="px-5">Numero de pago</th>
-                              <th scope="col" class="px-5">Fecha de pago</th>
-                              <th scope="col" class="px-5">Monto Pagado</th>
-                              <th scope="col" class="px-5">Saldo Insoluto</th>
-                              <th scope="col" class="px-5">Agregar fila</th>
-                              <th scope="col" class="px-5">Editar</th>
-                              <th scope="col" class="px-5">Eliminar</th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio pt-3">Numero de crédito</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Numero de pago</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Fecha de pago</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Monto Pagado</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Saldo Insoluto</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Agregar fila</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Editar</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Eliminar</p></th>
                             </tr>
                           </thead>
                           <tbody>
@@ -151,7 +168,7 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 offset-2 offset-sm-2 offset-md-2 offset-lg-8">
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 offset-sm-4 offset-md-6 offset-lg-8">
                   <nav aria-label="Page navigation example">
                     <ul class="pagination">
                       <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
@@ -172,11 +189,13 @@
   <!--inicio de buttons-->
   <div class="container-fluid mt-5">
     <div class="row">
-        <div class="col-12 col-sm-2 col-md-10 col-lg-10 offset-2 offset-sm-8 offset-md-1 offset-lg-1">
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1">
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-10">
-                  <button type="button" class="btn px-5 mb-5" style="background-color: #38a937; color:white; margin-right: 40%;  margin-left: 20%; font-size: 20px;">Volver</button>
-                  <button type="button" class="btn px-5 mb-5" style="background-color: #f29100; color:white;  font-size: 20px;">Guardar</button>
+                <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                  <button type="button" class="btn px-5 my-3 " style="background-color: #38a937; color:white; font-size: 20px;">Volver</button>
+                </div>
+                <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                  <button type="button" class="btn px-5 my-3 " style="background-color: #f29100; color:white; font-size: 20px;">Guardar</button>
                 </div>
               </div>
           </div>
@@ -191,13 +210,13 @@
               <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                   <div class="row">
                       {{--  inicio footer apartado informacion legal --}}
-                      <div class="col-12 col-sm-12 col-md- col-lg-4">
-                          <div class="container-fluid my-5 ms-5">
-                              <p class="footer-p"> Información legal</p>
-                              <a href="#" class="footer-enlaces mt-3" data-bs-toggle="modal" data-bs-target="#terminosYcondiciones">Terminos y Condiciones 20</a><br/>
-                              <a href="#" class="footer-enlaces mt-4" data-bs-toggle="modal" data-bs-target="#politicaYprivacidad">Politica y Aviso de Privacidad</a><br/>
-                              <p class="mt-4" style="font-size: 20px; font-weight: bold;">¿Te gusta la pagina?</p>
-                              <img src="{{ asset('img/backoffices/Grupo 63.png') }}" width="150" class="ms-3" alt="">
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                          <div class="container-fluid my-5">
+                              <p class="footer-p ms-3"> Información legal</p>
+                              <a href="#" style="width: 100%;" class="footer-enlaces mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#terminosYcondiciones">Terminos y Condiciones 20</a><br>
+                              <a href="#" style="width: 100%;" class="footer-enlaces mt-4 ms-3" data-bs-toggle="modal" data-bs-target="#politicaYprivacidad">Politica y Aviso de Privacidad</a><br>
+                              <p class="mt-4 ms-3" style="font-size: 20px; font-weight: bold;">¿Te gusta la pagina?</p>
+                              <img src="{{ asset('img/backoffices/Grupo 63.png') }}" width="150" class="ms-3 ms-3" alt="">
                           </div>
                       </div>
                       <!-- inicio modal-footer apartado info legal-->
@@ -273,12 +292,12 @@
                       <!-- fin modal-footer apartado info legal-->
                       {{--  fin footer apartado informacion legal --}}
                        {{--  inicio footer apartado Atencion al Cliente --}}
-                      <div class="col-12 col-sm-12 col-md- col-lg-4">
-                          <div class="container-fluid my-5 ms-5">
-                              <p class="footer-p">Atencion al Cliente</p>
-                              <a href="/preguntasfrec" class="footer-enlaces">Preguntas Frecuentes</a><br/>
-                              <a href="#" class="footer-enlaces" data-bs-toggle="modal" data-bs-target="#QuienesSomos">¿Quienes somos?</a><br/>
-                              <a href="#" class="footer-enlaces" data-bs-toggle="modal" data-bs-target="#AcercaNosotros">Acerca de nosotros</a><br/>
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                          <div class="container-fluid my-5">
+                              <p class="footer-p ms-3">Atencion al Cliente</p>
+                              <a href="/preguntasfrec" style="width: 100%;" class="footer-enlaces ms-3">Preguntas Frecuentes</a><br>
+                              <a href="#" style="width: 100%;" class="footer-enlaces ms-3" data-bs-toggle="modal" data-bs-target="#QuienesSomos">¿Quienes somos?</a> <br>
+                              <a href="#" style="width: 100%;" class="footer-enlaces ms-3" data-bs-toggle="modal" data-bs-target="#AcercaNosotros">Acerca de nosotros</a><br>
                               <img src="{{ asset('img/backoffices/Grupo 50.png') }}" width="45" class=" mt-4 ms-3" alt="">
                               <img src="{{ asset('img/backoffices/Grupo 48.png') }}" width="45" class="mt-4 ms-3" alt="">
                           </div>
@@ -366,7 +385,7 @@
                               </form>
                           </div>
                       </div>
-                      <div class="col-12 col-sm-12 col-md- col-lg-12">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <p style="text-align: center; color: white;">2022 <i style="font-weight: bold;"> Dinero Inmediato</i> | Todos los derechos reservados</p>
                       </div>
                       {{--  fin footer apartado Contactanos --}}
