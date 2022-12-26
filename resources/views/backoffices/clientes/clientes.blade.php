@@ -69,9 +69,9 @@
                         <table class="table table-bordered creditos">
                           <thead>
                             <tr>
-                                <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" id="imgSolicitudNaranja" class="posision" width="50" alt=""><img src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}" id="imgSolicitudGris" style="display: none" class="posision" width="50" alt=""><h4><a href="#" class="subtitulo" id="solicitudes" >Solicitudes de Crédito</a></h4></th>
-                                <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" id="imgClientesGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CLI_CRE_VIG_NAR.png') }}"id="imgClientesNaranja" style="display: none" class="posision" width="60" alt=""><h4><a href="#" class="enlace" id="clientes">Clientes Vigentes</a></h4></th>
-                                <th scope="col"><img src="{{ asset('img/backoffices/CRE_FIN_GRIS.png') }}" id="imgFinalizadoGris" class="posision" width="70" alt=""><img src="{{ asset('img/backoffices/CRE_FIN_NAR.svg') }}" id="imgFinalizadoNaranja"  style="display: none" class="posision" width="70" alt=""><h4><a href="#" class="enlace">Crédito Finalizado</a></h4></th>
+                                <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" id="imgSolicitudNaranja" class="posision" width="50" alt=""><img src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}" id="imgSolicitudGris" style="display: none" class="posision" width="50" alt=""><h4><a href="#solicitudesCredito" class="subtitulo" id="solicitudes" >Solicitudes de Crédito</a></h4></th>
+                                <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" id="imgClientesGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CLI_CRE_VIG_NAR.png') }}"id="imgClientesNaranja" style="display: none" class="posision" width="60" alt=""><h4><a href="#clientesVigentes" class="enlace" id="clientes">Clientes Vigentes</a></h4></th>
+                                <th scope="col"><img src="{{ asset('img/backoffices/CRE_FIN_GRIS.png') }}" id="imgFinalizadoGris" class="posision" width="70" alt=""><img src="{{ asset('img/backoffices/CRE_FIN_NAR.svg') }}" id="imgFinalizadoNaranja"  style="display: none" class="posision" width="70" alt=""><h4><a href="#creditoFinalizado" class="enlace" id="finalizado">Crédito Finalizado</a></h4></th>
                                 <th scope="col"><img src="{{ asset('img/backoffices/CRE_VEN_NARANJA.png') }}" class="posision" width="60" alt=""><h4><a href="#" class="enlace">Cartera Vencida</a></h4></th>
                             </tr>
                           </thead></table>
@@ -433,14 +433,77 @@
                         <table class="table  table-bordered border-secondary table-light table-striped" id="tabla-Finalizado">
                             <thead>
                               <tr>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Nombre</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Num de crédito</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Crédito Activo</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Historial de pago</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla">Historial de montos Auto</p></th>
                               </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>2</td>
+                                    <td>Vigente</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>1</td>
+                                    <td>Inactivo</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>3</td>
+                                    <td>Vigente</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>1</td>
+                                    <td>Vigente</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>2</td>
+                                    <td>Inactivo</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>3</td>
+                                    <td>Inactivo</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>1</td>
+                                    <td>Vigente</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>1</td>
+                                    <td>Inactivo</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellidos</td>
+                                    <td>2</td>
+                                    <td>Inactivo</td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver</a></button></td>
+                                    <td><button class="btn boton-color px-4 mx-4"><a href="#" style="text-decoration: none; color:white;">Ver montos</a></button></td>
+                                </tr>
                             </tbody>
                         </table>
                         <!-- fin tabla finalizar credito-->
