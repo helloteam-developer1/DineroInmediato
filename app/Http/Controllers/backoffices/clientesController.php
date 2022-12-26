@@ -20,4 +20,7 @@ class clientesController extends Controller
     public function masInformacion(){
         return view('backoffices.clientes.masInformacion');
     }
+    public function historialPagos(){
+        return view('backoffices.clientes.historialPagos');
+    }
 }
