@@ -147,6 +147,9 @@ h1{
   .encabezado-tabla-pequeño{
     width: 100px;
   }
+  .encabezado-tabla-normal{
+    width: 125px;
+  }
   .encabezado-tabla{
     width: 200px;
   }
