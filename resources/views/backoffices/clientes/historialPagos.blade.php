@@ -18,10 +18,10 @@
         <div class="container-fluid">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class=" col-8 col-ms-2 col-md-6 col-lg-2  offset-4 offset-md-4 offset-lg-1">
-                        <img src="{{ asset('img/logo.png') }}" width="120" class="my-2 ms-2" alt="logo">
+                    <div class=" col-8 col-ms-2 col-md-6 col-lg-1  offset-4 offset-md-4 offset-lg-1">
+                        <img src="{{ asset('img/logo.png') }}" width="120" class="my-2" alt="logo">
                     </div>
-                    <div class=" col-12 col-sm-10 col-md-6 col-lg-4 offset-sm-2 offset-md-4 mt-4">
+                    <div class=" col-12 col-sm-9 col-md-6 col-lg-6 offset-sm-3 offset-md-4 mt-4">
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -69,7 +69,7 @@
       <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
               <div class="row">
-                  <div class="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-2 offset-md-4 offset-lg-6">
+                  <div class="col-10 col-sm-10 col-md-8 col-lg-6 offset-1 offset-sm-2 offset-md-4 offset-lg-6">
                     <div class="input-group">
                       <div class="input-wrapper">
                         <input type="search" name="" id="" class="ms-1 mt-2" placeholder="Buscar">
@@ -153,11 +153,11 @@
 
 
     <!--inicio de paginador-->
-    <!--<div class="container-fluid mt-5">
+    <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 offset-sm-4 offset-md-6 offset-lg-8">
+                    <div class="col-12 col-sm-2 col-md-4 col-lg-2 offset-sm-4 offset-md-4 offset-lg-8">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                                 <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
@@ -173,26 +173,26 @@
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <!--fin de paginador-->
 
     <!--inicio de botones-->
-    <!--<div class="container-fluid mt-5">
+    <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1">
+            <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                 <div class="row">
-                    <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 offset-sm-2 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
-                            style="background-color: #38a937; color:white; font-size: 20px;">Volver</button>
+                            style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
                     </div>
-                    <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 offset-sm-2 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
                             style="background-color: #f29100; color:white; font-size: 20px;">Guardar</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <!--fin de botones-->
 
     <!--  inicio footer --->
