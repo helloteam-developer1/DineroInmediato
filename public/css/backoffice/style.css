@@ -58,13 +58,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 .center{
     text-align: center;
     justify-content: center;
     align-items: center;
-    
+
 }
 .sin{
     text-align: center;
@@ -76,6 +76,7 @@ body{
     text-decoration: none;
     font-size: 25px;
 }
+<<<<<<< HEAD
 .texto-carotSans--Medium{
     font-family: 'CarotSans-Medium';
   }
@@ -114,6 +115,130 @@ body{
     .texto-solicita-verde{
         font-size: 20px;
         color: #52ba42;
+=======
+h1{
+    color: #38a937;
+  }
+  .boton-color{
+    background-color: #38a937;
+    color: white
+  }
+  .posision{
+    float: left;
+  }
+  .subtitulo{
+    color:#f29100;
+    text-decoration: none;
+  }
+  .subtitulo:hover{
+    color:#f29100;
+  }
+  .enlace{
+    text-decoration: none;
+    color: black;
+  }
+  .enlace:hover{
+    color: black;
+  }
+  h4{
+    text-align:center;
+  }
+  p{
+    font-weight: bold;
+  }
+  input[type="date"]{
+    width: 90px;
+    height: 40px;
+    border: none;
+    background-color: #ebe7e8;
+  }
+  input[type="search"]{
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: #ebe7e8;
+    box-sizing: border-box;
+    color: #191919;
+    padding: 15px 15px 15px 35px;
+  }
+  .input-wrapper {
+    position: relative;
+    width: 271px;
+  }
+  .input-icon {
+    color: #191919;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  input[type="submit"]{
+    width: 150px;
+    height: 40px;
+  }
+  #tabla-Clientes{
+    display: none;
+  }
+  #tabla-Finalizado{
+    display: none;
+  }
+  .encabezado-tabla-pequeño{
+    width: 100px;
+  }
+  .encabezado-tabla-normal{
+    width: 125px;
+  }
+  .encabezado-tabla{
+    width: 200px;
+  }
+  .encabezado-tabla-medio{
+    width: 150px;
+  }
+  .encabezado-tabla-big{
+    width: 300px;
+  }
+  .boton-aceptar-solic{
+    width: 150px;
+  }
+  .boton-rechazar-solic{
+    width: 170px;
+  }
+  .boton-falta-inf{
+    width: 250px;
+  }
+  footer{
+    width: 100%;
+    background-color: #f29100;
+  }
+  .footer-enlaces{
+      width: 100%;
+      font-size: 20px;
+      text-decoration: none;
+      color: white;
+  }
+  .footer-enlaces:hover{
+      color: white;
+  }
+  textarea{
+      height: 200px;
+  }
+  .footer-p{
+    color: #617E21;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .modal-footer{
+      font-size: 22px;
+      text-align: justify;
+  }
+
+  @media(max-width: 1000px){
+    .pantallas-big{
+      display: none;
+>>>>>>> 1a9e2ab9c9edaeae0ac25b6ebf2cde7f02daf396
     }
-    
-}
+  }
+
+  /**<p class="encabezado-tabla"></p>*/

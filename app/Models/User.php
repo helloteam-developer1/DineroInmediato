@@ -33,7 +33,13 @@ class User extends Authenticatable
         'ine_frente',
         'ine_reverso', 
         'comp_dom', 
-        'foto_cine'
+        'foto_cine', 
+        'prestamo',
+        'tiempo',
+        'trabajo',
+        'ingreso',
+        'nomina',
+        'credito'
     ];
 
     /**
