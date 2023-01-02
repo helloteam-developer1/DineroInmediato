@@ -76,6 +76,21 @@ body{
     text-decoration: none;
     font-size: 25px;
 }
+.texto-carotSans--Medium{
+    font-family: 'CarotSans-Medium';
+  }
+  .texto-carotSans--Regular{
+    font-family: 'CarotSans-Regular';
+  }
+  .texto-carotSans--ExtraLight{
+    font-family: 'CarotSans-ExtraLight';
+  }
+  .texto-carotSans--Bold{
+    font-family: 'CarotSans-Bold';
+  }
+  .texto-carotSans--Light{
+    font-family: 'CarotSans-Light';
+  }
    
 @media (max-width: 390px){
     .btn-verde{

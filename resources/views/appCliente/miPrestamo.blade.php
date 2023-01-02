@@ -32,13 +32,49 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
     @stack('css')
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+   {{--  se comentan estas lineas de código debido a que Tailwind css y Bootstrap 5.0.2 chocan con las clases --}}
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
     @livewireStyles
     @livewireScripts
 
     <style>
+        @font-face {
+        font-family: 'CarotSans-Medium';
+        src: url("../fonts/CarotSans-Medium.otf") format('woff');
+      }
+      @font-face {
+        font-family: 'CarotSans-Regular';
+        src: url("./fonts/CarotSans-Regular.otf") format('woff');
+      }
+      @font-face {
+        font-family: 'CarotSans-ExtraLight';
+        src: url("./fonts/CarotSans-ExtraLight.otf") format('woff');
+      }
+      @font-face {
+        font-family: 'CarotSans-Bold';
+        src: url("./fonts/CarotSans-Bold.otf") format('woff');
+      }
+      @font-face {
+        font-family: 'CarotSans-Light';
+        src: url("./fonts/CarotSans-Light.otf") format('woff');
+      }
+      .texto-carotSans--Medium{
+        font-family: 'CarotSans-Medium';
+      }
+      .texto-carotSans--Regular{
+        font-family: 'CarotSans-Regular';
+      }
+      .texto-carotSans--ExtraLight{
+        font-family: 'CarotSans-ExtraLight';
+      }
+      .texto-carotSans--Bold{
+        font-family: 'CarotSans-Bold';
+      }
+      .texto-carotSans--Light{
+        font-family: 'CarotSans-Light';
+      }
         .solicita:hover{
             background: #da8b0c !important;
 
@@ -55,75 +91,114 @@
         .btn-verde:hover{
             color: #e0fc70;
         }
+        /* .containerUno{
+            display: flex;
+        }
+        .containerUno div:nth-of-type(1) {
+    order: 4;
+  }
+ 
+  .boxes button:nth-of-type(2) {
+    order: 3;
+  }
+ 
+  .boxes button:nth-of-type(3) {
+    order: 2;
+  }
+ 
+  .boxes button:nth-of-type(4) {
+    order: 1;
+  } */
+        /*Responsivo para Moviles*/
+        @media (max-width: 400px) {
+            footer {
+                /* flex-direction: column-reverse; */
+                margin: auto;
 
+                
+            }
+            /* input, textarea{
+                width: 100%;
+                height: 100%;
+                margin: 20px 0px 20px 0px;
+            } */
+            /* .form-control{
+                margin: 20px 0px 20px 0px;
+            } */
+            /* .row{
+                margin: 20px 0px 20px 0px;
+            } */
+        }
+        /*Responsivo para Tablets*/
+        @media (min-width: 400px) and (max-width: 1024px) {
+            footer {
+                /* flex-direction: column-reverse; */
+                margin: auto;
+            }
+            /* input, textarea{
+                width: 100%;
+                height: 100%;
+            } */
+            /* .form-control{
+                margin: 20px 0px 20px 0px;
+
+            } */
+        }
+        /*Responsivo para Escritorio*/
+        @media (min-width: 1025px) and (max-width: 1980px) {
+            footer {
+                /* flex-direction: column-reverse; */
+                margin: auto;
+
+            }
+        }
+        /*Responsivo para Full Hd*/
+        @media (min-width: 1981px) {
+            footer {
+                margin: auto;
+
+            }
+            /* .form-control{
+                margin: 20px 0px 20px 0px;
+
+            } */
+        }
+
+        
+@media screen and (min-width: 600px) {
+  .boxes {
+    display: flex;
+  }
+  
+  .boxes button:nth-of-type(1) {
+    order: 4;
+  }
+  
+  .boxes button:nth-of-type(2) {
+    order: 3;
+  }
+  
+  .boxes button:nth-of-type(3) {
+    order: 2;
+  }
+  
+  .boxes button:nth-of-type(4) {
+    order: 1;
+  }
+}
     </style>
 </head>
 
 <body >
     
 {{--Menú Cliente--}}
-@include('components.landing.cuerpo._menuCliente')
+@include('components.landing.cuerpo._menuClienteEmma')
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img
-            src="img/Grupo 24.png"
-            width="150"
-            class=""
-            style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;"
-        />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 100px;">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="miPrestamo.html">
-                <img class="m-1"  src="img/Grupo 946.png" alt="">
-                <!-- <img class="ms-3 me-2"  src="img/Grupo 946.png" alt=""> -->
-                &nbsp;Mi préstamo
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="clienteNotificaciones.html">
-                <img class="m-1" src="img/Grupo 262.png" alt=""> 
-                &nbsp;&nbsp;&nbsp;Notificaciones
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="clienteSoliNueva.html">
-                <img class="m-1" src="img/Grupo 264.png" alt="">
-                Solicitud de nuevo crédito
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="clienteDocuInfor.html">
-                <img class="m-1" src="img/ICONO_DOC E INF_ GRIS.svg" alt=""> 
-                &nbsp;&nbsp;&nbsp;Documentación e información
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="m-1" src="img/Grupo 397.png" alt=""> 
-                &nbsp;&nbsp;Ajustes
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#"><img class="me-2" src="img/Grupo 947.png" alt=""> Mi perfil</a></li>
-              <li><a class="dropdown-item" href="clienteMenuAjustesContacto.html"><img class="me-2" src="img/Grupo 950.png" alt=""> Contacto</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#"><img class="me-2" src="img/Grupo 948.png" alt=""> Cerrar Sesión</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-</nav>
+
 
 <div class="container">
     <br>
-    <h1 class=" font-bold text-center" style="color: #4A9D22; font-size: 50px;">Mi préstamo</h1>
+    <h1 class=" font-bold text-center texto-carotSans--Medium" style="color: #4A9D22; font-size: 50px;">Mi préstamo</h1>
     <br />
     <h1 class="text-3xl font-bold text-datgencred text-center" style="color: #F5A733;">
         Datos generales de crédito
@@ -173,41 +248,7 @@
         Tabla de pagos
     </h1>
     <br>
-    <div class="container justify-content-center">
-        <div class="row g-3">
-            <div class="col-auto col-sm-2">
-                <label for="inputPassword6" class="col-form-label fw-bold">De</label>
-            </div>
-            <div class="col-auto col-sm-2">
-                <input  type="date" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-            </div>
-            <div class="col-auto col-sm-2">
-                <img src="img/Grupo 166.png" alt="">
-            </div>
-            <div class="col-auto col-sm-2">
-                <label for="inputPassword6" class="col-form-label fw-bold">a</label>
-            </div>
-            <div class="col-auto col-sm-2">
-                <input type="date" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-            </div>
-            <div class="col-auto col-sm-2">
-                <img src="img/Grupo 166.png" alt="">
-            </div>
-            <div class="col-auto col-sm-2">
-                <div class="input-group w-60">
-                    <span class="input-group-text" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                        </svg>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="basic-addon1">
-                </div>
-            </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-success" style="background: #4A9D22;">Buscar</button>
-            </div>
-        </div>
-    </div>
+    
     <div class="d-flex justify-content-center">
         <div class="row g-3">
             <div class="col-auto">
@@ -348,6 +389,7 @@
           </div>
       </div>
     <br />
+    <div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -416,10 +458,19 @@
                 <td class="border text-center">Datos</td>
             </tr>
             <tr>
-                <td class="border text-center" colspan="12">TOTAL</td>
+                <td class="border text-center" colspan="4">TOTAL</td>
+                <td class="border text-center"></td>
+                <td class="border text-center"></td>
+                <td class="border text-center"></td>
+                <td class="border text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="border text-center"></td>
+                <td class="border text-center"></td>
             </tr>
         </tbody>
     </table>
+    </div>
     <div class="row">
 
     </div>
@@ -446,7 +497,9 @@
 
 {{--Fotter--}}
 
-    @include('components.landing.cuerpo._fotter')  
+    {{-- @include('components.landing.cuerpo._fotter') --}}
+    {{-- @include('components.landing.cuerpo._fotterClienteBootstrap') --}}
+    @include('components.landing.cuerpo._fotterClienteBootstrapResponsivo')
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
