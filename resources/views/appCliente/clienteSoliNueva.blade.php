@@ -198,8 +198,8 @@
 {{--Fotter--}}
 
     {{-- @include('components.landing.cuerpo._fotter') --}}
-    @include('components.landing.cuerpo._fotterClienteBootstrapResponsivo')
-
+    {{-- @include('components.landing.cuerpo._fotterClienteBootstrapResponsivo') --}}
+  @include('components.landing.cuerpo._fotterClienteBootstrap')
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
