@@ -76,7 +76,7 @@ body{
     text-decoration: none;
     font-size: 25px;
 }
-<<<<<<< HEAD
+
 .texto-carotSans--Medium{
     font-family: 'CarotSans-Medium';
   }
@@ -115,7 +115,7 @@ body{
     .texto-solicita-verde{
         font-size: 20px;
         color: #52ba42;
-=======
+    }
 h1{
     color: #38a937;
   }
@@ -237,8 +237,8 @@ h1{
   @media(max-width: 1000px){
     .pantallas-big{
       display: none;
->>>>>>> 1a9e2ab9c9edaeae0ac25b6ebf2cde7f02daf396
     }
   }
 
   /**<p class="encabezado-tabla"></p>*/
+}
