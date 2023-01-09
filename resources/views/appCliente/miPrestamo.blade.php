@@ -2,13 +2,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Dinero Inmediato</title>
+    <title>Mi prestamo</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="icon" href="img/Grupo 946.png">
+    <link rel="icon" href="./img/assets/aplicacionCliente/Grupo 946.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -165,6 +165,8 @@
 
             .boxes button:nth-of-type(1) {
                 order: 4;
+                background: #474747;
+                border: none;
             }
 
             .boxes button:nth-of-type(2) {
@@ -189,7 +191,7 @@
 
 
 
-    <div class="container">
+    <div class="container" style="text-align:center;">
         <br>
         <h1 class=" font-bold text-center texto-carotSans--Medium" style="color: #4A9D22; font-size: 50px;">Mi préstamo
         </h1>
@@ -198,44 +200,47 @@
             Datos generales de crédito
         </h1>
         <br>
-        <center>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="border text-center" scope="col">Número de cliente</th>
-                        <th class="border text-center" scope="col">Número de crédito</th>
-                        <td class="" style="border: none;">
-                            <button type="button" class="btn btn-success text-center" style="background: #4A9D22;"
-                                data-bs-toggle="modal" data-bs-target="#ModalAdelaPagosAppCliente">Adelantar
-                                pagos</button>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <!-- <th scope="row">1</th> -->
-                        <td class="border text-center">23987</td>
-                        <td class="border text-center">10987654321</td>
-                    </tr>
-                    <tr>
-                        <th class="border text-center" scope="col">Monto autorizado</th>
-                        <th class="border text-center" scope="col">Fecha de inicio del crédito</th>
-                    </tr>
-                    <tr>
-                        <td class="border text-center">$ 800.00</td>
-                        <td class="border text-center">12/05/2022</td>
-                    </tr>
-                    <tr>
-                        <th class="border text-center" scope="col">Número de pagos</th>
-                        <th class="border text-center" scope="col">Fecha de término del crédito</th>
-                    </tr>
-                    <tr>
-                        <td class="border text-center">5</td>
-                        <td class="border text-center">12/08/2022</td>
-                    </tr>
-                </tbody>
-            </table>
-        </center>
+        <div class="container" style="margin:0px auto;">
+            <center>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="border text-center" scope="col">Número de cliente</th>
+                            <th class="border text-center" scope="col">Número de crédito</th>
+                            <td class="" style="border: none;">
+                                <button type="button" class="btn btn-success text-center" style="background: #4A9D22;"
+                                    data-bs-toggle="modal" data-bs-target="#ModalAdelaPagosAppCliente">Adelantar
+                                    pagos</button>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <th scope="row">1</th> -->
+                            <td class="border text-center">23987</td>
+                            <td class="border text-center">10987654321</td>
+                        </tr>
+                        <tr>
+                            <th class="border text-center" scope="col">Monto autorizado</th>
+                            <th class="border text-center" scope="col">Fecha de inicio del crédito</th>
+                        </tr>
+                        <tr>
+                            <td class="border text-center">$ 800.00</td>
+                            <td class="border text-center">12/05/2022</td>
+                        </tr>
+                        <tr>
+                            <th class="border text-center" scope="col">Número de pagos</th>
+                            <th class="border text-center" scope="col">Fecha de término del crédito</th>
+                        </tr>
+                        <tr>
+                            <td class="border text-center">5</td>
+                            <td class="border text-center">12/08/2022</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        
     </div>
     {{-- Inicia Modal para boton Adelantar pagos --}}
     <!-- Modal -->
@@ -569,8 +574,8 @@
     {{-- Fotter --}}
 
     {{-- @include('components.landing.cuerpo._fotter') --}}
-    {{-- @include('components.landing.cuerpo._fotterClienteBootstrap') --}}
-    @include('components.landing.cuerpo._fotterClienteBootstrapResponsivo')
+    @include('components.landing.cuerpo._fotterClienteBootstrap')
+   {{--  @include('components.landing.cuerpo._fotterClienteBootstrapResponsivo') --}}
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
