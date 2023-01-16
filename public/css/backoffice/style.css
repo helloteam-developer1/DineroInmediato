@@ -83,6 +83,16 @@ h1{
     background-color: #38a937;
     color: white
   }
+  .boton-color:hover{
+    color: white
+  }
+  .boton-color-naranja{
+    background-color: #f29100;
+    color: white
+  }
+  .boton-color-naranja:hover{
+    color: white
+  }
   .posision{
     float: left;
   }
@@ -144,6 +154,9 @@ h1{
   #tabla-Finalizado{
     display: none;
   }
+  #tabla-Cartera{
+    display: none;
+  }
   .encabezado-tabla-pequeño{
     width: 100px;
   }
@@ -188,6 +201,9 @@ h1{
     color: #617E21;
     font-size: 20px;
     font-weight: bold;
+  }
+  .footer-textarea{
+    resize: none;
   }
   .modal-footer{
       font-size: 22px;
