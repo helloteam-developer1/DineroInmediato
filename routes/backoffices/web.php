@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backoffices\clientesController;
+use App\Http\Controllers\backoffices\notificacionesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,4 +11,6 @@ Route::get('/tablaPagos', [clientesController::class, 'tablaPagos'])->name('tabl
 Route::get('/masInformacion', [clientesController::class, 'masInformacion'])->name('masInformacion');
 Route::get('/historialPagos', [clientesController::class, 'historialPagos'])->name('historialPagos');
 Route::get('/historialMontosAutorizados', [clientesController::class, 'historialMontosAutorizados'])->name('historialMontosAutorizados');
+Route::get('/tablaDePagos', [clientesController::class, 'tablaDePagos'])->name('tablaDePagos');
 
+Route::get('/notificaciones', [notificacionesController::class, 'notificaciones'])->name('notificaciones');
