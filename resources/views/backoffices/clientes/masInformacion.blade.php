@@ -42,7 +42,7 @@
                                         Ajustes
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#"><img
+                                        <li><a class="dropdown-item" href="/perfil"><img
                                                     src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15"
                                                     alt="perfil">Perfil</a></li>
                                         <hr>

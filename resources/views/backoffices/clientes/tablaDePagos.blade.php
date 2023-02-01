@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
 </head>
 <body>
-    <!--  inicio de navbar --->
+    <!-- inicio de navbar --->
     <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand navbar-light border shadow">
         <div class="container-fluid">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -27,7 +27,7 @@
                                             alt="CLIENTES"> Clientes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><img
+                                    <a class="nav-link" href="/notificaciones"><img
                                             src="{{ asset('img/backoffices/ICONO_NOTIFICACIONES.svg') }}" width="20"
                                             alt="NOTIFICACION"> Notificaciones</a>
                                 </li>
@@ -39,7 +39,7 @@
                                         Ajustes
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#"><img
+                                        <li><a class="dropdown-item" href="/perfil"><img
                                                     src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15"
                                                     alt="perfil">Perfil</a></li>
                                         <hr>
@@ -55,7 +55,7 @@
             </div>
         </div>
     </nav>
-    <!--  fin de navbar --->
+    <!--fin de navbar --->
 
     <!--inicio de titulo-->
     <h1 class="text-center my-5">Tabla de Pagos</h1>

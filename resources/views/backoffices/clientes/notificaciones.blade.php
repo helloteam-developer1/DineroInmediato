@@ -40,7 +40,7 @@
                                       Ajustes
                                   </a>
                                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                      <li><a class="dropdown-item" href="#"><img
+                                      <li><a class="dropdown-item" href="/perfil"><img
                                                   src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15"
                                                   alt="perfil">Perfil</a></li>
                                       <hr>
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-10 col-sm-10 col-md-10 col-lg-6 offset-1 offset-sm-1 offset-md-1 offset-lg-3 bg-light py-5 px-5">
                         <div class="form-floating mt-3 bg-light">
-                            <textarea class="form-control" style="height: 300px; resize: none;" placeholder="Comentario" id=""></textarea>
+                            <textarea class="form-control" style="height: 300px; resize: none;" placeholder="Comentario" maxlength="144"></textarea>
                             <label for="floatingTextarea" class="text-secondary">Ingresa la notificacion a enviar</label>
                             <div class="col-8 col-sm-4 col-md-4 col-lg-3 offset-2 offset-sm-4 offset-md-8 offset-lg-9">
                                 <p class="text-secondary">0/144 Caracteres</p>

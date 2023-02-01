@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backoffices\clientesController;
 use App\Http\Controllers\backoffices\notificacionesController;
+use App\Http\Controllers\backoffices\perfilController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,3 +15,5 @@ Route::get('/historialMontosAutorizados', [clientesController::class, 'historial
 Route::get('/tablaDePagos', [clientesController::class, 'tablaDePagos'])->name('tablaDePagos');
 
 Route::get('/notificaciones', [notificacionesController::class, 'notificaciones'])->name('notificaciones');
+
+Route::get('/perfil', [perfilController::class, 'perfil'])->name('perfil');

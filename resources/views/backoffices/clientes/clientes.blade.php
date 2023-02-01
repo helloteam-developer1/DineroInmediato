@@ -7,7 +7,7 @@
   <title>Clientes</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
 </head>
 <body>
 
@@ -19,20 +19,20 @@
                     <div class=" col-8 col-ms-2 col-md-6 col-lg-2  offset-4 offset-md-4 offset-lg-1">
                         <img src="{{ asset('img/logo.png') }}" width="120" class="my-2 ms-2" alt="logo">
                     </div>
-                    <div class=" col-12 col-sm-10 col-md-6 col-lg-4 offset-sm-2 offset-md-4 mt-4">
+                    <div class=" col-12 col-sm-10 col-md-6 col-lg-5 offset-sm-2 offset-md-4 mt-4">
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
+                                <li class="nav-item ms-4">
                                     <a class="nav-link" href="/clientes" style="color: #38a937;"><img
                                             src="{{ asset('img/backoffices/CLIENTES.png') }}" width="20"
                                             alt="CLIENTES"> Clientes</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item ms-4">
                                     <a class="nav-link" href="/notificaciones"><img
                                             src="{{ asset('img/backoffices/ICONO_NOTIFICACIONES.svg') }}" width="20"
                                             alt="NOTIFICACION"> Notificaciones</a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown ms-4">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="20"
@@ -40,7 +40,7 @@
                                         Ajustes
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#"><img
+                                        <li><a class="dropdown-item" href="/perfil"><img
                                                     src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15"
                                                     alt="perfil">Perfil</a></li>
                                         <hr>
@@ -57,7 +57,6 @@
         </div>
     </nav>
     <!--fin de navbar --->
-
 
     <!-- content principal --->
     <!--inicio de titulo-->
@@ -752,7 +751,7 @@
                                 <form action="">
                                     <label for="" class="pb-2">Motivo de rechazo:</label>
                                     <div class="form-floating mt-3">
-                                        <textarea class="form-control footer-textarea" style="height: 185px;" placeholder="Comentario" id=""></textarea>
+                                        <textarea class="form-control footer-textarea" style="height: 185px;" placeholder="Comentario" maxlength="300"></textarea>
                                         <label for="floatingTextarea">Escribe mensaje</label>
                                         <div class="col-3 col-sm-3 col-md-3 col-lg-3 offset-9 offset-sm-9 offset-md-9 offset-lg-9">
                                             <p class="text-secondary">0/300 Caracteres</p>
@@ -820,7 +819,7 @@
                                         </label>
                                     </div>
                                     <div class="form-floating mt-3">
-                                        <textarea class="form-control footer-textarea" style="height: 160px;" placeholder="Comentario" id=""></textarea>
+                                        <textarea class="form-control footer-textarea" style="height: 160px;" placeholder="Comentario" maxlength="300"></textarea>
                                         <label for="floatingTextarea">Escribe mensaje</label>
                                         <div class="col-3 col-sm-3 col-md-3 col-lg-3 offset-9 offset-sm-9 offset-md-9 offset-lg-9">
                                             <p class="text-secondary">0/300 Caracteres</p>
