@@ -209,11 +209,17 @@ h1{
       font-size: 22px;
       text-align: justify;
   }
-
-  @media(max-width: 1000px){
-    .pantallas-big{
-      display: none;
+ #nuevaContraseña{
+    display: none;
+  }
+  #movil{
+    display: none;
+    }
+  @media(max-width: 500px){
+    #footer-desktop{
+        display: none;
+    }
+    #movil{
+        display: block;
     }
   }
-
-  /**<p class="encabezado-tabla"></p>*/
