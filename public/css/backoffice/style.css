@@ -76,7 +76,47 @@ body{
     text-decoration: none;
     font-size: 25px;
 }
-h1{
+
+.texto-carotSans--Medium{
+    font-family: 'CarotSans-Medium';
+  }
+  .texto-carotSans--Regular{
+    font-family: 'CarotSans-Regular';
+  }
+  .texto-carotSans--ExtraLight{
+    font-family: 'CarotSans-ExtraLight';
+  }
+  .texto-carotSans--Bold{
+    font-family: 'CarotSans-Bold';
+  }
+  .texto-carotSans--Light{
+    font-family: 'CarotSans-Light';
+  }
+
+/*@media (max-width: 390px){}*/
+    .btn-verde{
+        height:auto;
+        width: 300px;
+        margin-bottom: 15px;
+    }
+
+    .btn-naranja{
+        height:auto;
+        width: 99%;
+        margin-bottom: 15px;
+    }
+
+    .content{
+        padding-top: 10px;
+        padding-right: 40px;
+        padding-left: 40px;
+        padding-bottom: 15px;
+    }
+    .texto-solicita-verde{
+        font-size: 20px;
+        color: #52ba42;
+    }
+  h1{
     color: #38a937;
   }
   .boton-color{

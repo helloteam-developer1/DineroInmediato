@@ -32,9 +32,9 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
     @stack('css')
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{--<script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>--}}
     @livewireStyles
     @livewireScripts
 
@@ -92,13 +92,15 @@
       .texto-carotSans--Light{
         font-family: 'CarotSans-Light';
       }
+
+      
     </style>
 </head>
 
 <body >
     
 {{--Menú Cliente--}}
-@include('components.landing.cuerpo._menuCliente')
+@include('components.landing.cuerpo._menuClienteEmma')
 
 <div class="container">
     <br>
@@ -483,7 +485,7 @@
                 </div>
                 <div class="row mb-3 justify-content-center">
                   <div class="col-sm-6">
-                    <img src="img/bancos.png" alt="">
+                    <img src="{{ asset('img/assets/aplicacionCliente/bancos.png')}}" alt="">
                   </div>
                 </div>
               </form>
@@ -598,7 +600,7 @@
 
 {{--Fotter--}}
 
-    @include('components.landing.cuerpo._fotter')  
+    @include('components.landing.cuerpo._fotterClienteBootstrap')  
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

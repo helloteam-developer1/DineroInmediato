@@ -14,13 +14,16 @@
             </button>
         </div>
         <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row items-center">
-            <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav" href="{{ route('home') }}">Mi préstamo</a>
-            <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav"  data-bs-toggle="modal" data-bs-target="#acercaNosotros" style="cursor:pointer">Notificaciones</a>
+            <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav" href="{{ route('home') }}">
+                <img class=""  src="./public/img/assets/aplicacionCliente/Grupo 946.png" alt="no se encuentra">
+                    Mi préstamo
+            </a>
+            <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav"  data-bs-toggle="modal" data-bs-target="#acercaNosotros" style="cursor:pointer">
+                Notificaciones</a>
             <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav"  data-bs-toggle="modal" data-bs-target="#acercaNosotros" style="cursor:pointer">Solicitud de nuevo crédito</a>
             <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav"  data-bs-toggle="modal" data-bs-target="#acercaNosotros" style="cursor:pointer">Documentación e información</a>
             <a class="px-4  mt-4 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline itemNav nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false" style="cursor:pointer">
-                <img class="m-1" src="img/Grupo 397.png" alt=""> 
-                Ajustes
+                <span>Ajustes</span> <img src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png')}}" class="m-1">
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#"><img class="me-2" src="img/Grupo 947.png" alt=""> Mi perfil</a></li>
