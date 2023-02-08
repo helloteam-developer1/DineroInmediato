@@ -16,12 +16,12 @@
         <div class="container-fluid">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class=" col-8 col-ms-2 col-md-6 col-lg-2  offset-4 offset-md-4 offset-lg-1">
-                        <img src="{{ asset('img/logo.png') }}" width="120" class="my-2 ms-2" alt="logo">
+                    <div class=" col-4 col-sm-4 col-md-4 col-lg-2 offset-sm-4 offset-md-4 offset-lg-1" id="logoDI">
+                        <img src="{{ asset('img/logo.png') }}"  width="120" class="my-2 ms-2" alt="logo">
                     </div>
-                    <div class=" col-12 col-sm-10 col-md-6 col-lg-5 offset-sm-2 offset-md-4 mt-4">
+                    <div class=" col-4 col-sm-10 col-md-8 col-lg-4 offset-4 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
+                            <ul class="navbar-nav navDestop">
                                 <li class="nav-item ms-4">
                                     <a class="nav-link" href="/clientes" style="color: #38a937;"><img
                                             src="{{ asset('img/backoffices/CLIENTES.png') }}" width="20"
@@ -51,7 +51,37 @@
                                 </li>
                             </ul>
                         </div>
+                        <!-- inicio menu burger -->
+                        <div class="container">
+                            <div class="MeinBurger navMovil">
+                                <div class="burger">
+                                    <button>
+                                        <span class="top-line"></span>
+                                        <span class="middle-line"></span>
+                                        <span class="botton-line"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-12">
+                        <div class="Menu close">
+                            <div class="enlaces">
+                                <ul>
+                                    <li><a href="/clientes" style="color: #38a937;"><img src="{{ asset('img/backoffices/CLIENTES.png') }}" width="15" alt=""> Clientes</a></li>
+                                    <li><a href="/notificaciones"><img src="{{ asset('img/backoffices/ICONO_NOTIFICACIONES.svg') }}" width="15" alt="">Notificaciones</a></li>
+                                    <li>
+                                        <a href="#"><img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="15" alt="">Ajustes</a>
+                                        <ul>
+                                            <li><a href="/perfil"><img src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15" alt="">Perfil</a></li>
+                                            <li><a href=""><img src="{{ asset('img/backoffices/ICONO_CONTACTO.svg') }}" width="15" alt="">Contacto</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fin menu burger -->
                 </div>
             </div>
         </div>
@@ -72,7 +102,7 @@
                         <table class="table table-bordered creditos">
                           <thead>
                                 <tr>
-                                    <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" id="imgSolicitudNaranja" class="posision" width="50" alt=""><img src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}" id="imgSolicitudGris" style="display: none" class="posision" width="50" alt=""><h4><a href="#solicitudesCredito" class="subtitulo" id="solicitudes" >Solicitudes de Crédito</a></h4></th>
+                                    <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" id="imgSolicitudNaranja" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}" id="imgSolicitudGris" style="display: none" class="posision" width="60" alt=""><h4><a href="#solicitudesCredito" class="subtitulo" id="solicitudes" >Solicitudes de Crédito</a></h4></th>
                                     <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" id="imgClientesGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CLI_CRE_VIG_NAR.png') }}"id="imgClientesNaranja" style="display: none" class="posision" width="60" alt=""><h4><a href="#clientesVigentes" class="enlace" id="clientes">Clientes Vigentes</a></h4></th>
                                     <th scope="col"><img src="{{ asset('img/backoffices/CRE_FIN_GRIS.png') }}" id="imgFinalizadoGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CRE_FIN_NAR.svg') }}" id="imgFinalizadoNaranja"  style="display: none" class="posision" width="60" alt=""><h4><a href="#creditoFinalizado" class="enlace" id="finalizado">Crédito Finalizado</a></h4></th>
                                     <th scope="col"><img src="{{ asset('img/backoffices/CRE_VEN_NARANJA.png') }}" id="imgCarteraGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CAR_VEN_NAR.png') }}" id="imgCarteraNaranja" style="display: none;" class="posision" width="60" alt=""><h4><a href="#CarteraVencida" class="enlace" id="cartera">Cartera Vencida</a></h4></th>
@@ -988,7 +1018,7 @@
       <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
               <div class="row">
-                  <div class="col-12 col-sm-2 col-md-2 col-lg-2 offset-sm-2 offset-md-2 offset-lg-8">
+                  <div class="col-12 col-sm-8 col-md-8 col-lg-2 offset-sm-2 offset-md-2 offset-lg-8">
                     <nav aria-label="Page navigation example">
                       <ul class="pagination">
                         <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
@@ -1013,6 +1043,7 @@
   <!-- scripts --->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="{{ asset('js/backoffice/clientes.js') }}"></script>
+  <script src="{{ asset('js/backoffice/menuBurger.js') }}"></script>
 
 </body>
 </html>
