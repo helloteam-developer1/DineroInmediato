@@ -1,0 +1,46 @@
+.bx {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433',endColorstr='#bc1888',GradientType=1);
+    font-size: 20px;
+    border-radius: 35%;
+    color: white;
+  }
+  .notify::before{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    content: attr(data-count);
+    top: 3px;
+    right: 1px;
+    right: 120px;
+    font-size: 8px;
+    font-weight: bold;
+    color: #fff;
+    padding: 3px 5px;
+    background: linear-gradient(#ff1a1a,#ff0000,#e60000);
+    border-radius: 50px;
+    line-height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    transition: opacity 0.1s ease-out;
+  }
+   .btns{
+    position: absolute;
+    left: 15px;
+    top: 100px;
+    height: 30px;
+    width: 70px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #111755;
+    background: #1A237E;
+    border-radius: 3px;
+    line-height: 40px;
+    outline: none;
+    cursor: pointer;
+  }
+   .btns:hover{
+    background: #161d6a;
+  }
+  .notify.add-numb::before{
+    opacity: 1;
+  }

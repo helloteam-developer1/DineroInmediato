@@ -20,12 +20,16 @@
               &nbsp;Mi préstamo
           </a>
         </li>
-        <li class="nav-item">
+
+        <li class="nav-item" style="position: relative;">
           <a class="nav-link active" aria-current="page" href="{{ route('cliente-notificaciones') }}">
-              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 262.png')}}" alt=""> 
-              &nbsp;&nbsp;&nbsp;Notificaciones
+            <div class="notify">
+                <img class="bx m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 262.png')}}" alt="">
+                &nbsp;&nbsp;&nbsp;Notificaciones
+            </div>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('soli-nueva') }}">
               <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 264.png')}}" alt="">
@@ -34,25 +38,25 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('cliente-docu-infor') }}">
-              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg')}}" alt=""> 
+              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg')}}" alt="">
               &nbsp;&nbsp;&nbsp;Documentación e información
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png')}}" alt=""> 
+              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png')}}" alt="">
               &nbsp;&nbsp;Ajustes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
               <a class="dropdown-item" href="{{ route('miperfil') }}">
-                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 947.png')}}" alt=""> 
+                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 947.png')}}" alt="">
                   Mi perfil
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ route('contacto') }}">
-                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 950.png')}}" alt=""> 
+                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 950.png')}}" alt="">
                   Contacto
               </a>
             </li>
@@ -66,3 +70,4 @@
     </div>
   </div>
 </nav>
+
