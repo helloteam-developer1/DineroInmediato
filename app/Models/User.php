@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,13 +20,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'nombre', 
-        'email',
-        'password',
         'curp', 
         'fecha_nacimiento', 
         'empresa_trabajo', 
-        'antiguedad',
         'rama_empresa',
+        'antiguedad',
         'banco_nomina', 
         'telefono_contacto', 
         'email', 
@@ -39,7 +38,8 @@ class User extends Authenticatable
         'trabajo',
         'ingreso',
         'nomina',
-        'credito'
+        'credito',
+        'num_cliente'
     ];
 
     /**

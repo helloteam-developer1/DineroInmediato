@@ -15,9 +15,15 @@ class CreateNotificacionesTable extends Migration
     {
         Schema::create('notificaciones', function (Blueprint $table) {
             $table->bigIncrements('id_notf');
-            $table->string('titulo_notf',45);
-            $table->string('cuerpo',200);
+            $table->unsignedBigInteger('user_id');
+            $table->string('titulo_notf',200);
+            $table->string('sub_notf',200);
+            $table->string('cuerpo',400);
             $table->date('fecha_envio');
+            $table->integer('estado');
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

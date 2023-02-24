@@ -22,7 +22,8 @@ class CreateCreditoTable extends Migration
             $table->date('fecha_termino');
             $table->string('estado');
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->
+            on('users');
         });
         
       

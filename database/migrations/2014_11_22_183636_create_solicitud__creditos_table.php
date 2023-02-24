@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSolicitudCreditoTable extends Migration
+class CreateSolicitudCreditosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreateSolicitudCreditoTable extends Migration
      */
     public function up()
     {
-        Schema::create('solicitud_credito', function (Blueprint $table) {
+        Schema::create('solicitud_creditos', function (Blueprint $table) {
             $table->bigIncrements('id_credito');
             $table->integer('monto');
             $table->unsignedBigInteger('user_id');
-            $table->date('fecha_solicitud');
-            $table->string('estado');
+            $table->string('estado')->
+            comment('0:Crédito en revisión, 1:Falta información que completar o es incorrecta,
+             2:Línea de crédito rechazada, 3:Línea de crédito aprobada');
+            $table->string('mensaje')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('documentacion')->nullable();
+            $table->timestamps();
         });
-     
     }
-
     /**
      * Reverse the migrations.
      *
@@ -31,6 +33,6 @@ class CreateSolicitudCreditoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solicitud_credito');
+        Schema::dropIfExists('solicitud_creditos');
     }
 }

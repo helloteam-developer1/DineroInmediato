@@ -15,15 +15,17 @@ class CreatePagosCreditoTable extends Migration
     {
         Schema::create('pagos_credito', function (Blueprint $table) {
             $table->bigIncrements('id_pago');
-            $table->unsignedBigInteger('credito_num');
+            $table->unsignedBigInteger('num_credito');
             $table->integer('numero_pagos');
             $table->date('fecha_pago');
             $table->integer('monto_pago');
             $table->integer('saldo_insoluto');
             $table->integer('pago_rest');
             $table->integer('resta_pagar');
+            $table->timestamps();
             
-            $table->foreign('credito_num')->references('num_credito')->on('credito');
+            $table->foreign('num_credito')->
+            references('num_credito')->on('credito');
         });
       
     }

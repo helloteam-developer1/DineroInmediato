@@ -26,11 +26,12 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b34d6606d6.js" crossorigin="anonymous"></script>
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landing/style.css') }}" rel="stylesheet">
     @stack('css')
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -49,13 +50,71 @@
             background: #f5a82d !important;
             color: white;
         }
-        .btn-verde:{
-            background: #38A937
+        .btn-outline-secondary {
+            color: #34AD54;
+            border-color: #34AD54;
         }
-        .btn-verde:hover{
-            color: #e0fc70;
+        .btn-outline-secondary:hover {
+            color: white;
+            background:  #34AD54;
+            border-color: #34AD54;
         }
+        .error-message{
+            color: red;
 
+        }
+        .texto-p{
+        font-size: 20px;
+        }
+        .texto-solicita-verde{
+                font-size: 40px;
+                color: #52ba42;
+                text-align: center;
+        }
+        input[type="text"]{
+            width:60%; 
+        }
+        @media only screen and (max-width: 768px) {
+            input[type="text"]{
+                font-size: 15px;
+                width: 80%;
+            }
+            .texto-p{
+                font-size: 14px;
+                text-align: left;
+            }
+            .texto-solicita-verde{
+                font-size: 30px;
+                color: #52ba42;
+                text-align: center;
+            }
+            .error-message{
+                font-size: 14px;
+                color: red;
+            }
+        }
+        @media only screen and (max-width: 460px){
+            input[type="text"]{
+                font-size: 12px;
+                width: 100%;
+            }
+            .texto-p{
+                font-size: 14px;
+                text-align: left;
+            }
+            .texto-solicita-verde{
+                font-size: 25px;
+                color: #52ba42;
+                text-align: center;
+            }
+            .error-message{
+                font-size: 12px;
+                color: red;
+            }
+            
+
+        }
+        
     </style>
 </head>
 
@@ -65,15 +124,53 @@
 @include('components.landing.cuerpo._menu')
 
 {{--Mi perfil--}}
-    <div class="content cent">
-        <div class="">
-            <p class="texto-solicita-verde">Recuperar contraseña</p>
-            <p>Para recuperar tu contraseña, escribe tu correo electrónico y te enviaremos un correo electrónico con las instrucciones para recuperarla.</p>
+    <div class="justify-content-center container-fluid" style="margin-top: 40px; margin-bottom:40px;">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                 @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p>{{session('success')}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                </div>
+            @endif
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p>{{session('status')}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                </div>
+            @endif
+            @if (session('danger'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p>{{session('danger')}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                </div>
+            @endif
+            @if (session('email'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <p>{{session('email')}}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+            </div>
+        @endif
+            <form action="{{route('password.email')}}" method="POST">
+            @csrf
+            <p class="texto-solicita-verde" style="margin-bottom: 15px;">Recuperar contraseña</p>
+            <p class="texto-p">Escribe tu dirección de correo electrónico con el que te registraste y te haremos llegar las instrucciones para recuperar tu contraseña</p>
             <br />
-            <input type="text" class="form-control Carot ExtraLight" placeholder="correo electrónico o telefono">
+            <center>
+                <input type="text" class="form-control Carot ExtraLight" name="campo" placeholder="correo electrónico o telefono"  required>
+                @error('campo')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
+            </center>
+        
             <br />
-            <a href="{{route('recover2')}}" class="btn btn-verde btn-block">Aceptar</a>
+            <center><button type="submit" class="btn" style="background: #38A937; color:white;">Aceptar</button></center>
+        </form>
+            </div>
+            <div class="col-2"></div>
         </div>
+           
     </div>
 
 

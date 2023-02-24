@@ -6,7 +6,7 @@ style="background: rgba(0,0,0,.7);">
         <!--Title-->
         <div class="grid grid-cols-12 pb-3">
             <div class="col-span-11 text-center">
-                <p class="text-2xl font-bold texto-verde">¿Est&aacute;s seguro de que quieres abandonar tu linea de Cr&eacute;dito pre aprobada?</p>
+                <p class="text-2xl font-bold texto-verde">¿Est&aacute;s seguro de que quieres abandonar tu línea de Cr&eacute;dito pre aprobada?</p>
             </div>
 
             <div class="modal-close cursor-pointer z-50 col-span-1 text-center justify-self-end" onclick="modalClose('abandonar-linea')">
@@ -38,10 +38,57 @@ style="background: rgba(0,0,0,.7);">
             <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 text-center  ">
 
                     <button
-                    class="focus:outline-none modal-close w-full bg-naranja px-2 py-2 text-white text-sm" onclick="location.href='{{route('registro-usuario')}}'">Quiero continuar para obtener l&iacute;nea de cr&eacute;dito</button>
+                    class="focus:outline-none modal-close w-full bg-naranja px-2 py-2 text-white text-sm" onclick="enviar()">Quiero continuar para obtener l&iacute;nea de cr&eacute;dito</button>
 
             </div>
         </div>
     </div>
 </div>
 </div>
+
+<script type="text/javascript">
+
+    function enviar(){
+    
+        var credito;
+        var nomina;
+        var prestamo = $('#prestamo').val();
+        var tiempo = $('#tiempo').val();
+        var nombre = $('#nombre').val();
+        var trabajo = $('#trabajo').val();
+        var ingreso = $('#ingresoMensual').val();
+        
+        if($('#op1').prop('checked')){
+            nomina = "si";
+            console.log(nomina);
+        }
+        if($('#op2').prop('checked')){
+            nomina = "no";
+            console.log(nomina);
+        }
+        if($('#op3').prop('checked')){
+            credito = "si";
+            console.log(credito);
+        }
+        if($('#op4').prop('checked')){
+            credito = "no";
+            console.log(credito);
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: "{{route('registros-calculadora.store')}}",
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{prestamo:prestamo,tiempo:tiempo,nombre:nombre,trabajo:trabajo,ingreso:ingreso,nomina:nomina,credito:credito},
+            success: function(data){
+                var id_user = data;
+                console.log(id_user);
+                location.href = '/registro-usuarios/'+id_user;
+            }
+        });
+      
+        
+    }
+</script>

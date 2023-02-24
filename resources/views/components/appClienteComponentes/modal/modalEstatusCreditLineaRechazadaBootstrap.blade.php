@@ -27,11 +27,7 @@
     </style>
   </head>
   <body>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Abrir Estatus de crédito - Línea de crédito rechazada
-  </button>
-  
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -43,7 +39,7 @@
         </div>
         <div class="modal-body ms-4 me-4">
           <p class="texto-carotSans--Medium" style="font-size: 30px; color: #F5A733;">Línea de crédito rechazada</p>
-          <p class="texto-carotSans--Regular" style="font-size: 20px; color: #474747;">“Breve mensaje del administrador”
+          <p class="texto-carotSans--Regular" style="font-size: 20px; color: #474747;">{{$message}}
             , Intenta nuevamente después de 30 días.</p>
         </div>
         <div class="modal-footer" style="border: none;">

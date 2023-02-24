@@ -24,7 +24,10 @@
     color: var(--naranja);
 }
 
-
+.btn-outline-secondary {
+    color: #34AD54;
+    border-color: #34AD54;
+}
 /*** Spinner ***/
 .spinner {
     width: 40px;

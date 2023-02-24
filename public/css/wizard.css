@@ -1,251 +1,334 @@
-:root{
+:root {
     --green: #39A935;
     --naranja: #F29100;
     --rojo: #EF2607;
     --negro: #3C3C3B;
 }
-
-.texto-solicita-verde{
-    font-size: 40px;
-    color: #52ba42;
-    
+.label-ac{
+    font-size:17px;
+    float: left;
+}
+.cab{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.titulo-campo {
+    color: #EF2607;
+    font-size: 15px;
+    text-align: right;
+    margin-bottom: 2px;
 }
 
-body{
+.check-label {
+    margin-left: -23px;
+}
+
+.texto-solicita-verde {
+    font-size: 40px;
+    color: #52ba42;
+}
+
+.fecha {
+    margin-top: 10px;
+}
+
+.fecha-i {
+    margin-bottom: 18px;
+}
+
+.empresa {
+    margin-bottom: 18px;
+}
+
+.subtitulo {
+    color: #F29100;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+body {
     background-color: #fff;
     font-family: 'Carot Sans';
 }
+
 
 @font-face {
     font-family: 'Carot Sans';
     src: url('../../fonts/CarotSans-Regular.otf') format('truetype');
     font-style: normal;
-    
-  }
+
+}
+
 @font-face {
     font-family: 'Carot ExtraLight';
     src: url('../../fonts/CarotSans-ExtraLight.otf') format('trutype');
     font-style: normal;
     font-weight: 100;
 }
+
 @font-face {
     font-family: 'Medium Carot';
     src: url('../../fonts/CarotSans-Medium.otf');
     font-style: normal;
 }
 
-input[type=text], select {
+.link-t-l {
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.link-t-l:hover {
+    text-decoration: none;
+    font-size: 17px;
+    color: var(--naranja);
+}
+
+.link-t {
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.link-t:hover {
+    text-decoration: none;
+    font-size: 17px;
+    color: var(--naranja);
+}
+
+input[type=text] {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    height: 40px;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
-  }
-  .flex-left{
+}
+
+select {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.contenedor-term {
+    display: flex;
+    width: 100px;
+}
+
+.term-con {
+    margin-left: 46px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    width: 1000px;
+}
+
+.flex-left {
     align-items: center;
     display: flex;
     justify-content: left;
-  }
-  .flex-right{
+}
+
+.flex-right {
     align-items: center;
     display: flex;
     justify-content: right;
-  }
- .vinculo{
+}
+
+.vinculo {
     color: var(--green);
     text-decoration: underline;
- }
- .vinculo:hover{
-    color: var(--green);
+    margin-top: 5px;
+}
+
+.vinculo:hover {
+    color: var(--naranja);
     text-decoration: underline;
- }
+}
 
- .botonera{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 20px;
- }
+.botonera {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.texto-subtitulo {
+    color: #F29100;
+    font-size: 20px;
+}
 
 
- .btn-gris{
+.btn-gris {
     background-color: #BEBEBE;
     color: white;
     border-radius: 4px;
     font-size: 18px;
-
 }
 
-.btn-verde{
-    background-color: var(--green);
-    color:white;
-    font-weight: 500;
-    float: left;
-}
-.term{
+.term {
     width: 100%;
 }
-.btn-verde:hover{
+
+.botones {
+    margin-top: 60px;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.btn-reg {
+    color: white;
+    background-color: var(--naranja);
+    font-weight: 500;
+    display: inline-block;
+    float: left;
+}
+
+.btn-con-doc {
+    color: white;
     background-color: var(--green);
-    color:white;
     font-weight: 500;
+    display: inline-block;
+
 }
 
-.btn-naranja{
-    background-color: var(--naranja);
-    color:  white;
+.btn-cont {
+    color: white;
+    background-color: var(--green);
     font-weight: 500;
+    display: inline-block;
     float: right;
-}
-.btn-naranja:hover{
-    background-color: var(--naranja);
-    color:  white;
-    font-weight: 500;
-    float: right;
+
 }
 
-.titulo-der{
+.titulo-der {
     text-align: right;
     color: var(--rojo);
-    
 }
+
 /*estilos para el step3*/
-.img{
+.img {
     width: 70%;
     height: auto;
     padding-bottom: 15px;
 }
-.informacion{
+
+.informacion {
     text-align: justify;
     font-size: 20px;
     color: var(--negro);
     margin-left: -20px;
-    
+
 }
-.espacio{
+
+.espacio {
     margin-bottom: 100px;
 }
-.informacion2{
-    text-align: justify;
-    font-size: 20px;
-    color: var(--negro);
-    margin-left: -470px;
-    
-}
-.alinear{
+
+.alinear {
     vertical-align: middle;
 }
-.informacion3{
-    text-align: justify;
-    font-size: 20px;
-    color: var(--negro);
-    margin-left: 31px;
-    
-}
-.subrayado{
+
+.subrayado {
     text-decoration: underline;
     color: var(--negro);
-    
     font-size: 15px;
-    
 }
 
-
-.subrayadot{
+.subrayadot {
     text-decoration: underline;
     color: var(--negro);
     margin-left: -560px;
     font-size: 18px;
 }
-.titulo-verde{
+
+.titulo-verde {
     color: var(--green);
     text-align: center;
     padding-bottom: 20px;
     font-size: 50px;
     font-weight: 700;
 }
-.texto-verde{
-    color: var(--green); 
+
+.texto-verde {
+    color: var(--green);
     text-align: center;
-    font-size: 60px; 
-    margin-bottom:30px;
+    font-size: 60px;
+    margin-bottom: 30px;
 }
-.texto-verde-p{
-    color: var(--green); 
-    text-align: center;
-    font-size: 15px; 
-    text-align: center;
+
+.texto-verde-p {
+    color: var(--green);
+    font-size: 15px;
+    text-align: justify;
 }
-.texto-rojo-s{
-    color:var(--rojo);
+
+.texto-rojo-s {
+    color: var(--rojo);
     text-align: right;
 }
-.texto-negro-s{
+
+.texto-negro-s {
     color: var(--negro);
     text-align: right;
 }
-.texto-negro-s-e{
+
+.texto-negro-s-e {
     color: var(--negro);
     text-align: right;
 }
-.titulo-naranja{
+
+.titulo-naranja {
     color: var(--naranja);
     font-size: 30px;
     text-align: left;
     font-weight: 600;
-        
+
 }
-.texto{
+
+.texto {
     color: #474747;
     font-size: 20px;
     font-weight: 100;
     text-align: justify;
 }
-.titulo-rojo{
-    color: #EF2607; 
+
+.titulo-rojo {
+    color: #EF2607;
     font-size: 15px;
     text-align: right;
+    margin-bottom: 2px;
 }
-.error{
+
+.error {
     color: #EF2607;
     font-size: 12px;
 }
-.btn-v{
-    background-color: var(--green);
-    color:white;
-    font-weight: 500;
-    float: left;
-}
-.btn-v:hover{
-    background-color: var(--green);
-    color:white;
-    font-weight: 500;
-}
 
-.btn-n{
+.btn-n {
     background-color: var(--naranja);
-    color:  white;
-    font-weight: 500;
-    float: right;
-}
-.btn-n:hover{
-    background-color: var(--naranja);
-    color:  white;
+    color: white;
     font-weight: 500;
     float: right;
 }
 
+.btn-n:hover {
+    background-color: var(--naranja);
+    color: white;
+    font-weight: 500;
+    float: right;
+}
 
+.btn-sindoc {
+    background-color: var(--green);
+    color: white;
+    font-weight: 500;
+}
 
 /*Inicio de los estilos del progressbar*/
 .progressbar {
-	overflow: hidden;
-	counter-reset: step;
-	width: 60%;
-	margin: 0 auto 30px;
+    overflow: hidden;
+    counter-reset: step;
+    width: 60%;
+    margin: 0 auto 30px;
 }
+
 .progressbar li {
     list-style-type: none;
     color: white;
@@ -256,9 +339,11 @@ input[type=text], select {
     position: relative;
     text-decoration: none;
 }
-.progressbar li a:hover{
+
+.progressbar li a:hover {
     text-decoration: none;
 }
+
 .progressbar li:before {
     content: counter(step);
     counter-increment: step;
@@ -277,92 +362,211 @@ input[type=text], select {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+
 /*lineas de los circulos conectados*/
 .progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: white;
-	position: absolute;
-	left: -50%;
-	top: 25px;
-	z-index: -1; 
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 25px;
+    z-index: -1;
     border: 1px solid black;
 }
+
 .progressbar li:first-child:after {
-	content: none; 
+    content: none;
     border: 1px solid black;
 }
+
 /*colores de los circulos de verde al blanco cuando esten o no activos*/
-.progressbar li.active:before, .progressbar li.active:after {
-    background:  var(--green);
+.progressbar li.active:before,
+.progressbar li.active:after {
+    background: var(--green);
     color: white;
     border: 1px solid black;
-    
+
 }
-.displayNone{
+
+.displayNone {
     display: none;
 }
 
-.con-form{
- margin-left:260px; margin-right:260px;
+.cont-form-t {
+    margin-left: 100px;
+    margin-right: 100px;
+
 }
 
-.contenido{
-    margin-top: 40px; 
+.con-form {
+    margin-left: 260px;
+    margin-right: 260px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.contenido {
+    margin-top: 40px;
     margin-bottom: 70px;
     margin-left: 20px;
     margin-right: 20px;
-    
+
 }
-.input-c{
+
+.input-c {
     width: 100000px;
 }
+input-ac{
+float: left;
+margin-right:3px;
+}
 
 
-@media (max-width: 1024px){
-    .con-form{
-        margin-left:150px; margin-right:150px;
+
+@media (max-width: 1024px) {
+    .con-form {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    .cont-form-t {
+        margin-left: 50px;
+        margin-right: 50px;
     }
 }
 
-@media (max-width: 768px){
-    .texto-verde{
-     color: var(--green); 
-     text-align: center;
-     font-size: 30px; 
-     margin-bottom:20px;
+@media screen and (max-width: 820px) {
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 15px;
+        margin-left: -42px;
     }
-    .btn-verde{
-        height:auto; 
-        width: 99%;
-        margin-bottom: 15px;
+
+    .link-t-l:hover {
+        text-decoration: none;
+        font-size: 17px;
+        color: var(--naranja);
     }
-    
-    .btn-naranja{
-        height:auto; 
-        width: 99%;
-        margin-bottom: 15px;
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 15px;
+
     }
-    .content{
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 17px;
+        color: var(--naranja);
+    }
+
+
+    .cont-acp {
+        margin-left: -12px;
+    }
+
+    .cont {
+        margin-left: -53px;
+    }
+
+    .cont-form-t {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    .cont-form {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    .titulo-campo {
+        color: #EF2607;
+        font-size: 15px;
+        text-align: left;
+        margin-bottom: 2px;
+    }
+
+    .titulo-rojo {
+        color: #EF2607;
+        margin-top: 20px;
+        font-size: 15px;
+        text-align: left;
+        margin-bottom: 2px;
+    }
+
+    .vinculo {
+        color: var(--green);
+        text-decoration: underline;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
         padding-top: 10px;
-        padding-right: 20px;
-        padding-left: 20px;
         padding-bottom: 15px;
     }
-    .texto{
+
+    .texto {
         color: #3C3C3B;
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 300;
         text-align: justify;
     }
-    .titulo-naranja{
+
+    .titulo-naranja {
         color: var(--naranja);
-        font-size: 20px;
+        font-size: 22px;
         text-align: left;
-        font-weight: 800;  
+        font-weight: 800;
     }
-    
+
     /*Inicio de los estilos del progressbar*/
     .progressbar {
         overflow: hidden;
@@ -370,6 +574,7 @@ input[type=text], select {
         width: 60%;
         margin: 0 auto 30px;
     }
+
     .progressbar li {
         list-style-type: none;
         color: white;
@@ -380,9 +585,719 @@ input[type=text], select {
         position: relative;
         text-decoration: none;
     }
-    .progressbar li a:hover{
+
+    .progressbar li a:hover {
         text-decoration: none;
     }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 50px;
+        line-height: 50px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 25px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+    }
+
+    .con-form {
+        margin-left: 84px;
+        margin-right: 84px;
+    }
+
+    .texto-rojo-s {
+        color: var(--rojo);
+        text-align: left;
+        font-size: 17px;
+    }
+
+    .texto-negro-s-e {
+        color: var(--negro);
+        text-align: right;
+        font-size: 12px;
+    }
+
+    .texto-verde-p {
+        color: var(--green);
+        text-align: center;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .esp {
+        margin-top: 20px;
+        width: auto;
+        margin-bottom: 20px;
+        border-color: #333;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -164px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    span{
+        font-size: 11px;
+    }
+    .label-ac{
+        font-size:15px;
+        float: left;
+    }
+    .link-t {
+        text-decoration: underline;
+        font-size: 13px;
+    }
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 13px;
+
+    }
+    .acp{
+        font-size: 13.4px;
+    }
+    .cont-acp {
+        margin-left: -12px;
+    }
+
+    .cont-form-t {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .cont-form {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    .titulo-campo {
+        color: #EF2607;
+        font-size: 15px;
+        text-align: left;
+        margin-bottom: 2px;
+    }
+
+    .titulo-rojo {
+        color: #EF2607;
+        margin-top: 20px;
+        font-size: 15px;
+        text-align: left;
+        margin-bottom: 2px;
+    }
+
+    .vinculo {
+        color: var(--green);
+        text-decoration: underline;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 18px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 22px;
+        text-align: left;
+        font-weight: 800;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 50px;
+        line-height: 50px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 25px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+    }
+
+    .con-form {
+        margin-left: 84px;
+        margin-right: 84px;
+    }
+
+    .texto-rojo-s {
+        color: var(--rojo);
+        text-align: left;
+        font-size: 17px;
+    }
+
+    .texto-negro-s-e {
+        color: var(--negro);
+        text-align: right;
+        font-size: 12px;
+    }
+
+    .texto-verde-p {
+        color: var(--green);
+        text-align: center;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .esp {
+        margin-top: 20px;
+        width: auto;
+        margin-bottom: 20px;
+        border-color: #333;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -164px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 642px) {
+    .label-ac{
+        font-size:14.5px;
+        float: left;
+    }
+    .texto-s {
+        color: #3C3C3B;
+        font-size: 15px;
+        font-weight: 300;
+        text-align:left;
+    }
+    .cont-acp {
+        margin-left: -8px;
+    }
+
+    .acp {
+        font-size: 14px;
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 13px;
+
+    }
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .cont {
+        font-size: 14px;
+        margin-left: 4px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 12.6px;
+        margin-left: 4px;
+    }
+
+    .link-t-l:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .cont-form-t {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .cont-form {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    .titulo-campo {
+        color: #EF2607;
+        font-size: 15px;
+        text-align: left;
+        margin-bottom: 2px;
+    }
+
+    .titulo-rojo {
+        color: #EF2607;
+        margin-top: 20px;
+        font-size: 15px;
+        text-align: left;
+        margin-bottom: 2px;
+    }
+
+    .vinculo {
+        color: var(--green);
+        text-decoration: underline;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 320px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 18px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 22px;
+        text-align: left;
+        font-weight: 800;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 50px;
+        line-height: 50px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 25px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+    }
+
+    .con-form {
+        margin-left: 84px;
+        margin-right: 84px;
+    }
+
+    .texto-rojo-s {
+        color: var(--rojo);
+        text-align: left;
+        font-size: 17px;
+    }
+
+    .texto-negro-s-e {
+        color: var(--negro);
+        text-align: right;
+        font-size: 12px;
+    }
+
+    .texto-verde-p {
+        color: var(--green);
+        text-align: center;
+        font-size: 14px;
+        text-align: justify;
+    }
+
+    .esp {
+        margin-top: 20px;
+        width: auto;
+        margin-bottom: 20px;
+        border-color: #333;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -164px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 565px) {
+    .input-ac{
+        margin-right:-2px;
+        float: left;
+    }
+    .label-ac{
+        font-size:14px;
+        float: left;
+    }
+    .acp{
+        font-size: 13px;
+        text-align: justify;
+    }
+    .texto-term {
+        font-size: 12px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 12.5px;
+        margin-left: 3px;
+    }
+
+    .link-t-l:hover {
+        text-decoration: none;
+        font-size: 3px;
+        color: var(--naranja);
+    }
+
+    .cont {
+        font-size: 14px;
+        margin-left: 6px;
+    }
+
+    .cont-form-t {}
+
+    .titulo-rojo {
+        margin-bottom: 15px;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 12.5px;
+    }
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 13px;
+        color: var(--naranja);
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: auto;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 300px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align: start;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
     .progressbar li:before {
         content: counter(step);
         counter-increment: step;
@@ -401,6 +1316,7 @@ input[type=text], select {
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
     }
+
     /*lineas de los circulos conectados*/
     .progressbar li:after {
         content: '';
@@ -410,237 +1326,2077 @@ input[type=text], select {
         position: absolute;
         left: -50%;
         top: 15px;
-        z-index: -1; 
+        z-index: -1;
         border: 1px solid black;
     }
+
     .progressbar li:first-child:after {
-        content: none; 
+        content: none;
         border: 1px solid black;
     }
+
     /*colores de los circulos de verde al blanco cuando esten o no activos*/
-    .progressbar li.active:before, .progressbar li.active:after {
-        background:  var(--green);
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
         color: white;
         border: 1px solid black;
-    }   
-    .con-form{
-        margin-left:150px; margin-right:150px;
+
     }
-    .vinculo{
-        color: var(--green);
+
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 14px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
         text-decoration: underline;
-        padding-bottom: 20px;
-     }
-     .vinculo:hover{
-        color: var(--green);
-        text-decoration: underline;
-     }
-     .texto-rojo-s{
-        color:var(--rojo);
-        text-align: right;
-        font-size: 13px;
-    }
-    .texto-negro-s-e{
         color: var(--negro);
-        text-align: right;
-        font-size: 12px;
+        margin-left: -69px;
+        font-size: 11px;
     }
-    .texto-verde-p{
-        color: var(--green); 
-        text-align: center;
-        font-size: 15px; 
-        text-align: center;
-    }
-    .esp{
-        margin-top: 20px;
-        width: auto;
-        margin-bottom: 20px;
-    }
-    .informacion2{
-        text-align: justify;
-        font-size: 15px;
-        color: var(--negro);
-        margin-left: -80px;
-    }
-    .informacion3{
-        text-align: justify;
-        font-size: 15px;
-        color: var(--negro);
-        margin-left: 20px;
-    }
-    .subrayadot{
+
+    .rayadot {
         text-decoration: underline;
         color: var(--negro);
         margin-left: -13px;
         font-size: 13px;
     }
+
+    .acp {
+        width: 50%;
     }
-@media (max-width: 390px){
-.texto-verde{
- color: var(--green); 
- text-align: center;
- font-size: 30px; 
- margin-bottom:20px;
-}
-.btn-verde{
-    height:auto; 
-    width: 99%;
-    margin-bottom: 15px;
-}
 
-.btn-naranja{
-    height:auto; 
-    width: 99%;
-    margin-bottom: 15px;
-}
+    .term {
+        font-size: 15px;
+    }
 
-.content{
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-left: 20px;
-    padding-bottom: 15px;
-}
-.texto{
-    color: #3C3C3B;
-    font-size: 15px;
-    font-weight: 300;
-    text-align: justify;
-}
-.titulo-naranja{
-    color: var(--naranja);
-    font-size: 20px;
-    text-align: left;
-    font-weight: 800; 
-    margin-bottom: 10px; 
-}
-
-/*Inicio de los estilos del progressbar*/
-.progressbar {
-	overflow: hidden;
-	counter-reset: step;
-	width: 60%;
-	margin: 0 auto 30px;
-}
-.progressbar li {
-    list-style-type: none;
-    color: white;
-    text-transform: uppercase;
-    font-size: 18px;
-    width: 33.33%;
-    float: left;
-    position: relative;
-    text-decoration: none;
-}
-.progressbar li a:hover{
-    text-decoration: none;
-}
-.progressbar li:before {
-    content: counter(step);
-    counter-increment: step;
-    width: 30px;
-    line-height: 30px;
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    background: white;
-    border: 1px solid black;
-    border-radius: 50%;
-    margin: 0 auto 5px auto;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-}
-/*lineas de los circulos conectados*/
-.progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 1px;
-	background: white;
-	position: absolute;
-	left: -50%;
-	top: 15px;
-	z-index: -1; 
-    border: 1px solid black;
-}
-.progressbar li:first-child:after {
-	content: none; 
-    border: 1px solid black;
-}
-/*colores de los circulos de verde al blanco cuando esten o no activos*/
-.progressbar li.active:before, .progressbar li.active:after {
-    background:  var(--green);
-    color: white;
-    border: 1px solid black;
-    
-}
-.con-form{
-    margin-left:30px; margin-right:30px;
-}
-
-.btn-gris{
-    background-color: #BEBEBE;
-    color: white;
-    border-radius: 4px;
-    font-size: 9px;
 
 }
-.btn-v{
-    background-color: var(--green);
-    color:white;
-    font-weight: 700;
-    float: left;
+@media only screen and (max-width: 536px) {
+    .input-ac{
+        margin-right:-1px;
+        float: left;
+    }
+    .label-ac{
+        font-size:13px;
+        float: left;
+    }
+    .acp{
+        font-size: 12px;
+    }
+    .texto-term {
+        font-size: 12px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 11px;
+        margin-left: -3px;
+    }
+
+    .link-t-l:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 11px;
+
+    }
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .cont {
+        font-size: 13.3px;
+        margin-left: -1px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 300px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 9px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+    }
+
+    .term {
+        font-size: 15px;
+    }
+
+
 }
-.btn-v:hover{
-    background-color: var(--green);
-    color:white;
-    font-weight: 700;
+@media only screen and (max-width: 502px) {
+    .acp{
+        font-size: 11px;
+    }
+    .texto-term {
+        font-size: 12px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 11px;
+        margin-left: -3px;
+    }
+
+    .link-t-l:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 11px;
+
+    }
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .cont {
+        font-size: 13.3px;
+        margin-left: -1px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 300px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 9px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+    }
+
+    .term {
+        font-size: 15px;
+    }
+
+
 }
 
-.btn-n{
-    background-color: var(--naranja);
-    color:  white;
-    font-weight: 700;
-    float: right;
+@media only screen and (max-width: 485px) {
+    .texto-s {
+        color: #3C3C3B;
+        font-size: 13.7px;
+        font-weight: 300;
+        text-align:initial;
+    }
+    .cont-acp {
+        margin-left: -31px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 10px;
+        margin-left: 34px;
+    }
+
+    .link-t-l:hover {
+        text-decoration: underline;
+        font-size: 13px;
+        margin-left: 34px;
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 10px;
+
+    }
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .cont {
+        font-size: 12.8px;
+        margin-left: 19px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 270px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 9px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+    }
+
+    .term {
+        font-size: 15px;
+    }
+
+
 }
-.btn-n:hover{
-    background-color: var(--naranja);
-    color:  white;
-    font-weight: 700;
-    float: right;
+@media only screen and (max-width: 450px) {
+    .input-ac{
+        margin-right:-2px;
+        float: left;
+    }
+    .label-ac{
+        font-size:12px;
+        float: left;
+    }
+    .texto-s {
+        color: #3C3C3B;
+        font-size: 14px;
+        font-weight: 300;
+        text-align:center;
+    }
+    .cont-acp {
+        margin-left: -31px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 10px;
+        
+    }
+
+    .link-t-l:hover {
+        text-decoration: underline;
+        font-size: 11px;
+        margin-left: 34px;
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 10px;
+
+    }
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .cont {
+        font-size: 12.8px;
+        margin-left: 19px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 270px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 9px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+    }
+
+    .term {
+        font-size: 15px;
+    }
+
+
 }
-.informacion2{
-    text-align: justify;
-    font-size: 13px;
-    color: var(--negro);
-    margin-left: -1px;
+@media only screen and (max-width: 435px) {
+    .texto-s {
+        color: #3C3C3B;
+        font-size: 12px;
+        font-weight: 300;
+        text-align:center;
+    }
+    .cont-acp {
+        margin-left: -31px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 9px;
+        margin-left: 34px;
+    }
+
+    .link-t-l:hover {
+        text-decoration: underline;
+        font-size: 13px;
+        margin-left: 34px;
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size: 9px;
+
+    }
+
+    .link-t:hover {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--naranja);
+    }
+
+    .cont {
+        font-size: 12.8px;
+        margin-left: 19px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 270px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 9px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+    }
+
+    .term {
+        font-size: 15px;
+    }
+
+
 }
-.informacion3{
-    text-align: justify;
-    font-size: 13px;
-    color: var(--negro);
-    margin-left: 20px;
+@media only screen and (max-width: 420px) {
+    .input-ac{
+        margin-right:-2px;
+        float: left;
+    }
+    .label-ac{
+        font-size:14px;
+        float: left;
+    }
+    .texto-s {
+        color: #3C3C3B;
+        font-size: 13px;
+        font-weight: 300;
+        text-align:center;
+    }
+    .cont-acp {
+        margin-left: -31px;
+    }
+
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 13px;
+        margin-left: 34px;
+        text-align:initial;
+    }
+
+    .link-t {
+        text-decoration: underline;
+        font-size:13px;
+
+    }
+
+    .acp{
+        font-size: 12px;
+    }
+
+    .cont {
+        font-size: 12.8px;
+        margin-left: 19px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 270px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 9px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+    }
+
+    .term {
+        font-size: 15px;
+    }
+
+
 }
-.subrayado{
-    text-decoration: underline;
-    color: var(--negro);
-    margin-left: 1px;
-    font-size: 11px;
-}
-.rayadot{
-    text-decoration: underline;
-    color: var(--negro);
-    margin-left: -13px;
-    font-size: 13px;
+@media only screen and (max-width: 396px) {
+    .input-ac{
+        margin-right:-9px;
+        float: left;
+    }
+    .label-ac{
+        font-size:13.6px;
+        float: left;
+    }
+    .texto-s {
+        color: #3C3C3B;
+        font-size: 12px;
+        font-weight: 300;
+        text-align: center;
+    }
+    .acp{
+        font-size: 12px;
+        text-align: left;
+        float: left;
+    }
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 13px;
+    }
+    .link-t {
+        text-decoration: underline;
+        font-size: 13px;
+    }
+    .cont {
+        font-size: 13.5px;
+        margin-left: -1px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 270px;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+    .texto{
+        color: #3C3C3B;
+        font-size: 17px;
+        font-weight: 300;
+        text-align:start;
+    }
+
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 9px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+        align: left;
+    }
+
+    .term {
+        font-size: 15px;
+    }
+
+
 }
 
-.acp{
-    width: 50%;
-}
-.term{
-    font-size: 15px;
-}
+@media only screen and (max-width: 340px) {
+    .input-ac{
+        margin-right:0px;
+        float: left;
+    }
+    .label-ac{
+        font-size:12px;
+        float: left;
+    }
+    .texto-s {
+        color: #3C3C3B;
+        font-size: 11px;
+        font-weight: 300;
+        text-align: center;
+    }
+    .acp{
+        font-size: 11px;
+        text-align: left;
+        float: left;
+    }
+    .link-t-l {
+        text-decoration: underline;
+        font-size: 12px;
+    }
+    .link-t {
+        text-decoration: underline;
+        font-size: 12px;
+    }
+
+    .cont {
+        font-size: 13.5px;
+        margin-left: -11px;
+        text-align: center;
+    }
+
+    .text-al {
+        text-align: justify;
+    }
+
+    .subtitulo {
+        color: #F29100;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .btn-reg {
+        color: white;
+        background-color: var(--naranja);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-con-doc {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-cont {
+        color: white;
+        background-color: var(--green);
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .btn-secondary {
+        margin-bottom: 10px;
+    }
+
+    .texto-verde {
+        color: var(--green);
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    .content {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px;
+    }
+
+    .texto {
+        color: #3C3C3B;
+        font-size: 15px;
+        font-weight: 300;
+        text-align: start;
+    }
+
+    .titulo-naranja {
+        color: var(--naranja);
+        font-size: 20px;
+        text-align: left;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /*Inicio de los estilos del progressbar*/
+    .progressbar {
+        overflow: hidden;
+        counter-reset: step;
+        width: 60%;
+        margin: 0 auto 30px;
+    }
+
+    .progressbar li {
+        list-style-type: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 18px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .progressbar li a:hover {
+        text-decoration: none;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    /*lineas de los circulos conectados*/
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 15px;
+        z-index: -1;
+        border: 1px solid black;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+        border: 1px solid black;
+    }
+
+    /*colores de los circulos de verde al blanco cuando esten o no activos*/
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: var(--green);
+        color: white;
+        border: 1px solid black;
+
+    }
+
+    .con-form {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .btn-gris {
+        background-color: #BEBEBE;
+        color: white;
+        border-radius: 4px;
+        font-size: 11px;
+
+    }
+
+    .btn-v {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+        float: left;
+    }
+
+    .btn-v:hover {
+        background-color: var(--green);
+        color: white;
+        font-weight: 700;
+    }
+
+    .btn-n {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .btn-n:hover {
+        background-color: var(--naranja);
+        color: white;
+        font-weight: 700;
+        float: right;
+    }
+
+    .subrayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: 16px;
+        font-size: 11px;
+    }
+
+    .rayadot {
+        text-decoration: underline;
+        color: var(--negro);
+        margin-left: -13px;
+        font-size: 13px;
+    }
+
+    .acp {
+        width: 50%;
+    }
+
+    .term {
+        font-size: 15px;
+    }
 
 
 }

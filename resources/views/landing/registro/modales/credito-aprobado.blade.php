@@ -6,7 +6,7 @@
             <!--Title-->
             <div class="grid grid-cols-12 pb-3">
                 <div class="col-span-11 text-center">
-                    <p class="text-2xl font-bold texto-verde">Cr&eacute;dito aprobado</p>
+                    <p class="text-2xl font-bold texto-verde">Cr&eacute;dito Preaprobado</p>
                 </div>
 
                 <div class="modal-close cursor-pointer z-50 col-span-1 text-center justify-self-end" onclick="modalClose('credito-aprobado')">
@@ -24,7 +24,7 @@
             </div>
             <div class="col-span-2 text-center mt-4 text-dark">
                 Tenemos pre aprobada una linea de cr&eacute;dito para ti. Si quieres hacer uso
-                de ella, contin&uacute;a el proceso y te indicaremos q&uacute;e hacer.
+                de ella, contin&uacute;a el proceso y te indicaremos qué hacer.
 
             </div>
             <!--Footer-->
@@ -48,20 +48,16 @@
 
 <script type="text/javascript">
 
-function enviar(){
+    function enviar(){
     
         var credito;
         var nomina;
         var prestamo = $('#prestamo').val();
-        console.log(prestamo);
         var tiempo = $('#tiempo').val();
-        console.log(tiempo);
         var nombre = $('#nombre').val();
-        console.log(nombre);
         var trabajo = $('#trabajo').val();
-        console.log(trabajo);
         var ingreso = $('#ingresoMensual').val();
-        console.log(ingreso);
+        
         if($('#op1').prop('checked')){
             nomina = "si";
             console.log(nomina);
@@ -86,12 +82,16 @@ function enviar(){
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data:{prestamo:prestamo,tiempo:tiempo,nombre:nombre,trabajo:trabajo,ingreso:ingreso,nomina:nomina,credito:credito},
-            success:function(data){
-                mostrarMensaje(data.mensaje);
-
+            success: function(data){
+                var id_user = data;
+                console.log(id_user);
+                location.href = '/registro-usuarios/'+id_user;
+            },
+            deferred: function(data){
+                console.log('Error: '.data);
             }
         });
       
-        location.href="registro-usuarios";
+        
     }
 </script>

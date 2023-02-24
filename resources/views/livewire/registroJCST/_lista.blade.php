@@ -1,6 +1,6 @@
 
-<input class="form-control" placeholder="* Rama de la empresa" wire:model="rama_empresa" style="margin-bottom:20px;" name="rama_empresa" list="rama"/>
-@error('rama_empresa') <span class="error">{{ $message }}</span> @enderror
+<input class="form-control" placeholder="* Rama de la empresa" wire:model.defer="rama_empresa" name="rama_empresa" list="rama" maxlength="100"/>
+
 
 <datalist id="rama">
 <option>Compraventa de fierro viejo (chatarra) y desechos de metales no ferrosos. </option>
@@ -236,3 +236,7 @@ mantenimiento y reparación de anuncios luminosos.</option>
 <option>Servicio de agencias de viaje y turísticas, excluye los servicios de guías de turismo por cuenta propia que se clasifican en el código 952006 y a las oficinas de información turística pertenecientes al sector público que se clasifican en el código 910009: servicios técnicos especializados de los gobiernos federal y estatal.</option>
 <option>Servicio de almacenamiento y refrigeración, comprende a las bodegas o almacenes que tienen como actividad el almacenamiento y refrigeración de productos, excluye a los almacenes de depósito que operan como organismos auxiliares de crédito y que son normados por la Comisión Nacional Bancaria y de Seguros, que se clasifican en el código 811042: Almacenes Generales de Depósito.</option>
 </datalist>
+
+@if ($errors->has('rama_empresa'))
+    <span style="color:brown;">{{ $errors->first('rama_empresa') }}</span>
+@endif

@@ -24,7 +24,7 @@
             </div>
             <div class="col-span-2 text-center mt-4 text-dark">
                 El sistema ha arrojado que por el momento no podemos otorgarte una
-                linea de cr&eacute;dito, pero inte&eacute;ntalo m&aacute;s tarde.
+                línea de cr&eacute;dito, pero int&eacute;ntalo m&aacute;s tarde.
             </div>
             <!--Footer-->
             <div class="col-span-2 text-center mt-5">

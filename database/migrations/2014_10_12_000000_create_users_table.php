@@ -1,5 +1,6 @@
 <?php
 
+use Brick\Math\BigInteger;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,16 +26,17 @@ class CreateUsersTable extends Migration
             $table->string('telefono_contacto');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('ine_frente');
-            $table->string('ine_reverso'); 
-            $table->string('comp_dom'); 
-            $table->string('foto_cine');
+            $table->string('ine_frente')->nullable();
+            $table->string('ine_reverso')->nullable(); 
+            $table->string('comp_dom')->nullable(); 
+            $table->string('foto_cine')->nullable();
             $table->string('prestamo');
             $table->string('tiempo');
             $table->string('trabajo');
             $table->string('ingreso');
             $table->string('nomina');
             $table->string('credito');
+            $table->bigInteger('num_cliente')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

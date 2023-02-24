@@ -1,0 +1,152 @@
+<?php
+
+namespace App\Http\Livewire\AppCliente;
+
+use App\Models\Solicitud_Credito;
+use App\Models\User;
+use Facade\FlareClient\View;
+use Illuminate\Contracts\View\View as ViewView;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
+use Livewire\Component;
+use Livewire\WithFileUploads;
+
+
+class Documentacion extends Component
+{
+    use WithFileUploads;
+    public $ine_frente;
+    public $ine_reverso;
+    public $comp_dom;
+    public $foto_cine;
+    public $successMessage = '';
+    public $info = '';
+    
+    public function render()
+    {
+        $documentacion = Solicitud_Credito::where('user_id', '=', Auth::user()->id)->value('documentacion');
+        if(Auth::user()->num_cliente!=null){
+            return view('livewire.app-cliente.documentacion',['documentacion'=> 1]);
+        }
+        return view('livewire.app-cliente.documentacion',['documentacion'=> $documentacion]);
+    }
+
+    public function subirIMG(){
+        
+        $nombre = Auth::user()->nombre;
+        $id = Auth::user()->id;
+        $cambio=0;
+    
+        if($this->ine_frente){
+            if(Auth::user()->ine_frente!=null){
+                $file = Auth::user()->ine_frente;
+                if(Storage::disk('public_posts')->exists($file)){
+                    Storage::disk('public_posts')->delete($file);
+                }
+                
+            }
+            
+                //valido que sea img y que no pese mas de 2MB
+            $validatedData = $this->validate([
+                'ine_frente' => 'mimes:jpg,png,jpeg|max:2000',
+            ]);
+            //Extraigo el nombre de la img
+            $nombreIne_f = $this->ine_frente->getClientOriginalName();
+            //Le doy un nuevo nombre a la img
+            $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($nombre).'-'.$nombreIne_f;
+            //guardo en public y traigo la ruta
+            $ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
+            //modifico al usuario con la ruta de la img 
+            $cambio = User::where('id','=',$id)->update(['ine_frente'=>$ruta1]);
+        }else{
+            $this->info = "Carga una imagen para continuar.";
+        }
+        
+        
+    
+        if($this->ine_reverso){
+            if(Auth::user()->ine_frente!=null){
+                $file = Auth::user()->ine_reverso;
+                if(Storage::disk('public_posts')->exists($file)){
+                    Storage::disk('public_posts')->delete($file);
+                }
+                
+            }
+            $validatedData = $this->validate([
+                'ine_reverso' => 'mimes:jpg,png,jpeg|max:2000',
+            ]);
+            $nombreIne_r = $this->ine_reverso->getClientOriginalName();
+            $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($nombre).'-'.$nombreIne_r;
+            $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
+            $cambio = User::where('id','=',$id)->update(['ine_reverso'=>$ruta2]);
+            
+
+        }else{
+            $this->info = "Carga una imagen para continuar.";
+        }
+        if($this->comp_dom){
+            if(Auth::user()->ine_frente!=null){
+                $file = Auth::user()->comp_dom;
+                if(Storage::disk('public_posts')->exists($file)){
+                    Storage::disk('public_posts')->delete($file);
+                }
+                
+            }
+            $validatedData = $this->validate([
+                'comp_dom' => 'mimes:jpg,png,jpeg|max:2000',
+            ]);
+            $nombreComp = $this->comp_dom->getClientOriginalName();
+            $nombre_comp_dom = 'COMP_COM-'.Str::slug($nombre).'-'.$nombreComp;
+            $ruta3= $this->comp_dom->storeAs("posts/",$nombre_comp_dom,'public_posts',0644);
+            $cambio = User::where('id','=',$id)->update(['comp_dom'=>$ruta3]);
+            
+        }else{
+            $this->info = "Carga una imagen para continuar.";
+        }
+        if($this->foto_cine){
+            if(Auth::user()->ine_frente!=null){
+                $file = Auth::user()->foto_cine;
+                if(Storage::disk('public_posts')->exists($file)){
+                  Storage::disk('public_posts')->delete($file);
+                }
+                
+            }
+            $validatedData = $this->validate([
+                'foto_cine' => 'mimes:jpg,png,jpeg|max:2000',
+            ]);
+            $nombrefoto_cine = $this->foto_cine->getClientOriginalName();
+            $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($nombre).'-'.$nombrefoto_cine;
+            $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);
+            $cambio = User::where('id','=',$id)->update(['foto_cine'=>$ruta4]);
+            
+        }else{
+            $this->info = "Carga una imagen para continuar.";
+        }
+        
+        if($cambio==1){
+            $estado = Solicitud_Credito::where('user_id','=',$id)->value('estado');
+            if($estado==2){
+                $solicitud = Solicitud_Credito::where('user_id','=',$id)->update(['estado'=>2, 'documentacion'=>2]);                
+                $this->successMessage = "Cambio con Exito!";
+                $this->info = null;
+            }else{
+                $solicitud = Solicitud_Credito::where('user_id','=',$id)->update(['estado'=>0,'mensaje'=>null, 'documentacion'=>null]);    
+                $this->successMessage = "Cambio con Exito!".$estado;
+                $this->info = null;
+            }
+            
+            
+        }else{
+            $this->info = "Carga una imagen para continuar.";
+        }
+        
+        
+
+        
+    
+        
+    }
+    
+}

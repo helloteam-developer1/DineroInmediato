@@ -51,13 +51,12 @@
             background: #f5a82d !important;
             color: white;
         }
-        .btn-verde{
-            background: #38A937
+        .rules-password{
+            font-style:italic;
+            font-size: 16px;
         }
-        .btn-verde:hover{
-            color: #e0fc70;
-        }
-
+      
+    
     </style>
 </head>
 
@@ -68,10 +67,12 @@
 
 
     <div class="content cent">
-        
         <center>
-            <p class="texto-verde Carot Sans">Registro</p>
-            <livewire:wizard />
+            <div>
+                <p class="texto-verde Carot Sans lead">Registro</p>
+                <p class="Carot Sans subtitulo lead" id="user_name">Bienvenido: <label class="texto lead" style="margin: 20px;">{{$usuario_name}}</label></p>
+            </div>
+            @livewire('wizard', ['id_user' => $usuario_name])
         </center>
     </div>
 
@@ -95,7 +96,7 @@
     <script src="{{ asset('js/landing/sendEmail.js') }}"></script>
     <script src="{{ asset('js/landing/modal-register.js') }}"></script>
     @stack('js')
-  
+
 </body>
 
 </html>

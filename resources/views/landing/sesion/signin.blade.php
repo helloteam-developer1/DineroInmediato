@@ -56,6 +56,58 @@
         .btn-verde:hover{
             color: #e0fc70;
         }
+        .btn-close{
+            color: black;
+        }
+        p{
+            color:red;
+            font-size: 15px;
+        }
+        @media only screen and (max-width: 460px){
+            .texto-solicita-verde{
+                font-size: 35px;
+                color: #38A937;
+                margin-bottom: 10px;
+            }
+            .vinculo{
+                color: #38A937;
+                font-size: 15px;
+            }
+            .text-green{
+                color: #38A937;
+                font-size: 15px;
+            }
+        }
+        @media only screen and (max-width: 400px){
+            .texto-solicita-verde{
+                font-size: 29px;
+                color: #38A937;
+                margin-bottom: 10px;
+            }
+            .vinculo{
+                color: #38A937;
+                font-size: 13px;
+            }
+            .text-green{
+                color: #38A937;
+                font-size: 13px;
+            }
+        }
+        @media only screen and (max-width: 386px){
+            .texto-solicita-verde{
+                font-size: 29px;
+                color: #38A937;
+                margin-bottom: 10px;
+            }
+            .vinculo{
+                color: #38A937;
+                font-size: 13px;
+            }
+            .text-green{
+                color: #38A937;
+                font-size: 13px;
+            }
+        }
 
     </style>
 </head>
@@ -84,13 +136,25 @@
 
     <div class="content cent" >
         <center>
+            @if (session('status'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <p>{{session('status')}}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+            </div>
+            @endif
             <div>
-                <form action="{{route('login.store')}}" method="POST">
+               <form action="{{route('login.store')}}" method="POST">
                     @csrf
                     <p class="texto-solicita-verde Medium Carot">Inicio de sesión</p>
-                    <input name="email" type="email" placeholder="Correo electrónico o teléfono" class="form-control Carot ExtraLight"  required>
+                    <input name="credencial" type="text" placeholder="Correo electrónico o teléfono" class="form-control Carot ExtraLight" >
+                    @error('credencial')
+                        <p class="error-message">{{ $message }}</p>
+                    @enderror
                     <br />
-                    <input name="password" type="password" placeholder="Contraseña" class="form-control Carot ExtraLight"  required>
+                    <input name="password" type="password" placeholder="Contraseña" class="form-control Carot ExtraLight"  >
+                    @error('password')
+                        <p class="error-message">{{ $message }}</p>
+                    @enderror
                     <center><p class="text-green Carot Sans" style="padding-top:20px; padding-bottom:20px;">¿Olvidaste tu contraseña?. <a href="{{route('recover1')}}" class="vinculo" style=" text-decoration: underline; ">Haz clic aquí para recuperarla</a></p></center>
                     <div>
                         <a  class="btn btn-verde btn-md btn-block" href="{{route('home')}}" style="float: left;">Regresar</a>
@@ -100,14 +164,9 @@
                 </form>
             </div>        
         </center>
+    
     </div>
-@if (session('status'))
-<script>
-    alert("{{session('status')}}");
-</script>
-@endif
-
-
+   
 
 {{--Fotter--}}
 
@@ -127,6 +186,9 @@
     <script src="{{ asset('js/landing/sendEmail.js') }}"></script>
     <script src="{{ asset('js/landing/modal-register.js') }}"></script>
     @stack('js')
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 
 </html>

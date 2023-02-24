@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Calculadora;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CalculadoraRegistro extends Controller
 {
@@ -22,7 +23,12 @@ class CalculadoraRegistro extends Controller
         $calculadora->prestamo = $request->prestamo;
         $calculadora->tiempo = $request->tiempo;
         $calculadora->save();
-        $nombre = $request->nombre;
-        return view('livewire.registroJCST.default', compact('nombre'));
+        $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre=?",[$request->nombre]);
+        $id_user = $consulta[0]->id;
+        return response()->json($id_user);
+        
+        
+
+
     }
 }

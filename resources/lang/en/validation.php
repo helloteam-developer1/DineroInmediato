@@ -112,7 +112,7 @@ return [
     'string' => 'El campo :attribute debe ser una cadena.',
     'timezone' => 'El campo :attribute debe ser una zona horaria válida.',
     'unique' => 'El campo :attribute ya existe.',
-    'uploaded' => 'Error al subir :attribute.',
+    'uploaded' => 'Hubo un problema al subir la imagen :attribute, revisa tu conexión o que el peso de tus imagenes no rebase de 2MB.',
     'url' => 'El formato de :attribute es inválido.',
     'uuid' => 'El campo :attribute debe ser un UUID válido.',
 

@@ -20,54 +20,55 @@
               &nbsp;Mi préstamo
           </a>
         </li>
-
-        <li class="nav-item" style="position: relative;">
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('cliente-notificaciones') }}">
-            <div class="notify">
-                <img class="bx m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 262.png')}}" alt="">
-                &nbsp;&nbsp;&nbsp;Notificaciones
-            </div>
+              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 262.png')}}" alt=""> 
+              &nbsp;&nbsp;&nbsp;Notificaciones
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('soli-nueva') }}">
+          <a class="nav-link active" aria-current="page" href="{{ route('solicitar-credito') }}">
               <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 264.png')}}" alt="">
               Solicitud de nuevo crédito
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('cliente-docu-infor') }}">
-              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg')}}" alt="">
+          <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
+              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg')}}" alt=""> 
               &nbsp;&nbsp;&nbsp;Documentación e información
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png')}}" alt="">
+              <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png')}}" alt=""> 
               &nbsp;&nbsp;Ajustes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
               <a class="dropdown-item" href="{{ route('miperfil') }}">
-                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 947.png')}}" alt="">
+                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 947.png')}}" alt=""> 
                   Mi perfil
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ route('contacto') }}">
-                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 950.png')}}" alt="">
+                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 950.png')}}" alt=""> 
                   Contacto
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <a class="dropdown-item" href="#">
-                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 948.png')}}" alt=""> Cerrar Sesión</a></li>
+              <form action="/logout" method="POST">
+                @csrf
+                <a class="dropdown-item" href="#" onclick="this.closest('form').submit()">
+                  <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 948.png')}}" alt="">
+                  Cerrar Sesión
+                </a>
+              </form>
+              </li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-

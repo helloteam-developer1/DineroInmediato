@@ -21,7 +21,7 @@
 </div>
 <div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos mt-3" id="divtarjetaNomina">
     <div class="col-span-6">
-        <p>¿Tienes tarjeta de nomina?</p>
+        <p>¿Tienes tarjeta de nómina?</p>
     </div>
     <div class="col-span-3 ">
         <input type="radio" id="op1" name="nomina" value="Si">
@@ -36,7 +36,7 @@
 
 <div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos " id="divCredito">
     <div class=" col-span-6 ">
-        <p>Cu&eacute;ntas con crédito Hipotecario?</p>
+        <p>¿Cu&eacute;ntas con crédito Hipotecario?</p>
     </div>
     <div class="col-span-3">
         <input type="radio" id="op3" name="hipotecario" value="Si" class="hipotecario">

@@ -37,6 +37,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     @livewireStyles
     @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <style>
         .solicita:hover{
@@ -55,42 +56,105 @@
         .btn-verde:hover{
             color: #e0fc70;
         }
-
+        .closeModal{
+            font-size: 2rem;
+        }
+        .modal-title{
+             font-size: 2.5rem;
+        }
+        .acept{
+            background: #38A937;
+            font-size: 28px
+        }
+        .modal-body{
+            font-size: 22px;
+        }
+        .btn-ver{
+            background-color: #38A937;
+            color: white;
+            text-align: center;
+            align-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .titulo-modal{
+            color:#38A937;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
     </style>
 </head>
 
-<body>
-   
+<body onload="loaded();">
+
+    
+
+{{--Modal Cambio con exito--}}
+
+
+
 {{--Menú--}}
 @include('components.landing.cuerpo._menu')
 
+@if (session('status'))
+<script>
+function loaded() {
+    $('#exampleModal').modal('show');
+    }
+</script>
+@endif
+
+  
+  <!-- Modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden>
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="margin: 40px;">
+        
+         <center><h1 class="titulo-modal" id="exampleModalLabel">Cambio Exitoso</h1></center>
+       
+        <div class="modal-body" >
+          <p>Se ha creado tu contraseña con éxito, ya puedes ingresar nuevamente a nuestra aplicación.</p>
+          <center><a class="btn btn-ver" href="{{route('login')}}">Iniciar sesión</a></center>
+        </div>
+        
+        
+    
+      </div>
+    </div>
+  </div>
 
   <div class="content cent">
-    
         <div class="row cent">
-            
-            
                 <p class="texto-solicita-verde" style="padding-bottom: 25px; padding-top:15px;">Recuperar contraseña</p>
                 <div class="">
-                    <input type="password" class="form-control Carot ExtraLight"  placeholder="Contraseña Actual">
-                    <br />
                     <input type="password" class="form-control Carot ExtraLight"  placeholder="Nueva contraseña">
                     <br /> 
                     <input type="password" class="form-control Carot ExtraLight" placeholder="Confirmar contraseña">
 
                     <a href="" class="btn btn-verde btn-md" style="margin-top: 30px; ">Aceptar</a>    
                 </div>
-                
-                
             </div>
         </div>
         <br />
  </div>
 
 
+ 
+ 
+  
+
+  <!-- Modal -->
 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 {{--Fotter--}}
 
     @include('components.landing.cuerpo._fotter')  

@@ -9,6 +9,6 @@ class Calculadora extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'prestamo','tiempo','nombre','trabajo','ingreso','nomina','credito'
+       'id','prestamo','tiempo','nombre','trabajo','ingreso','nomina','credito'
     ];
 }

@@ -7,11 +7,7 @@
     </div>
     @endif
     
-    @if(!empty($errorMessage))
-    <div class="alert alert-warning" role="alert">
-        {{$errorMessage}}
-    </div>
-    @endif
+   
     <div class="text-center">
         <!-- progressbar -->
         <ul class="progressbar">
@@ -21,14 +17,11 @@
         </ul>
         
     </div>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+
+    @if(!empty($errorMessage))
+    <div class="alert alert-warning" role="alert">
+        {{$errorMessage}}
+    </div>
     @endif
     @include('livewire.registroJCST.step1')
     

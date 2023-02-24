@@ -17,7 +17,7 @@ class CreateEmpresasCalculadora extends Migration
             $table->id();
             $table->string('prestamo');
             $table->string('tiempo');
-            $table->string('nombre');
+            $table->string('nombre',40);
             $table->string('trabajo');
             $table->string('ingreso');
             $table->string('nomina');
@@ -33,6 +33,6 @@ class CreateEmpresasCalculadora extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empresas_calculadora');
+        Schema::dropIfExists('calculadoras');
     }
 }

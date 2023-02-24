@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 include('landing/web.php');
 
-include('dashboard/web.php');
+/*include('dashboard/web.php');*/
 include('backoffices/web.php');
 include('appCliente/web.php');
 

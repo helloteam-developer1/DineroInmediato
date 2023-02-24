@@ -1,43 +1,38 @@
 <?php
-use App\Http\Controllers\landing\ContactEmailController;
-use App\Http\Controllers\landing\RegisterController;
+
+use App\Http\Controllers\AppCliente\AppClienteController;
+use App\Http\Controllers\AppCliente\miprestamo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/miperfil', function(){
-    return view('backoffice.miperfil');
-})->name('miperfil');
 
-Route::get('/edit-perfil', function(){
-    return view('backoffice.editperfil');
-})->name('edit-my-perfil');
+    
+/*Juan Carlos Segura Torres */
+    Route::middleware('auth')->group(function (){
+        
+        Route::get('/dashboard', [AppClienteController::class, 'index'])->name('dashboard');
+        /*Vista Solicitar credito junto con la petición post */
+        Route::get('/solicitar-credito', [AppClienteController::class, 'solicitar'])->name('solicitar-credito');
+        Route::post('/solicitar-credito', [AppClienteController::class ,'store'])->name('solicitar');    
+        Route::get('/miPrestamo', [AppClienteController::class, 'miprestamo'])->name('miPrestamo');
+        Route::get('/ajustes-contacto', [AppClienteController::class, 'ajustescontacto'])->name('ajustes-contacto');
+        Route::get('/cliente-notificaciones', [AppClienteController::class, 'notificaciones'])->name('cliente-notificaciones');
+        Route::post('/logout', [AppClienteController::class, 'logout'])->name('logout');
+        Route::delete('/eliminar/{id}',[AppClienteController::class, 'destroy'])->name('notificacion.destroy');
+        Route::get('/mi-perfil', [AppClienteController::class,'miperfil'])->name('miperfil');
+        Route::get('cambio-password',[AppClienteController::class,'campassword'])->name('cambio-password');
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    });
+    
+    Route::get('/contacto', function(){
+        return 'contacto';
+    })->name('contacto');
+    
+    Route::middleware('guest')->group(function (){
+        Route::get('change-password/{token}', [AppClienteController::class,'password'])->name('change-password');
+        Route::post('shift-password', [AppClienteController::class,'changepassword'])->name('shift-password');
+    });
 
-Route::get('/miPrestamo', function(){
-    return view('appCliente.miPrestamo');
-})->name('miPrestamo');
 
-Route::get('/cliente-docu-infor', function(){
-    return view('appCliente.clienteDocuInfor');
-})->name('cliente-docu-infor');
-
-Route::get('/ajustes-contacto', function(){
-    return view('appCliente.clienteMenuAjustesContacto');
-})->name('ajustes-contacto');
-
-Route::get('/cliente-notificaciones', function(){
-    return view('appCliente.clienteNotificaciones');
-})->name('cliente-notificaciones');
-
-Route::get('/soli-nueva', function(){
-    return view('appCliente.clienteSoliNueva');
-})->name('soli-nueva');
-
-Route::get('/contacto', function(){
-    return view('backoffice.contacto');
-
-})->name('contacto');
-
-Route::get('/clientes', function(){
-    return view('backoffices.clientes.clientes');
-})->name('clientes');
-
+    //Route::post('/search-pagos',[miprestamo::class, 'pagosb'])->name('busquedap');
 ?>

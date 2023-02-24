@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Credito extends Model
+{
+    protected $table = 'credito';
+    use HasFactory;
+
+    protected $fillable = [
+        'num_credito',
+        'num_cliente',
+        'user_id',
+        'monto_aut',
+        'fecha_inicio', 
+        'num_pagos',
+        'fecha_termino', 
+        'estado'
+    ];
+
+    public const ESTADO = [
+        'Linea de Crédito Aprobada.', //0
+        'Credito Vencido Impago.' //1
+    ];
+    public function estado(){
+        return self::ESTADO[$this->estado];
+    }
+}
