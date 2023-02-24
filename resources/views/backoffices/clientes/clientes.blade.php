@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Clientes</title>
-
+  <link rel="icon" type="image/x-icon" href="{{ asset('img/backoffices/Grupo 979.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
 </head>
@@ -16,10 +16,10 @@
         <div class="container-fluid">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class=" col-4 col-sm-4 col-md-4 col-lg-2 offset-sm-4 offset-md-4 offset-lg-1" id="logoDI">
-                        <img src="{{ asset('img/logo.png') }}"  width="120" class="my-2 ms-2" alt="logo">
+                    <div class=" col-4 col-sm-4 col-md-4 col-lg-2 offset-sm-4 offset-md-4 offset-lg-1 me-5" id="logoDI">
+                        <img src="{{ asset('img/logo.png') }}"  width="120" class="my-2" alt="logo">
                     </div>
-                    <div class=" col-4 col-sm-10 col-md-8 col-lg-4 offset-4 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
+                    <div class=" col-4 col-sm-10 col-md-8 col-lg-4 offset-2 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav navDestop">
                                 <li class="nav-item ms-4">
@@ -33,20 +33,20 @@
                                             alt="NOTIFICACION"> Notificaciones</a>
                                 </li>
                                 <li class="nav-item dropdown ms-4">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="20"
                                             alt="Ajustes">
                                         Ajustes
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="/perfil"><img
-                                                    src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15"
-                                                    alt="perfil">Perfil</a></li>
+                                        <li><a class="dropdown-item" href="/perfil"><img style="margin-right: 10px"
+                                                    src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="20"
+                                                    alt="perfil">Mi Perfil</a></li>
                                         <hr>
-                                        <li><a class="dropdown-item" href="#"><img
+                                        <li><a class="dropdown-item" href="#"><img style="margin-right: 10px"
                                                     src="{{ asset('img/backoffices/ICONO_CONTACTO.svg') }}"
-                                                    width="15" alt="contacto">Contacto</a></li>
+                                                    width="20" alt="contacto">Contacto</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -73,7 +73,7 @@
                                     <li>
                                         <a href="#"><img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="15" alt="">Ajustes</a>
                                         <ul>
-                                            <li><a href="/perfil"><img src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15" alt="">Perfil</a></li>
+                                            <li><a href="/perfil"><img src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15" alt="">Mi Perfil</a></li>
                                             <li><a href=""><img src="{{ asset('img/backoffices/ICONO_CONTACTO.svg') }}" width="15" alt="">Contacto</a></li>
                                         </ul>
                                     </li>
@@ -102,9 +102,9 @@
                         <table class="table table-bordered creditos">
                           <thead>
                                 <tr>
-                                    <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" id="imgSolicitudNaranja" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}" id="imgSolicitudGris" style="display: none" class="posision" width="60" alt=""><h4><a href="#solicitudesCredito" class="subtitulo" id="solicitudes" >Solicitudes de Crédito</a></h4></th>
-                                    <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" id="imgClientesGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CLI_CRE_VIG_NAR.png') }}"id="imgClientesNaranja" style="display: none" class="posision" width="60" alt=""><h4><a href="#clientesVigentes" class="enlace" id="clientes">Clientes Vigentes</a></h4></th>
-                                    <th scope="col"><img src="{{ asset('img/backoffices/CRE_FIN_GRIS.png') }}" id="imgFinalizadoGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CRE_FIN_NAR.svg') }}" id="imgFinalizadoNaranja"  style="display: none" class="posision" width="60" alt=""><h4><a href="#creditoFinalizado" class="enlace" id="finalizado">Crédito Finalizado</a></h4></th>
+                                    <th scope="col"><img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}" id="imgSolicitudNaranja" class="posision mt-2" width="55" alt=""><img src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}" id="imgSolicitudGris" style="display: none" class="posision mt-2" width="55" alt=""><h4 style="margin-top: 20px;"><a href="#solicitudesCredito" class="subtitulo" id="solicitudes" >Solicitudes de Crédito</a></h4></th>
+                                    <th scope="col"><img src="{{ asset('img/backoffices/CLI_CRE_VIG_GRIS.png') }}" id="imgClientesGris" class="posision mt-1" width="60" alt=""><img src="{{ asset('img/backoffices/CLI_CRE_VIG_NAR.png') }}"id="imgClientesNaranja" style="display: none" class="posision mt-1" width="60" alt=""><h4><a href="#clientesVigentes" class="enlace" id="clientes">Clientes Vigentes</a></h4></th>
+                                    <th scope="col"><img src="{{ asset('img/backoffices/CRE_FIN_GRIS.png') }}" id="imgFinalizadoGris" class="posision mt-2" width="70" alt=""><img src="{{ asset('img/backoffices/CRE_FIN_NAR.svg') }}" id="imgFinalizadoNaranja"  style="display: none" class="posision mt-2" width="70" alt=""><h4><a href="#creditoFinalizado" class="enlace" id="finalizado">Crédito Finalizado</a></h4></th>
                                     <th scope="col"><img src="{{ asset('img/backoffices/CRE_VEN_NARANJA.png') }}" id="imgCarteraGris" class="posision" width="60" alt=""><img src="{{ asset('img/backoffices/CAR_VEN_NAR.png') }}" id="imgCarteraNaranja" style="display: none;" class="posision" width="60" alt=""><h4><a href="#CarteraVencida" class="enlace" id="cartera">Cartera Vencida</a></h4></th>
                                 </tr>
                           </thead>
@@ -131,7 +131,7 @@
                           <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                         </svg>
                       </div>
-                      <input type="submit" value="Buscar" class="btn boton-color px-2 ms-4">
+                      <button type="button" class="btn boton-color px-2 ms-4 rounded">Buscar</button>
                     </div>
                   </div>
                 </div>
@@ -148,10 +148,10 @@
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                       <div class="table-responsive text-center">
                         <!--inicio tabla de solicitudes--->
-                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-Solicitud">
+                        <table class="table table-bordered border-secondary" id="tabla-Solicitud">
                           <thead>
-                            <tr>
-                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p>Numero de Cuenta</th>
+                            <tr class="table-secondary">
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p>Número de Cuenta</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Ocupación</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p>Ingreso Mensual</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p>Cuenta con un</th>
@@ -159,7 +159,7 @@
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Fecha de</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Nom de</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Ramo</th>
-                              <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Telefono</th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Teléfono</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio"></p>Correo Electronico</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Documentación</th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño"></p>Acciones</th>
@@ -168,7 +168,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -184,7 +184,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -200,7 +200,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -216,7 +216,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -232,7 +232,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -248,7 +248,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -264,7 +264,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -280,7 +280,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -296,7 +296,7 @@
                                 <td><button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button></td>
                                 <td><button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -316,25 +316,25 @@
                         </table>
                         <!--fin tabla de solicitudes--->
                         <!--inicio tabla de clientes--->
-                        <table class="table  table-bordered border-secondary table-light table-striped" id="tabla-Clientes">
+                        <table class="table  table-bordered border-secondary" id="tabla-Clientes">
                             <thead>
-                              <tr>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Numero de Crédito</p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Numero de Cliente</p></th>
+                              <tr class="table-secondary">
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Número de Crédito</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Número de Cliente</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Nombre</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">linea de Crédito Aut</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Tarjeta de Nóm Reg</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Tabla de Amortización</p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Num Parcilidades</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Núm Parcilidades</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Tabla de Pago</p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Numero de Pago</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Número de Pago</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla">Enviar Cartera Vencida</p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Mas Información</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Más Información</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Finalizar Crédito</p></th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
+                              <tr class="table-light">
                                 <td>123890</td>
                                 <td>NC989862</td>
                                 <td>Alberto Ledezm</td>
@@ -348,7 +348,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>123567</td>
                                 <td>NC967457</td>
                                 <td>Jóse Garcia Hern</td>
@@ -362,7 +362,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>134780</td>
                                 <td>NC567834</td>
                                 <td>Danna Peña Mar</td>
@@ -376,7 +376,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>09897</td>
                                 <td>NC234569</td>
                                 <td>Ivan Segura Rico</td>
@@ -390,7 +390,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>00457</td>
                                 <td>NC092345</td>
                                 <td>Adrian Uribe Sos</td>
@@ -404,7 +404,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>14590</td>
                                 <td>NC125678</td>
                                 <td>Pedro Sierra Flor</td>
@@ -418,7 +418,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>00089</td>
                                 <td>NC234569</td>
                                 <td>Susana Gutiérrez</td>
@@ -432,7 +432,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>07584</td>
                                 <td>NC673456</td>
                                 <td>Roberto Villagón</td>
@@ -446,7 +446,7 @@
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/masInformacion" style="text-decoration: none; color:white;">Ver</a></button></td>
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">Finalizar</button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>02342</td>
                                 <td>NC19802</td>
                                 <td>Luis Gómez Loi</td>
@@ -464,74 +464,74 @@
                         </table>
                         <!--fin tabla de clientes--->
                         <!-- inicio tabla finalizar credito-->
-                        <table class="table  table-bordered border-secondary table-light table-striped" id="tabla-Finalizado">
+                        <table class="table  table-bordered border-secondary" id="tabla-Finalizado">
                             <thead>
-                              <tr>
+                              <tr class="table-secondary">
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Nombre</p></th>
-                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Num de crédito</p></th>
+                                <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Núm de crédito</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Crédito Activo</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Historial de pago</p></th>
                                 <th scope="col" class="px-5"><p class="encabezado-tabla">Historial de montos Auto</p></th>
                               </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr class="table-light">
                                     <td>Nombre Apellidos</td>
                                     <td>2</td>
                                     <td>Vigente</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-secondary">
                                     <td>Nombre Apellidos</td>
                                     <td>1</td>
                                     <td>Inactivo</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-light">
                                     <td>Nombre Apellidos</td>
                                     <td>3</td>
                                     <td>Vigente</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-secondary">
                                     <td>Nombre Apellidos</td>
                                     <td>1</td>
                                     <td>Vigente</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-light">
                                     <td>Nombre Apellidos</td>
                                     <td>2</td>
                                     <td>Inactivo</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-secondary">
                                     <td>Nombre Apellidos</td>
                                     <td>3</td>
                                     <td>Inactivo</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-light">
                                     <td>Nombre Apellidos</td>
                                     <td>1</td>
                                     <td>Vigente</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-secondary">
                                     <td>Nombre Apellidos</td>
                                     <td>1</td>
                                     <td>Inactivo</td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                                     <td><button class="btn boton-color px-4 mx-4"><a href="/historialMontosAutorizados" style="text-decoration: none; color:white;">Ver montos</a></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="table-light">
                                     <td>Nombre Apellidos</td>
                                     <td>2</td>
                                     <td>Inactivo</td>
@@ -542,20 +542,20 @@
                         </table>
                         <!-- fin tabla finalizar credito-->
                         <!--inicio tabla de cartera--->
-                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-Cartera">
+                        <table class="table table-bordered border-secondary" id="tabla-Cartera">
                           <thead>
-                            <tr>
-                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Numero de cliente</p></th>
-                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Num de crédito</p></th>
+                            <tr class="table-secondary">
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Número de cliente</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Núm de crédito</p></th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Nombre</p></th>
-                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Telefono</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Teléfono</p></th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Correo Electronico</p></th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Regularizar cliente</p></th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Tabla de pagos</p></th>
                             </tr>
                           </thead>
                           <tbody>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -564,7 +564,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -573,7 +573,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -582,7 +582,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -591,7 +591,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -600,7 +600,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -609,7 +609,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -618,7 +618,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -627,7 +627,7 @@
                                 <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
@@ -652,12 +652,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Documentos</h5>
             </div>
           </div>
           <div class="modal-body" style="border: none;">
+            <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Documentos</h5>
             <div class="container-fluid mt-5">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -720,12 +720,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Aprobar crédito</h5>
             </div>
           </div>
           <div class="modal-body" style="border: none;">
+            <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Aprobar crédito</h5>
             <div class="container-fluid mt-5">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -767,12 +767,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">¿Estas seguro de rechazar la solicitud?</h5>
             </div>
           </div>
           <div class="modal-body" style="border: none;">
+            <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">¿Estas seguro de rechazar la solicitud?</h5>
             <div class="container-fluid mt-5">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -818,12 +818,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Seleccione una Opción</h5>
             </div>
           </div>
           <div class="modal-body" style="border: none;">
+            <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Seleccione una Opción</h5>
             <div class="container-fluid mt-5">
               <div class="row">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -886,12 +886,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Confirmación</h5>
             </div>
           </div>
           <div class="modal-body" style="border: none;">
+            <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Confirmación</h5>
             <div class="container-fluid mt-5">
               <div class="row">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -929,12 +929,12 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header" style="border: none;">
-              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">¿Está seguro de finalizar el crédito del clientes?</h5>
-              </div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
             </div>
             <div class="modal-body" style="border: none;">
+                <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">¿Está seguro de finalizar el crédito del clientes?</h5>
               <div class="container-fluid mt-5">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -972,12 +972,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Regularizar Cliente</h5>
             </div>
           </div>
           <div class="modal-body" style="border: none;">
+            <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Regularizar Cliente</h5>
             <div class="container-fluid mt-5">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -1021,12 +1021,12 @@
                   <div class="col-12 col-sm-8 col-md-8 col-lg-2 offset-sm-2 offset-md-2 offset-lg-8">
                     <nav aria-label="Page navigation example">
                       <ul class="pagination">
-                        <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">Siguientes</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span>Anterior</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<span aria-hidden="true">&raquo;</span></a></li>
                       </ul>
                     </nav>
                   </div>
@@ -1044,6 +1044,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="{{ asset('js/backoffice/clientes.js') }}"></script>
   <script src="{{ asset('js/backoffice/menuBurger.js') }}"></script>
+  <script>
+
+  </script>
 
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tabla de Pagos</title>
-
+  <link rel="icon" type="image/x-icon" href="{{ asset('img/backoffices/Grupo 979.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
 
@@ -16,10 +16,10 @@
         <div class="container-fluid">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class=" col-4 col-sm-4 col-md-4 col-lg-2 offset-sm-4 offset-md-4 offset-lg-1" id="logoDI">
-                        <img src="{{ asset('img/logo.png') }}"  width="120" class="my-2 ms-2" alt="logo">
+                    <div class=" col-4 col-sm-4 col-md-4 col-lg-2 offset-sm-4 offset-md-4 offset-lg-1 me-5" id="logoDI">
+                        <img src="{{ asset('img/logo.png') }}"  width="120" class="my-2" alt="logo">
                     </div>
-                    <div class=" col-4 col-sm-10 col-md-8 col-lg-4 offset-4 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
+                    <div class=" col-4 col-sm-10 col-md-8 col-lg-4 offset-2 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav navDestop">
                                 <li class="nav-item ms-4">
@@ -33,20 +33,20 @@
                                             alt="NOTIFICACION"> Notificaciones</a>
                                 </li>
                                 <li class="nav-item dropdown ms-4">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="20"
                                             alt="Ajustes">
                                         Ajustes
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="/perfil"><img
-                                                    src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15"
-                                                    alt="perfil">Perfil</a></li>
+                                        <li><a class="dropdown-item" href="/perfil"><img style="margin-right: 10px"
+                                                    src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="20"
+                                                    alt="Mi perfil">Perfil</a></li>
                                         <hr>
-                                        <li><a class="dropdown-item" href="#"><img
+                                        <li><a class="dropdown-item" href="#"><img style="margin-right: 10px"
                                                     src="{{ asset('img/backoffices/ICONO_CONTACTO.svg') }}"
-                                                    width="15" alt="contacto">Contacto</a></li>
+                                                    width="20" alt="contacto">Contacto</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -73,7 +73,7 @@
                                     <li>
                                         <a href="#"><img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="15" alt="">Ajustes</a>
                                         <ul>
-                                            <li><a href="/perfil"><img src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15" alt="">Perfil</a></li>
+                                            <li><a href="/perfil"><img src="{{ asset('img/backoffices/ICONO_PERFIL.svg') }}" width="15" alt="">Mi Perfil</a></li>
                                             <li><a href=""><img src="{{ asset('img/backoffices/ICONO_CONTACTO.svg') }}" width="15" alt="">Contacto</a></li>
                                         </ul>
                                     </li>
@@ -97,7 +97,7 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-2 offset-md-4 offset-lg-6">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-5 offset-sm-2 offset-md-4 offset-lg-7">
                   <div class="input-group">
                     <div class="input-wrapper">
                       <input type="search" name="" id="" class="ms-1 mt-2" placeholder="Buscar">
@@ -105,7 +105,7 @@
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                       </svg>
                     </div>
-                    <input type="submit" value="Buscar" class="btn boton-color px-2 ms-4 mt-2">
+                    <button type="button" class="btn boton-color px-2  ms-5 mt-2 rounded">Buscar</button>
                   </div>
                 </div>
               </div>
@@ -121,11 +121,11 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                       <div class="table-responsive text-center">
-                        <table class="table table-bordered border-secondary table-light table-striped" id="tabla-amortizacion">
+                        <table class="table table-bordered border-secondary" id="tabla-amortizacion">
                           <thead>
-                            <tr>
-                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio pt-3">Numero de crédito</p></th>
-                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Numero de pago</p></th>
+                            <tr class="table-secondary">
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio pt-3">Número de crédito</p></th>
+                              <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Número de pago</p></th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Fecha de pago</p></th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Monto Pagado</p></th>
                               <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Saldo Insoluto</p></th>
@@ -135,7 +135,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <tr>
+                              <tr class="table-light">
                                 <td>0986</td>
                                 <td>0986</td>
                                 <td>22/08/2022</td>
@@ -145,7 +145,7 @@
                                 <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
                                 <td><img src="" class="my-3" width="40" alt=""></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>1234</td>
                                 <td>1234</td>
                                 <td>29/09/2022</td>
@@ -155,7 +155,7 @@
                                 <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
                                 <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt=""></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>0089</td>
                                 <td>0089</td>
                                 <td>05/11/2022</td>
@@ -165,7 +165,7 @@
                                 <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
                                 <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt=""></td>
                               </tr>
-                              <tr>
+                              <tr class="table-secondary">
                                 <td>6735</td>
                                 <td>6735</td>
                                 <td>04/13/2022</td>
@@ -175,7 +175,7 @@
                                 <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
                                 <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt=""></td>
                               </tr>
-                              <tr>
+                              <tr class="table-light">
                                 <td>0975</td>
                                 <td>0975</td>
                                 <td>04/01/2023</td>
@@ -202,12 +202,12 @@
                 <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
                   <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                      <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
-                      <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link text-dark" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link text-dark" href="#">Siguientes</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span>Anterior</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<span aria-hidden="true">&raquo;</span></a></li>
                     </ul>
                   </nav>
                 </div>
@@ -223,7 +223,7 @@
         <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1">
             <div class="row">
                 <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
-                  <button type="button" class="btn px-5 my-3 " style="background-color: #38a937; color:white; font-size: 20px;">Volver</button>
+                  <button type="button" class="btn px-5 my-3 "  style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
                 </div>
                 <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                   <button type="button" class="btn px-5 my-3 " style="background-color: #f29100; color:white; font-size: 20px;">Guardar</button>

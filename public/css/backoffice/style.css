@@ -222,6 +222,8 @@ body{
     color: #38a937;
   }
   .boton-color{
+    width: 100px;
+    height: 40px;
     background-color: #38a937;
     color: white
   }
@@ -264,8 +266,11 @@ body{
     border: none;
     background-color: #ebe7e8;
   }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: none;
+  }
   input[type="search"]{
-    width: 100%;
+    width: 80%;
     height: 40px;
     border: none;
     background-color: #ebe7e8;
@@ -282,8 +287,8 @@ body{
     position: absolute;
     width: 20px;
     height: 20px;
-    left: 20px;
-    top: 50%;
+    left: 15px;
+    top: 45%;
     transform: translateY(-50%);
   }
   input[type="submit"]{
@@ -322,6 +327,22 @@ body{
   }
   .boton-falta-inf{
     width: 250px;
+  }
+  .boton-movil-naranja{
+    margin-left: 100px;
+  }
+  .boton-movil-verde{
+    margin-left: 50px;
+  }
+  .boton-movil-gris{
+    margin-left: 10px;
+  }
+  .page-link{
+    color: black;
+  }
+  .page-link:focus,
+  .page-link:hover{
+    color: #52ba42;
   }
   footer{
     width: 100%;
@@ -364,6 +385,18 @@ body{
     #movil{
         display: block;
     }
+
+  }
+  @media(max-width: 650px){
+    .boton-movil-naranja{
+        margin-left: 100px;
+      }
+    .boton-movil-verde{
+        margin-left: 100px;
+      }
+    .boton-movil-gris{
+        margin-left: 100px;
+      }
   }
   @media(max-width: 575px){
     .navDestop{
@@ -374,5 +407,27 @@ body{
     }
     #logoDI{
         height: 70px;
+        margin-right: 0px;
     }
+    #imgSolicitudNaranja, #imgSolicitudGris{
+        margin-left: 20px;
+    }
+    #imgClientesGris, #imgClientesNaranja{
+        margin-left: 10px;
+    }
+    #imgFinalizadoGris,#imgFinalizadoNaranja{
+        margin-left: 10px;
+    }
+    #imgCarteraGris,#imgCarteraNaranja{
+        margin-left: 10px;
+    }
+    .boton-movil-naranja{
+        margin-left: 50px;
+      }
+    .boton-movil-verde{
+        margin-left: 50px;
+      }
+    .boton-movil-gris{
+        margin-left: 50px;
+      }
   }
