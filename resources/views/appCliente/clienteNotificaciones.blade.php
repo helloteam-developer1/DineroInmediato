@@ -99,7 +99,7 @@
 <body >
     
 {{--Menú Cliente--}}
-@include('components.landing.cuerpo._menuClienteEmma')
+<livewire:app-cliente.menu-cliente />
 
 
 <div class="container">
@@ -113,54 +113,32 @@
 </div>
 
 <div class="container" style="background-color: 	#dedede;">
-<br>
-@if($errors->any())
-    <p class="error-message">{{$errors->first('mensaje')}}</p>
-@endif
 <div class="row">
     <div class="col-auto p-4">
       @if ($notificaciones!=null)
-        @foreach ($notificaciones as $n)
-        <div class="card">
-          <div class="card-body">
-            
-            <h5 class="card-title">{{$n->titulo_notf}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{$n->sub_notf}}</h6>
-            <p class="card-text">{{$n->cuerpo}}</p>
-            <img src="/img/assets/aplicacionCliente/ELIMINAR.svg" style="float:right; cursor:pointer;" onclick="openModal()"></img>
-            <!-- <div class="contenedor" style="display: flex; flex-direction: row-reverse;">
-              <a href="#" class="card-link"><img src="img/ELIMINAR.svg" alt="" srcset=""></a>
-            </div> -->
-           
-            <!-- <a href="#" class="card-link" style="display: flex;"><img src="img/ELIMINAR.svg" alt="" srcset=""></a> -->
-          </div>
-        </div>
+        @if ($id>0)
+         <livewire:app-cliente.notificacion id="{{$id}}"/>  
+        @endif
         
-        <br />
-        @endforeach
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        @foreach ($notificaciones as $n)
+        @if ($id==$n->id_notf)
+        {{--Si se selecciona una notificación se usa el componente para poder mostrarla hasta arriba--}}
+        @else
+            <div class="card">
+              <div class="card-head">
+                {{$n->id_notf}}
               </div>
-              <div class="modal-body">
-                ¿Eliminar {{$n->titulo_notf}}?
-              </div>
-              <div class="modal-footer">
-                <form action="{{route('notificacion.destroy',$n->id_notf)}}" method="POST">
-                <center>
-                  <button type="button" class="btn  btn-primary" data-bs-dismiss="modal">Cancelar</button>
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-secondary">Borrar</button>
-                </center>
-              </form>
+              <div class="card-body">
+                <h5 class="card-title">{{$n->titulo_notf}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{$n->sub_notf}}</h6>
+                <p class="card-text">{{$n->cuerpo}}</p>
+                <img src="/img/assets/aplicacionCliente/ELIMINAR.svg" style="float:right; cursor:pointer;" onclick="openModal()"></img>
               </div>
             </div>
-          </div>
-        </div>
+        @endif
+      </table>
+        <br />
+        @endforeach
       @else
         <div class="card">
           <div class="card-body">
@@ -172,6 +150,30 @@
     </div>
 </div>
 
+</div>
+{{--Modal para eliminar--}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Eliminar {{$n->titulo_notf}}?
+      </div>
+      <div class="modal-footer">
+        <form action="{{route('notificacion.destroy',$n->id_notf)}}" method="POST">
+        <center>
+          <button type="button" class="btn  btn-primary" data-bs-dismiss="modal">Cancelar</button>
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-secondary">Borrar</button>
+        </center>
+      </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 <br><br><br><br><br>

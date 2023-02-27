@@ -14,6 +14,6 @@ Route::get('/historialPagos', [clientesController::class, 'historialPagos'])->na
 Route::get('/historialMontosAutorizados', [clientesController::class, 'historialMontosAutorizados'])->name('historialMontosAutorizados');
 Route::get('/tablaDePagos', [clientesController::class, 'tablaDePagos'])->name('tablaDePagos');
 
-Route::get('/notificaciones', [notificacionesController::class, 'notificaciones'])->name('notificaciones');
+Route::get('/notificaciones-back', [notificacionesController::class, 'notificaciones'])->name('notificaciones');
 
 Route::get('/perfil', [perfilController::class, 'perfil'])->name('perfil');

@@ -14,6 +14,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app-clientes-estilos/menu.css')}}">
     <style>
+      
         @font-face {
             font-family: 'CarotSans-Medium';
             src: url("../fonts/CarotSans-Medium.otf") format('woff');
@@ -72,7 +73,7 @@
         }
 
         .btn-verde: {
-            background: #38A937
+            background: #38A937;
         }
 
         .btn-verde:hover {
