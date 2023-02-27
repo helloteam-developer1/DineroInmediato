@@ -561,7 +561,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-secondary">
@@ -570,7 +570,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-light">
@@ -579,7 +579,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-secondary">
@@ -588,7 +588,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-light">
@@ -597,7 +597,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-secondary">
@@ -606,7 +606,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-light">
@@ -615,7 +615,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-secondary">
@@ -624,7 +624,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                               <tr class="table-light">
@@ -633,7 +633,7 @@
                                 <td>Datos</td>
                                 <td>Datos</td>
                                 <td>Datos</td>
-                                <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
+                                <td><button class="btn buton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#regularizarCliente">Regurizar</button></td>
                                 <td><button class="btn boton-color px-4 mx-4"><a href="/tablaDePagos" style="text-decoration: none; color:white;">Ver</a></button></td>
                               </tr>
                             </tbody>
@@ -1021,12 +1021,12 @@
                   <div class="col-12 col-sm-8 col-md-8 col-lg-2 offset-sm-2 offset-md-2 offset-lg-8">
                     <nav aria-label="Page navigation example">
                       <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span>Anterior</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><img class="flechaIzq" src="{{ asset('img/backoffices/Flecha Izquierda.png') }}" alt=""> Anterior</a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<span aria-hidden="true">&raquo;</span></a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<img class="flechaDer" src="{{ asset('img/backoffices/Flecha Derecha.png') }}" alt=""> </a></li>
                       </ul>
                     </nav>
                   </div>
