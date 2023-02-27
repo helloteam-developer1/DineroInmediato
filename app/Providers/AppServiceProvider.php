@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\View\Components\landing\modal\modal;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;  
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,8 +25,8 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        Paginator::useBootstrap();
+    { 
+        Paginator::useBootstrap(); 
         Blade::component('modal-footer', modal::class);
         
     }

@@ -38,7 +38,7 @@ class TablaAmortizacion extends Component
             
             if(empty($this->busqueda)){
                 $tabla = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
-                where('num_credito','=', $num_credito)->orderBy('numero_pagos', 'desc')->simplepaginate(5);
+                where('num_credito','=', $num_credito)->orderBy('numero_pagos', 'desc')->paginate(5);
                 
             }else{
 

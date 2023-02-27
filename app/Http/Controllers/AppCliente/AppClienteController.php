@@ -116,15 +116,19 @@ class AppClienteController extends Controller
         return view('appCliente.clienteMenuAjustesContacto');
     }
 
-    public function notificaciones (){       
-        //cuando se renderiza la pagina cambio todas las notificaciones a vistas
-        $notificaciones= Notificaciones::where('user_id', '=', Auth::user()->id)->update(['estado' => 1]);
-        $notificaciones = Notificaciones::where('user_id', Auth::user()->id)->orderBy('id_notf','DESC')->get();
-        if($notificaciones->count()){
-            return view('appCliente.clienteNotificaciones', compact('notificaciones'));
+    public function notificaciones($id){       
+            
+        $notificaciones = Notificaciones::where('user_id', Auth::user()->id)->get();
+        
+        if($id>0){
+            Notificaciones::where('user_id', '=', Auth::user()->id)->update(['estado' => 1]);
+            return view('appCliente.clienteNotificaciones',['notificaciones'=>$notificaciones,'id'=>$id]);
         }else{
-            return view('appCliente.clienteNotificaciones',['notificaciones'=>null]);
+            return view('appCliente.clienteNotificaciones',['notificaciones'=>$notificaciones,'id'=>null]);
         }
+    
+        
+        
     }
     //eliminar notificaciones
     public function destroy($id){

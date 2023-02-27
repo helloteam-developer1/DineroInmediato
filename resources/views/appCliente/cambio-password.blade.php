@@ -117,7 +117,7 @@
     </style>
 </head>
 <body>
-    @include('components.landing.cuerpo._menuClienteEmma')
+  <livewire:app-cliente.menu-cliente />
 
 <div class="container">
     <br>

@@ -101,7 +101,7 @@
     <div class="container d-flex flex-row-reverse">
         <nav aria-label="Page navigation example">
             @if ($pagos!=null)
-                {{$pagos->links()}}
+                {{$pagos->links('pagination::bootstrap-4')}}    
             @endif
         </nav>
     </div>

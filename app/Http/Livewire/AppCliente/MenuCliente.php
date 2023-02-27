@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\AppCliente;
 
+use App\Models\Notificaciones;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -23,6 +24,6 @@ class MenuCliente extends Component
     }
 
     public function leido(){
-       
+        $notificaciones= Notificaciones::where('user_id', '=', Auth::user()->id)->update(['estado' => 1]);
     }
 }

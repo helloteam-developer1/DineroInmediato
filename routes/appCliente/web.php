@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
         Route::post('/solicitar-credito', [AppClienteController::class ,'store'])->name('solicitar');    
         Route::get('/miPrestamo', [AppClienteController::class, 'miprestamo'])->name('miPrestamo');
         Route::get('/ajustes-contacto', [AppClienteController::class, 'ajustescontacto'])->name('ajustes-contacto');
-        Route::get('/cliente-notificaciones', [AppClienteController::class, 'notificaciones'])->name('cliente-notificaciones');
+        Route::get('/cliente-notificaciones/{id}', [AppClienteController::class, 'notificaciones'])->name('cliente-notificaciones');
         Route::post('/logout', [AppClienteController::class, 'logout'])->name('logout');
         Route::delete('/eliminar/{id}',[AppClienteController::class, 'destroy'])->name('notificacion.destroy');
         Route::get('/mi-perfil', [AppClienteController::class,'miperfil'])->name('miperfil');
