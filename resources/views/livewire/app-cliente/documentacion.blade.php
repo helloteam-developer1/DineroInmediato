@@ -4,6 +4,7 @@
     <center>
       <div class="alert alert-success">
         {{ $successMessage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     </center>
     @endif
@@ -73,72 +74,6 @@
       
       </div>
     @break
-    @case(3)
-        {{--Botones para subir img--}}
-      <div class="row mb-3 justify-content-center">
-        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Frente</label>
-        <div class="col-sm-2">
-          @if ($ine_frente)
-            <img src="{{ $ine_frente->temporaryUrl() }}" width="30%" height="auto" />
-          @endif
-        </div>
-        <div class="col-sm-4">
-            <a class="btn btn-gris" onclick="document.getElementById('getFileIneFrente').click()">Adjuntar archivo</a>
-            <input type='file' id="getFileIneFrente" style="display:none" name="ine_frente" wire:model="ine_frente">
-          </div>
-          @if ($errors->has('ine_frente'))
-          <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('ine_frente') }}</span>
-          @endif
-      </div>
-      <div class="row mb-3 justify-content-center">
-        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Reverso</label>
-        <div class="col-sm-2">
-          <img src="{{$ine_reverso}}" width="100%" height="auto"> 
-          @if ($ine_reverso)
-            <img src="{{ $ine_reverso->temporaryUrl() }}" width="30%" height="auto" />
-          @endif
-        </div>
-          <div class="col-sm-4">
-            <a class="btn btn-gris" onclick="document.getElementById('getFileIneReverso').click()">Adjuntar archivo</a>
-            <input type='file' id="getFileIneReverso" style="display:none" name="ine_reverso" wire:model="ine_reverso">
-          </div>
-          @if ($errors->has('ine_reverso'))
-          <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('ine_reverso') }}</span>
-          @endif
-      </div>
-      <div class="row mb-3 justify-content-center">
-        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Comprobante de domicilio</label>
-        <div class="col-sm-2">
-          <img src="{{$comp_dom}}" width="100%" height="auto"> 
-          @if ($comp_dom)
-            <img src="{{ $comp_dom->temporaryUrl() }}" width="30%" height="auto" />
-          @endif
-        </div>
-          <div class="col-sm-4">
-            <a class="btn btn-gris" onclick="document.getElementById('getFileComp').click()">Adjuntar archivo</a>
-            <input type='file' id="getFileComp" style="display:none" name="comp_dom" wire:model="comp_dom">
-          </div> 
-          @if ($errors->has('comp_dom'))
-          <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('comp_dom') }}</span>
-          @endif   
-      </div>
-      <div class="row mb-3 justify-content-center">
-        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Foto con INE</label>
-        <div class="col-sm-2">
-          <img src="{{$foto_cine}}" width="100%" height="auto"> 
-          @if ($foto_cine)
-            <img src="{{ $foto_cine->temporaryUrl() }}" width="30%" height="auto" />
-          @endif
-        </div>
-          <div class="col-sm-4">
-            <a class="btn btn-gris" onclick="document.getElementById('getFileCURP').click()">Adjuntar archivo</a>
-            <input type='file' id="getFileCURP" style="display:none" name="foto_cine" wire:model="foto_cine">    
-          </div>
-          @if ($errors->has('foto_cine'))
-          <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('foto_cine') }}</span>
-          @endif
-      </div>
-    @break
     @case(2)
         {{--Botones para subir img pero el credito fue rechazado--}}
       <div class="row mb-3 justify-content-center">
@@ -177,8 +112,98 @@
           </div>
       </div>
     @break
-    @default
+    @case(3)
+    <!-- Button trigger modal -->
 
+
+<!-- Modal -->
+
+        {{--Botones para subir img--}}
+      <div class="row mb-3 justify-content-center">
+        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Frente</label>
+        <div class="col-sm-2">
+          @if ($ine_frente)
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalIMG">
+            Vista previa
+          </button>
+          <div class="modal fade" id="exampleModalIMG" tabindex="-1" aria-labelledby="exampleModalLabelIMG" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabelIMG">INE FRENTE</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <img src="{{ $ine_frente->temporaryUrl() }}" width="30%" height="auto" />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endif
+        </div>
+        <div class="col-sm-4">
+            <a class="btn btn-gris" onclick="document.getElementById('getFileIneFrente').click()">Adjuntar archivo</a>
+            <input type='file' id="getFileIneFrente" style="display:none" name="ine_frente" wire:model="ine_frente">
+        </div>
+        @if ($errors->has('ine_frente'))
+          <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('ine_frente') }}</span>
+        @endif
+      </div>
+      <div class="row mb-3 justify-content-center">
+        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Reverso</label>
+        <div class="col-sm-2">
+          
+          @if ($ine_reverso)
+            <img src="{{ $ine_reverso->temporaryUrl() }}" width="30%" height="auto" />
+          @endif
+        </div>
+          <div class="col-sm-4">
+            <a class="btn btn-gris" onclick="document.getElementById('getFileIneReverso').click()">Adjuntar archivo</a>
+            <input type='file' id="getFileIneReverso" style="display:none" name="ine_reverso" wire:model="ine_reverso">
+          </div>
+          @if ($errors->has('ine_reverso'))
+            <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('ine_reverso') }}</span>
+          @endif
+      </div>
+      <div class="row mb-3 justify-content-center">
+        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Comprobante de domicilio</label>
+        <div class="col-sm-2">
+          @if ($comp_dom)
+            <img src="{{ $comp_dom->temporaryUrl() }}" width="30%" height="auto" />
+          @endif
+        </div>
+          <div class="col-sm-4">
+            <a class="btn btn-gris" onclick="document.getElementById('getFileComp').click()">Adjuntar archivo</a>
+            <input type='file' id="getFileComp" style="display:none" name="comp_dom" wire:model="comp_dom">
+          </div> 
+          @if ($errors->has('comp_dom'))
+          <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('comp_dom') }}</span>
+          @endif   
+      </div>
+      <div class="row mb-3 justify-content-center">
+        <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Foto con INE</label>
+        <div class="col-sm-2">
+          @if ($foto_cine)
+            <img src="{{ $foto_cine->temporaryUrl() }}" width="30%" height="auto" />
+          @endif
+        </div>
+          <div class="col-sm-4">
+            <a class="btn btn-gris" onclick="document.getElementById('getFileCURP').click()">Adjuntar archivo</a>
+            <input type='file' id="getFileCURP" style="display:none" name="foto_cine" wire:model="foto_cine">    
+          </div>
+          @if ($errors->has('foto_cine'))
+          <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('foto_cine') }}</span>
+          @endif
+      </div>
+    @break
+    @default
+        {{--Botones para subir img pero el credito fue rechazado--}}
+        <div class="row mb-3 justify-content-center">
+          <h2 style="  color:#F29100 ;">Documentación en revisión.</h2>
+        </div>
   @endswitch  
   
     
@@ -211,10 +236,12 @@
       <div class="col">
         @switch($documentacion)
           @case(3)
-          <a class="btn btn-success" wire:click="subirIMG">Guardar</a>
+            <a class="btn btn-success" wire:click="subirIMG">Guardar</a>
+          @break
+          @case(2)
+            <a class="btn btn-success">Guardar</a>    
           @break
           @default
-          <a class="btn btn-success">Guardar</a>    
         @endswitch
         
       </div>

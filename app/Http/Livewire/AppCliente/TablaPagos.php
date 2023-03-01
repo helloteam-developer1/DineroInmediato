@@ -73,6 +73,7 @@ class TablaPagos extends Component
                 if($consulta5->count()){
                     $pagos = $consulta5;
                 }
+                $pagos = null;
             }
         }else{
             $pagos= null;

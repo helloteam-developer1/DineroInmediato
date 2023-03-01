@@ -34,24 +34,29 @@ class Documentacion extends Component
     }
 
     public function subirIMG(){
-        
         $nombre = Auth::user()->nombre;
         $id = Auth::user()->id;
         $cambio=0;
     
         if($this->ine_frente){
+            $validatedData = $this->validate([
+                'ine_frente' => 'mimes:jpg,png,jpeg|max:2000',
+            ],
+            [
+                'ine_frente.mimes' => 'La foto INE FRETE debe ser jpg,png,jpeg' , 
+                'ine_frente.max' => 'La foto INE FRETE no debe pesar mas de 2MB' ,
+            ]
+            );
+
             if(Auth::user()->ine_frente!=null){
                 $file = Auth::user()->ine_frente;
                 if(Storage::disk('public_posts')->exists($file)){
                     Storage::disk('public_posts')->delete($file);
                 }
                 
-            }
-            
+            }            
                 //valido que sea img y que no pese mas de 2MB
-            $validatedData = $this->validate([
-                'ine_frente' => 'mimes:jpg,png,jpeg|max:2000',
-            ]);
+           
             //Extraigo el nombre de la img
             $nombreIne_f = $this->ine_frente->getClientOriginalName();
             //Le doy un nuevo nombre a la img
@@ -60,13 +65,16 @@ class Documentacion extends Component
             $ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
             //modifico al usuario con la ruta de la img 
             $cambio = User::where('id','=',$id)->update(['ine_frente'=>$ruta1]);
-        }else{
-            $this->info = "Carga una imagen para continuar.";
         }
         
-        
-    
         if($this->ine_reverso){
+            $validatedData = $this->validate([            
+                'ine_reverso' => 'mimes:jpg,png,jpeg|max:2000',   
+            ],
+            [
+                'ine_reverso.mimes' => 'La foto INE REVERSO debe ser jpg,png,jpeg', 
+                'ine_reverso.max' => 'La foto INE REVERSO no debe pesar mas de 2MB', 
+            ]);
             if(Auth::user()->ine_frente!=null){
                 $file = Auth::user()->ine_reverso;
                 if(Storage::disk('public_posts')->exists($file)){
@@ -74,19 +82,22 @@ class Documentacion extends Component
                 }
                 
             }
-            $validatedData = $this->validate([
-                'ine_reverso' => 'mimes:jpg,png,jpeg|max:2000',
-            ]);
+           
             $nombreIne_r = $this->ine_reverso->getClientOriginalName();
             $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($nombre).'-'.$nombreIne_r;
             $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
             $cambio = User::where('id','=',$id)->update(['ine_reverso'=>$ruta2]);
             
 
-        }else{
-            $this->info = "Carga una imagen para continuar.";
         }
         if($this->comp_dom){
+            $validatedData = $this->validate([            
+                'comp_dom' => 'mimes:jpg,png,jpeg|max:2000',
+            ],
+            [
+                'comp_dom.mimes' => 'El COMPROBANTE DE DOMICILIO debe ser jpg,png,jpeg',
+                'comp_dom.max' => 'El COMPROBANTE DE DOMICILIO no debe pesar mas de 2MB'
+            ]);
             if(Auth::user()->ine_frente!=null){
                 $file = Auth::user()->comp_dom;
                 if(Storage::disk('public_posts')->exists($file)){
@@ -94,18 +105,20 @@ class Documentacion extends Component
                 }
                 
             }
-            $validatedData = $this->validate([
-                'comp_dom' => 'mimes:jpg,png,jpeg|max:2000',
-            ]);
             $nombreComp = $this->comp_dom->getClientOriginalName();
             $nombre_comp_dom = 'COMP_COM-'.Str::slug($nombre).'-'.$nombreComp;
             $ruta3= $this->comp_dom->storeAs("posts/",$nombre_comp_dom,'public_posts',0644);
             $cambio = User::where('id','=',$id)->update(['comp_dom'=>$ruta3]);
             
-        }else{
-            $this->info = "Carga una imagen para continuar.";
         }
         if($this->foto_cine){
+            $validatedData = $this->validate([            
+                'foto_cine' => 'mimes:jpg,png,jpeg|max:2000',
+            ],
+            [   
+                'foto_cine.mimes' => 'La foto FOTO CON INE debe ser jpg,png,jpeg',
+                'foto_cine.max' => 'La foto FOTO CON INE no debe pesar mas de 2MB',
+            ]);
             if(Auth::user()->ine_frente!=null){
                 $file = Auth::user()->foto_cine;
                 if(Storage::disk('public_posts')->exists($file)){
@@ -113,16 +126,12 @@ class Documentacion extends Component
                 }
                 
             }
-            $validatedData = $this->validate([
-                'foto_cine' => 'mimes:jpg,png,jpeg|max:2000',
-            ]);
+           
             $nombrefoto_cine = $this->foto_cine->getClientOriginalName();
             $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($nombre).'-'.$nombrefoto_cine;
             $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);
             $cambio = User::where('id','=',$id)->update(['foto_cine'=>$ruta4]);
             
-        }else{
-            $this->info = "Carga una imagen para continuar.";
         }
         
         if($cambio==1){
@@ -133,7 +142,7 @@ class Documentacion extends Component
                 $this->info = null;
             }else{
                 $solicitud = Solicitud_Credito::where('user_id','=',$id)->update(['estado'=>0,'mensaje'=>null, 'documentacion'=>null]);    
-                $this->successMessage = "Cambio con Exito!".$estado;
+                $this->successMessage = "Cambio con Exito!";
                 $this->info = null;
             }
             

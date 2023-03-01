@@ -25,10 +25,6 @@ class Password extends Component
         return view('livewire.app-cliente.password');
     }
     
-    public function mount(){
-        
-    }
-
     public function cambiar(){
         $validatedata = $this->validate([
                 'actual' => 'required| min:8',
