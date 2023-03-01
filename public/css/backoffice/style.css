@@ -227,6 +227,15 @@ body{
     background-color: #38a937;
     color: white
   }
+  .buton-color{
+    width: 120px;
+    height: 40px;
+    background-color: #38a937;
+    color: white
+  }
+  .buton-color:hover{
+    color: white;
+  }
   .boton-color:hover{
     color: white
   }
@@ -338,11 +347,25 @@ body{
     margin-left: 10px;
   }
   .page-link{
+    position: relative;
     color: black;
   }
   .page-link:focus,
   .page-link:hover{
     color: #52ba42;
+  }
+  .flechaIzq{
+    position: absolute;
+    top: 12px;
+    right: 85%;
+    width: 10px;
+    height: 10px;
+  }
+  .flechaDer{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 12px;
   }
   footer{
     width: 100%;

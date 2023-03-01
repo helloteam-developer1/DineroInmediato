@@ -22,7 +22,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -104,13 +104,43 @@
       .red{
         color: red;
       }
+      .btn-Guardar{
+        width: 90px;
+        background-color: #38A937;
+        border-radius: 5px;
+        color: white;
+    }
+    .btn-Guardar:hover{
+        color: white;
+    }
+      .acordiontext{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        color: #3C3C3B;
+        background-color: white;
+        text-align: left;
+        font-size: 17px;
+        padding-left: 20px;
+        border: 1px solid gainsboro;
+
+    }
+    .acordiontext:focus{
+        color: #f5a82d;
+    }
+   .acordionImg{
+        width: 28px;
+        height: 16px;
+        position: absolute;
+        left: 93%;
+    }
     </style>
 </head>
 {{--Si existe un estado abre la modal con dicho estado--}}
 @if ($estado!=null)
 <body onload="openmodal()">
 @else
-<body> 
+<body>
 @endif
 {{--Componente Modal que muestra el estado del credito si existe una solicitud--}}
 <x-appClienteComponentes.modal.modalEstatusCredito opcion="{{$opcion}}" estado="{{$estado}}" mensaje="{{$mensaje}}" />
@@ -120,22 +150,23 @@
 <div class="container">
     <br>
     <h1 class="text-center texto-carotSans--Medium" style="color: #4A9D22; font-size: 70px;">Documentación e información.</h1>
-    
+
     <br />
     <!-- <h1 class="text-3xl font-bold text-center" style="color: #F5A733;">
-        
+
     </h1> -->
 </div>
 
 <div class="container">
-  
+
 
     <div class="accordion" id="accordionExample">
         {{--Información general--}}
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button collapsed texto-carotSans--Regular" style="color: #F5A733;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              Información general 
+            <button class=" acordiontext acardionimg collapsed texto-carotSans--Regular" id="butonacordeon1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <img class="acordionImg" id="iconAcordion1" src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png')  }}" alt="">
+                Información general
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -189,7 +220,7 @@
                           <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto"><span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
                           @break
                           @default
-                            
+
                         @endswitch
                     </div>
                   </div>
@@ -201,7 +232,8 @@
         {{--Información Laboral--}}
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed text-datgencred" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <button class="acordiontext acardionimg collapsed text-datgencred" id="butonacordeon2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <img class="acordionImg" id="iconAcordion2" src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png')  }}" alt="">
                 Información Laboral
             </button>
           </h2>
@@ -248,7 +280,7 @@
                     @case(3)
                     <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto"><span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
                     @break
-                    @default    
+                    @default
                   @endswitch
                   </div>
                 </div>
@@ -256,26 +288,27 @@
             </div>
           </div>
         </div>
-        
-        
+
+
         {{--Documentación--}}
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed text-datgencred" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Documentación
+            <button class="acordiontext acardionimg collapsed text-datgencred" id="butonacordeon3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <img class="acordionImg" id="iconAcordion3" src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png')  }}" alt="">
+                Documentación
             </button>
           </h2>
-     
+
           @if ($estado=='Falta información que completar o es incorrecta')
-          <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">  
+          <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
           @else
           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
           @endif
-     
+
             <div class="accordion-body"  style="margin-left: 120px;">
               {{--Formulario subir img--}}
               <livewire:app-cliente.documentacion documentacion={{$documentacion}}/>
-              
+
             </div>
           </div>
         </div>
@@ -283,43 +316,145 @@
         {{--Información personal de pago--}}
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingFour">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="acordiontext acardionimg collapsed" id="butonacordeon4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <img class="acordionImg" id="iconAcordion4" src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png')  }}" alt="">
                 Información personal de forma de pago
               </button>
             </h2>
             @if ($opcion==3)
-              <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample">  
+              <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
             @else
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">  
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
             @endif
               <div class="accordion-body">
                 <livewire:app-cliente.datos-bancarios />
               </div>
             </div>
         </div>
-        
+
         {{--Informacion personal de pago 2--}}
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingFive">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              Información personal de forma de pago 2
+            <button class="acordiontext acardionimg collapsed" id="butonacordeon5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                <img class="acordionImg" id="iconAcordion5" src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png')  }}" alt="">
+                Información personal de forma de pago 2
             </button>
           </h2>
-          
+
           <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <form class="row g-3 needs-validation" novalidate>
-              
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputNombreTitular" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #5E6061; font-size: 20px;">Nombre del titular de la tarjeta</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="inputNombreTitular" placeholder="" required>
+                      <div class="valid-feedback">
+                       Nombre del Titular Verificado
+                      </div>
+                      <div class="invalid-feedback">
+                        Campo obligatorio se requiere Nombre del Titular
+                      </div>
+                    </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">Número de su tarjeta</label>
+                    <div class="col-sm-4">
+                      <input type="tel" class="form-control" id="inputEmail3" placeholder="" required>
+                      <div class="valid-feedback">
+                        Número de su tarjeta Verificado
+                       </div>
+                       <div class="invalid-feedback">
+                         Campo obligatorio se requiere Número de su tarjeta
+                       </div>
+                    </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                    <label for="validationCustom04" class="col-sm-5 col-form-label fw-bold">Banco</label>
+                    <div class="col-sm-4">
+                      <select class="form-select" id="validationCustom04" aria-label="Banco" required>
+                        <option selected></option>
+                        <option value="1">Banco 1</option>
+                        <option value="2">Banco 2</option>
+                        <option value="3">Banco 3</option>
+
+                      </select>
+                      <div class="valid-feedback">
+                        Banco Verificado
+                      </div>
+                      <div class="invalid-feedback">
+                         Campo obligatorio se requiere el Banco de la tarjeta
+                      </div>
+                    </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                  <div class="col-sm-4">
+                    <label for="inputEmail3" class="col-sm-6 col-form-label fw-bold">Fecha de expiración</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="inputEmail3" class="col-sm-6 col-form-label fw-bold">Código de seguridad</label>
+                  </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                  <!-- <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">Ultimo estado de nómina</label> -->
+                  <div class="col-sm-4">
+                    <input type="month" class="form-control" id="inputEmail3" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Se requiere mes y año de expiración de la tarjeta
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="CVV" required>
+                    <div class="invalid-feedback">
+                      Se requiere código de seguridad
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                  <div class="col-sm-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck1" required>
+                      <label class="form-check-label" for="invalidCheck1">
+                        Acepto términos y condiciones
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                      <label class="form-check-label" for="invalidCheck2">
+                        Acepto políticas de privacidad
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                  <div class="col-sm-6">
+                    <center>
+                      <button type="submit" class="btn btn-Guardar btn-lg">Pagar</button>
+                    </center>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-6">
+                    <p class="text-3xl font-bold text-datgencred text-center" style="color: #F5A733; font-size: 30px;">
+                        Aceptamos tarjetas
+                    </p>
+                  </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                  <div class="col-sm-6">
+                    <img src="{{ asset('img/assets/aplicacionCliente/bancos.png')}}" alt="">
+                  </div>
+                </div>
               </form>
             </div>
           </div>
         </div>
-        
+
         {{--Cobro--}}
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingSix">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-              Para cobro domiciliado, los datos de tarjeta de débito 
+            <button class="acordiontext acardionimg collapsed" id="butonacordeon6" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <img class="acordionImg" id="iconAcordion6" src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png')  }}" alt="">
+                Para cobro domiciliado, los datos de tarjeta de débito
             </button>
           </h2>
           <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
@@ -408,7 +543,7 @@
                 <div class="row mb-3 justify-content-center">
                   <div class="col-sm-6">
                     <center>
-                      <button type="submit" class="btn btn-success">Guardar</button>
+                      <button type="submit" class="btn btn-Guardar">Guardar</button>
                     </center>
                   </div>
                 </div>
@@ -422,7 +557,7 @@
 
 {{--Fotter--}}
     @livewireScripts
-    @include('components.landing.cuerpo._fotterClienteBootstrap')  
+    @include('components.landing.cuerpo._fotterClienteBootstrap')
     <script>
       function openmodal(){
         $('#exampleModal').modal('show');
@@ -437,6 +572,7 @@
     <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/app-clientes-scripts/acordeon.js') }}"></script>
 
     <!-- Template Javascript -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
