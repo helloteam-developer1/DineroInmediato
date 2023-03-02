@@ -179,7 +179,8 @@ class Wizard extends Component
             'ingreso' => $consulta[0]->ingreso,
             'nomina' => $consulta[0]->nomina,
             'credito' => $consulta[0]->credito,
-            'num_cliente' => null
+            'num_cliente' => null,
+            'rol' =>1
         ]);
         $this->enviarsolicitud($newuser->id,0);
         
@@ -235,7 +236,8 @@ class Wizard extends Component
                 'ingreso' => $consulta[0]->ingreso,
                 'nomina' => $consulta[0]->nomina,
                 'credito' => $consulta[0]->credito,
-                'num_cliente' => null
+                'num_cliente' => null,
+                'rol' =>1
             ]);
             $this->enviarsolicitud($newuser->id,1);
             

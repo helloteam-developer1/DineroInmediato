@@ -4,11 +4,10 @@ namespace App\Http\Controllers\AppCliente;
 use App\Http\Controllers\Controller;
 
 use App\Models\Credito;
-use App\Models\Empresas;
+
 use App\Models\Notificaciones;
 use App\Models\Solicitud_Credito;
-use App\Models\ClientesAceptados;
-use App\Models\CreditoVencido;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;

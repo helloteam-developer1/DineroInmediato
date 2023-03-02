@@ -39,7 +39,8 @@ class User extends Authenticatable
         'ingreso',
         'nomina',
         'credito',
-        'num_cliente'
+        'num_cliente',
+        'rol'
     ];
 
     /**

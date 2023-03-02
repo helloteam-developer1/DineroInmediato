@@ -32,7 +32,11 @@ class LoginController extends Controller
                 $credenciales = ['email'=> $correo, 'password'=>$request->password];
                 if(Auth::attempt($credenciales)){
                     request()->session()->regenerate();
-                    return redirect('dashboard');
+                    if(auth()->user()->rol == '0'){
+                        return redirect()->route('dashboard.backoffice');
+                    }else{
+                        return redirect('dashboard');
+                    }
                 }
             }
             return back()->with('status', 'Credenciales Incorrectas');
@@ -46,7 +50,11 @@ class LoginController extends Controller
             $credenciales = ['email'=> $request->credencial, 'password'=>$request->password];
             if(Auth::attempt($credenciales)){
                 request()->session()->regenerate();
-                return redirect('dashboard');
+                if(auth()->user()->rol == '0'){
+                    return redirect()->route('dashboard.backoffice');
+                }else{
+                    return redirect('dashboard');
+                }
             }
             return redirect()->route('login')->with('status', 'Credenciales Incorrectas');
         }
