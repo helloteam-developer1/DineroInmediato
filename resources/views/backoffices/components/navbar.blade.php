@@ -35,7 +35,9 @@
                                     <hr>
                                     <li><a class="dropdown-item" href="#"><img
                                                 src="{{ asset('img/backoffices/ICONO_CONTACTO.svg') }}"
-                                                width="15" alt="contacto">Contacto</a></li>
+                                                width="15" alt="contacto">Contacto</a>
+                                    </li>
+                                
                                 </ul>
                             </li>
                         </ul>

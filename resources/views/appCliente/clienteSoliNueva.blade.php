@@ -124,8 +124,7 @@
     <body>
 @endswitch
     
-
-<livewire:app-cliente.menu-cliente />
+@include('appCliente.components.menu')
 
 <div class="container">
     <br />

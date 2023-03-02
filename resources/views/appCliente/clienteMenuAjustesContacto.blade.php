@@ -99,7 +99,7 @@
 <body >
     
 {{--Menú Cliente--}}
-<livewire:app-cliente.menu-cliente />
+@include('appCliente.components.menu')
 
 <div class="container">
   <!-- fw-bold -->
