@@ -1,5 +1,5 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black;">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img
