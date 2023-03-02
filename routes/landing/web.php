@@ -38,10 +38,10 @@ Route::resource('/registros-calculadora', CalculadoraRegistro::class);
 Route::middleware('guest')->group(function () {
     Route::GET('/',function(){
         if ( env('APP_ENV') === 'local' ) {
-            //return view('landing.index');
-            return view('construccion');
+            return view('landing.index');
         }else {
-            return view('construccion');
+            return view('landing.index');
+            //return view('construccion');
         }
     
     })->name('home');
