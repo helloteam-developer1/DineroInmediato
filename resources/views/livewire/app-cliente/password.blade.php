@@ -21,6 +21,12 @@
     @endswitch
     
     <div class="row empresa">
+        <div wire:loading wire:target="cambiar" class="alert alert-success alert-dismissible fade show" role="alert">
+            <center>
+              <p class="titulo-alert">Cargando...</p>
+              <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
+            </center>
+        </div>
         <input type="password" id="actual" class="form-control" placeholder="* Contraseña Actual" wire:model.defer="actual" name="actual" maxlength="50" required><br/>
         @if ($errors->has('actual'))
             <span style="color:brown;">{{ $errors->first('actual') .$actual}}</span>
@@ -43,12 +49,7 @@
         </center>    
     </div>-->
     
-    <div wire:loading wire:target="cambiar" class="alert alert-success alert-dismissible fade show" role="alert">
-        <center>
-          <p class="titulo-alert">Cargando...</p>
-          <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
-        </center>
-    </div>
+  
     
         <script>
         function mostrarContrasena(){

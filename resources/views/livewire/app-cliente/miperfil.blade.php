@@ -16,6 +16,12 @@
         </center>
     @endif 
     <div class=" row">
+        <div wire:loading wire:target="guardar" class="alert alert-success alert-dismissible fade show" role="alert">
+            <center>
+            <p class="titulo-alert">Cargando...</p>
+            <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
+            </center>
+        </div>
         <div class="row">
             <div class="col-5"><label class="form-label" style="float: right;">Nombre: </label>  
             </div>
@@ -37,13 +43,14 @@
             </div>
             <div class="col-7">
                 <input type="email" wire:model.defer="email" placeholder="{{Auth::user()->email;}}" class="form-control email" >
+                @if ($errors->has('email'))
+                <div class="row" style="margin-top: 5px; margin-bottom:5px;">
+                    <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('email') }}</span>
+                </div>
+                @endif
             </div>
         </div>
-        @if ($errors->has('email'))
-            <div class="row" style="margin-top: 5px; margin-bottom:5px;">
-                <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('email') }}</span>
-            </div>
-        @endif
+       
 
         <div class="row espacio">
             <div class="col-5">
@@ -56,12 +63,7 @@
         <div class="row espacio centrado">
             <a class="btn btn-guarda" wire:click='guardar' >Guardar cambios.</a>    
         </div>
-        <div wire:loading wire:target="guardar" class="alert alert-success alert-dismissible fade show" role="alert">
-            <center>
-            <p class="titulo-alert">Cargando...</p>
-            <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
-            </center>
-        </div>
+       
         
             
     </div>

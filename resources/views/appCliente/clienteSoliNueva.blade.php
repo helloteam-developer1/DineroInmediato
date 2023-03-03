@@ -229,7 +229,7 @@
                         <div class="modal-header" style="border: none;">
                             <h1 class="modal-title col-11 text-center p-medium" id="exampleModalLabel"
                                 style="color: #4A9D22; font-size: 50px;">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitar crédito pendiente
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitud de crédito pendiente.
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>

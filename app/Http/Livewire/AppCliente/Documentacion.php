@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\AppCliente;
 
+use App\Models\Credito;
 use App\Models\Solicitud_Credito;
 use App\Models\User;
 use Facade\FlareClient\View;
@@ -26,11 +27,20 @@ class Documentacion extends Component
     
     public function render()
     {
-        $documentacion = Solicitud_Credito::where('user_id', '=', Auth::user()->id)->value('documentacion');
+        
         if(Auth::user()->num_cliente!=null){
-            return view('livewire.app-cliente.documentacion',['documentacion'=> 1]);
-        }
-        return view('livewire.app-cliente.documentacion',['documentacion'=> $documentacion]);
+            $credito = Credito::where('user_id','=',Auth::user()->id)->value('estado');
+            return view('livewire.app-cliente.documentacion',['documentacion'=>1]);
+        }else{
+            $solicitud = Solicitud_Credito::where('user_id','=',Auth::user()->id)->value('documentacion');
+            if($solicitud==0){
+                return view('livewire.app-cliente.documentacion',['documentacion'=>5]);
+            }else{
+                return view('livewire.app-cliente.documentacion',['documentacion'=>$solicitud]);
+            }
+            
+        } 
+        
     }
 
     public function subirIMG(){

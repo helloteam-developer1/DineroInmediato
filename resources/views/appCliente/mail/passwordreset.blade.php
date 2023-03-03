@@ -73,7 +73,7 @@
                    <a href="{{ route('change-password',$token) }}">aquí</a> para restablecer su contraseña
                   </p>
                   <center>
-                    <a class="btn" href="{{  route('change-password', $token)  }}">Cambiar Password</a>
+                    <a class="btn" href="{{  route('change-password', $token)  }}" style="border-radius: 4px;color:white; background-color:#39A935;">Cambiar Password</a>
                   </center>
                   <p style="margin-top:40px;margin-bottom:8px;"> Dinero inmediato 2022 todos los derechos reservados. Si usted no se registró en la aplicación y por error le llegó este correo, haga caso omiso.</p>
                 </div>
