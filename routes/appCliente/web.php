@@ -35,4 +35,3 @@ use Illuminate\Support\Facades\Route;
 
 
     //Route::post('/search-pagos',[miprestamo::class, 'pagosb'])->name('busquedap');
-?>

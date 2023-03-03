@@ -135,9 +135,9 @@ class AppClienteController extends Controller
         $notificaciones = Notificaciones::where('id_notf',$id)->get();
         if($notificaciones->count()){
             $delete = Notificaciones::where('id_notf',$id)->delete();
-            return redirect()->route('cliente-notificaciones')->with('notificacion','Notificación Eliminada');
+            return redirect()->route('cliente-notificaciones',0)->with('notificacion','Notificación Eliminada');
         }else{
-            return redirect()->back()->withErrors(['mensaje' => 'El alumno no puede ser eliminado.']);
+            return redirect()->back()->withErrors(['mensaje' => 'Error al eliminar.']);
         }
     
     }

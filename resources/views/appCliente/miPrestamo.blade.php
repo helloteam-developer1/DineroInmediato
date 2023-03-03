@@ -187,9 +187,9 @@
 </head>
 
 <body>
-    @livewireScripts
     {{-- Menú Cliente --}}
-    @include('appCliente.components.menu')
+    <livewire:app-cliente.menu-cliente/>
+    @livewireScripts
 
 
     {{--Datos Generales del credito--}}

@@ -125,7 +125,7 @@
 
 <body  onpaste="return false">
 
-@include('components.landing.cuerpo._menu')
+    <livewire:app-cliente.menu-cliente/>
     
             <div class="row centrar" >
                 <div class="col-3"></div>

@@ -146,7 +146,7 @@
 <x-appClienteComponentes.modal.modalEstatusCredito opcion="{{$opcion}}" estado="{{$estado}}" mensaje="{{$mensaje}}" />
 {{--Menú Cliente--}}
 
-@include('appCliente.components.menu')
+<livewire:app-cliente.menu-cliente/>
 <div class="container">
     <br>
     <h1 class="text-center texto-carotSans--Medium" style="color: #4A9D22; font-size: 70px;">Documentación e información.</h1>

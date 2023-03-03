@@ -41,6 +41,9 @@
     @livewireScripts
 
     <style>
+      .oscuro{
+        font-weight: 900;
+      }
         .solicita:hover{
             background: #da8b0c !important;
 
@@ -104,7 +107,7 @@
 
 <div class="container">
   <br>
-  <h1 class="font-bold text-center texto-carotSans--Medium" style="color: #4A9D22; font-size: 50px;">Notificaciones</h1>
+  <h1 class="font-bold text-center" style="color: #4A9D22; font-size: 50px;">Notificaciones</h1>
   <br />
   <h1 class="font-bold text-center" style="color: #F5A733;">
       
@@ -115,7 +118,7 @@
 <div class="container" style="background-color: 	#dedede;">
 <div class="row">
     <div class="col-auto p-4">
-      @if ($notificaciones!=null)
+      @if (count($notificaciones))
         @if ($id>0)
          <livewire:app-cliente.notificacion id="{{$id}}"/>  
         @endif
@@ -125,9 +128,6 @@
         {{--Si se selecciona una notificación se usa el componente para poder mostrarla hasta arriba--}}
         @else
             <div class="card">
-              <div class="card-head">
-                {{$n->id_notf}}
-              </div>
               <div class="card-body">
                 <h5 class="card-title">{{$n->titulo_notf}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$n->sub_notf}}</h6>
@@ -135,9 +135,31 @@
                 <img src="/img/assets/aplicacionCliente/ELIMINAR.svg" style="float:right; cursor:pointer;" onclick="openModal()"></img>
               </div>
             </div>
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: red;">Eliminar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ¿Esta apunto de eliminar definitivamente {{$n->titulo_notf}}?
+                  </div>
+                  <div class="modal-footer">
+                    <form action="{{route('notificacion.destroy',$n->id_notf)}}" method="POST">
+                    <center>
+                      <button type="button" class="btn  btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Borrar</button>
+                    </center>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
         @endif
-      </table>
-        <br />
         @endforeach
       @else
         <div class="card">
@@ -151,30 +173,7 @@
 </div>
 
 </div>
-{{--Modal para eliminar--}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ¿Eliminar {{$n->titulo_notf}}?
-      </div>
-      <div class="modal-footer">
-        <form action="{{route('notificacion.destroy',$n->id_notf)}}" method="POST">
-        <center>
-          <button type="button" class="btn  btn-primary" data-bs-dismiss="modal">Cancelar</button>
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-secondary">Borrar</button>
-        </center>
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <br><br><br><br><br>
 
