@@ -9,7 +9,8 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="icon" href="img/Grupo 262.png">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/assets/aplicacionCliente/Grupo 977.png') }}">
+
 
 
     <!-- Google Web Fonts -->
@@ -24,7 +25,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -33,6 +34,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
     @stack('css')
     {{-- <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -100,7 +102,7 @@
 </head>
 
 <body >
-    
+
 {{--Menú Cliente--}}
 <livewire:app-cliente.menu-cliente />
 
@@ -110,7 +112,7 @@
   <h1 class="font-bold text-center" style="color: #4A9D22; font-size: 50px;">Notificaciones</h1>
   <br />
   <h1 class="font-bold text-center" style="color: #F5A733;">
-      
+
   </h1>
 
 </div>
@@ -120,9 +122,9 @@
     <div class="col-auto p-4">
       @if (count($notificaciones))
         @if ($id>0)
-         <livewire:app-cliente.notificacion id="{{$id}}"/>  
+         <livewire:app-cliente.notificacion id="{{$id}}"/>
         @endif
-        
+
         @foreach ($notificaciones as $n)
         @if ($id==$n->id_notf)
         {{--Si se selecciona una notificación se usa el componente para poder mostrarla hasta arriba--}}
@@ -135,7 +137,7 @@
                 <img src="/img/assets/aplicacionCliente/ELIMINAR.svg" style="float:right; cursor:pointer;" onclick="openModal()"></img>
               </div>
             </div>
-            
+
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

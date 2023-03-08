@@ -8,13 +8,15 @@
     <meta content="Free HTML Templates" name="description">
     {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.css" rel="stylesheet" />--}}
     <!-- Favicon -->
-    <link rel="icon" href="./img/assets/aplicacionCliente/Grupo 946.png">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/assets/aplicacionCliente/Grupo 978.png') }}">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app-clientes-estilos/menu.css')}}">
+    <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
     <style>
-      
+
         @font-face {
             font-family: 'CarotSans-Medium';
             src: url("../fonts/CarotSans-Medium.otf") format('woff');
@@ -86,15 +88,15 @@
         .containerUno div:nth-of-type(1) {
         order: 4;
             }
-            
+
             .boxes button:nth-of-type(2) {
                 order: 3;
             }
-            
+
             .boxes button:nth-of-type(3) {
                 order: 2;
             }
-            
+
             .boxes button:nth-of-type(4) {
                 order: 1;
             } */
@@ -260,14 +262,14 @@
                             <tr>
                                 <td class="border text-center" >Sin Datos</td>
                                 <td class="border text-center" >Sin Datos</td>
-                            </tr>    
+                            </tr>
                         @endif
-                        
+
                     </tbody>
                 </table>
             </center>
         </div>
-        
+
     </div>
     {{-- Inicia Modal para boton Adelantar pagos --}}
     <!-- Modal -->
@@ -298,7 +300,7 @@
                         “mensajes” dirigido al área de cobranza o envíe un correo electrónico
                         con el comprobante escaneado al correo: <span class="text-tpres"> cobranza@midominio.com</span>
                     </p>
-                    <p class="texto-carotSans--Regular ps-3 pe-3" style="font-size: 22px; color: #474747;">           
+                    <p class="texto-carotSans--Regular ps-3 pe-3" style="font-size: 22px; color: #474747;">
                         Una vez que recibamos la documentación, actualizaremos la
                         información de su pago en un periodo máximo de 5 días hábiles.
                     </p>
@@ -330,11 +332,11 @@
             <livewire:app-cliente.tabla-pagos />
         </div>
     </div>
-   
-    
+
+
     {{--Tabla Amortización--}}
     <div class="container">
-        <div class="row">          
+        <div class="row">
             @livewire('app-cliente.tabla-amortizacion')
         </div>
     </div>

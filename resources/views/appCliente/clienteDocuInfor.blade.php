@@ -8,7 +8,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="icon" href="img/ICONO_DOC E INF_ GRIS.svg">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/assets/aplicacionCliente/Grupo 976.png') }}">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
     @stack('css')
     {{--<script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -125,6 +126,9 @@
         border: 1px solid gainsboro;
 
     }
+    .acordiontext{
+        font-weight: bold;
+    }
     .acordiontext:focus{
         color: #f5a82d;
     }
@@ -164,7 +168,7 @@
         {{--Información general--}}
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
-            <button class=" acordiontext acardionimg collapsed texto-carotSans--Regular" id="butonacordeon1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <button class=" acordiontext acardionimg collapsed text-datgencred" id="butonacordeon1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <img class="acordionImg" id="iconAcordion1" src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png')  }}" alt="">
                 Información general
             </button>
@@ -214,10 +218,10 @@
                           <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%" height="auto"><span>La información es correcta y ha sido verificada.</span>
                             @break
                           @case(2)
-                          <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto"><span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
+                          <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" style="margin-right: 5px;" height="auto"><span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
                           @break
                           @case(3)
-                          <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto"><span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
+                          <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" style="margin-right: 5px;" height="auto"><span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
                           @break
                           @default
 
@@ -275,10 +279,10 @@
                     <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%" height="auto"><span>La información es correcta y ha sido verificada.</span>
                       @break
                     @case(2)
-                    <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto"><span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
+                    <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" style="margin-right: 5px;" height="auto"><span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
                     @break
                     @case(3)
-                    <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto"><span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
+                    <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" style="margin-right: 5px;" height="auto"><span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
                     @break
                     @default
                   @endswitch
@@ -300,7 +304,7 @@
           </h2>
 
           @if ($estado=='Falta información que completar o es incorrecta')
-          <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
           @else
           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
           @endif
@@ -334,7 +338,7 @@
 
 
         {{--Cobro--}}
-        
+
     </div>
 </div>
 <br><br><br><br><br>

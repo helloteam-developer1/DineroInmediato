@@ -34,7 +34,7 @@
         @if ($errors->has('num_cuenta'))
             <span class="red">{{$errors->first('num_cuenta')}}</span>
         @endif
-        
+
         </div>
     </div>
     {{--Selección de banco--}}
@@ -137,7 +137,7 @@
     <div class="row mb-3 justify-content-center">
         <div class="col-sm-6">
         <center>
-            <button type="submit" class="btn btn-success btn-lg" wire:click="save">Pagar</button>
+            <button type="submit" class="btn btn-Guardar btn-lg" wire:click="save">Pagar</button>
         </center>
         </div>
     </div>
@@ -148,10 +148,10 @@
         </p>
         </div>
     </div>
-    
+
     <div class="row mb-3 justify-content-center">
         <div class="col-sm-6">
-        <img src="{{ asset('img/assets/aplicacionCliente/bancos.png')}}" style="width:40%; height:auto;">
+        <img src="{{ asset('img/assets/aplicacionCliente/bancos.png')}}">
         </div>
     </div>
 </div>

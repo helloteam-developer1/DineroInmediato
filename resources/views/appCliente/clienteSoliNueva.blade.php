@@ -8,7 +8,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="icon" href="img/Grupo 264.png" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/assets/aplicacionCliente/Grupo 264 Verde.png') }}">
 
 
     <!-- Google Web Fonts -->
@@ -34,6 +34,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
     @stack('css')
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
@@ -115,15 +116,15 @@
     <body onload="openmodalmarcha()">
   @break
   @case(2)
-    <body onload="openmodalsolicitar()">    
+    <body onload="openmodalsolicitar()">
   @break
   @case(3)
-  <body onload="openmodalsolicitudp()">    
+  <body onload="openmodalsolicitudp()">
   @break
   @default
     <body>
 @endswitch
-    
+
 <livewire:app-cliente.menu-cliente/>
 
 <div class="container">

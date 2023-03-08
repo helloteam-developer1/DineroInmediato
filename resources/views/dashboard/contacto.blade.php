@@ -22,7 +22,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -60,26 +60,26 @@
 </head>
 
 <body >
-    
+
 {{--Menú--}}
 @include('components.landing.cuerpo._menu')
 
 {{--Mi perfil--}}
-    <div class="content cent">
-        <div class="" style="text-align:center; margin-bottom:40px;">
-            <p class="texto-solicita-verde" style="padding-bottom: 5px; text-align:center;">Contacto</p>
-            <br />
-            <p class="Carot ExtraLight texto-g">Si tienes alguna duda y quieres ponerte en contacto con nosotros escríbenos a</p>           
-            <br />
-            <a class="mailto" href="mailto:credito@dineroinmediato.mx">credito@dineroinmediato.mx</a>
-        </div>
+<div class="content cent">
+    <div class="" style="text-align:center; margin-bottom:40px;">
+        <h1 class="texto-solicita-verde" style="padding-bottom: 5px; text-align:center; font-size: 40px;">Contacto</h1>
+        <br />
+        <p class="Carot ExtraLight texto-g" style="font-size: 20px;">Si tienes alguna duda y quieres ponerte en contacto con nosotros escríbenos a</p>
+        <br />
+        <a class="mailto" style="font-size: 25px;" href="mailto:credito@dineroinmediato.mx">credito@dineroinmediato.mx</a>
     </div>
+</div>
 
 
 
 {{--Fotter--}}
 
-    @include('components.landing.cuerpo._fotter')  
+    @include('components.landing.cuerpo._fotter')
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

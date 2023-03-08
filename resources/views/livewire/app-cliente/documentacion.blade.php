@@ -77,7 +77,7 @@
           <div class="col-sm-4">
             <button type="button" class="btn btn-secondary btn-lg" style="font-family: Carot Sans;" disabled>Adjuntar archivo</button>
           </div>
-        </div>  
+        </div>
       @break
       @case(2)
         {{--Sin opción de subir img--}}
@@ -87,7 +87,7 @@
           </div>
           <div class="col-sm-4">
               <a class="btn btn-gris" >Adjuntar archivo</a>
-              
+
             </div>
         </div>
         <div class="row mb-3 justify-content-center">
@@ -104,8 +104,8 @@
           </div>
             <div class="col-sm-4">
               <a class="btn btn-gris" >Adjuntar archivo</a>
-              
-            </div> 
+
+            </div>
         </div>
         <div class="row mb-3 justify-content-center">
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Foto con INE</label>
@@ -113,7 +113,7 @@
           </div>
             <div class="col-sm-4">
               <a class="btn btn-gris">Adjuntar archivo</a>
-              
+
             </div>
         </div>
       @break
@@ -123,25 +123,25 @@
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Frente</label>
           <div class="col-sm-2">
             @if ($ine_frente)
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalIMG">
-              Vista previa
-            </button>
-            <div class="modal fade" id="exampleModalIMG" tabindex="-1" aria-labelledby="exampleModalLabelIMG" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabelIMG">INE FRENTE</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <img src="{{ $ine_frente->temporaryUrl() }}" width="30%" height="auto" />
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#INEFrenteModalIMG">
+                Vista previa
+              </button>
+              <div class="modal fade" id="INEFrenteModalIMG" tabindex="-1" aria-labelledby="INEFrenteModalIMG" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header" style="border: none;">
+                      <h1 class="modal-title fs-5" id="INEFrenteModalIMG">INE FRENTE</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <img src="{{ $ine_frente->temporaryUrl() }}" width="100%" height="auto" />
+                </div>
+                <div class="modal-footer" style="border: none;">
+                    <button type="button" class="btn btn-Guardar" style="height: 50px; width: 150px; margin-right: 150px; font-size: 25px" data-bs-dismiss="modal">Cerrar</button>
                 </div>
               </div>
             </div>
+          </div>
             @endif
           </div>
           <div class="col-sm-4">
@@ -155,9 +155,27 @@
         <div class="row mb-3 justify-content-center">
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Reverso</label>
           <div class="col-sm-2">
-            
+
             @if ($ine_reverso)
-              <img src="{{ $ine_reverso->temporaryUrl() }}" width="30%" height="auto" />
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#INEReversoModalIMG">
+                Vista previa
+              </button>
+              <div class="modal fade" id="INEReversoModalIMG" tabindex="-1" aria-labelledby="INEReversoModalIMG" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header" style="border: none;">
+                      <h1 class="modal-title fs-5" id="INEReversoModalIMG">INE REVERSO</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ $ine_reverso->temporaryUrl() }}" width="100%" height="auto" />
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                        <button type="button" class="btn btn-Guardar" style="height: 50px; width: 150px; margin-right: 150px; font-size: 25px" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             @endif
           </div>
             <div class="col-sm-4">
@@ -172,27 +190,63 @@
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Comprobante de domicilio</label>
           <div class="col-sm-2">
             @if ($comp_dom)
-              <img src="{{ $comp_dom->temporaryUrl() }}" width="30%" height="auto" />
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ComproDomicilioIMG">
+                Vista previa
+              </button>
+              <div class="modal fade" id="ComproDomicilioIMG" tabindex="-1" aria-labelledby="ComproDomicilioIMG" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header" style="border: none;">
+                      <h1 class="modal-title fs-5" id="ComproDomicilioIMG">COMPROBANTE DE DOMICILIO</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ $comp_dom->temporaryUrl() }}" width="100%" height="auto" />
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                        <button type="button" class="btn btn-Guardar" style="height: 50px; width: 150px; margin-right: 150px; font-size: 25px" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             @endif
           </div>
             <div class="col-sm-4">
               <a class="btn btn-gris" onclick="document.getElementById('getFileComp').click()">Adjuntar archivo</a>
               <input type='file' id="getFileComp" style="display:none" name="comp_dom" wire:model="comp_dom">
-            </div> 
+            </div>
             @if ($errors->has('comp_dom'))
             <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('comp_dom') }}</span>
-            @endif   
+            @endif
         </div>
         <div class="row mb-3 justify-content-center">
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Foto con INE</label>
           <div class="col-sm-2">
             @if ($foto_cine)
-              <img src="{{ $foto_cine->temporaryUrl() }}" width="30%" height="auto" />
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FotoConINEIMG">
+                Vista previa
+              </button>
+              <div class="modal fade " id="FotoConINEIMG" tabindex="-1" aria-labelledby="FotoConINEIMG" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header"  style="border: none;">
+                      <h1 class="modal-title fs-5" id="FotoConINEIMG">FOTO CON INE</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ $foto_cine->temporaryUrl() }}" width="100%" height="auto" />
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                        <button type="button" class="btn btn-Guardar" style="height: 50px; width: 150px; margin-right: 150px; font-size: 25px" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             @endif
           </div>
             <div class="col-sm-4">
               <a class="btn btn-gris" onclick="document.getElementById('getFileCURP').click()">Adjuntar archivo</a>
-              <input type='file' id="getFileCURP" style="display:none" name="foto_cine" wire:model="foto_cine">    
+              <input type='file' id="getFileCURP" style="display:none" name="foto_cine" wire:model="foto_cine">
             </div>
             @if ($errors->has('foto_cine'))
             <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('foto_cine') }}</span>
@@ -208,25 +262,25 @@
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Frente</label>
           <div class="col-sm-2">
             @if ($ine_frente)
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalIMG">
-              Vista previa
-            </button>
-            <div class="modal fade" id="exampleModalIMG" tabindex="-1" aria-labelledby="exampleModalLabelIMG" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabelIMG">INE FRENTE</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <img src="{{ $ine_frente->temporaryUrl() }}" width="30%" height="auto" />
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#INEFrenteModalIMG">
+                Vista previa
+              </button>
+              <div class="modal fade" id="INEFrenteModalIMG" tabindex="-1" aria-labelledby="INEFrenteModalIMG" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header" style="border: none;">
+                      <h1 class="modal-title fs-5" id="INEFrenteModalIMG">INE FRENTE</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="{{ $ine_frente->temporaryUrl() }}" width="100%" height="auto" />
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                        <button type="button" class="btn btn-Guardar" style="height: 50px; width: 150px; margin-right: 150px; font-size: 25px" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             @endif
           </div>
           <div class="col-sm-4">
@@ -240,7 +294,7 @@
         <div class="row mb-3 justify-content-center">
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Reverso</label>
           <div class="col-sm-2">
-            
+
             @if ($ine_reverso)
               <img src="{{ $ine_reverso->temporaryUrl() }}" width="30%" height="auto" />
             @endif
@@ -263,10 +317,10 @@
             <div class="col-sm-4">
               <a class="btn btn-gris" onclick="document.getElementById('getFileComp').click()">Adjuntar archivo</a>
               <input type='file' id="getFileComp" style="display:none" name="comp_dom" wire:model="comp_dom">
-            </div> 
+            </div>
             @if ($errors->has('comp_dom'))
             <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('comp_dom') }}</span>
-            @endif   
+            @endif
         </div>
         <div class="row mb-3 justify-content-center">
           <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Foto con INE</label>
@@ -277,7 +331,7 @@
           </div>
             <div class="col-sm-4">
               <a class="btn btn-gris" onclick="document.getElementById('getFileCURP').click()">Adjuntar archivo</a>
-              <input type='file' id="getFileCURP" style="display:none" name="foto_cine" wire:model="foto_cine">    
+              <input type='file' id="getFileCURP" style="display:none" name="foto_cine" wire:model="foto_cine">
             </div>
             @if ($errors->has('foto_cine'))
             <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('foto_cine') }}</span>
@@ -285,7 +339,7 @@
         </div>
       @break
       @default
-        
+
     @endswitch
 
 
@@ -303,28 +357,28 @@
               @switch($documentacion)
                 @case(1)
                   <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%" height="auto">
-                  <span>La información es correcta y ha sido verificada.</span>        
+                  <span>La información es correcta y ha sido verificada.</span>
                 @break
                 @case(3)
-                  <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto">
-                  <span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>    
+                  <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" style="margin-right: 5px;" width="6%" height="auto">
+                  <span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
                 @break
                 @case(4)
-                  <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%" height="auto">
+                  <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="6%" height="auto">
                   <span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
-                @break              
+                @break
                 @default
-                  
+
               @endswitch
 
-                
+
             </div>
             <div class="col">
                 @if ($documentacion==3 || $documentacion==5)
-                <a class="btn btn-success" wire:click="subirIMG">Guardar</a>                
+                <a class="btn btn-Guardar" wire:click="subirIMG">Guardar</a>
                 @endif
                 @if ($documentacion==2)
-                <a class="btn btn-success">Guardar</a>
+                <a class="btn btn-Guardar">Guardar</a>
                 @endif
             </div>
         </div>

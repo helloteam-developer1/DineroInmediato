@@ -7,7 +7,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="icon" href="img/ICONO_DOC E INF_ GRIS.svg">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/assets/aplicacionCliente/ICONO_PERFIL_VERD.png') }}" width="5px">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -30,6 +30,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
     @stack('css')
     {{--<script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -54,13 +55,13 @@
         }
         .btn-guarda{
           background: #38A937;
-          color: white; 
+          color: white;
           margin-top:20px;
           width: 20%;
         }
         .btn-guarda:hover{
           background: #38A937;
-          color: #e0fc70; 
+          color: #e0fc70;
           margin-top:20px;
         }
         .btn-griss{
@@ -68,7 +69,7 @@
             color: var(--blanco);
         }
         .t-verde{
-          color: #4A9D22; 
+          color: #4A9D22;
           font-size: 70px;
         }
         .centrado{
@@ -84,15 +85,15 @@
           }
           .btn-guarda{
           background: #38A937;
-          color: white; 
+          color: white;
           margin-top:20px;
           width: auto;
         }
         .btn-guarda:hover{
           background: #38A937;
-          color: #e0fc70; 
+          color: #e0fc70;
           margin-top:20px;
-          
+
         }
         .btn-griss{
             background-color: var(--gris);
@@ -100,7 +101,7 @@
             font-size: 14px;
         }
         .t-verde{
-          color: #4A9D22; 
+          color: #4A9D22;
           font-size: 40px;
         }
         .centrado{
@@ -115,15 +116,15 @@
           }
         .btn-guarda{
           background: #38A937;
-          color: white; 
+          color: white;
           margin-top:20px;
           width: 40%;
         }
         .btn-guarda:hover{
           background: #38A937;
-          color: #e0fc70; 
+          color: #e0fc70;
           margin-top:20px;
-          
+
         }
         .btn-griss{
             background-color: var(--gris);
@@ -131,7 +132,7 @@
             font-size: 14px;
         }
         .t-verde{
-          color: #4A9D22; 
+          color: #4A9D22;
           font-size: 50px;
         }
         .centrado{
@@ -200,18 +201,18 @@
 
 <div class="container">
     <br>
-    <h1 class="text-center texto-carotSans--Medium t-verde" >Mi  perfil</h1>    
+    <h1 class="text-center texto-carotSans--Medium t-verde" >Mi  perfil</h1>
       <livewire:app-cliente.miperfil />
     </div>
     <br />
     <!-- <h1 class="text-3xl font-bold text-center" style="color: #F5A733;">
-        
+
     </h1> -->
 </div>
 
 {{--Fotter--}}
 @livewireScripts
-@include('components.landing.cuerpo._fotterClienteBootstrap')  
+@include('components.landing.cuerpo._fotterClienteBootstrap')
 <script>
   function openmodal(){
     $('#exampleModal').modal('show');

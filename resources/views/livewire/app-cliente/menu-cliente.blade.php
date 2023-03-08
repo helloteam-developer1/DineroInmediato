@@ -14,7 +14,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <!---MIO-->
                     <li class="nav-item">
-                        <a class="nav-link {{Request::is('miPrestamo') ? 'active'  : null}}" aria-current="page" href="{{ route('miPrestamo') }}">
+                        <a class=" {{Request::is('miPrestamo') ? 'active'  : null}}" aria-current="page" href="{{ route('miPrestamo') }}">
                             <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 946.png') }}"
                                 alt="">
                             &nbsp;Mi préstamo
@@ -23,15 +23,16 @@
 
                     <li class="nav-item">
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle {{Request::is(Request::path()) ? 'oscuro'  : null}}" type="button" id="dropdownMenuButton1"
+                            <button class="btn dropdown-toggle bx {{Request::is(Request::path()) ? 'oscuro'  : null}}" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false" >
+                                <span class="notify">99</span>
                                 <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 262.png') }}"
                                     alt="">
-                                    &nbsp;&nbsp;&nbsp;Notificaciones 
+                                    &nbsp;&nbsp;&nbsp;Notificaciones
                                 @if ($not > 0)
                                     {{ $not }}
                                 @endif
-                            
+
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 @if (!empty($notificacion))
@@ -71,24 +72,24 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{Request::is('solicitar-credito') ? 'active'  : null}}" aria-current="page" href="{{ route('solicitar-credito') }}">
+                        <a class=" {{Request::is('solicitar-credito') ? 'active'  : null}}" aria-current="page" href="{{ route('solicitar-credito') }}">
                             <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 264.png') }}"
                                 alt="">
                             Solicitud de nuevo crédito
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::is('dashboard') ? 'active'  : null}}" aria-current="page" href="{{ route('dashboard') }}">
-                            <img class="m-1"
+                        <a class=" {{Request::is('dashboard') ? 'active'  : null}}" aria-current="page" href="{{ route('dashboard') }}">
+                            <img class="ms-3"
                                 src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg') }}"
                                 alt="">
                             &nbsp;&nbsp;&nbsp;Documentación e información
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                        <a class=" dropdown-toggle " href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png') }}"
+                            <img class="ms-3" src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png') }}"
                                 alt="">
                             &nbsp;&nbsp;Ajustes
                         </a>
