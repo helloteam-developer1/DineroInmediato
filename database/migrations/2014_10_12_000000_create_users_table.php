@@ -36,8 +36,8 @@ class CreateUsersTable extends Migration
             $table->string('ingreso');
             $table->string('nomina');
             $table->string('credito');
-            $table->bigInteger('num_cliente')->nullable();
-            $table->boolean('rol');
+            $table->bigInteger('num_cliente')->nullable()->default(null);
+            $table->boolean('rol')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

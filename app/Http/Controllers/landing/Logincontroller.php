@@ -18,7 +18,7 @@ class LoginController extends Controller
     }
 
     public function store(Request $request){
-
+        //telefono de contacto
         if(is_numeric($request->credencial)){
             $request->validate(
                 [
@@ -32,7 +32,7 @@ class LoginController extends Controller
                 $credenciales = ['email'=> $correo, 'password'=>$request->password];
                 if(Auth::attempt($credenciales)){
                     request()->session()->regenerate();
-                    if(auth()->user()->rol == '0'){
+                    if(auth()->user()->rol == '1'){
                         return redirect()->route('dashboard.backoffice');
                     }else{
                         return redirect('dashboard');
@@ -41,6 +41,7 @@ class LoginController extends Controller
             }
             return back()->with('status', 'Credenciales Incorrectas');
         }
+        //correo electronico
         else{
             $request->validate(
                 ['credencial' => 'required|email',
@@ -50,7 +51,7 @@ class LoginController extends Controller
             $credenciales = ['email'=> $request->credencial, 'password'=>$request->password];
             if(Auth::attempt($credenciales)){
                 request()->session()->regenerate();
-                if(auth()->user()->rol == '0'){
+                if(auth()->user()->rol == '1'){
                     return redirect()->route('dashboard.backoffice');
                 }else{
                     return redirect('dashboard');

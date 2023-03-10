@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdminAuth
+class isUser
 {
     /**
      * Handle an incoming request.
@@ -16,11 +17,14 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check()){
-            if(auth()->user()->rol == '0'){
-                return $next($request);
+        if(Auth::check()){
+            if(Auth::user()->rol==0){
+                return $next($request);    
+            }else{
+                return back();
             }
+        }else{
+            return redirect()->route('login');
         }
-        return redirect()->to('/login');  
     }
 }

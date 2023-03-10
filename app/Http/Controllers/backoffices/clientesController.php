@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class clientesController extends Controller
 {
+    public function solicitud(){
+        
+        return view('backoffices.clientes.solicitud-clientes');
+    }
     public function vista(){
         return view('backoffices.clientes.clientes');
     }

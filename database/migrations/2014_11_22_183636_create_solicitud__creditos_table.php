@@ -14,7 +14,7 @@ class CreateSolicitudCreditosTable extends Migration
     public function up()
     {
         Schema::create('solicitud_creditos', function (Blueprint $table) {
-            $table->bigIncrements('id_credito');
+            $table->bigIncrements('id_solicitud');
             $table->integer('monto');
             $table->unsignedBigInteger('user_id');
             $table->string('estado')->

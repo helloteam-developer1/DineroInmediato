@@ -6,7 +6,7 @@ use App\Http\Controllers\backoffices\perfilController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware(['auth.admin'])->group(function (){
+Route::middleware(['auth','isAdm'])->group(function (){
     Route::get('/clientes', [clientesController::class, 'vista'])->name('dashboard.backoffice');
     Route::get('/tablaAmortizacion', [clientesController::class, 'tablaAmortizacion'])->name('tablaAmortizacion');
     Route::get('/tablaPagos', [clientesController::class, 'tablaPagos'])->name('tablaPagos');
