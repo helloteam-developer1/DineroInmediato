@@ -4,7 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class isUser
 {
@@ -21,7 +23,7 @@ class isUser
             if(Auth::user()->rol==0){
                 return $next($request);    
             }else{
-                return back();
+                App::abort(404);
             }
         }else{
             return redirect()->route('login');

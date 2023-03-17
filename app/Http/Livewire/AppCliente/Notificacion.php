@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Notificacion extends Component
 {
-    public $idnot=14;
+    public $idnot;
     public $notificacion;
     public function mount($id){
         $this->idnot=$id;
@@ -17,6 +17,7 @@ class Notificacion extends Component
     public function render()
     {
         $this->notificacion = Notificaciones::where('user_id', Auth::user()->id)->where('id_notf','=',$this->idnot)->get();
+        Notificaciones::where('user_id', '=', Auth::user()->id)->update(['estado' => 1]);
         return view('livewire.app-cliente.notificacion');
     }
 }

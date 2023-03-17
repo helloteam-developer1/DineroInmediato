@@ -39,7 +39,7 @@
                             </svg>
                         </span>
                         <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                            aria-describedby="basic-addon1" wire:model.debounce.900ms="busqueda">
+                            aria-describedby="basic-addon1" wire:model="busqueda">
                     </div>
                 </div>
                 <div class="col-auto">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <br />
-        <table class="table table-striped">
+        <table class="table table-striped" id="tablapagos">
             <thead>
                 <tr>
                     <th class="border text-center" scope="col">Pago número</th>
@@ -101,7 +101,7 @@
     <div class="container d-flex flex-row-reverse">
         <nav aria-label="Page navigation example">
             @if ($pagos!=null)
-                {{$pagos->links('pagination::bootstrap-4')}}    
+                {{ $pagos->links('appCliente.paginate') }}    
             @endif
         </nav>
     </div>

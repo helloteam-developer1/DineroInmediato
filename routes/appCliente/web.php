@@ -21,17 +21,13 @@ use Illuminate\Support\Facades\Route;
         Route::delete('/eliminar/{id}',[AppClienteController::class, 'destroy'])->name('notificacion.destroy');
         Route::get('/mi-perfil', [AppClienteController::class,'miperfil'])->name('miperfil');
         Route::get('cambio-password',[AppClienteController::class,'campassword'])->name('cambio-password');
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Route::get('/contacto', [AppClienteController::class, 'contacto'])->name('contacto');
     });
-
+    
     Route::post('/logout', [AppClienteController::class, 'logout'])->name('logout')->middleware('auth');
-
-    Route::get('/contacto', [AppClienteController::class, 'contacto'])->name('contacto');
 
     Route::middleware('guest')->group(function (){
         Route::get('change-password/{token}', [AppClienteController::class,'password'])->name('change-password');
         Route::post('shift-password', [AppClienteController::class,'changepassword'])->name('shift-password');
     });
 
-
-    //Route::post('/search-pagos',[miprestamo::class, 'pagosb'])->name('busquedap');

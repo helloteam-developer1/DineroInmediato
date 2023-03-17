@@ -256,8 +256,6 @@
     </div>
 </div>
 
-<br><br><br><br><br>
-
 {{-- Fotter --}}
 
 {{-- @include('components.landing.cuerpo._fotter') --}}

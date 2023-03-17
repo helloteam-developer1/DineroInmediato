@@ -123,6 +123,7 @@ class AppClienteController extends Controller
             Notificaciones::where('user_id', '=', Auth::user()->id)->update(['estado' => 1]);
             return view('appCliente.clienteNotificaciones',['notificaciones'=>$notificaciones,'id'=>$id]);
         }else{
+            Notificaciones::where('user_id', '=', Auth::user()->id)->update(['estado' => 1]);
             return view('appCliente.clienteNotificaciones',['notificaciones'=>$notificaciones,'id'=>null]);
         }
 
@@ -184,7 +185,7 @@ class AppClienteController extends Controller
 
     }
     public function contacto(){
-        return view('dashboard.contacto');
+        return view('appCliente.contacto');
     }
 }
 /*

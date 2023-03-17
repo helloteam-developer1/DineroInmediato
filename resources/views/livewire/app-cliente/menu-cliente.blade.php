@@ -1,20 +1,24 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            {{--Logo Dinero Inmediato--}}
+            <a class="navbar-brand" href="{{route('dashboard')}}">
                 <img src="{{ asset('img/assets/aplicacionCliente/Grupo 24.png') }}" width="150" class=""
                     style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;" />
             </a>
+            {{--Boton DropDawn de notificaciones--}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            {{--Listado de Notificaciones --}}
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 100px;">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!---MIO-->
+
                     <li class="nav-item">
-                        <a class=" {{Request::is('miPrestamo') ? 'active'  : null}}" aria-current="page" href="{{ route('miPrestamo') }}">
+                        <a class=" {{ Request::is('miPrestamo') ? 'active' : null }}" aria-current="page"
+                            href="{{ route('miPrestamo') }}">
                             <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 946.png') }}"
                                 alt="">
                             &nbsp;Mi préstamo
@@ -23,16 +27,19 @@
 
                     <li class="nav-item">
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle bx {{Request::is(Request::path()) ? 'oscuro'  : null}}" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false" >
-                                <span class="notify">99</span>
+                            <button class="btn dropdown-toggle bx {{ Request::is(Request::path()) ? 'oscuro' : null }}"
+                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                @if ($not > 0)
+                                    @if ($not >= 99)
+                                        <span class="notify">+99</span>
+                                    @else
+                                        <span class="notify">{{ $not }}</span>
+                                    @endif
+                                @endif
+                                
                                 <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 262.png') }}"
                                     alt="">
-                                    &nbsp;&nbsp;&nbsp;Notificaciones
-                                @if ($not > 0)
-                                    {{ $not }}
-                                @endif
-
+                                &nbsp;&nbsp;&nbsp;Notificaciones
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 @if (!empty($notificacion))
@@ -53,7 +60,8 @@
                                         </li>
                                     @endforeach
                                     <li>
-                                        <a href="{{ route('cliente-notificaciones', 0) }}" class="btn btn-secondary">Ver
+                                        <a href="{{ route('cliente-notificaciones', 0) }}"
+                                            class="btn btn-secondary btn-block" style="background-color: #39A935;">Ver
                                             todas las notificaciones.</a>
                                     </li>
                                 @else
@@ -62,7 +70,7 @@
                                             <p>No tienes notificación</p>
                                             <hr />
                                             <a href="{{ route('cliente-notificaciones', 0) }}"
-                                                class="btn btn-secondary">Ver todas las notificaciones.</a>
+                                                class="btn btn-secondary btn-block" style="#39A935;">Ver todas las notificaciones.</a>
                                         </div>
                                     </li>
                                 @endif
@@ -70,16 +78,18 @@
                         </div>
 
                     </li>
-
+                    
                     <li class="nav-item">
-                        <a class=" {{Request::is('solicitar-credito') ? 'active'  : null}}" aria-current="page" href="{{ route('solicitar-credito') }}">
+                        <a class=" {{ Request::is('solicitar-credito') ? 'active' : null }}" aria-current="page"
+                            href="{{ route('solicitar-credito') }}">
                             <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 264.png') }}"
                                 alt="">
                             Solicitud de nuevo crédito
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class=" {{Request::is('dashboard') ? 'active'  : null}}" aria-current="page" href="{{ route('dashboard') }}">
+                        <a class=" {{ Request::is('dashboard') ? 'active' : null }}" aria-current="page"
+                            href="{{ route('dashboard') }}">
                             <img class="ms-3"
                                 src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg') }}"
                                 alt="">
@@ -128,5 +138,5 @@
             </div>
         </div>
     </nav>
-
+   
 </div>

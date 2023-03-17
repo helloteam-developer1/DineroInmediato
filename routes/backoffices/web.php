@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth','isAdm'])->group(function (){
-    Route::get('/clientes', [clientesController::class, 'vista'])->name('dashboard.backoffice');
+    Route::get('/clientes', [clientesController::class, 'solicitud'])->name('dashboard.backoffice');
     Route::get('/tablaAmortizacion', [clientesController::class, 'tablaAmortizacion'])->name('tablaAmortizacion');
     Route::get('/tablaPagos', [clientesController::class, 'tablaPagos'])->name('tablaPagos');
     Route::get('/masInformacion', [clientesController::class, 'masInformacion'])->name('masInformacion');

@@ -39,7 +39,7 @@
                             </svg>
                         </span>
                         <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                            aria-describedby="basic-addon1" wire:model.debounce.900ms="busqueda">
+                            aria-describedby="basic-addon1" wire:model="busqueda">
                     </div>
                 </div>
                 <div class="col-auto">
@@ -109,15 +109,12 @@
                 </tbody>
             </table>
         </div>
-        <div class="row">
-
-        </div>
     </div>
 
-    <div class="container d-flex flex-row-reverse">
+    <div class="container d-flex flex-row-reverse" style="margin-bottom: 5px;">
         <nav aria-label="Page navigation example">
             @if ($tabla!=null)
-            {{$tabla->links('pagination::bootstrap-4')}}    
+            {!! $tabla->links('appCliente.paginate') !!}
             @endif        
         </nav>
     </div>

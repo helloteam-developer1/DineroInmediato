@@ -61,8 +61,6 @@
 
 <body >
 
-{{--Menú--}}
-@include('components.landing.cuerpo._menu')
 
 {{--Mi perfil--}}
 <div class="content cent">

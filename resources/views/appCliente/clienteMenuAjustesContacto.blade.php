@@ -51,7 +51,7 @@
             color: white;
         }
         .btn-verde:{
-            background: #38A937
+            background: #38A937;
         }
         .btn-verde:hover{
             color: #e0fc70;
