@@ -52,41 +52,64 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($consulta as $c)
+                                    @if ($consulta!=null)
+                                        @if ($consulta->count())
+                                            @foreach ($consulta as $c)
+                                                    <tr class="table-light">
+                                                        <td>{{ $c->nombre }}</td>
+                                                        <td>{{ $c->trabajo }}</td>
+                                                        <td>{{ $c->ingreso }}</td>
+                                                        <td>{{ $c->nomina }}</td>
+                                                        <td>{{ $c->credito }}</td>
+                                                        <td>{{ $c->curp }}</td>
+                                                        <td>{{ $c->fecha_nacimiento }}</td>
+                                                        <td>{{ $c->empresa_trabajo }}</td>
+                                                        <td>{{ $c->rama_empresa }}</td>
+                                                        <td>{{ $c->telefono_contacto }}</td>
+                                                        <td>{{ $c->email }}</td>
+                                                        <td>
+                                                        @livewire('backoffice.documentos', ['user' => $c], key($c->id))
+                                                        </td>
+                                                        <td>
+                                                        @livewire('backoffice.acep-solicitud',['user'=> $c],key($c->id))
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button>
+                                                        </td>
+                                                    </tr>
+                                            @endforeach
+                                        @else
+                                            <tr class="table-light">
+                                                <th colspan="12">Sin Registros</th>
+                                            </tr>
+                                        @endif
+                                    @else
                                         <tr class="table-light">
-                                            <td>{{ $c->nombre }}</td>
-                                            <td>{{ $c->trabajo }}</td>
-                                            <td>{{ $c->ingreso }}</td>
-                                            <td>{{ $c->nomina }}</td>
-                                            <td>{{ $c->credito }}</td>
-                                            <td>{{ $c->curp }}</td>
-                                            <td>{{ $c->fecha_nacimiento }}</td>
-                                            <td>{{ $c->empresa_trabajo }}</td>
-                                            <td>{{ $c->rama_empresa }}</td>
-                                            <td>{{ $c->telefono_contacto }}</td>
-                                            <td>{{ $c->email }}</td>
-                                            <td>
-                                               @livewire('backoffice.documentos', ['user' => $c], key($c->id))
-                                            </td>
-                                            <td>
-                                                <button class="btn boton-color boton-aceptar-solic" data-bs-toggle="modal" data-bs-target="#AceptarSolicitud">Aceptar Solicitud</button>
-                                            </td>
-                                            <td>
-                                                <button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud">Rechazar Solicitud</button>
-                                            </td>
-                                            <td>
-                                                <button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo">Falta inf por com. o es inc.</button>
-                                            </td>
+                                            <th colspan="12">Sin Registros</th>
                                         </tr>
-                                        @endforeach
-                                    </tbody>
+                                    @endif
+                                    
+                                </tbody>
                             </table>
                             <!--fin tabla de solicitudes--->
                         </div>
-                        
+                        <div style="float:right; margin-top:10px;">
+                            @if ($consulta!=null)
+                            @if ($consulta->hasPages())
+                                {{$consulta->links('appCliente.paginate')}}
+                            @endif
+                            @endif
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    {{--Modal Aceptar Solicitud--}}
+    
 </div>

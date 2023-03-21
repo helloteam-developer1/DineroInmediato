@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class Documentos extends Component
-{
+{   
     public $user;
-    public $successMessage = '';
 
     public function mount(User $user){
         $this->user = $user;

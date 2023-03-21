@@ -138,5 +138,10 @@
             </div>
         </div>
     </nav>
-   
+   <script>
+    setInterval(() => {
+        console.log('Actualizando...');
+        Livewire.emit('actualizar');
+    }, 30000);
+   </script>
 </div>

@@ -18,7 +18,7 @@ class CreateClientesAceptadosTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('credito_num');
             $table->string('nombre', 45);
-
+            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('credito_num')->references('num_credito')->on('credito');
         });

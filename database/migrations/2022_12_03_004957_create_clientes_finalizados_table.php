@@ -17,6 +17,7 @@ class CreateClientesFinalizadosTable extends Migration
             $table->bigIncrements('id_cliente_finalizado');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('credito_num');
+            $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('credito_num')->references('num_credito')->on('credito');
