@@ -2,8 +2,8 @@
     
     <div class="container">
         <br />
-        <h1 class="text-3xl font-bold text-datgencred text-center" style="color: #F5A733;">
-            Tabla de pagos
+        <h1 class="text-center" style="color: #F5A733;">
+            Tabla de pagoss
         </h1>
         <br>
         <div class="d-flex justify-content-center">
@@ -48,50 +48,53 @@
             </div>
         </div>
         <br />
-        <table class="table table-striped" id="tablapagos">
-            <thead>
-                <tr>
-                    <th class="border text-center" scope="col">Pago número</th>
-                    <th class="border text-center" scope="col">Fecha de pago</th>
-                    <th class="border text-center" scope="col">Monto de pago</th>
-                    <th class="border text-center" scope="col">Saldo insoluto</th>
-                    <th class="border text-center" scope="col"># pagos restantes</th>
-                    <th class="border text-center" scope="col">Resta por pagar</th>
-                    <th class="border text-center" scope="col">Numero de credito</th>
-                    <!-- <td class="" style="border: none;">
-                </td> -->
-            </tr>
-            </thead>
-            
-            @if ($pagos==null)
-                <tbody>
+        <div class="table-responsive">
+            <table class="table table-striped" id="tablapagos">
+                <thead>
                     <tr>
-                        <th colspan="7" class="border text-center">Sin registros.</th>
-                    </tr>
-                </tbody>
-            @else
-                <tbody>
-                    @if ($pagos->count())
-                        @foreach ($pagos as $p)
-                                <tr>
-                                    <th class="border text-center">{{$p->numero_pagos}}</th>
-                                    <th class="border text-center">{{$p->fecha_pago}}</th>
-                                    <th class="border text-center">{{$p->monto_pago}}</th>
-                                    <th class="border text-center">{{$p->saldo_insoluto}}</th>
-                                    <th class="border text-center">{{$p->pago_rest}}</th>
-                                    <th class="border text-center">{{$p->resta_pagar}}</th>
-                                    <th class="border text-center">{{$p->num_credito}}</th>
-                                </tr>
-                        @endforeach
-                    @else
-                    <tr>
-                        <th class="border text-center" colspan="7">Sin registros.</th>
-                    </tr>
-                    @endif
-                    
-                </tbody>
-            @endif
-        </table>
+                        <th class="border text-center" scope="col">Pago número</th>
+                        <th class="border text-center" scope="col">Fecha de pago</th>
+                        <th class="border text-center" scope="col">Monto de pago</th>
+                        <th class="border text-center" scope="col">Saldo insoluto</th>
+                        <th class="border text-center" scope="col"># pagos restantes</th>
+                        <th class="border text-center" scope="col">Resta por pagar</th>
+                        <th class="border text-center" scope="col">Numero de credito</th>
+                        <!-- <td class="" style="border: none;">
+                    </td> -->
+                </tr>
+                </thead>
+                
+                @if ($pagos==null)
+                    <tbody>
+                        <tr>
+                            <th colspan="7" class="border text-center">Sin registros.</th>
+                        </tr>
+                    </tbody>
+                @else
+                    <tbody>
+                        @if ($pagos->count())
+                            @foreach ($pagos as $p)
+                                    <tr>
+                                        <th class="border text-center">{{$p->numero_pagos}}</th>
+                                        <th class="border text-center">{{$p->fecha_pago}}</th>
+                                        <th class="border text-center">{{$p->monto_pago}}</th>
+                                        <th class="border text-center">{{$p->saldo_insoluto}}</th>
+                                        <th class="border text-center">{{$p->pago_rest}}</th>
+                                        <th class="border text-center">{{$p->resta_pagar}}</th>
+                                        <th class="border text-center">{{$p->num_credito}}</th>
+                                    </tr>
+                            @endforeach
+                        @else
+                        <tr>
+                            <th class="border text-center" colspan="7">Sin registros.</th>
+                        </tr>
+                        @endif
+                        
+                    </tbody>
+                @endif
+            </table>
+          </div>
+        
 
         <div class="row">
 
