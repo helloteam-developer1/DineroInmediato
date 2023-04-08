@@ -55,7 +55,7 @@
                                 id="tabla-amortizacion">
                                 <thead>
                                     <tr class="table-secondary">
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de cre</p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de cred</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de pago </p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Próximo pago </p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Pago a capital</p></th>
@@ -69,85 +69,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="table-light">
-                                        <td>0098</td>
-                                        <td>2</td>
-                                        <td>29/12/2022</td>
-                                        <td>200</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>550</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="" class="my-3" width="40" alt=""></td>
-                                    </tr>
-                                    <tr class="table-secondary">
-                                        <td>1209</td>
-                                        <td>4</td>
-                                        <td>29/03/2022</td>
-                                        <td>600</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>120</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
-                                    <tr class="table-light">
-                                        <td>0023</td>
-                                        <td>1</td>
-                                        <td>02/03/2023</td>
-                                        <td>500</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>150</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
-                                    <tr class="table-secondary">
-                                        <td>0237</td>
-                                        <td>5</td>
-                                        <td>09/10/2023</td>
-                                        <td>800</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>200</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
-                                    <tr class="table-light">
-                                        <td>0157</td>
-                                        <td>3</td>
-                                        <td>12/06/2023</td>
-                                        <td>4000</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>450</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
+                                    @foreach ($tabla as $t)
+                                        <tr class="table-light">
+                                            <td>{{$t->num_credito}}</td>    
+                                            <td>{{$t->numero_pagos}}</td>    
+                                            <td>{{$t->prox_pago}}</td>    
+                                            <td>{{$t->pag_capital}}</td>    
+                                            <td>{{$t->interes_ordinarios}}</td>    
+                                            <td>{{$t->iva_io}}</td>    
+                                            <td>{{$t->comisiones}}</td>        
+                                            <td>{{$t->pago_total_men}}</td>    
+                                            <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
+                                                    alt=""></td>
+                                            <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
+                                                    width="40" alt=""></td>
+                                            <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
+                                                    width="30" alt=""></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -164,16 +103,9 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#"><img class="flechaIzq" src="{{ asset('img/backoffices/Flecha Izquierda.png') }}" alt=""> Anterior</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<img class="flechaDer" src="{{ asset('img/backoffices/Flecha Derecha.png') }}" alt=""> </a></li>
-                            </ul>
-                        </nav>
+                       @if ($tabla->count() || $tabla!=null)
+                           {{$tabla->links('backoffices.components.paginate')}}
+                       @endif
                     </div>
                 </div>
             </div>
@@ -188,7 +120,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
-                        style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
+                        style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='/clientes-vigentes'">Volver</button>
                     </div>
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "

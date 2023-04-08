@@ -19,7 +19,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 
 
-class Wizard extends Component
+class wizard extends Component
 {
     use WithFileUploads;
     public $currentStep = 1;
@@ -82,8 +82,11 @@ class Wizard extends Component
                 'empresa_trabajo' => 'required|min:5|max:40|regex:/^[\pL\s\-]+$/u',
                 'antiguedad' => 'required|',
                 'rama_empresa'=> 'required|min:5|max:250',
-                'banco_nomina'=> 'required|min:3|max:30',
-                'curp' => 'required|min:18|max:18',
+                'banco_nomina'=> 'required|min:3|max:35',
+                'curp' => 'required|min:18|max:18|unique:users,curp',
+            ],
+            [
+                'curp.unique' => 'El CURP ya esta registrado, por favor verificalo.'
             ]
         );    
         $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
@@ -109,7 +112,7 @@ class Wizard extends Component
         */ 
         $validatedData = $this->validate([
             'telefono_contacto' => 'required|numeric|digits_between:10,10',
-            'email' => 'regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users|required',
+            'email' => 'unique:users,email|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users|required',
             'password' => [
                 'required',
                 'confirmed',
@@ -145,10 +148,10 @@ class Wizard extends Component
             ],
         );
         
-        $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($this->nombre).'-'.$this->ine_frente->getClientOriginalName();
-        $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($this->nombre).'-'.$this->ine_reverso->getClientOriginalName();
-        $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->nombre).'-'.$this->comp_dom->getClientOriginalName();
-        $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->nombre).'-'.$this->foto_cine->getClientOriginalName();
+        $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($this->id_us).'-'.$this->ine_frente->getClientOriginalName();
+        $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($this->id_us).'-'.$this->ine_reverso->getClientOriginalName();
+        $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->id_us).'-'.$this->comp_dom->getClientOriginalName();
+        $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->id_us).'-'.$this->foto_cine->getClientOriginalName();
         
         $ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
         $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
@@ -157,7 +160,7 @@ class Wizard extends Component
         
         $password = Hash::make($this->password);
         $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
-        $fecha_nacimiento = $this->dia.'/'.$this->mes.'/'.$this->year;
+        $fecha_nacimiento = $this->year.'-'.$this->mes.'-'.$this->dia;
         $newuser = User::create([
             'nombre' => $this->id_us,
             'curp' => $this->curp,
@@ -212,7 +215,7 @@ class Wizard extends Component
 
             $password = Hash::make($this->password);
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
-            $fecha_nacimiento = $this->dia.'/'.$this->mes.'/'.$this->year;
+            $fecha_nacimiento = $this->year.'-'.$this->mes.'-'.$this->dia;
             $newuser =User::create([
                 'nombre' => $this->id_us,
                 'curp' => $this->curp,
@@ -266,6 +269,7 @@ class Wizard extends Component
             'monto'=> $consulta[0]->prestamo,
             'user_id'=>$id,
             'estado'=> '1',
+            'mensaje' => 'Documentación faltante,favor de subir la documentación para continuar con el proceso.',
             'documentacion' => 3
         ]);
         }else{

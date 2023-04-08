@@ -33,19 +33,21 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="pt-3" style="font-weight: bold">INE frente</td>
-                                                    <td>
-
+                                                    <td style="text-align: center;">
+                                                        
                                                         @if (!empty($user->ine_frente))
+
                                                             <a wire:click="export('{{ $user->ine_frente }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="ms-5" alt="" style="float: left;">
                                                             @else
-                                                                <a style="cursor: pointer;">
+                                                                <a style="cursor: pointer; ">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="ms-5" alt="" style="float:left; ">
                                                         @endif
                                                         </a>
+                                                        
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -55,11 +57,11 @@
                                                             <a wire:click="export('{{ $user->ine_reverso }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="ms-5" alt="" style="float:left;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="ms-5" alt="" style="float:left;">
                                                         @endif
                                                         </a>
                                                     </td>
@@ -72,11 +74,11 @@
                                                             <a wire:click="export('{{ $user->comp_dom }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="ms-5" alt="" style="float:left;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="ms-5" alt="" style="float:left;">
                                                         @endif
                                                         </a>
                                                     </td>
@@ -88,11 +90,11 @@
                                                             <a wire:click="export('{{ $user->foto_cine }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="ms-5" alt="" style="float:left;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="ms-5" alt="" style="float:left;">
                                                         @endif
                                                         </a>
                                                     </td>

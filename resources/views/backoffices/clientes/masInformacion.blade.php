@@ -45,15 +45,19 @@
                                 </thead>
                                 <tbody>
                                     <tr class="table-light">
-                                        <td>12600</td>
-                                        <td>si</td>
-                                        <td>U084</td>
-                                        <td>12/07/23</td>
-                                        <td>Servicios Nac</td>
-                                        <td>Tecnologia</td>
-                                        <td>9735678923</td>
-                                        <td>holita@corr</td>
-                                        <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#VerDocumento">Ver</button></td>
+                                       @foreach ($user as $u)
+                                       <td>{{$u->ingreso}}</td>
+                                       <td>{{$u->credito}}</td>
+                                       <td>{{$u->curp}}</td>
+                                       <td>{{$u->fecha_nacimiento}}</td>
+                                       <td>{{$u->empresa_trabajo}}</td>
+                                       <td>{{$u->rama_empresa}}</td>
+                                       <td>{{$u->telefono_contacto}}</td>
+                                       <td>{{$u->email}}</td>
+                                       <td>
+                                           @livewire('backoffice.documentos',['user'=> $u], key($u->id))
+                                       </td>
+                                       @endforeach
                                     </tr>
                                 </tbody>
                             </table>
@@ -162,7 +166,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
-                        style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
+                        style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='/clientes-vigentes'">Volver</button>
                     </div>
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
@@ -175,7 +179,7 @@
     <!--fin de botones-->
 
     @extends('backoffices.components.footer')
-
+    @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

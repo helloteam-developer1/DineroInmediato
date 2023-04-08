@@ -20,7 +20,7 @@
     <div class="row mb-3 justify-content-center">
         <!-- <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE (Adjuntar INE por ambos lados)</label> -->
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre del titular" wire:model="titular" required>
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre del titular" wire:model="titular" maxlength="35">
             @if ($errors->has('titular'))
                 <span class="red">{{$errors->first('titular')}}</span>
             @endif
@@ -30,7 +30,7 @@
     <div class="row mb-3 justify-content-center">
         <!-- <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">Ultimo estado de nómina</label> -->
         <div class="col-sm-4">
-        <input type="text" class="form-control" id="inputEmail3" wire:model="num_cuenta" placeholder="Numero de cuenta" required>
+        <input type="text" class="form-control" id="inputEmail3" wire:model="num_cuenta" placeholder="Numero de cuenta" maxlength="20">
         @if ($errors->has('num_cuenta'))
             <span class="red">{{$errors->first('num_cuenta')}}</span>
         @endif
@@ -41,7 +41,7 @@
     <div class="row mb-3 justify-content-center">
         <!-- <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">Comprobante de domicilio</label> -->
         <div class="col-sm-4">
-            <select class="form-select" aria-label="Banco" wire:model="banco" required>
+            <select class="form-select" aria-label="Banco" wire:model="banco">
             <option selected>Selecciona un banco</option>
                 @foreach ($bancos as $b)
                     <option value="{{$b->name}}">{{$b->name}}</option>
@@ -55,7 +55,7 @@
     {{--Clave Intervancaria--}}
     <div class="row mb-3 justify-content-center">
         <div class="col-sm-4">
-        <input type="text" class="form-control" id="inputEmail3" placeholder="Clave interbancaria" wire:model="clave_inter">
+        <input type="text" class="form-control" id="inputEmail3" placeholder="Clave interbancaria" wire:model="clave_inter" maxlength="18">
         @if ($errors->has('clave_inter'))
             <span class="red">{{$errors->first('clave_inter')}}</span>
         @endif
@@ -64,7 +64,7 @@
     {{--Numero de Tarjeta--}}
     <div class="row mb-3 justify-content-center">
         <div class="col-sm-4">
-        <input type="text" class="form-control" wire:model="num_tarjeta" id="inputEmail3" placeholder="Numero de tarjeta" required>
+        <input type="text" class="form-control" wire:model="num_tarjeta" id="inputEmail3" placeholder="Numero de tarjeta" maxlength="16">
         @if ($errors->has('num_tarjeta'))
             <span class="red">{{$errors->first('num_tarjeta')}}</span>
         @endif
@@ -83,19 +83,19 @@
     <div class="row mb-3 justify-content-center">
         <!-- <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">Ultimo estado de nómina</label> -->
         <div class="col-sm-2">
-            <input type="numeric" placeholder="MM" required class="form-control" wire:model="fecha_mm" maxlength="2">
+            <input type="numeric" placeholder="MM" class="form-control" wire:model="fecha_mm" maxlength="2">
             @if ($errors->has('fecha_mm'))
                 <span class="red">{{$errors->first('fecha_mm')}}</span>
             @endif
         </div>
         <div class="col-sm-2">
-            <input type="numeric" placeholder="YY" required class="form-control"  wire:model="fecha_yy"maxlength="2">
+            <input type="numeric" placeholder="YY" class="form-control"  wire:model="fecha_yy" maxlength="2">
             @if ($errors->has('fecha_yy'))
                 <span class="red">{{$errors->first('fecha_yy')}}</span>
             @endif
         </div>
         <div class="col-sm-4">
-        <input type="text" class="form-control" id="cc-cvv" placeholder="CVV" wire:model="cvv" maxlength="3" wire:model="cvv" required>
+        <input type="text" class="form-control" id="cc-cvv" placeholder="CVV" wire:model="cvv" maxlength="3" wire:model="cvv">
         @if ($errors->has('cvv'))
             <span class="red">{{$errors->first('cvv')}}</span>
         @endif
@@ -105,7 +105,7 @@
     <div class="row mb-3 justify-content-center">
         <div class="col-sm-4">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck1" wire:model="terminos" required>
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck1" wire:model="terminos" >
             <label class="form-check-label" for="invalidCheck1">
             Acepto términos y condiciones
             </label>
@@ -114,7 +114,7 @@
             @endif
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" wire:model="politicas" required>
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" wire:model="politicas" >
             <label class="form-check-label" for="invalidCheck2">
             Acepto políticas de privacidad
             </label>
@@ -123,7 +123,7 @@
             @endif
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" wire:model="cargo_dom" required>
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" wire:model="cargo_dom" >
             <label class="form-check-label" for="invalidCheck3">
             Acepto el cargo domicilio
             </label>

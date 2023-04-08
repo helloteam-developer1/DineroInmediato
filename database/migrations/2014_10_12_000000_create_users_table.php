@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('curp');
-            $table->string('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->string('empresa_trabajo'); 
             $table->string('rama_empresa');
             $table->string('antiguedad');
@@ -36,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('ingreso');
             $table->string('nomina');
             $table->string('credito');
+            $table->string('tarjeta_reg')->nullable()->default(null);
             $table->bigInteger('num_cliente')->nullable()->default(null);
             $table->boolean('rol')->default(0);
             $table->rememberToken();

@@ -329,7 +329,9 @@
     {{--Tabla de pagos--}}
     <div class="container">
         <div class="row">
-            <livewire:app-cliente.tabla-pagos />
+            
+                <livewire:app-cliente.tabla-pagos />
+            
         </div>
     </div>
 
@@ -337,7 +339,9 @@
     {{--Tabla Amortización--}}
     <div class="container">
         <div class="row">
-            <livewire:app-cliente.tabla-amortizacion />
+            
+                <livewire:app-cliente.tabla-amortizacion />
+            
         </div>
     </div>
     <div class="container d-flex flex-row-reverse">

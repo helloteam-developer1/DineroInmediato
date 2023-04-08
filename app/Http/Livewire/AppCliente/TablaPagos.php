@@ -6,6 +6,7 @@ use App\Models\Credito;
 use App\Models\Pagos;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -31,7 +32,7 @@ class TablaPagos extends Component
 
     public function render()
     {
-        $pagos = null;
+        $pagos = [];
         $id_user = Auth::user()->id;
         $num_credito= Credito::where('user_id','=',$id_user)->value('num_credito');
         if($num_credito!=null){
@@ -40,45 +41,33 @@ class TablaPagos extends Component
                 wherebetween('fecha_pago',[$this->fecha_inicio,$this->fecha_termino])->orderBy('numero_pagos', 'desc')->
                 paginate(5);
             }else{
-                $consulta1 = Pagos::where('num_credito','=', $num_credito)->
-                wherebetween('fecha_pago',[$this->fecha_inicio,$this->fecha_termino])->orderBy('numero_pagos', 'desc')->
-                where('numero_pagos','=',$this->busqueda)->
-                paginate(5);
-                if($consulta1->count()){
-                    $pagos = $consulta1;
-                }
-                $consulta2 = Pagos::where('num_credito','=', $num_credito)->
-                wherebetween('fecha_pago',[$this->fecha_inicio,$this->fecha_termino])->orderBy('numero_pagos', 'desc')->
-                where('monto_pago','=',$this->busqueda)->
-                paginate(5);
-                if($consulta2->count()){
-                    $pagos = $consulta2;
-                }
-                $consulta3 = Pagos::where('num_credito','=', $num_credito)->
-                wherebetween('fecha_pago',[$this->fecha_inicio,$this->fecha_termino])->orderBy('numero_pagos', 'desc')->
-                where('saldo_insoluto','=',$this->busqueda)->
-                paginate(5);
-                if($consulta3->count()){
-                    $pagos = $consulta3;
-                }
-                $consulta4 = Pagos::where('num_credito','=', $num_credito)->
-                wherebetween('fecha_pago',[$this->fecha_inicio,$this->fecha_termino])->orderBy('numero_pagos', 'desc')->
-                where('pago_rest','=',$this->busqueda)->
-                paginate(5);
-                if($consulta4->count()){
-                    $pagos = $consulta4;
-                }
-                $consulta5 = Pagos::where('num_credito','=', $num_credito)->
-                wherebetween('fecha_pago',[$this->fecha_inicio,$this->fecha_termino])->orderBy('numero_pagos', 'desc')->
-                where('resta_pagar','=',$this->busqueda)->
-                paginate(5);
-                if($consulta5->count()){
-                    $pagos = $consulta5;
-                }
+                $consulta1 = collect('');
+                $consulta2 = collect('');
+                $consulta3 = collect('');
+                $consulta4 = collect('');
+                $consulta5 = collect('');
+
+                $consulta1 = Pagos::where('num_credito','=', $num_credito)->wherebetween('fecha_pago',
+                [$this->fecha_inicio,$this->fecha_termino])->where('numero_pagos','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
                 
+                $consulta2 = Pagos::where('num_credito','=', $num_credito)->wherebetween('fecha_pago',
+                [$this->fecha_inicio,$this->fecha_termino])->where('monto_pago','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
+                
+                $consulta3 = Pagos::where('num_credito','=', $num_credito)->wherebetween('fecha_pago',
+                [$this->fecha_inicio,$this->fecha_termino])->where('saldo_insoluto','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
+                $consulta4 = Pagos::where('num_credito','=', $num_credito)->wherebetween('fecha_pago',
+                [$this->fecha_inicio,$this->fecha_termino])->where('pago_rest','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
+                $consulta5 = Pagos::where('num_credito','=', $num_credito)->wherebetween('fecha_pago',
+                [$this->fecha_inicio,$this->fecha_termino])->where('resta_pagar','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
+                $pagos = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5);
+                return view('livewire.app-cliente.tabla-pagos2', ['pagos'=> $pagos,'credito'=>$num_credito]);
             }
         }
         return view('livewire.app-cliente.tabla-pagos', ['pagos'=> $pagos,'credito'=>$num_credito]);
     }
-
+  
 }

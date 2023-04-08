@@ -142,6 +142,6 @@
     setInterval(() => {
         console.log('Actualizando...');
         Livewire.emit('actualizar');
-    }, 30000);
+    }, 40000);
    </script>
 </div>

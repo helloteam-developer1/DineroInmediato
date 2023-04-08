@@ -12,7 +12,7 @@
 </head>
 <body>
     
-  <x-backoffice-menu-backoffice />
+  <x-backoffice.menu-backoffice />
 
   <!--inicio de titulo-->
   <h1 class="text-center my-5">Tabla de Pagos</h1>
@@ -61,56 +61,18 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <tr class="table-light">
-                                <td>0986</td>
-                                <td>0986</td>
-                                <td>22/08/2022</td>
-                                <td>200</td>
-                                <td>500</td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
-                                <td><img src="" class="my-3" width="40" alt=""></td>
-                              </tr>
-                              <tr class="table-secondary">
-                                <td>1234</td>
-                                <td>1234</td>
-                                <td>29/09/2022</td>
-                                <td>500</td>
-                                <td>800</td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt=""></td>
-                              </tr>
-                              <tr class="table-light">
-                                <td>0089</td>
-                                <td>0089</td>
-                                <td>05/11/2022</td>
-                                <td>800</td>
-                                <td>1000</td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt=""></td>
-                              </tr>
-                              <tr class="table-secondary">
-                                <td>6735</td>
-                                <td>6735</td>
-                                <td>04/13/2022</td>
-                                <td>100</td>
-                                <td>500</td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt=""></td>
-                              </tr>
-                              <tr class="table-light">
-                                <td>0975</td>
-                                <td>0975</td>
-                                <td>04/01/2023</td>
-                                <td>600</td>
-                                <td>1500</td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
-                                <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt=""></td>
-                              </tr>
+                              @foreach ($tabla as $t)
+                                <tr class="table-light">
+                                  <td>{{$t->num_credito}}</td>
+                                  <td>{{$t->numero_pagos}}</td>
+                                  <td>{{$t->fecha_pago}}</td>
+                                  <td>{{$t->monto_pago}}</td>
+                                  <td>{{$t->saldo_insoluto}}</td>
+                                  <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50" alt=""></td>
+                                  <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3" width="40" alt=""></td>
+                                  <td><img src="" class="my-3" width="40" alt=""></td>
+                                </tr>
+                              @endforeach
                             </tbody>
                         </table>
                       </div>
@@ -126,16 +88,9 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
                 <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
-                  <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#"><img class="flechaIzq" src="{{ asset('img/backoffices/Flecha Izquierda.png') }}" alt=""> Anterior</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<img class="flechaDer" src="{{ asset('img/backoffices/Flecha Derecha.png') }}" alt=""> </a></li>
-                    </ul>
-                  </nav>
+                  @if ($tabla->count() || $tabla!=null)
+                     {{$tabla->links('backoffices.components.paginate')}}
+                  @endif
                 </div>
               </div>
           </div>
@@ -149,7 +104,7 @@
         <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1">
             <div class="row">
                 <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
-                  <button type="button" class="btn px-5 my-3 "  style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
+                  <button type="button" class="btn px-5 my-3 "  style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='/clientes-vigentes'"> Volver</button>
                 </div>
                 <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                   <button type="button" class="btn px-5 my-3 " style="background-color: #f29100; color:white; font-size: 20px;">Guardar</button>

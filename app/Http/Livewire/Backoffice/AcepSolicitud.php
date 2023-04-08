@@ -12,30 +12,23 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 class AcepSolicitud extends Component
 {
-    public $user, $monto,$confirmacion;
+    public $user, $monto,$confirmacion, $monto_modificado;
     public $success='';
     public function mount(User $user){
         $this->user = $user;
     }
 
-    public function render()
-    {
-        return view('livewire.backoffice.acep-solicitud');
-    }
-
+    
     protected $rules = [
         'monto' => 'required|numeric|max:100000|min:1',
         'confirmacion' => 'required|numeric|max:100000|min:1'
     ];
-
+    
     public function aceptar($id){
 
         $this->validate();
         if($this->monto == $this->confirmacion){
-           // Solicitud_Credito::where('user_id','=',$id)->delete();
-            $this->generarnum($id);
-            
-            
+            $this->generarnum($id);         
         }else{
             $this->addError('igual','Los montos no son iguales.');
         }
@@ -44,7 +37,6 @@ class AcepSolicitud extends Component
     public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
-    
 
     public function generarnum($id){
         
@@ -81,6 +73,10 @@ class AcepSolicitud extends Component
         Solicitud_Credito::where('user_id','=',$id)->delete();
         $this->emit('alert');
         $this->reset(['monto','confirmacion']);
-
+        
+    }
+    public function render()
+    {
+        return view('livewire.backoffice.acep-solicitud');
     }
 }

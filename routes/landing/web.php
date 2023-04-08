@@ -6,7 +6,7 @@ use App\Http\Controllers\landing\RegisterController;
 use App\Http\Controllers\landing\LoginController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Livewire\Wizard;
+use App\Http\Livewire\wizard;
 
 
 use Illuminate\Support\Facades\Route;

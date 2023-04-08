@@ -9,4 +9,7 @@ class perfilController extends Controller
     public function perfil(){
         return view('backoffices.clientes.perfil');
     }
+    public function password(){
+        return view('backoffices.clientes.cambiopasswordbackoffice');
+    }
 }
