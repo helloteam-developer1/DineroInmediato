@@ -57,9 +57,10 @@ class AcepSolicitud extends Component
             'num_credito' => $num_credito,
             'user_id' => $id,
             'monto_aut' => $this->monto,
-            'fecha_inicio' => $fecha_inicio,
-            'num_pagos' => $pagos,
-            'fecha_termino' => $fecha_termino,
+            'fecha_inicio' => null,
+            'num_pagos' => null,
+            'fecha_termino' => null,
+            'num_pagos_rest' => null,
             'estado' => 0
         ]);
         //Alta en clientes aceptados

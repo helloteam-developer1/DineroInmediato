@@ -43,7 +43,7 @@
                                             @endif</label>
                                             <input type="number" name="number" id=""
                                                 class="form-control money" placeholder="$2500"
-                                                wire:model.debounce.1s="monto">
+                                                wire:model.debounce.20ms="monto">
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
@@ -57,7 +57,7 @@
                                                 {{'$'.number_format($confirmacion)}}
                                                 @endif</label>
                                                 <input type="number" name="" id="" class="form-control money"
-                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion" >
+                                                    placeholder="$2500" wire:model.debounce.20ms="confirmacion" >
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror

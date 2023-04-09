@@ -17,6 +17,7 @@ class Credito extends Model
         'monto_aut',
         'fecha_inicio', 
         'num_pagos',
+        'num_pagos_rest',
         'fecha_termino', 
         'estado'
     ];

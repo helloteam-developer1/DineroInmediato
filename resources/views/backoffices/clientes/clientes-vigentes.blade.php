@@ -6,6 +6,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
+                        <!--Filtro de busqueda -->
                         <form method="POST" action="{{route('busqueda')}}" id="formulario">
                             @csrf
                             @error('fecha_inicio')
@@ -105,11 +106,9 @@
                                                 <td>NC{{$c->num_cliente}}</td>
                                                 <td>{{$c->nombre}}</td>
                                                 <td>{{$c->monto_aut}}</td>
-                                                <td>{{$c->tarjeta_reg}}</td>
-                                                    
-                                                
+                                                <td>{{$c->tarjeta_reg}}</td>       
                                                 <td>
-                                                    <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaAmortizacion'">
+                                                    <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaAmortizacion/{{$c->id}}'">
                                                         Ver
                                                     </button>
                                                 </td>

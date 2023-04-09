@@ -17,9 +17,10 @@ class CreateCreditoTable extends Migration
             $table->bigIncrements('num_credito');
             $table->unsignedBigInteger('user_id');
             $table->string('monto_aut');
-            $table->date('fecha_inicio');
-            $table->integer('num_pagos');
-            $table->date('fecha_termino');
+            $table->date('fecha_inicio')->nullable();
+            $table->integer('num_pagos')->nullable();
+            $table->smallInteger('num_pagos_rest')->nullable();
+            $table->date('fecha_termino')->nullable();
             $table->string('estado');
 
             $table->foreign('user_id')->references('id')->
