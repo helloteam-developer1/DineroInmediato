@@ -3,6 +3,7 @@
 use App\Http\Controllers\backoffices\clientesController;
 use App\Http\Controllers\backoffices\notificacionesController;
 use App\Http\Controllers\backoffices\perfilController;
+use App\Http\Controllers\backoffices\TablaAmortizacion;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,7 +14,7 @@ Route::middleware(['auth','isAdm'])->group(function (){
     Route::get('/clientes-vigentes', [clientesController::class, 'clientes_vigentes'])->name('dashboard.clientesvig');
     Route::get('/credito-finalizado', [clientesController::class, 'credito_finalizado'])->name('dashboard.creditofinalizado');
     Route::get('/cartera-vencida', [clientesController::class, 'cartera_vencida'])->name('dashboard.carteraven');
-    Route::get('/tablaAmortizacion/{id}', [clientesController::class, 'tablaAmortizacion'])->name('tablaAmortizacion');
+    Route::get('/tablaAmortizacion/{id}', [TablaAmortizacion::class, 'tablaAmortizacion'])->name('tablaAmortizacion');
     Route::get('/tablaPagos/{id}', [clientesController::class, 'tablaPagos'])->name('tablaPagos');
     Route::get('/masInformacion/{id}', [clientesController::class, 'masInformacion'])->name('masInformacion');
     Route::get('/historialPagos', [clientesController::class, 'historialPagos'])->name('historialPagos');
