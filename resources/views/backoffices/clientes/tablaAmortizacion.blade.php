@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tabla de Amortización</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('img/backoffices/Grupo 979.png') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
-</head>
-
-<body>
-    
-    <x-backoffice.menu-backoffice />
-
-
-
-    <!--inicio de titulo-->
-    <h1 class="text-center my-5">Tabla de Amortización</h1>
-    <!--fin de titulo-->
-
-    <!-- inicio apartado de busqueda-->
+@extends('backoffices.layouts.basesinmenu')
+@section('titulo', 'Tabla de Amortización')
+@section('icono')
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/backoffices/CLIENTES.png') }}">
+@endsection
+@section('subtitulo', 'Tabla de Amortización')
+@section('contenido')
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -50,6 +32,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+                        @livewire('backoffice.reg-tabla-amortizacion', ['num_credito' =>$num_credito])
                         <div class="table-responsive text-center">
                             <table class="table table-bordered border-secondary"
                                 id="tabla-amortizacion">
@@ -63,7 +46,6 @@
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-medio">IVA interés ordinario</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Comisiones</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Pago total mensual</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Agregar fila</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Editar</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Eliminar fila</p></th>
                                     </tr>
@@ -79,10 +61,8 @@
                                             <td>{{$t->iva_io}}</td>    
                                             <td>{{$t->comisiones}}</td>        
                                             <td>{{$t->pago_total_men}}</td>    
-                                            <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                    alt=""></td>
                                             <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                    width="40" alt=""></td>
+                                                    width="40" alt="" onclick="window.location.href=''"></td>
                                             <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
                                                     width="30" alt=""></td>
                                         </tr>
@@ -103,9 +83,9 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
-                       @if ($tabla->count() || $tabla!=null)
-                           {{$tabla->links('backoffices.components.paginate')}}
-                       @endif
+                    @if ($tabla->count() || $tabla!=null)
+                        {{$tabla->links('backoffices.components.paginate')}}
+                    @endif
                     </div>
                 </div>
             </div>
@@ -131,13 +111,6 @@
         </div>
     </div>
     <!--fin de botones-->
-
-    @extends('backoffices.components.footer')
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('js/backoffice/menuBurger.js') }}"></script>
-</body>
-
-</html>
+@endsection
+    
+   

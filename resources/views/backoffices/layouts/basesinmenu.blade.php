@@ -30,7 +30,28 @@
             background-color: #39A935;
             margin-top: 10px;
         }
-
+        .btn-cancelar{
+            color: white;
+            background: #39A935;
+        }
+        .btn-guardar{
+            color:white;
+            background: #F29100;
+            float: right;
+        }
+        .btn-cancelar:hover{
+            color: 
+            white;
+            background: 
+            #39A935;
+            font-size: 1.3rem;
+        }
+        .btn-guardar:hover{
+            color:white;
+            background: #F29100;
+            float: right;
+            font-size: 1.3rem;
+        }
         .titulo-alert {
             color: #39A935;
             margin-top: 10px;
@@ -61,6 +82,18 @@
                 icon: 'success',
                 title: 'Cambio con Exito',
                 footer: 'Espere...',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 1600);
+        });
+        Livewire.on('registro', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro con Exito',
+                footer:'Espere...',
                 showConfirmButton: false,
                 timer: 1500,
             });
