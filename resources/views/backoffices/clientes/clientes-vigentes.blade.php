@@ -123,17 +123,13 @@
                                                     {{$c->num_pagos}}
                                                 </td>
                                                 <td>
-                                                    <button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#carteraVencida">
-                                                            Enviar
-                                                    </button>
+                                                    @livewire('backoffice.carteravencida',['user'=>$c->id], key($c->id))
                                                 </td>
                                                 <td>
                                                     <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/masInformacion/{{$c->id}}'">Ver</button>
                                                 </td>
                                                 <td>
-                                                    <button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#finalizarCredito">
-                                                            Finalizar
-                                                    </button>
+                                                    @livewire('backoffice.finalizarcredito',['user'=>$c->id],key($c->id))
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -149,103 +145,5 @@
             </div>
         </div>
 
-        <!--Inicio de modal enviar a  cartera vencida -->
-        <div class="modal fade" id="carteraVencida" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header" style="border: none;">
-                        <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                    </div>
-                    <div class="modal-body" style="border: none;">
-                        <h5 class="modal-title text-center" id="staticBackdropLabel"
-                            style="font-size: 35px; color:#38a937;">Confirmación</h5>
-                        <div class="container-fluid mt-5">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-10 offset-md-3 offset-lg-1">
-                                            <p class="text-secondary">¿Estás seguro de querer enviar al cliente a cartera
-                                                vencida? Esta acción no se
-                                                podrá deshacer.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer" style="border: none;">
-                        <div class="container-fluid mt-5">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
-                                            <button type="button" class="btn px-4 my-2"
-                                                style="background-color: #38a937; color:white; margin-right: 64%;"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn px-4 my-2"
-                                                style="background-color: #f29100; color:white;">Aceptar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Fin de modal enviar a cartera vencida -->
-        <!--inicio modal Finalizar credito-->
-        <div class="modal fade" id="finalizarCredito" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header" style="border: none;">
-                        <div class="col-1 col-sm-1 col-md-1 col-lg-1 offset-lg-11 offset-md-11 offset-sm-11 offset-11">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                    </div>
-                    <div class="modal-body" style="border: none;">
-                        <h5 class="modal-title text-center" id="staticBackdropLabel"
-                            style="font-size: 35px; color:#38a937;">¿Está seguro de finalizar el crédito del clientes?
-                        </h5>
-                        <div class="container-fluid mt-5">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-10 offset-md-3 offset-lg-1">
-                                            <p class="text-secondary">Al dar clic en el botón aceptar. El cliente pasará a
-                                                créditos finalizados esta
-                                                acción no se puede deshacer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer" style="border: none;">
-                        <div class="container-fluid mt-5">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
-                                            <button type="button" class="btn px-4 my-2"
-                                                style="background-color: #38a937; color:white; margin-right: 64%;"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn px-4 my-2"
-                                                style="background-color: #f29100; color:white;">Aceptar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--fin modal Finalizar credito-->
+      
     @endsection

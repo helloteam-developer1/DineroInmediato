@@ -16,9 +16,11 @@ class CreateClientesFinalizadosTable extends Migration
         Schema::create('clientes_finalizados', function (Blueprint $table) {
             $table->bigIncrements('id_cliente_finalizado');
             $table->unsignedBigInteger('user_id');
+            $table->string('nombre');
             $table->unsignedBigInteger('credito_num');
+            $table->smallInteger('estado');
             $table->timestamps();
-            
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('credito_num')->references('num_credito')->on('credito');
         });

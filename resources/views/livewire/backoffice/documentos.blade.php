@@ -114,10 +114,10 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
                                         <button type="button" class="btn px-4 my-2"
-                                            style="background-color: #38a937; color:white; margin-right: 160px;"
+                                            style="background-color: #38a937; color:white; float:left;"
                                             data-bs-dismiss="modal">Cerrar</button>
                                         <button type="button" class="btn px-4 my-2"
-                                            style="background-color: #f29100; color:white;">Volver</button>
+                                            style="background-color: #f29100; color:white; float:right;">Volver</button>
                                     </div>
                                 </div>
                             </div>
