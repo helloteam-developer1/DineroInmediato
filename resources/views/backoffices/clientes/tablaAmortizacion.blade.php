@@ -5,6 +5,7 @@
 @endsection
 @section('subtitulo', 'Tabla de Amortización')
 @section('contenido')
+    <!--Inicio del apartado de Busqueda-->
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -40,6 +41,7 @@
                                     <tr class="table-secondary">
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de cred</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de pago </p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Interes Anual (CAT) </p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Próximo pago </p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Pago a capital</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Interés ordinarios</p></th>
@@ -55,17 +57,22 @@
                                         <tr class="table-light">
                                             <td>{{$t->num_credito}}</td>    
                                             <td>{{$t->numero_pagos}}</td>    
+                                            <td>{{$t->interes_anual}}</td>
                                             <td>{{$t->prox_pago}}</td>    
                                             <td>{{$t->pag_capital}}</td>    
                                             <td>{{$t->interes_ordinarios}}</td>    
                                             <td>{{$t->iva_io}}</td>    
                                             <td>{{$t->comisiones}}</td>        
                                             <td>{{$t->pago_total_men}}</td>    
-                                            <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                    width="40" alt="" onclick="window.location.href=''"></td>
-                                            <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                    width="30" alt=""></td>
-                                        </tr>
+                                            <td>
+                                                <a href="{{route('editarAmortizacion',$t->id_amortizacion)}}">
+                                                    <img src="{{ asset('img/backoffices/Grupo 783.png') }}" style="cursor: pointer;"  class="my-3" width="40" alt="">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @livewire('backoffice.eliminar-amortizacion',['re' => $t->id_amortizacion], key($user->id))
+                                            </td>
+                                            </tr>
                                     @endforeach
                                 </tbody>
                             </table>

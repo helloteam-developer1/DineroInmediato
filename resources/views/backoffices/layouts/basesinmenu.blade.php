@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/7652a6e854.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireStyles
+    <script src="http://code.jquery.com/jquery-git.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,28 @@
     <h1 class="text-center my-5">@yield('subtitulo')</h1>
     @yield('contenido')
 
-
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Registro Actualizado con Exito',
+            footer:'Espere...',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    </script>
+    @endif
+    @if (session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'No coincide el Numero de Credito',
+            footer:'Espere...',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    </script>
+    @endif
 
 
     @include('backoffices.components.footer')
@@ -76,6 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    
     <script>
         Livewire.on('alert', function() {
             Swal.fire({
@@ -93,6 +116,18 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Registro con Exito',
+                footer:'Espere...',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 1600);
+        });
+        Livewire.on('eliminar', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro Eliminado con Exito!',
                 footer:'Espere...',
                 showConfirmButton: false,
                 timer: 1500,

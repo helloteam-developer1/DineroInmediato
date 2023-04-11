@@ -25,5 +25,8 @@ Route::middleware(['auth','isAdm'])->group(function (){
     Route::post('/busqueda',[clientesController::class,'busqueda'])->name('busqueda');
     Route::get('/perfil', [perfilController::class, 'perfil'])->name('perfil');
     Route::get('/perfil/password',[perfilController::class,'password'])->name('backofficepassword');
+
+    Route::get('/tablaAmortizacion/{id}/edit',[TablaAmortizacion::class,'view'])->name('editarAmortizacion');
+    Route::post('/tablaAmortizacion/{id}/update',[TablaAmortizacion::class,'update'])->name('updateAmortizacion');
 });
 
