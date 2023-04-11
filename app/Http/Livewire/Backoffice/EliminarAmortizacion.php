@@ -20,7 +20,7 @@ class EliminarAmortizacion extends Component
             Amortizacion::where('id_amortizacion','=',$re)->delete();
             $this->emit('eliminar');
            }else{
-            $this->addError('Error','Registro inexistente, 404 Backoffice Tabla Amortización.');
+            $this->emit('error_a');
            }
     }
 }

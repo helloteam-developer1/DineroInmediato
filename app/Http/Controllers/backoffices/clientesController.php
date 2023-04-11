@@ -38,11 +38,6 @@ class clientesController extends Controller
         return view('backoffices.clientes.clientes');
     }
 
-    public function tablaPagos($user){
-        $credito  = Credito::where('user_id','=',$user)->value('num_credito');
-        $tabla = Pagos::where('num_credito','=',$credito)->paginate(5);
-        return view('backoffices.clientes.tablaPagos', compact('tabla'));
-    }
     public function masInformacion($user){
         $user = User::where('id','=',$user)->get();
         return view('backoffices.clientes.masInformacion',compact('user'));

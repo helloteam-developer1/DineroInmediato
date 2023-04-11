@@ -136,6 +136,30 @@
                 location.reload();
             }, 1600);
         });
+        Livewire.on('error_p', function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error 404 Tabla Pago Eliminar,por favor ponte en contacto con soporte tecnico.',
+                footer:'Espere...',
+                showConfirmButton: false,
+                timer: 4000,
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 4000);
+        });
+        Livewire.on('error_a', function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error 404 Tabla Amortización Eliminar,por favor ponte en contacto con soporte técnico.',
+                footer:'Espere...',
+                showConfirmButton: false,
+                timer: 4000,
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 4000);
+        });
     </script>
 </body>
 
