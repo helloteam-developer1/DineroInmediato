@@ -20,8 +20,8 @@ class CreatePagosCreditoTable extends Migration
             $table->date('fecha_pago');
             $table->integer('monto_pago');
             $table->integer('saldo_insoluto');
-            $table->integer('pago_rest');
-            $table->integer('resta_pagar');
+            $table->integer('pago_rest')->nullable();
+            $table->integer('resta_pagar')->nullable();
             $table->timestamps();
             
             $table->foreign('num_credito')->
