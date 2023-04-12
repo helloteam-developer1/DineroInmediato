@@ -140,7 +140,7 @@
           <form action="{{route('solicitar')}}" method="POST">
             @csrf
             <select class="form-select" id="validationCustom04" aria-label="monto" name="monto" required>
-                <option selected>Monto Solicitado</option>
+                <option value="" selected>Monto Solicitado</option>
                 @while ($i<=4900)
                     <option value="{{$i=$i+100;}}">{{$i}}</option>
                 @endwhile
