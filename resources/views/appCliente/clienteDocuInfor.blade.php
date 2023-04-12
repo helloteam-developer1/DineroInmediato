@@ -29,7 +29,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b34d6606d6.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
@@ -432,7 +432,20 @@
     function openmodal() {
         $('#exampleModal').modal('show');
     }
+    Livewire.on('registro',function(){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registro con Exito',
+            showConfirmButton: false,
+            timer: 1600
+        });
+        setTimeout(() => {
+            location.reload();
+        }, 1600);
+    });
 </script>
+
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

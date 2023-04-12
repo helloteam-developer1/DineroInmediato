@@ -75,6 +75,7 @@ class DatosBancarios extends Component
             if($registro){
                 $this->mensaje = "Registro con Exito";
                 $this->fail = null;
+                $this->emit('registro');
             }else{
                 $this->mensaje = "Por el momento no podemos registrar tu datos, intentalo mas tarde.";
             }
