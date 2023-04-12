@@ -31,5 +31,8 @@ Route::middleware(['auth','isAdm'])->group(function (){
     //Tabla de Pagos
     Route::get('/tablaPagos/{id}', [TablaPagos::class, 'tablaPagos'])->name('tablaPagos');
     Route::get('/tablaDePagos', [clientesController::class, 'tablaDePagos'])->name('tablaDePagos');
+    Route::post('/busqueda-tablapagos',[TablaPagos::class,'busqueda'])->name('busquedaTablaP');
+    Route::get('/tabladepagos/{id}/edit',[TablaPagos::class,'editar'])->name('editarpago');
+    Route::post('/tabladepagos/edit/{id}',[TablaPagos::class,'updated'])->name('tablaedit');
 });
 
