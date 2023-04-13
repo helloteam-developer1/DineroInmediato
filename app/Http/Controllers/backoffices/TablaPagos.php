@@ -12,10 +12,37 @@ class TablaPagos extends Controller
     public function tablaPagos($user){
         $credito  = Credito::where('user_id','=',$user)->value('num_credito');
         $tabla = Pagos::where('num_credito','=',$credito)->paginate(5);
-        return view('backoffices.clientes.tablaPagos', ['tabla' => $tabla,'num_credito'=> $credito]);
+        return view('backoffices.clientes.tablaPagos', ['tabla' => $tabla,'num_credito'=> $credito,'paginate'=>1]);
     }
     public function busqueda(Request $request){
-        return $request;
+        $validate = $request->validate([
+            'termino' => 'required',
+            'num_credito' => 'required'
+        ]);
+        $termino = $request->termino;
+        $num_credito = $request->num_credito;
+        $consulta1 = collect('');
+        $consulta2 = collect('');
+        $consulta3 = collect('');
+        $consulta4 = collect('');
+        $consulta5 = collect('');
+
+        $consulta1 = Pagos::where('num_credito','=', $num_credito)->where('numero_pagos','=',$termino)->orderBy('numero_pagos', 'desc')->get();
+
+        $consulta2 = Pagos::where('num_credito','=', $num_credito)->where('monto_pago','=',$termino)->orderBy('numero_pagos', 'desc')->get();
+        
+        
+        $consulta3 = Pagos::where('num_credito','=', $num_credito)->where('saldo_insoluto','=',$termino)->orderBy('numero_pagos', 'desc')->get();
+        
+        $consulta4 = Pagos::where('num_credito','=', $num_credito)->where('pago_rest','=',$termino)->orderBy('numero_pagos', 'desc')->get();
+        
+        $consulta5 = Pagos::where('num_credito','=', $num_credito)->where('resta_pagar','=',$termino)->orderBy('numero_pagos', 'desc')->get();
+        
+        $pagos = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5);
+        
+        $pagos2 =$pagos->unique('id_pago');
+        return view('backoffices.clientes.tablaPagos', ['tabla' => $pagos2,'num_credito'=> $request->num_credito,'paginate'=>0]);
+
     }
     public function editar($id){
         $pagos = Pagos::where('id_pago', '=',$id)->first();

@@ -11,15 +11,25 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-10 col-md-8 col-lg-5 offset-sm-2 offset-md-4 offset-lg-7">
-                        <div class="input-group">
-                            <div class="input-wrapper">
-                                <input type="search" name="" id="" class="ms-1 mt-2" placeholder="Buscar">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" style="top: 60%;" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                                </svg>
+                        <form action="{{route('busquedaAmortizacion')}}" method="POST">
+                            @csrf
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <input type="search" name="termino" id="" class="ms-1 mt-2" placeholder="Buscar">
+                                    <input type="text" name="num_credito" value="{{$num_credito}}" hidden>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" style="top: 60%;" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <button type="submit" class="btn boton-color px-2  ms-5 mt-2 rounded">Buscar</button>
                             </div>
-                            <button type="button" class="btn boton-color px-2  ms-5 mt-2 rounded">Buscar</button>
-                        </div>
+                            @error('num_credito')
+                                <span style="color:red;">{{$message}}</span>
+                            @enderror
+                            @error('termino')
+                                <span style="color:red;">{{$message}}</span>
+                            @enderror
+                        </form>
                     </div>
                 </div>
             </div>
@@ -90,9 +100,13 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
-                    @if ($tabla->count() || $tabla!=null)
-                        {{$tabla->links('backoffices.components.paginate')}}
-                    @endif
+                        @if ($paginacion ==1)
+                            @if ($tabla->count() || $tabla!=null)
+                                {{$tabla->links('backoffices.components.paginate')}}
+                            @endif
+                        @else
+                            
+                        @endif
                     </div>
                 </div>
             </div>

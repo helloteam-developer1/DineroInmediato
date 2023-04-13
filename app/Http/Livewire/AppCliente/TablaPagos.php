@@ -64,7 +64,8 @@ class TablaPagos extends Component
                 [$this->fecha_inicio,$this->fecha_termino])->where('resta_pagar','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
                 
                 $pagos = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5);
-                return view('livewire.app-cliente.tabla-pagos2', ['pagos'=> $pagos,'credito'=>$num_credito]);
+                $pagos1 = $pagos->unique('id_pago');
+                return view('livewire.app-cliente.tabla-pagos2', ['pagos'=> $pagos1,'credito'=>$num_credito]);
             }
         }
         return view('livewire.app-cliente.tabla-pagos', ['pagos'=> $pagos,'credito'=>$num_credito]);

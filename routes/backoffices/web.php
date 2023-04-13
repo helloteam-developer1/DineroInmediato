@@ -27,7 +27,7 @@ Route::middleware(['auth','isAdm'])->group(function (){
     Route::get('/tablaAmortizacion/{id}', [TablaAmortizacion::class, 'tablaAmortizacion'])->name('tablaAmortizacion');
     Route::get('/tablaAmortizacion/{id}/edit',[TablaAmortizacion::class,'view'])->name('editarAmortizacion');
     Route::post('/tablaAmortizacion/{id}/update',[TablaAmortizacion::class,'update'])->name('updateAmortizacion');
-
+    Route::post('/tablaAmortizacion/busqueda',[TablaAmortizacion::class,'busqueda'])->name('busquedaAmortizacion');
     //Tabla de Pagos
     Route::get('/tablaPagos/{id}', [TablaPagos::class, 'tablaPagos'])->name('tablaPagos');
     Route::get('/tablaDePagos', [clientesController::class, 'tablaDePagos'])->name('tablaDePagos');

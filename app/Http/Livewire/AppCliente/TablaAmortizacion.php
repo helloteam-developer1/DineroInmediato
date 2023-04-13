@@ -80,7 +80,8 @@ class TablaAmortizacion extends Component
                 
                 $tabla = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5)->
                 concat($consulta6)->concat($consulta7);
-                return view('livewire.app-cliente.tabla-amortizacion2',['tabla' => $tabla]);     
+                $tabla1 = $tabla->unique('id_amortizacion');
+                return view('livewire.app-cliente.tabla-amortizacion2',['tabla' => $tabla1]);     
             }
 
         }
