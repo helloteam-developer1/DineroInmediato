@@ -7,19 +7,19 @@
                     <div class="row">
                         <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
                         <!--Filtro de busqueda -->
-                        <form method="POST" action="{{route('busqueda')}}" id="formulario">
+                        <form action="{{route('busquedav')}}" method="POST">
                             @csrf
-                            @error('fecha_inicio')
-                                <span style="color:red;">{{$message}}</span>
-                                <br />
+                                @error('fecha_inicio')
+                                    <span style="color:red;">{{$message}}</span>
+                                    <br />
                                 @enderror
                                 @error('fecha_termino')
-                                <span style="color:red;">{{$message}}</span>
-                                <br />
+                                    <span style="color:red;">{{$message}}</span>
+                                    <br />
                                 @enderror
                                 @error('busqueda')
-                                <span style="color:red;">{{$message}}</span>
-                                <br />
+                                    <span style="color:red;">{{$message}}</span>
+                                    <br />
                                 @enderror
                                 
                                 <div class="input-group">
@@ -56,7 +56,7 @@
                         <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                             <div class="table-responsive text-center">
                                 <!--inicio tabla de clientes--->
-                                <table class="table table-bordered border-secondary" >
+                                <table class="table table-striped table-bordered border-secondary" >
                                     <thead>
                                         <tr class="table-secondary">
                                             <th scope="col" class="px-5">
@@ -106,7 +106,7 @@
                                                 <td>NC{{$c->num_cliente}}</td>
                                                 <td>{{$c->nombre}}</td>
                                                 <td>{{$c->monto_aut}}</td>
-                                                <td>{{$c->tarjeta_reg}}</td>       
+                                                <td>{{ $c->tarjeta_reg }}</td>
                                                 <td>
                                                     <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaAmortizacion/{{$c->id}}'">
                                                         Ver
@@ -138,6 +138,11 @@
                                 
                                 </table>
                                 <!--fin tabla de clientes--->
+                            </div>
+                            <div style="float:right; margin-top:10px;">
+                                    @if($clientes!=null)
+                                        {{$clientes->links('backoffices.components.paginate')}}
+                                    @endif 
                             </div>
                         </div>
                     </div>

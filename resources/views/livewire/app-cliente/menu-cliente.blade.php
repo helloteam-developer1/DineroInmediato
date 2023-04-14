@@ -70,7 +70,7 @@
                                             <p>No tienes notificación</p>
                                             <hr />
                                             <a href="{{ route('cliente-notificaciones', 0) }}"
-                                                class="btn btn-secondary btn-block" style="#39A935;">Ver todas las notificaciones.</a>
+                                                class="btn btn-secondary btn-block" style="background-color:#39A935;">Ver todas las notificaciones.</a>
                                         </div>
                                     </li>
                                 @endif

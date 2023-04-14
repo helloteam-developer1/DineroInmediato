@@ -45,7 +45,7 @@ class AcepSolicitud extends Component
         }while(User::where('num_cliente','=',$num_cliente)->exists()!=FALSE);
         
         //Hago el cambio de estado de credito asignando el numero de credito
-        User::where('id','=',$id)->update(['num_cliente'=>$num_cliente]);
+        User::where('id','=',$id)->update(['num_cliente'=>'NC'.$num_cliente]);
         //Doy de alta el credito para pasar la solicitud a clientes aceptados
         $pagos = rand(1,24);
         $fecha_inicio = Carbon::now();
@@ -65,10 +65,12 @@ class AcepSolicitud extends Component
         ]);
         //Alta en clientes aceptados
         $nombre = User::where('id', '=',$id)->value('nombre');
+        $date = Carbon::now();
+        $date->format('Y-m-d');
         ClientesAceptados::create([
             'user_id' => $id,
             'credito_num' => $num_credito,
-            'nombre' => $nombre,
+            'fecha' =>$date
         ]);
 
         Solicitud_Credito::where('user_id','=',$id)->delete();

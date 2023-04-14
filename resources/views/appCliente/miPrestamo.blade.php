@@ -222,7 +222,7 @@
                         @if ($credito->count())
                             <tr>
                                 <!-- <th scope="row">1</th> -->
-                                <td class="border text-center">NC-{{Auth::user()->num_cliente;}}</td>
+                                <td class="border text-center">{{Auth::user()->num_cliente;}}</td>
                                 <td class="border text-center">{{$credito[0]->num_credito;}}</td>
                             </tr>
                             <tr>

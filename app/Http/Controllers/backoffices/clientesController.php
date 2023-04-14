@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\backoffices;
 
 use App\Http\Controllers\Controller;
-use App\Models\Amortizacion;
 use App\Models\ClientesAceptados;
-use App\Models\Credito;
-use App\Models\Pagos;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PDO;
@@ -20,8 +17,7 @@ class clientesController extends Controller
 
     public function clientes_vigentes(){
         $clientes = ClientesAceptados::join('credito','clientes_aceptados.credito_num','=','credito.num_credito')->
-        join('users','clientes_aceptados.user_id','=','users.id')->
-        get();
+        join('users','clientes_aceptados.user_id','=','users.id')->paginate(5);
         
         return view('backoffices.clientes.clientes-vigentes',compact('clientes'));
     }
@@ -92,6 +88,61 @@ class clientesController extends Controller
             return view('backoffices.clientes.solicitud-clientes',compact('consulta'));
         }
         
+        
+    }
+    ///Filtro de busqueda de clientes vigentes 
+    public function busquedav(Request $request){
+        
+        
+        if(!empty($request->busqueda)){
+            $clientes = ClientesAceptados::join('credito','clientes_aceptados.credito_num','=','credito.num_credito')->
+            join('users','clientes_aceptados.user_id','=','users.id')->
+            wherebetween('fecha',[$request->fecha_inicio,$request->fecha_termino])
+            ->orwhere('credito_num','=',$request->busqueda)
+            ->orwhere('num_cliente','=',$request->busqueda)
+            ->orwhere('nombre','=',$request->busqueda)
+            ->orwhere('monto_aut','=',$request->busqueda)
+            ->orwhere('tarjeta_reg','=',$request->busqueda)
+            ->orwhere('num_pagos','=',$request->busqueda)
+            ->orwhere('num_pagos_rest','=',$request->busqueda)->paginate(5);
+            return view('backoffices.clientes.clientes-vigentes',compact('clientes'));
+        }
+        
+        if(empty($request->busqueda) && empty($request->fecha_inicio)&& empty($request->fecha_termino)){
+            $request->validate([
+                'fecha_inicio' => 'required',
+                'fecha_termino' => 'required',
+                'busqueda' => 'required'
+            ]);
+        }else{
+            if($request->busqueda!=null && $request->fecha_inicio!=null && $request->fecha_termino!=null){
+                $clientes = ClientesAceptados::join('credito','clientes_aceptados.credito_num','=','credito.num_credito')->
+                join('users','clientes_aceptados.user_id','=','users.id')
+                ->orwhere('credito_num','=',$request->busqueda)
+                ->orwhere('num_cliente','=',$request->busqueda)
+                ->orwhere('nombre','=',$request->busqueda)
+                ->orwhere('monto_aut','=',$request->busqueda)
+                ->orwhere('tarjeta_reg','=',$request->busqueda)
+                ->orwhere('num_pagos','=',$request->busqueda)
+                ->orwhere('num_pagos_rest','=',$request->busqueda)->paginate(5);
+                return view('backoffices.clientes.clientes-vigentes',compact('clientes'));
+            }
+            
+        }
+        
+        
+        if($request->fecha_inicio==null || $request->fecha_termino==null){
+            $request->validate([
+                'fecha_inicio' => 'required|date',
+                'fecha_termino' => 'required|date'
+            ]);
+        }else{
+            
+            $clientes = ClientesAceptados::join('credito','clientes_aceptados.credito_num','=','credito.num_credito')->
+            join('users','clientes_aceptados.user_id','=','users.id')->wherebetween('fecha',[$request->fecha_inicio,$request->fecha_termino])
+            ->paginate(5);
+            return view('backoffices.clientes.clientes-vigentes',compact('clientes'));
+        }
         
     }
     

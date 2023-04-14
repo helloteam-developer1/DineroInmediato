@@ -55,7 +55,7 @@
                         <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                             <div class="table-responsive text-center">
                                 <!--inicio tabla de solicitudes--->
-                                <table class="table table-bordered border-secondary" id="tabla-Solicitud">
+                                <table class="table table-striped table-bordered border-secondary" id="tabla-Solicitud">
                                     <thead>
                                         <tr class="table-secondary">
                                             <th scope="col" class="px-5">

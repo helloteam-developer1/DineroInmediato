@@ -8,26 +8,31 @@
                         <thead>
                             <tr>
                                 <th scope="col">
-                                    @if (Request::is('clientes'))
+                                    @if (Request::is('busqueda'))
                                         <img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}"
                                         id="imgSolicitudNaranja" class="posision mt-2" width="55"
                                         alt="">
                                         <h4 style="margin-top: 20px;"><a href="{{route('dashboard.backoffice')}}" class="subtitulo"
                                             id="solicitudes">Solicitudes de Crédito</a></h4>
                                     @else
-                                        <img
-                                        src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}"
-                                        id="imgSolicitudGris" class="posision mt-2"
-                                        width="55" alt="">    
-                                        <h4 style="margin-top: 20px;"><a href="{{route('dashboard.backoffice')}}" class="enlace"
-                                            id="solicitudes">Solicitudes de Crédito</a></h4>
+                                        @if (Request::is('clientes'))
+                                            <img src="{{ asset('img/backoffices/SOL_APRO_NARANJA.png') }}"
+                                            id="imgSolicitudNaranja" class="posision mt-2" width="55"
+                                            alt="">
+                                            <h4 style="margin-top: 20px;"><a href="{{route('dashboard.backoffice')}}" class="subtitulo"
+                                                id="solicitudes">Solicitudes de Crédito</a></h4>
+                                        @else
+                                            <img
+                                            src="{{ asset('img/backoffices/SOL_APRO_GRIS.png') }}"
+                                            id="imgSolicitudGris" class="posision mt-2"
+                                            width="55" alt="">    
+                                            <h4 style="margin-top: 20px;"><a href="{{route('dashboard.backoffice')}}" class="enlace"
+                                                id="solicitudes">Solicitudes de Crédito</a></h4>
+                                        @endif
                                     @endif
-                                    
-                                    
-                                   
                                 </th>
                                 <th scope="col">
-                                    @if (Request::is('clientes-vigentes'))
+                                    @if (Request::is('clientes-vigentes')|| Request::is('cliente-vigentes/busqueda'))
                                     <img src="{{ asset('img/backoffices/CLI_CRE_VIG_NAR.png') }}"id="imgClientesNaranja" 
                                         class="posision mt-1" width="60" alt="">
                                     <h4>
