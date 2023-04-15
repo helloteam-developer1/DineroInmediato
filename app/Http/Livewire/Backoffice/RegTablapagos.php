@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Backoffice;
 
+use App\Models\Credito;
 use App\Models\Pagos;
 use Livewire\Component;
 
@@ -43,6 +44,8 @@ class RegTablapagos extends Component
                 'pago_rest' => null,
                 'resta_pagar' => null
             ]);
+            $consulta = Pagos::where('num_credito','=',$this->num_credito)->count();
+            Credito::where('num_credito','=',$this->num_credito)->update(['num_pagos'=>$consulta]);
             $this->emit('registro');
         }
     }
