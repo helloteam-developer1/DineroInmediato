@@ -84,7 +84,7 @@
                                                 <p class="encabezado-tabla-medio">Tabla de Pago</p>
                                             </th>
                                             <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-medio">Número de Pago</p>
+                                                <p class="encabezado-tabla-medio">Número de Pagos Rest</p>
                                             </th>
                                             <th scope="col" class="px-5">
                                                 <p class="encabezado-tabla">Enviar Cartera Vencida</p>
@@ -103,7 +103,7 @@
                                         @foreach ($clientes as $c)
                                             <tr class="table-light">
                                                 <td>{{$c->credito_num}}</td>
-                                                <td>NC{{$c->num_cliente}}</td>
+                                                <td>{{$c->num_cliente}}</td>
                                                 <td>{{$c->nombre}}</td>
                                                 <td>{{$c->monto_aut}}</td>
                                                 <td>{{ $c->tarjeta_reg }}</td>
@@ -120,7 +120,7 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    {{$c->num_pagos}}
+                                                    {{$c->num_pagos_rest}}
                                                 </td>
                                                 <td>
                                                     @livewire('backoffice.carteravencida',['user'=>$c->id], key($c->id))

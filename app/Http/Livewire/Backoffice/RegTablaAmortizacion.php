@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Backoffice;
 
 use App\Models\Amortizacion;
+use App\Models\Credito;
 use Livewire\Component;
 
 class RegTablaAmortizacion extends Component
@@ -51,6 +52,8 @@ class RegTablaAmortizacion extends Component
             'comisiones' => $this->comisiones,
             'pago_total_men' => $this->pago_t_mensual
         ]);
+        $contador = Amortizacion::where('num_credito','=',$num_credito)->count();
+        Credito::where('num_credito','=',$this->num_credito)->update(['num_pagos'=>$contador]);
         $this->emit('registro');
     }
 }
