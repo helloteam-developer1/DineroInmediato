@@ -444,6 +444,18 @@
             location.reload();
         }, 1600);
     });
+    Livewire.on('img',function(){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Cambio con Exito!',
+            showConfirmButton: false,
+            timer: 1600
+        });
+        setTimeout(() => {
+            location.reload();
+        }, 1600);
+    });
 </script>
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>

@@ -78,7 +78,7 @@ class Documentacion extends Component
                 //modifico al usuario con la ruta de la img 
                 $cambio = User::where('id','=',$id)->update(['ine_frente'=>$ruta1]);
                 if(!empty($cambio)){
-                    session()->flash('inefrente', 'Se subio INE Frente Exitosamente!');
+                    
                 }else{
                     $this->addError('img','Error al subir INE Frente, intentelo mas tarde.');
                 }
@@ -107,7 +107,7 @@ class Documentacion extends Component
                 $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
                 $cambio = User::where('id','=',$id)->update(['ine_reverso'=>$ruta2]);
                 if(!empty($cambio)){
-                    session()->flash('inereverso', 'Se subio INE Reverso Exitosamente!');
+                    
                 }else{
                     $this->addError('img','Error al subir INE Reverso, intentelo mas tarde.');
                 }
@@ -134,7 +134,7 @@ class Documentacion extends Component
                 $ruta3= $this->comp_dom->storeAs("posts/",$nombre_comp_dom,'public_posts',0644);
                 $cambio = User::where('id','=',$id)->update(['comp_dom'=>$ruta3]);
                 if(!empty($cambio)){
-                    session()->flash('comp_dom', 'Se subio Comprobante de Domicilio Exitosamente!');
+                    
                 }else{
                     $this->addError('img','Error al subir Comprobante de Domicilio, intentelo mas tarde.');
                 }
@@ -161,12 +161,13 @@ class Documentacion extends Component
                 $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);
                 $cambio = User::where('id','=',$id)->update(['foto_cine'=>$ruta4]);
                 if(!empty($cambio)){
-                    session()->flash('fotocine', 'Se subio Foto con INE Exitosamente!');
+                    
                 }else{
                     $this->addError('img','Error al subir Foto con INE, intentelo mas tarde.');
                 }
             }
             sleep(2);
+            $this->emit('img');
         }
 
     }
