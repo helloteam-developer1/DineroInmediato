@@ -3,9 +3,9 @@
 use App\Http\Controllers\landing\CalculadoraRegistro;
 use App\Http\Controllers\landing\ContactEmailController;
 use App\Http\Controllers\landing\RegisterController;
-use App\Http\Controllers\landing\LoginController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\landing\LoginController;
 use App\Http\Livewire\wizard;
 
 
@@ -38,7 +38,7 @@ Route::resource('/registros-calculadora', CalculadoraRegistro::class);
 Route::middleware('guest')->group(function () {
     Route::GET('/',function(){
         //if ( env('APP_ENV') === 'local' ) {
-         return view('landing.index');
+        return view('landing.index');
         //}else {
           // return view('construccion');
         //}
