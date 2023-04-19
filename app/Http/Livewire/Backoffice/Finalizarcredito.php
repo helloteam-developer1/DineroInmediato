@@ -21,7 +21,6 @@ class Finalizarcredito extends Component
         $consulta = ClientesAceptados::where('user_id', '=', $user)->get();
         CreditoFinalizado::create([
             'user_id' => $consulta[0]->user_id,
-            'nombre' => $consulta[0]->nombre,
             'credito_num' => $consulta[0]->credito_num,
             'estado' => 1
         ]);

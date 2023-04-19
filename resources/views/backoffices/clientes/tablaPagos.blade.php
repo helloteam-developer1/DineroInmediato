@@ -49,7 +49,7 @@
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                       @livewire('backoffice.reg-tablapagos', ['num_credito'=> $num_credito])
                         <div class="table-responsive text-center">
-                            <table class="table table-bordered border-secondary" id="tabla-amortizacion">
+                            <table class="table table-bordered border-secondary table-striped" id="tabla-amortizacion">
                                 <thead>
                                     <tr class="table-secondary">
                                         <th scope="col" class="px-5">
@@ -77,17 +77,23 @@
                                 </thead>
                                 <tbody>
                                     
-                                    @foreach ($tabla as $t)
+                                   @if($tabla->count())
+                                        @foreach ($tabla as $t)
+                                            <tr class="table-light">
+                                                <td>{{ $t->num_credito }}</td>
+                                                <td>{{ $t->numero_pagos }}</td>
+                                                <td>{{ $t->fecha_pago }}</td>
+                                                <td>{{ $t->monto_pago }}</td>
+                                                <td>{{ $t->saldo_insoluto }}</td>
+                                                <td><img onclick="window.location.href='{{route('editarpago',$t->id_pago)}}'" src="{{ asset('img/backoffices/Grupo 783.png') }}" width="50" alt="" style="cursor: pointer;"></td>
+                                                <td>@livewire('backoffice.eliminar-tablapagos',['re'=>$t->id_pago],key($t->id_pago))</td>
+                                            </tr>
+                                        @endforeach
+                                   @else
                                         <tr class="table-light">
-                                            <td>{{ $t->num_credito }}</td>
-                                            <td>{{ $t->numero_pagos }}</td>
-                                            <td>{{ $t->fecha_pago }}</td>
-                                            <td>{{ $t->monto_pago }}</td>
-                                            <td>{{ $t->saldo_insoluto }}</td>
-                                            <td><img onclick="window.location.href='{{route('editarpago',$t->id_pago)}}'" src="{{ asset('img/backoffices/Grupo 783.png') }}" width="50" alt="" style="cursor: pointer;"></td>
-                                            <td>@livewire('backoffice.eliminar-tablapagos',['re'=>$t->id_pago],key($t->id_pago))</td>
+                                            <td colspan="7">Sin registros.</td>
                                         </tr>
-                                    @endforeach
+                                   @endif
                                 </tbody>
                             </table>
                         </div>

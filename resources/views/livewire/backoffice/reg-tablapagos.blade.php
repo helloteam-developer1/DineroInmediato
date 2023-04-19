@@ -49,6 +49,8 @@
                                 <span style="color:red;">{{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="mb-3"><label for="">Pago restante</label><input class="form-control" type="text" value="{{$pago_rest}}"></div>
+                        <div class="mb-3"><label for="">Resta pagar</label><input class="form-control" type="text" value="{{$resta_pagar}}"></div>
                         <div class="mb-4 mx-3">
                           <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancerlar</button>
                           <button type="submit" class="btn btn-guardar" wire:click="registroP()">Guardar</button>

@@ -45,10 +45,10 @@
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                         @livewire('backoffice.reg-tabla-amortizacion', ['num_credito' =>$num_credito])
                         <div class="table-responsive text-center">
-                            <table class="table table-bordered border-secondary"
+                            <table class="table table-bordered border-secondary table-striped"
                                 id="tabla-amortizacion">
                                 <thead>
-                                    <tr class="table-secondary">
+                                    <tr class="table-light">
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de cred</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de pago </p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Interes Anual (CAT) </p></th>
@@ -63,27 +63,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tabla as $t)
+                                    @if ($tabla->count())
+                                        @foreach ($tabla as $t)
+                                            <tr class="table-light">
+                                                <td>{{$t->num_credito}}</td>    
+                                                <td>{{$t->numero_pagos}}</td>    
+                                                <td>{{$t->interes_anual}}</td>
+                                                <td>{{$t->prox_pago}}</td>    
+                                                <td>{{$t->pag_capital}}</td>    
+                                                <td>{{$t->interes_ordinarios}}</td>    
+                                                <td>{{$t->iva_io}}</td>    
+                                                <td>{{$t->comisiones}}</td>        
+                                                <td>{{$t->pago_total_men}}</td>    
+                                                <td>
+                                                    <a href="{{route('editarAmortizacion',$t->id_amortizacion)}}">
+                                                        <img src="{{ asset('img/backoffices/Grupo 783.png') }}" style="cursor: pointer;"  class="my-3" width="40" alt="">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    @livewire('backoffice.eliminar-amortizacion',['re' => $t->id_amortizacion], key($user->id))
+                                                </td>
+                                                </tr>
+                                        @endforeach
+                                    @else
                                         <tr class="table-light">
-                                            <td>{{$t->num_credito}}</td>    
-                                            <td>{{$t->numero_pagos}}</td>    
-                                            <td>{{$t->interes_anual}}</td>
-                                            <td>{{$t->prox_pago}}</td>    
-                                            <td>{{$t->pag_capital}}</td>    
-                                            <td>{{$t->interes_ordinarios}}</td>    
-                                            <td>{{$t->iva_io}}</td>    
-                                            <td>{{$t->comisiones}}</td>        
-                                            <td>{{$t->pago_total_men}}</td>    
-                                            <td>
-                                                <a href="{{route('editarAmortizacion',$t->id_amortizacion)}}">
-                                                    <img src="{{ asset('img/backoffices/Grupo 783.png') }}" style="cursor: pointer;"  class="my-3" width="40" alt="">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                @livewire('backoffice.eliminar-amortizacion',['re' => $t->id_amortizacion], key($user->id))
-                                            </td>
-                                            </tr>
-                                    @endforeach
+                                            <td colspan="11">Sin Registros</td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
