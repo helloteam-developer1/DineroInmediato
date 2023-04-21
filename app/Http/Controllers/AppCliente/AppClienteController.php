@@ -29,7 +29,7 @@ class AppClienteController extends Controller
 
     /* Dashboard Documentación e información*/
     public function index(){
-
+    
         $num_cliente = Auth::user()->num_cliente;
         $id_user = Auth::user()->id;
         $mensaje = null;
@@ -38,6 +38,9 @@ class AppClienteController extends Controller
         $documentacion = null;
         if($num_cliente!=null){
             $credito= Credito::where('user_id', '=' , $id_user)->first();
+            if($credito->estado == 2){
+                return view('appCliente.clienteDocuInfor',['estado'=> null, 'mensaje' => null, 'opcion' => null,'documentacion'=>null]);
+            }
             if($credito->estado==1){
                 $estado = $credito->estado();
                 $opcion = 4;
@@ -66,22 +69,33 @@ class AppClienteController extends Controller
     }
     /* Vista Solicitar Credito*/
     public function solicitar(){
+        //ciclo for de prestamo
         $i=0;
-        $user = Auth::user()->num_cliente;
 
-
-        if($user!=null){
-            return view('appCliente.clienteSoliNueva',['i'=>$i,'estatus'=>1]);
+        //pregunto obtengo el credito actual 
+        $credito = Credito::where('user_id','=',Auth::user()->id)->orderby('created_at','desc')->value('estado');
+        if(Solicitud_Credito::where('user_id','=',Auth::user()->id)->exists()){
+            return view('appCliente.clienteSoliNueva',['i'=>$i, 'estatus'=>3]);
         }else{
-            return view('appCliente.clienteSoliNueva',['i'=>$i, 'estatus'=>null]);
+            if($credito==2){
+                return view('appCliente.clienteSoliNueva',['i'=>$i, 'estatus'=>null]);
+            }
+            if($credito==1 || $credito==0){
+                return view('appCliente.clienteSoliNueva',['i'=>$i, 'estatus'=>1]);
+            }
         }
+        
+        
 
     }
     /*Store de Vista Solicitar Credito*/
     public function store(Request $request){
-        $numCliente = Auth::user()->num_cliente;
-        //valido si el usuario tiene num_cliente
-        if($numCliente==null){
+        
+        //valido si el usuario tenga un credito activo
+        $estado = Credito::where('user_id','=',Auth::user()->id)->orderby('created_at','desc')->first();
+        if($estado->estado == 0 || $estado->estado==1){
+            return view('appCliente.clienteSoliNueva',['i'=>0,'estatus'=>1]);
+        }else{
             $con = Solicitud_Credito::where('user_id', Auth::user()->id)->exists();
             //si no hay solicitudes activas, registra la solicitud
             if($con==false){
@@ -101,13 +115,11 @@ class AppClienteController extends Controller
             }else{
                 return view('appCliente.clienteSoliNueva',['i'=>0,'estatus'=>3]);
             }
-        }else{
-            return view('appCliente.clienteSoliNueva',['i'=>0,'estatus'=>1]);
         }
     }
     /*Vista mi prestamo */
     public function miprestamo(){
-        $credito = Credito::where('user_id', Auth::user()->id)->get();
+        $credito = Credito::where('user_id', Auth::user()->id)->orderby('created_at','desc')->first();
         return view('appCliente.miPrestamo', ['credito' => $credito]);
     }
 

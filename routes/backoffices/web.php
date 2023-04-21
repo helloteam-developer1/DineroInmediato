@@ -5,6 +5,7 @@ use App\Http\Controllers\backoffices\notificacionesController;
 use App\Http\Controllers\backoffices\perfilController;
 use App\Http\Controllers\backoffices\TablaAmortizacion;
 use App\Http\Controllers\backoffices\TablaPagos;
+use App\Models\Solicitud_Credito;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,8 +17,8 @@ Route::middleware(['auth','isAdm'])->group(function (){
     Route::get('/credito-finalizado', [clientesController::class, 'credito_finalizado'])->name('dashboard.creditofinalizado');
     Route::get('/cartera-vencida', [clientesController::class, 'cartera_vencida'])->name('dashboard.carteraven');
     Route::get('/masInformacion/{id}', [clientesController::class, 'masInformacion'])->name('masInformacion');
-    Route::get('/historialPagos', [clientesController::class, 'historialPagos'])->name('historialPagos');
-    Route::get('/historialMontosAutorizados', [clientesController::class, 'historialMontosAutorizados'])->name('historialMontosAutorizados');
+    Route::get('/historialPagos/{id}', [clientesController::class, 'historialPagos'])->name('historialPagos');
+    Route::get('/historialMontosAutorizados/{id}', [clientesController::class, 'historialMontosAutorizados'])->name('historialMontosAutorizados');
     
     Route::get('/notificaciones', [notificacionesController::class, 'notificaciones'])->name('notificaciones');
     Route::post('/busqueda',[clientesController::class,'busqueda'])->name('busqueda');

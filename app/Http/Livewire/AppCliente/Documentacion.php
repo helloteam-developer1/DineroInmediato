@@ -27,18 +27,18 @@ class Documentacion extends Component
     
     public function render()
     {
-        
-        if(Auth::user()->num_cliente!=null){
-            return view('livewire.app-cliente.documentacion',['documentacion'=>1]);
-        }else{
-            $solicitud = Solicitud_Credito::where('user_id','=',Auth::user()->id)->value('documentacion');
-            if($solicitud==null){
-                return view('livewire.app-cliente.documentacion',['documentacion'=>5]);
-            }else{
-                return view('livewire.app-cliente.documentacion',['documentacion'=>$solicitud]);
+        $credito = Credito::where('user_id','=',Auth::user()->id)->orderby('created_at','desc')->get();
+        if($credito->count()){
+            if($credito[0]->estado==1 || $credito[0]->estado==0){
+                //le mando un 5 para documentación exitosa
+                return view('livewire.app-cliente.documentacion',['documentacion'=>1]);            
             }
-            
-        } 
+        }else{
+            $credito  = Solicitud_Credito::where('user_id','=',Auth::user()->id)->first();
+             return view('livewire.app-cliente.documentacion',['documentacion'=>$credito->documentacion]);    
+        }
+        
+       
         
     }
 

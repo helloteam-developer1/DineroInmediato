@@ -28,7 +28,7 @@ class RechazarSolicitud extends Component
             Solicitud_Credito::where('user_id','=',$id)->update([
                 'estado'=>2,
                 'mensaje' => $this->texto,
-                'documentacion' => '3'
+                'documentacion' => '2'
             ]);
             $this->emit('alert');
        }else{

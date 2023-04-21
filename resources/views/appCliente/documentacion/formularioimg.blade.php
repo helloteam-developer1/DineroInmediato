@@ -135,4 +135,5 @@
       @if ($errors->has('foto_cine'))
       <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('foto_cine') }}</span>
       @endif
+      
   </div>

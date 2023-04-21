@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-10 col-lg-4 offset-md-1 offset-lg-4">
                         <div class="table-responsive text-center">
-                            <table class="table table-bordered border-secondary">
+                            <table class="table table-striped table-bordered border-secondary">
                                 <thead>
                                     <tr class="table-secondary">
                                         <th scope="col">Número de pago</th>
@@ -58,31 +58,19 @@
                                     </tr>
                                 </thead>
                                <tbody>
+                                @if ($credito->count())
+                                    @foreach ($credito as $c)
+                                    <tr class="table-light table-bordered">
+                                        <td>{{$c->num_pagos}}</td>
+                                        <td>{{$c->fecha_termino}}</td>
+                                        <td>{{$c->monto_aut}}</td>
+                                    </tr>
+                                    @endforeach
+                                @else
                                     <tr class="table-light">
-                                        <td>Datos</td>
-                                        <td>23/05/22</td>
-                                        <td>500</td>
+                                        <td colspan="3">Sin Registros</td>
                                     </tr>
-                                    <tr class="table-secondary">
-                                        <td>Datos</td>
-                                        <td>3/06/22</td>
-                                        <td>800</td>
-                                    </tr>
-                                    <tr class="table-light">
-                                        <td>Datos</td>
-                                        <td>7/05/22</td>
-                                        <td>1000</td>
-                                    </tr>
-                                    <tr class="table-secondary">
-                                        <td>Datos</td>
-                                        <td>12/01/22</td>
-                                        <td>350</td>
-                                    </tr>
-                                    <tr class="table-light">
-                                        <td>Datos</td>
-                                        <td>20/04/22</td>
-                                        <td>750</td>
-                                    </tr>
+                                @endif
                                 </tbody>
                             </table>
                         </div>
@@ -102,14 +90,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 col-md-4 col-lg-3 offset-sm-2 offset-md-4 offset-lg-5">
                         <nav aria-label="Page navigation example" class="ms-1">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#"><img class="flechaIzq" src="{{ asset('img/backoffices/Flecha Izquierda.png') }}" alt=""> Anterior</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<img class="flechaDer" src="{{ asset('img/backoffices/Flecha Derecha.png') }}" alt=""> </a></li>
-                            </ul>
+                           {{$credito->links('backoffices.components.paginate')}}
                         </nav>
                     </div>
                 </div>
@@ -125,7 +106,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-4 col-md-4 col-lg-5 offset-sm-2 offset-lg-1 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
-                            style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
+                            style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='{{route('dashboard.creditofinalizado')}}'">Volver</button>
                     </div>
                     <div class="col-12 col-sm-4 col-md-4 col-lg-3 offset-sm-2 offset-lg-3 offset-md-2">
                         <button type="button" class="btn px-5 my-3"

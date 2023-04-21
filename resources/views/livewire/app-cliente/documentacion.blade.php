@@ -71,128 +71,72 @@
       </div>
 
     </div>
+   
     @switch($documentacion)
-      @case(0)
-        <h1 style="color:#f29100;">Documentación en revisión.</h1>
-      @break
       @case(1)
-        {{--Documentación Exitosa--}}
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">INE Frente</label>
-          <div class="col-sm-4">
-            <button type="button" class="btn btn-secondary btn-lg" style="font-family: Carot Sans;" disabled>Adjuntar archivo</button>
-          </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">INE Reverso</label>
-          <div class="col-sm-4">
-            <button type="button" class="btn btn-secondary btn-lg" style="font-family: Carot Sans;" disabled>Adjuntar archivo</button>
-          </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">Comprobante de domicilio</label>
-          <div class="col-sm-4">
-            <button type="button" class="btn btn-secondary btn-lg" style="font-family: Carot Sans;" disabled>Adjuntar archivo</button>
-          </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold">Foto con INE</label>
-          <div class="col-sm-4">
-            <button type="button" class="btn btn-secondary btn-lg" style="font-family: Carot Sans;" disabled>Adjuntar archivo</button>
-          </div>
-        </div>
+        @include('appCliente.documentacion.documentacionexitosa')
       @break
       @case(2)
-        {{--Sin opción de subir img--}}
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Frente</label>
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-4">
-              <a class="btn btn-gris" >Adjuntar archivo</a>
-
-            </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Reverso</label>
-          <div class="col-sm-2">
-          </div>
-            <div class="col-sm-4">
-              <a class="btn btn-gris" >Adjuntar archivo</a>
-            </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Comprobante de domicilio</label>
-          <div class="col-sm-2">
-          </div>
-            <div class="col-sm-4">
-              <a class="btn btn-gris" >Adjuntar archivo</a>
-
-            </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-          <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">Foto con INE</label>
-          <div class="col-sm-2">
-          </div>
-            <div class="col-sm-4">
-              <a class="btn btn-gris">Adjuntar archivo</a>
-
-            </div>
-        </div>
+        @include('appCliente.documentacion.formularioimg')
       @break
       @case(3)
         @include('appCliente.documentacion.formularioimg')
       @break
-      @case(4)
-        <h1>Documentación en revisión.</h1>
-      @break
-      @case(5)
-        @include('appCliente.documentacion.formularioimg')
-      @break
+
       @default
-
+        @include('appCliente.documentacion.documentacionrevision')
     @endswitch
-
-
-
-
-
-
-
-
-    <br />
-    {{-- Estado de la documentación --}}
     <div class="container" style="margin: 20px;">
-        <div class="row mb-3 j ustify-content-center">
-            <div class="col-8">
-              @switch($documentacion)
-                @case(1)
-                  <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%" height="auto">
-                  <span>La información es correcta y ha sido verificada.</span>
-                @break
-                @case(3)
-                  <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" style="margin-right: 5px;" width="6%" height="auto">
-                  <span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
-                @break
-                @case(4)
-                  <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="6%" height="auto">
-                  <span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
-                @break
-                @default
+      <div class="row mb-3 j ustify-content-center">
+          <div class="col-8">
+            @switch($documentacion)
+              @case(1)
+                <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%" height="auto">
+                <span>La información es correcta y ha sido verificada.</span>
+              @break
+              @case(3)
+                <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" style="margin-right: 5px;" width="6%" height="auto">
+                <span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
+              @break
+              @case(2)
+                <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="6%" height="auto">
+                <span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
+              @break
+              @default
 
-              @endswitch
+            @endswitch
 
 
-            </div>
-            <div class="col">
-                @if ($documentacion==3 || $documentacion==5)
-                <a class="btn btn-Guardar" wire:click="subirIMG">Guardar</a>
-                @endif
-                @if ($documentacion==2)
-                <a class="btn btn-Guardar">Guardar</a>
-                @endif
-            </div>
-        </div>
-    </div>
-
+          </div>
+          <div class="col">
+              @if ($documentacion==1 || $documentacion==3)
+              <a class="btn btn-Guardar" wire:click="subirIMG">Guardar</a>
+              @endif
+              @if ($documentacion==2)
+              <!-- Button trigger modal -->
+                <button type="button" class="btn btn-Guardar" data-bs-toggle="modal" data-bs-target="#ModalDias">
+                  Guardar
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="ModalDias" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Espera!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Tienes que esperar 30 dias para poder subir de nuevo tu documentación.
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              @endif
+          </div>
+      </div>
+  </div>
 </div>

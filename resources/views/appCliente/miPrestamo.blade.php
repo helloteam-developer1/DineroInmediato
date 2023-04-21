@@ -220,27 +220,51 @@
                     </thead>
                     <tbody>
                         @if ($credito->count())
+                            @if ($credito->estado == 1|| $credito->estado == 0)
                             <tr>
                                 <!-- <th scope="row">1</th> -->
                                 <td class="border text-center">{{Auth::user()->num_cliente;}}</td>
-                                <td class="border text-center">{{$credito[0]->num_credito;}}</td>
+                                <td class="border text-center">{{$credito->num_credito;}}</td>
                             </tr>
                             <tr>
                                 <th class="border text-center" scope="col">Monto autorizado</th>
                                 <th class="border text-center" scope="col">Fecha de inicio del crédito</th>
                             </tr>
                             <tr>
-                                <td class="border text-center">{{$credito[0]->monto_aut;}}</td>
-                                <td class="border text-center">{{$credito[0]->fecha_inicio;}}</td>
+                                <td class="border text-center">{{$credito->monto_aut;}}</td>
+                                <td class="border text-center">{{$credito->fecha_inicio;}}</td>
                             </tr>
                             <tr>
                                 <th class="border text-center" scope="col">Número de pagos</th>
                                 <th class="border text-center" scope="col">Fecha de término del crédito</th>
                             </tr>
                             <tr>
-                                <td class="border text-center">{{$credito[0]->num_pagos;}}</td>
-                                <td class="border text-center">{{$credito[0]->fecha_termino;}}</td>
+                                <td class="border text-center">{{$credito->num_pagos;}}</td>
+                                <td class="border text-center">{{$credito->fecha_termino;}}</td>
                             </tr>
+                            @else
+                            <tr>
+                                <!-- <th scope="row">1</th> -->
+                                <td class="border text-center" >Sin Datos</td>
+                                <td class="border text-center" >Sin Datos</td>
+                            </tr>
+                            <tr>
+                                <th class="border text-center" scope="col">Monto autorizado</th>
+                                <th class="border text-center" scope="col">Fecha de inicio del crédito</th>
+                            </tr>
+                            <tr>
+                                <td class="border text-center">Sin Datos</td>
+                                <td class="border text-center">Sin Datos</td>
+                            </tr>
+                            <tr>
+                                <th class="border text-center" scope="col">Número de pagos</th>
+                                <th class="border text-center" scope="col">Fecha de término del crédito</th>
+                            </tr>
+                            <tr>
+                                <td class="border text-center" >Sin Datos</td>
+                                <td class="border text-center" >Sin Datos</td>
+                            </tr>
+                            @endif
                         @else
                             <tr>
                                 <!-- <th scope="row">1</th> -->

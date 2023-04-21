@@ -388,7 +388,7 @@
 
             <div class="accordion-body" style="margin-left: 120px;">
                 {{-- Formulario subir img --}}
-                <livewire:app-cliente.documentacion documentacion={{ $documentacion }} />
+                <livewire:app-cliente.documentacion />
 
             </div>
         </div>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\backoffices;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClientesAceptados;
+use App\Models\Credito;
+use App\Models\CreditoFinalizado;
+use App\Models\Pagos;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PDO;
@@ -23,7 +26,8 @@ class clientesController extends Controller
     }
 
     public function credito_finalizado(){
-        return view('backoffices.clientes.credito-finalizado');
+        $creditofinalizado = CreditoFinalizado::all();
+        return view('backoffices.clientes.credito-finalizado',compact('creditofinalizado'));
     }
 
     public function cartera_vencida(){
@@ -38,11 +42,13 @@ class clientesController extends Controller
         $user = User::where('id','=',$user)->get();
         return view('backoffices.clientes.masInformacion',compact('user'));
     }
-    public function historialPagos(){
-        return view('backoffices.clientes.historialPagos');
+    public function historialPagos($user){        
+        $pagos = Credito::where('user_id','=',$user)->join('pagos_credito','credito.num_credito','=','pagos_credito.num_credito')->paginate(5);
+        return view('backoffices.clientes.historialPagos', ['pagos'=>$pagos]);
     }
-    public function historialMontosAutorizados(){
-        return view('backoffices.clientes.historialMontosAutorizados');
+    public function historialMontosAutorizados($user){
+        $credito = Credito::where('user_id','=',$user)->where('estado','=',2)->paginate(5);
+        return view('backoffices.clientes.historialMontosAutorizados',['credito'=>$credito]);
     }
     public function tablaDePagos(){
         return view('backoffices.clientes.tablaDePagos');

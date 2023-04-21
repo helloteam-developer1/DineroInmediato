@@ -12,8 +12,8 @@ class CreditoFinalizado extends Model
     protected $fillable = [
         'user_id',
         'nombre',
-        'credito_num',
-        'estado' 
+        'num_creditos_fin',
+        'credito_actual',
     ];
     //1 Vigente
     //0 Inactivo

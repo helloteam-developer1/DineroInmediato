@@ -58,7 +58,7 @@
                         <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                             <div class="table-responsive text-center">
                                 <!-- inicio tabla finalizar credito-->
-                                <table class="table  table-bordered border-secondary" >
+                                <table class="table table-striped table-bordered border-secondary" >
                                     <thead>
                                         <tr class="table-secondary">
                                             <th scope="col" class="px-5">
@@ -80,17 +80,25 @@
                                     </thead>
                                     <tbody>
                                         @if ($creditofinalizado->count())
+                                            @foreach ($creditofinalizado as $c)
                                             <tr class="table-light">
-                                                <td>Nombre Apellidos</td>
-                                                <td>2</td>
-                                                <td>Vigente</td>
-                                                <td><button class="btn boton-color px-4 mx-4"><a href="/historialPagos"
-                                                            style="text-decoration: none; color:white;">Ver</a></button></td>
-                                                <td><button class="btn boton-color px-4 mx-4"><a
-                                                            href="/historialMontosAutorizados"
-                                                            style="text-decoration: none; color:white;">Ver montos</a></button>
+                                                <td>{{$c->nombre}}</td>
+                                                <td>{{$c->num_creditos_fin}}</td>
+                                                <td>
+                                                    @if ($c->credito_actual==1)
+                                                        Vigente
+                                                    @else
+                                                        Inactivo
+                                                    @endif
+                                                </td>
+                                                <td><button class="btn boton-color px-4 mx-4" style="color:white;" onclick="window.location.href='{{route('historialPagos',$c->user_id)}}'">Ver</button></td>
+                                                <td>
+                                                    <button class="btn boton-color px-4 mx-4" style="color:white;" onclick="window.location.href='{{route('historialMontosAutorizados',$c->user_id)}}'">                                                    
+                                                        Ver montos
+                                                    </button>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         @else
                                             <tr class="table-light">
                                                 <td colspan="5">Sin Registros</td>

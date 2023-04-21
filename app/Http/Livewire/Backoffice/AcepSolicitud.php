@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Backoffice;
 
 use App\Models\ClientesAceptados;
 use App\Models\Credito;
+use App\Models\CreditoFinalizado;
 use App\Models\Solicitud_Credito;
 use App\Models\User;
 use Carbon\Carbon;
@@ -28,10 +29,16 @@ class AcepSolicitud extends Component
 
         $this->validate();
         if($this->monto == $this->confirmacion){
-            $this->generarnum($id);         
+            if(User::where('id','=',$id)->value('num_cliente')!=null){
+                $this->crearcredito($id);
+            }else{
+                $this->generarnum($id);         
+            }
         }else{
             $this->addError('igual','Los montos no son iguales.');
         }
+        $this->emit('alert');
+        $this->reset(['monto','confirmacion']);
     }
 
     public function updated($propertyName){
@@ -47,9 +54,6 @@ class AcepSolicitud extends Component
         //Hago el cambio de estado de credito asignando el numero de credito
         User::where('id','=',$id)->update(['num_cliente'=>'NC'.$num_cliente]);
         //Doy de alta el credito para pasar la solicitud a clientes aceptados
-        $pagos = rand(1,24);
-        $fecha_inicio = Carbon::now();
-        $fecha_termino = Carbon::now()->addMonth($pagos);
         do{
             $num_credito = rand(1,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9);
         }while(Credito::where('num_credito','=',$num_credito)->exists()!=FALSE);
@@ -64,7 +68,6 @@ class AcepSolicitud extends Component
             'estado' => 0
         ]);
         //Alta en clientes aceptados
-        $nombre = User::where('id', '=',$id)->value('nombre');
         $date = Carbon::now();
         $date->format('Y-m-d');
         ClientesAceptados::create([
@@ -74,9 +77,35 @@ class AcepSolicitud extends Component
         ]);
 
         Solicitud_Credito::where('user_id','=',$id)->delete();
-        $this->emit('alert');
-        $this->reset(['monto','confirmacion']);
         
+    }
+
+    public function crearcredito($id){
+        //Doy de alta el credito para pasar la solicitud a clientes aceptados
+        do{
+            $num_credito = rand(1,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9);
+        }while(Credito::where('num_credito','=',$num_credito)->exists()!=FALSE);
+        Credito::create([
+            'num_credito' => $num_credito,
+            'user_id' => $id,
+            'monto_aut' => $this->monto,
+            'fecha_inicio' => null,
+            'num_pagos' => null,
+            'fecha_termino' => null,
+            'num_pagos_rest' => null,
+            'estado' => 0
+        ]);
+        $date = Carbon::now();
+        $date->format('Y-m-d');
+        ClientesAceptados::create([
+            'user_id' => $id,
+            'credito_num' => $num_credito,
+            'fecha' =>$date
+        ]);
+
+        CreditoFinalizado::where('user_id','=',$id)->update(['credito_actual'=>1]);
+
+        Solicitud_Credito::where('user_id','=',$id)->delete();
     }
     public function render()
     {
