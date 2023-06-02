@@ -117,7 +117,7 @@
                                             style="background-color: #38a937; color:white; float:left;"
                                             data-bs-dismiss="modal">Cerrar</button>
                                         <button type="button" class="btn px-4 my-2"
-                                            style="background-color: #f29100; color:white; float:right;">Volver</button>
+                                            style="background-color: #f29100; color:white; float:right;" data-bs-dismiss="modal">Volver</button>
                                     </div>
                                 </div>
                             </div>

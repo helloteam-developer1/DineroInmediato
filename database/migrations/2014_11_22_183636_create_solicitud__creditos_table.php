@@ -23,6 +23,7 @@ class CreateSolicitudCreditosTable extends Migration
             $table->string('mensaje')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('documentacion')->nullable();
+            $table->date('fecha_solicitud');
             $table->timestamps();
         });
     }

@@ -81,11 +81,11 @@
                                         @foreach ($tabla as $t)
                                             <tr class="table-light">
                                                 <td>{{ $t->num_credito }}</td>
-                                                <td>{{ $t->numero_pagos }}</td>
+                                                <td>{{ number_format($t->numero_pagos) }}</td>
                                                 <td>{{ $t->fecha_pago }}</td>
-                                                <td>{{ $t->monto_pago }}</td>
-                                                <td>{{ $t->saldo_insoluto }}</td>
-                                                <td><img onclick="window.location.href='{{route('editarpago',$t->id_pago)}}'" src="{{ asset('img/backoffices/Grupo 783.png') }}" width="50" alt="" style="cursor: pointer;"></td>
+                                                <td>{{ number_format($t->monto_pago) }}</td>
+                                                <td>{{ number_format($t->saldo_insoluto) }}</td>
+                                                <td><img class="my-3" onclick="window.location.href='{{route('editarpago',$t->id_pago)}}'" src="{{ asset('img/backoffices/Grupo 783.png') }}" width="40" alt="" style="cursor: pointer;"></td>
                                                 <td>@livewire('backoffice.eliminar-tablapagos',['re'=>$t->id_pago],key($t->id_pago))</td>
                                             </tr>
                                         @endforeach
@@ -129,11 +129,18 @@
         <div class="row">
             <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1">
                 <div class="row">
-                    <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
-                        <button type="button" class="btn px-5 my-3 "
-                            style="background-color: #38a937; color:white; font-size: 20px;"
-                            onclick="window.location.href='/clientes-vigentes'"> Volver</button>
-                    </div>
+                    @if (Request::is('busqueda/tablapagos'))
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                            <button type="button" class="btn px-5 my-3 "
+                                style="background-color: #28a937; color:white; font-size: 20px;" onClick="history.go(-1); return false;">Volver</button>
+                        </div>
+                    @else
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                            <button type="button" class="btn px-5 my-3 "
+                                style="background-color: #38a937; color:white; font-size: 20px;"
+                                onclick="window.location.href='/clientes-vigentes'"> Volver</button>
+                        </div>
+                    @endif
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
                             style="background-color: #f29100; color:white; font-size: 20px;">Guardar</button>

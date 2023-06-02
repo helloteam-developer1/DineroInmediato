@@ -28,7 +28,7 @@
                     <li class="nav-item">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle bx {{ Request::is(Request::path()) ? 'oscuro' : null }}"
-                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 200;">
                                 @if ($not > 0)
                                     @if ($not >= 99)
                                         <span class="notify">+99</span>
@@ -138,10 +138,4 @@
             </div>
         </div>
     </nav>
-   <script>
-    setInterval(() => {
-        console.log('Actualizando...');
-        Livewire.emit('actualizar');
-    }, 40000);
-   </script>
 </div>

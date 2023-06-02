@@ -24,7 +24,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="numero_pagos" class="col-form-label">Numero de Pago:</label>
-                                <input type="text" class="form-control" id="numero_pagos" value="{{$pagos->numero_pagos}}" name="numero_pagos">
+                                <input type="text" class="form-control" id="numero_pagos" value="{{number_format($pagos->numero_pagos)}}" name="numero_pagos">
                                 @error('numero_pagos')
                                     <span style="color:red;">{{ $message }}</span>
                                 @enderror
@@ -39,14 +39,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="monto_pago" class="col-form-label">Monto Pagado:</label>
-                                <input type="text" class="form-control" id="monto_pago" value="{{$pagos->monto_pago}}" name="monto_pago">
+                                <input type="text" class="form-control" id="monto_pago" value="{{number_format($pagos->monto_pago)}}" name="monto_pago">
                                 @error('monto_pago')
                                     <span style="color:red;">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="saldo_insoluto" class="col-form-label">Saldo Insoluto:</label>
-                                <input type="text" class="form-control" id="saldo_insoluto" value="{{$pagos->saldo_insoluto}}" name="saldo_insoluto">
+                                <input type="text" class="form-control" id="saldo_insoluto" value="{{number_format($pagos->saldo_insoluto)}}" name="saldo_insoluto">
                                 @error('saldo_insoluto')
                                     <span style="color:red;">{{ $message }}</span>
                                 @enderror
@@ -63,4 +63,39 @@
         </div>
     </div>
 </div>
+<script>
+     $("#numero_pagos").on({
+            "focus": function(event) {
+                $(event.target).select();
+            },
+            "keyup": function(event) {
+                $(event.target).val(function(index, value) {
+                return value.replace(/\D/g, "")
+                    .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+     $("#monto_pago").on({
+            "focus": function(event) {
+                $(event.target).select();
+            },
+            "keyup": function(event) {
+                $(event.target).val(function(index, value) {
+                return value.replace(/\D/g, "")
+                    .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+     $("#saldo_insoluto").on({
+            "focus": function(event) {
+                $(event.target).select();
+            },
+            "keyup": function(event) {
+                $(event.target).val(function(index, value) {
+                return value.replace(/\D/g, "")
+                    .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+</script>
 @endsection

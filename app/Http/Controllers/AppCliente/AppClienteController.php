@@ -9,6 +9,7 @@ use App\Models\Notificaciones;
 use App\Models\Solicitud_Credito;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -37,7 +38,7 @@ class AppClienteController extends Controller
         $opcion = null;
         $documentacion = null;
         if($num_cliente!=null){
-            $credito= Credito::where('user_id', '=' , $id_user)->first();
+            $credito= Credito::where('user_id', '=' , $id_user)->orderBy('estado','ASC')->first();
             if($credito->estado == 2){
                 return view('appCliente.clienteDocuInfor',['estado'=> null, 'mensaje' => null, 'opcion' => null,'documentacion'=>null]);
             }
@@ -109,7 +110,8 @@ class AppClienteController extends Controller
                 Solicitud_Credito::create([
                     'monto' => $request->monto,
                     'user_id'=> Auth::user()->id,
-                    'estado' => 0
+                    'estado' => 0,
+                    'fecha_solicitud' => Carbon::now()->format('Y-m-d')
                 ]);
                 return view('appCliente.clienteSoliNueva',['i'=>0,'estatus'=>2]);
             }else{
@@ -119,7 +121,7 @@ class AppClienteController extends Controller
     }
     /*Vista mi prestamo */
     public function miprestamo(){
-        $credito = Credito::where('user_id', Auth::user()->id)->orderby('created_at','desc')->first();
+        $credito = Credito::where('user_id', Auth::user()->id)->where('estado','=',0)->orderby('created_at','desc')->first();
         return view('appCliente.miPrestamo', ['credito' => $credito]);
     }
 

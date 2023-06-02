@@ -8,7 +8,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ $num_credito }}</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo registro.</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -44,14 +44,18 @@
                         </div>
                         <div class="mb-3">
                             <label for="saldo_insoluto" class="col-form-label">Saldo Insoluto:</label>
-                            <input type="text" class="form-control" id="saldo_insoluto" wire:model="saldo_insoluto">
+                            <input type="text" class="form-control" id="saldo_insoluto" wire:model="saldo_insoluto" readonly>
                             @error('saldo_insoluto')
                                 <span style="color:red;">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="mb-3"><label for="">Pago restante</label><input class="form-control" type="text" value="{{$pago_rest}}"></div>
                         <div class="mb-3"><label for="">Resta pagar</label><input class="form-control" type="text" value="{{$resta_pagar}}"></div>
-                        <div class="mb-4 mx-3">
+                        @error('pagos')
+                            <span style="color:red;">{{$message}}</span>
+                            <br />
+                        @enderror
+                        <div class="mb-4 mx-3" style="margin-top:20px;">
                           <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancerlar</button>
                           <button type="submit" class="btn btn-guardar" wire:click="registroP()">Guardar</button>
                         </div>

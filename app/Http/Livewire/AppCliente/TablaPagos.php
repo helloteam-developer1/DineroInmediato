@@ -34,7 +34,7 @@ class TablaPagos extends Component
     {
         $pagos = [];
         $id_user = Auth::user()->id;
-        $num_credito= Credito::where('user_id','=',$id_user)->value('num_credito');
+        $num_credito= Credito::where('user_id','=',$id_user)->where('estado','=',0)->value('num_credito');
         if($num_credito!=null){
             if(empty($this->busqueda)){
                 $pagos = Pagos::where('num_credito','=', $num_credito)->

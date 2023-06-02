@@ -13,14 +13,20 @@
                 </div>
                 <div class="modal-body" style="border: none;">
                     <h5 class="modal-title text-center" id="staticBackdropLabel"
-                        style="font-size: 35px; color:#38a937;">¿Estas seguro de rechazar la solicitud {{$user->nombre}}?</h5>
+                        style="font-size: 35px; color:#38a937;">¿Estas seguro de rechazar la solicitud?</h5>
                         @if (!empty($mensaje))
                             <p>{{$mensaje}}</p>
                         @endif
+                        
                     <div class="container-fluid mt-5" wire:ignore.self>
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row">
+                                    <div wire:loading wire:target="rechazar" class="alert " role="alert" style="background-color: #EAF9EA;">
+                                        <i class="fa-regular fa-clock" style="color:#38a937; display:inline-block;"></i>
+                                        <h4 style="color:#38a937; font-size:15px; display:inline-block;">Cargando...</h4>
+                                       <h4 style="color:#F29100; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
+                                    </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-10 offset-md-3 offset-lg-1">
                                             <label for="" class="pb-2">Motivo de rechazo:</label>
                                             <div class="form-floating mt-3">

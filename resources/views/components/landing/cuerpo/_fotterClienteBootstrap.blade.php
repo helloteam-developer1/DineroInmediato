@@ -165,15 +165,16 @@
                 <div class="col-12 col-sm-12 col-md- col-lg-4">
                     <div class="container-fluid my-5">
                         <p style="font-size: 20px; font-weight: bold;">Contactanos</p>
-                        <form action="">
+                        <form action="{{route('formulario.contacto')}}" method="POST">
+                            @csrf
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="input-group flex-nowrap">
-                                <input type="email" class="form-control" style="color: #9ca3af;" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+                                <input type="email" class="form-control" name="email" style="color: #9ca3af;" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
                               </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="form-floating mt-3">
-                                <textarea class="form-control footer-textarea" style="height: 120px" placeholder="Comentario" id=""></textarea>
+                                <textarea class="form-control footer-textarea" name="comentario" style="height: 120px" placeholder="Comentario" id=""></textarea>
                                 <label for="floatingTextarea">Comentario</label>
                               </div>
                             </div>

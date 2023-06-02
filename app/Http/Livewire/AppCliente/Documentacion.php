@@ -30,8 +30,9 @@ class Documentacion extends Component
         $credito = Credito::where('user_id','=',Auth::user()->id)->orderby('created_at','desc')->get();
         if($credito->count()){
             if($credito[0]->estado==1 || $credito[0]->estado==0){
-                //le mando un 5 para documentación exitosa
                 return view('livewire.app-cliente.documentacion',['documentacion'=>1]);            
+            }else{
+                return view('livewire.app-cliente.documentacion',['documentacion'=>4]);            
             }
         }else{
             $credito  = Solicitud_Credito::where('user_id','=',Auth::user()->id)->first();
@@ -51,6 +52,7 @@ class Documentacion extends Component
             $this->addError('img', 'Tienes que adjuntar uno o mas archivos para subir.');
         }else{
             if($this->ine_frente){
+                //valido que sea img y que no pese mas de 2MB
                 $validatedData = $this->validate([
                     'ine_frente' => 'mimes:jpg,png,jpeg|max:2000',
                 ],
@@ -66,9 +68,7 @@ class Documentacion extends Component
                         Storage::disk('public_posts')->delete($file);
                     }
                     
-                }            
-                    //valido que sea img y que no pese mas de 2MB
-               
+                }              
                 //Extraigo el nombre de la img
                 $nombreIne_f = $this->ine_frente->getClientOriginalName();
                 //Le doy un nuevo nombre a la img
@@ -167,6 +167,9 @@ class Documentacion extends Component
                 }
             }
             sleep(2);
+            $id = Auth::user()->id;
+            $consulta = Solicitud_Credito::where('user_id','=',$id)->update(['estado'=>0,'documentacion'=>null,'mensaje'=>null]);
+            
             $this->emit('img');
         }
 

@@ -10,8 +10,7 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
                             <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
-                                <form method="POST" action="{{route('busqueda')}}" id="formulario">
-                                    @csrf
+                                <form method="GET" action="{{route('dashboard.busquedacf')}}" id="formulario">
                                     @error('fecha_inicio')
                                         <span style="color:red;">{{$message}}</span>
                                         <br />
@@ -87,13 +86,14 @@
                                                 <td>
                                                     @if ($c->credito_actual==1)
                                                         Vigente
-                                                    @else
+                                                    @endif
+                                                    @if($c->credito_actual==0)
                                                         Inactivo
                                                     @endif
                                                 </td>
                                                 <td><button class="btn boton-color px-4 mx-4" style="color:white;" onclick="window.location.href='{{route('historialPagos',$c->user_id)}}'">Ver</button></td>
                                                 <td>
-                                                    <button class="btn boton-color px-4 mx-4" style="color:white;" onclick="window.location.href='{{route('historialMontosAutorizados',$c->user_id)}}'">                                                    
+                                                    <button class="btn boton-color px-4 mx-4" style="color:white; width:150px;" onclick="window.location.href='{{route('historialMontosAutorizados',$c->user_id)}}'">                                                    
                                                         Ver montos
                                                     </button>
                                                 </td>
@@ -107,6 +107,9 @@
                                     </tbody>
                                 </table>
                                 <!-- fin tabla finalizar credito-->
+                            </div>
+                            <div style="float: right;">
+                                {{$creditofinalizado->appends(['busqueda'=>$busqueda,'fecha_inicio'=>$fecha_inicio,'fecha_termino'=>$fecha_termino])}}
                             </div>
                         </div>
                     </div>

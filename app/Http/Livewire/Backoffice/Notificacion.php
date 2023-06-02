@@ -14,12 +14,15 @@ class Notificacion extends Component
 
     public function render()
     {
-        $usuarios = User::orderby('id','DESC')->pluck('id');
-        return view('livewire.backoffice.notificacion',compact('usuarios'));
+        //$usuarios = User::orderby('id','DESC')->pluck('id');
+        return view('livewire.backoffice.notificacion');
     }
 
     public function updatedMensaje(){
-        $this->caracteres = strlen($this->mensaje);
+        //elimino los espacios en blanco para que se junten todas las letras
+        $espacios  =preg_replace("/[[:space:]]/","",trim($this->mensaje));
+        //contabilizo los caracteres y los muestro
+        $this->caracteres = strlen($espacios);
     }
 
     public function clear(){

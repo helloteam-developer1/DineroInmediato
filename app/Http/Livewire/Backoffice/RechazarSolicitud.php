@@ -38,7 +38,10 @@ class RechazarSolicitud extends Component
     }
 
     public function updatedTexto(){
-        $this->contador = strlen($this->texto);
+        //elimino los espacios en blanco para que se junten todas las letras
+        $espacios  =preg_replace("/[[:space:]]/","",trim($this->texto));
+        //contabilizo los caracteres y los muestro
+        $this->contador = strlen($espacios);
     }
     
 }

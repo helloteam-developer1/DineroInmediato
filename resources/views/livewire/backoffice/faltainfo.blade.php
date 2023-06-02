@@ -13,9 +13,19 @@
                 </div>
                 <div class="modal-body" style="border: none;" wire:ignore.self>
                     <h5 class="modal-title text-center" id="staticBackdropLabel"
-                        style="font-size: 35px; color:#38a937;">Seleccione una Opción {{$user->nombre}}</h5>
+                        style="font-size: 35px; color:#38a937;">Seleccione una Opción</h5>
                     <div class="container-fluid mt-5">
                         <div class="row">
+                            <div wire:loading wire:target="docincomp" class="alert " role="alert" style="background-color: #EAF9EA;">
+                                <i class="fa-regular fa-clock" style="color: #38a937; display:inline-block;"></i>
+                                <h4 style="color:#38a937; font-size:15px; display:inline-block;">Cargando...</h4>
+                               <h4 style="color:#F29100; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
+                            </div>
+                            @error('opciones')
+                                <div class="alert alert-warning" role="alert">
+                                    <i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i> {{$message}}
+                                </div>
+                            @enderror
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-10 offset-md-3 offset-lg-1">
@@ -52,11 +62,7 @@
                                                     <p class="text-secondary">{{$contador}}/300 Caracteres</p>
                                                 </div>
                                             </div>
-                                            @error('opciones')
-                                                <div class="alert alert-warning" role="alert">
-                                                    <i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i> Para continuar selecciona una de las opciones.
-                                                </div>
-                                            @enderror
+                                            
                                             @error('mensaje')
                                                 <div class="row">
                                                     <span style="color:red;">{{$message}}</span>

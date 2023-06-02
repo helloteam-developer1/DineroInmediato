@@ -17,7 +17,6 @@ class RegTablapagos extends Component
         'numero_pagos' => 'required|numeric',
         'fecha_pago' => 'required|date',
         'monto_pago' => 'required|numeric',
-        'saldo_insoluto' => 'required|numeric'
     ];
     public function updated($propertyName)
     {
@@ -36,17 +35,20 @@ class RegTablapagos extends Component
         if($this->n_credito!=$this->num_credito){
             $this->addError('num_credito','El numero de clientes no coincide');
         }else{
-            //validación del formulario
-            $this->validate();
-            if(Pagos::where('num_credito','=',$this->num_credito)->count()==0){
-                $this->primerregistro();
+            $contador = Amortizacion::where('num_credito','=',$this->num_credito)->count();
+            if($contador==0){
+                $this->addError('pagos','No existen registros en tabla amortización, por favor ingresa un registro primero en tabla amortización.');
             }else{
-                $this->registro();
+                //validación del formulario
+                $this->validate();
+                if(Pagos::where('num_credito','=',$this->num_credito)->count()==0){
+                    $this->primerregistro();
+                }else{
+                    $this->registro();
+                }
+                $this->pagosrestantes();    
+                $this->emit('registro');
             }
-            
-            
-            $this->pagosrestantes();    
-            $this->emit('registro');
         }
     }
     public function primerregistro(){
@@ -107,15 +109,13 @@ class RegTablapagos extends Component
         $suma_pagos = array_sum($consulta);
         //Resta pagar
         $this->resta_pagar = $saldo_amortizacion - $suma_pagos;
-        //Resta pagar
-        $this->resta_pagar = $saldo_amortizacion - $suma_pagos;
         $modificación = Pagos::where('id_pago','=',$id_ultimo->id_pago)->update(['resta_pagar'=> $this->resta_pagar]);
         
     }
     public function pagosrestantes(){
         $consulta = Pagos::where('num_credito','=',$this->num_credito)->count();
         $contador = Amortizacion::where('num_credito','=',$this->num_credito)->count();
-        $resultado = $consulta-$contador;
+        $resultado = $contador-$consulta;
         Credito::where('num_credito','=',$this->num_credito)->update(['num_pagos_rest'=>$resultado]);
     }
 }

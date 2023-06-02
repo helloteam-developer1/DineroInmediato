@@ -32,7 +32,7 @@ class TablaAmortizacion extends Component
 
     public function render(){
         $tabla = [];
-        $credito = Credito::where('user_id', Auth::user()->id)->get();
+        $credito = Credito::where('user_id', Auth::user()->id)->where('estado','=',0)->get();
         
         if($credito->count()){
             $num_credito = $credito[0]->num_credito;

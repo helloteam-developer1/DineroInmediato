@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
                         <!--Filtro de busqueda -->
-                        <form action="{{route('busquedav')}}" method="POST">
+                        <form action="{{route('busquedav')}}" method="GET">
                             @csrf
                                 @error('fecha_inicio')
                                     <span style="color:red;">{{$message}}</span>
@@ -98,42 +98,45 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
-                                        
-                                        @foreach ($clientes as $c)
+                                        @if ($clientes->count())
+                                            @foreach ($clientes as $c)
+                                                <tr class="table-light">
+                                                    <td>{{$c->credito_num}}</td>
+                                                    <td>{{$c->num_cliente}}</td>
+                                                    <td>{{$c->nombre}}</td>
+                                                    <td>{{$c->monto_aut}}</td>
+                                                    <td>{{ $c->tarjeta_reg }}</td>
+                                                    <td>
+                                                        <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaAmortizacion/{{$c->credito_num}}'">
+                                                            Ver
+                                                        </button>
+                                                    </td>
+                                                    <td>{{$c->num_pagos}}</td>
+                                                
+                                                    <td>
+                                                        <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaPagos/{{$c->credito_num}}'">
+                                                            Ver
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        {{$c->num_pagos_rest}}
+                                                    </td>
+                                                    <td>
+                                                        @livewire('backoffice.carteravencida',['user'=>$c->id,'num_credito'=>$c->num_credito], key($c->id))
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/masInformacion/{{$c->id}}'">Ver</button>
+                                                    </td>
+                                                    <td>
+                                                        @livewire('backoffice.finalizarcredito',['user_id'=>$c->id,'credito_num'=>$c->credito_num],key($c->credito_num))
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
                                             <tr class="table-light">
-                                                <td>{{$c->credito_num}}</td>
-                                                <td>{{$c->num_cliente}}</td>
-                                                <td>{{$c->nombre}}</td>
-                                                <td>{{$c->monto_aut}}</td>
-                                                <td>{{ $c->tarjeta_reg }}</td>
-                                                <td>
-                                                    <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaAmortizacion/{{$c->id}}'">
-                                                        Ver
-                                                    </button>
-                                                </td>
-                                                <td>{{$c->num_pagos}}</td>
-                                            
-                                                <td>
-                                                    <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaPagos/{{$c->id}}'">
-                                                        Ver
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    {{$c->num_pagos_rest}}
-                                                </td>
-                                                <td>
-                                                    @livewire('backoffice.carteravencida',['user'=>$c->id], key($c->id))
-                                                </td>
-                                                <td>
-                                                    <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/masInformacion/{{$c->id}}'">Ver</button>
-                                                </td>
-                                                <td>
-                                                    @livewire('backoffice.finalizarcredito',['user'=>$c->id],key($c->id))
-                                                </td>
+                                                <td colspan="12">Sin Registros</td>
                                             </tr>
-                                        @endforeach
-                                        
+                                        @endif
                                     </tbody>
                                 
                                 </table>
@@ -141,7 +144,7 @@
                             </div>
                             <div style="float:right; margin-top:10px;">
                                     @if($clientes!=null)
-                                        {{$clientes->links('backoffices.components.paginate')}}
+                                        {{$clientes->appends(['busqueda'=>$busqueda,'fecha_inicio'=>$fecha_inicio,'fecha_termino'=>$fecha_termino])}}
                                     @endif 
                             </div>
                         </div>

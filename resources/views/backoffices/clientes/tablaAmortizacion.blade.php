@@ -11,7 +11,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-10 col-md-8 col-lg-5 offset-sm-2 offset-md-4 offset-lg-7">
-                        <form action="{{route('busquedaAmortizacion')}}" method="POST">
+                        <form action="{{route('busqueda_Amortizacion')}}" method="GET">
                             @csrf
                             <div class="input-group">
                                 <div class="input-wrapper">
@@ -68,20 +68,20 @@
                                             <tr class="table-light">
                                                 <td>{{$t->num_credito}}</td>    
                                                 <td>{{$t->numero_pagos}}</td>    
-                                                <td>{{$t->interes_anual}}</td>
+                                                <td>{{number_format($t->interes_anual)}}</td>
                                                 <td>{{$t->prox_pago}}</td>    
-                                                <td>{{$t->pag_capital}}</td>    
-                                                <td>{{$t->interes_ordinarios}}</td>    
-                                                <td>{{$t->iva_io}}</td>    
-                                                <td>{{$t->comisiones}}</td>        
-                                                <td>{{$t->pago_total_men}}</td>    
+                                                <td>{{number_format($t->pag_capital)}}</td>    
+                                                <td>{{number_format($t->interes_ordinarios)}}</td>    
+                                                <td>{{number_format($t->iva_io)}}</td>    
+                                                <td>{{number_format($t->comisiones)}}</td>        
+                                                <td>{{number_format($t->pago_total_men)}}</td>    
                                                 <td>
                                                     <a href="{{route('editarAmortizacion',$t->id_amortizacion)}}">
                                                         <img src="{{ asset('img/backoffices/Grupo 783.png') }}" style="cursor: pointer;"  class="my-3" width="40" alt="">
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    @livewire('backoffice.eliminar-amortizacion',['re' => $t->id_amortizacion], key($user->id))
+                                                    @livewire('backoffice.eliminar-amortizacion',['re' => $t->id_amortizacion,'num_credito'=>$t->num_credito], key($user->id))
                                                 </td>
                                                 </tr>
                                         @endforeach
@@ -106,12 +106,10 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
-                        @if ($paginacion ==1)
+                        @if ($paginacion==0)
                             @if ($tabla->count() || $tabla!=null)
-                                {{$tabla->links('backoffices.components.paginate')}}
+                                {{$tabla->appends(['termino'=>$termino])}}
                             @endif
-                        @else
-                            
                         @endif
                     </div>
                 </div>
@@ -125,14 +123,22 @@
         <div class="row">
             <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1">
                 <div class="row">
-                    <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
-                        <button type="button" class="btn px-5 my-3 "
-                        style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='/clientes-vigentes'">Volver</button>
-                    </div>
+                    @if (Request::is('busqueda/Amortizacion'))
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                            <button type="button" class="btn px-5 my-3 "
+                                style="background-color: #28a937; color:white; font-size: 20px;" onClick="history.go(-1); return false;">Volver</button>
+                        </div>
+                    @else
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                            <button type="button" class="btn px-5 my-3 "
+                            style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='{{route('dashboard.clientesvig')}}'">Volver</button>
+                        </div>
+                    @endif
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
                             style="background-color: #f29100; color:white; font-size: 20px;">Guardar</button>
-                    </div>
+                    </div>                        
+                    
                 </div>
             </div>
         </div>

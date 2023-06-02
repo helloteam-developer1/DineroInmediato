@@ -82,7 +82,9 @@
       @case(3)
         @include('appCliente.documentacion.formularioimg')
       @break
-
+      @case(4)
+        @include('appCliente.documentacion.formularioimg')
+      @break
       @default
         @include('appCliente.documentacion.documentacionrevision')
     @endswitch
@@ -103,13 +105,13 @@
                 <span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
               @break
               @default
-
+              
             @endswitch
 
 
           </div>
           <div class="col">
-              @if ($documentacion==1 || $documentacion==3)
+              @if ($documentacion==1 || $documentacion==3 || $documentacion==4)
               <a class="btn btn-Guardar" wire:click="subirIMG">Guardar</a>
               @endif
               @if ($documentacion==2)

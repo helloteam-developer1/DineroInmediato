@@ -219,7 +219,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($credito->count())
+                        @if (!empty($credito))
                             @if ($credito->estado == 1|| $credito->estado == 0)
                             <tr>
                                 <!-- <th scope="row">1</th> -->

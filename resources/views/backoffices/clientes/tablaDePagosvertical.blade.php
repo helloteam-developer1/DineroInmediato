@@ -53,41 +53,32 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-10 col-lg-4 offset-md-1 offset-lg-4">
+                    <div class="col-lg-7  offset-lg-3">
                         <div class="table-responsive text-center">
                             <table class="table table-bordered border-secondary">
+                                
+                                <tbody>
+                                    <tr class="table-light">
+                                        <td >Campos</td>
+                                        <td class="pt-3">Número de cuenta</td>                                           
+                                        <td class="pt-3">Número de pago</td>                                           
+                                        <td class="pt-3">Fecha de pago</td>                                           
+                                        <td class="pt-3">Monto de pago</td>                                           
+                                        <td class="pt-3">Saldo insoluto</td>                                           
+                                    </tr>
                                 @if ($pagos->count())
-                                    @foreach ($pagos as $p)
-                                        <thead>
-                                            <tr class="table-secondary">
-                                                <th scope="col"><p class="pt-3" style="font-size: 20px">Campos</p></th>
-                                                <th scope="col"><p class="pt-3" style="font-size: 20px">Información</p></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="table-light">
-                                                <td class="pt-3">Número de cuenta</td>
-                                                <td class="pt-3">{{$p->num_credito}}</td>
-                                            </tr>
-                                            <tr class="table-secondary">
-                                                <td class="pt-3">Número de pago</td>
-                                                <td class="pt-3">{{$p->numero_pagos}}</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <td class="pt-3">Fecha de pago</td>
-                                                <td>{{$p->fecha_pago}}<img src="{{ asset('img/backoffices/CALENDARIO.png') }}" width="30" alt="" class="mx-2"></td>
-                                            </tr>
-                                            <tr class="table-secondary">
-                                                <td class="pt-3">Monto de pago</td>
-                                                <td class="pt-3">${{number_format($p->monto_pago,2)}}</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <td class="pt-3">Saldo insoluto</td>
-                                                <td class="pt-3">${{number_format($p->saldo_insoluto,2)}}</td>
-                                            </tr>
-                                        </tbody>
-                                    @endforeach
-                                @else
+                                <tr class="table-light">
+                                    <td rowspan="2">Información</td>
+                                        @foreach ($pagos as $p)
+                                                <td class="pt-3 table-light">{{$p->num_credito}}</td>
+                                                <td class="pt-3 table-light">{{$p->numero_pagos}}</td>
+                                                <td class="table-light">{{$p->fecha_pago}}<img src="{{ asset('img/backoffices/CALENDARIO.png') }}" width="30" alt="" class="mx-2"></td>
+                                                <td class="pt-3 table-light">${{number_format($p->monto_pago,2)}}</td>
+                                                <td class="pt-3 table-light">${{number_format($p->saldo_insoluto,2)}}</td>     
+                                            </tr>   
+                                        @endforeach
+                                </tbody>
+                                        @else
                                     <tr>
                                         <th colspan="2">Sin Registros</th>
                                     </tr>
@@ -101,7 +92,12 @@
                                 <div class="container-fluid mt-5">
                                     <div class="row">
                                         <center>
-                                            {{$pagos->links()}}
+                                            @if ($paginacion==1)
+                                                
+                                            @else
+                                                {{$pagos->appends(['termino'=>$termino,'num_cliente'=>$num_cliente])}}
+                                            @endif
+                                            
                                         </center>
                                     </div>
                                 </div>            

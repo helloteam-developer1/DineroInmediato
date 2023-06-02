@@ -14,26 +14,33 @@ use Illuminate\Support\Str;
 class AcepSolicitud extends Component
 {
     public $user, $monto,$confirmacion, $monto_modificado;
-    public $success='';
+    public $success='',$maximo="";
+    public $monto_sol=0;
     public function mount(User $user){
         $this->user = $user;
+        $this->monto_sol = Solicitud_Credito::where('user_id','=',$user->id)->value('monto');
     }
 
     
     protected $rules = [
-        'monto' => 'required|numeric|max:100000|min:1',
-        'confirmacion' => 'required|numeric|max:100000|min:1'
+        'monto' => 'required',
+        'confirmacion' => 'required'
     ];
     
     public function aceptar($id){
 
         $this->validate();
         if($this->monto == $this->confirmacion){
+           if(strcmp($this->monto,$this->confirmacion)==0){
             if(User::where('id','=',$id)->value('num_cliente')!=null){
+                //Si el usuario tiene un num de cliente creo solo el credito y doy de alta en clientes
+                //aceptados
                 $this->crearcredito($id);
             }else{
+                //Genero num de cliente, credito y alta en clientes aceptados
                 $this->generarnum($id);         
             }
+           }
         }else{
             $this->addError('igual','Los montos no son iguales.');
         }
@@ -42,9 +49,38 @@ class AcepSolicitud extends Component
     }
 
     public function updated($propertyName){
+        $this->reset('maximo');
         $this->validateOnly($propertyName);
     }
+    public function updatedMonto(){
+        $this->reset('maximo');
+        $signo = str_replace("$","",$this->monto);
+        $nuevo = str_replace(",","",$signo);
+         if(is_numeric($nuevo)){
+            if($nuevo>=99999){
+                $this->maximo = "El monto no puede superar los $100,000";
+            }            
+            $this->monto = '$'.number_format($nuevo,2);
+        }else{           
+            $this->maximo = "Error solo se permiten numeros";
+        }
 
+    }
+    public function updatedConfirmacion(){
+        $this->reset('maximo');
+        $sin = str_replace("$","",$this->confirmacion);
+        $nuevo1 = str_replace(",","",$sin);
+        if(is_numeric($nuevo1)){
+            if($nuevo1>=99999){
+                $this->maximo = "El monto no puede superar los $100,000";
+            }
+            $this->confirmacion = '$'.number_format($nuevo1,2);
+        }else{
+            $this->maximo = "Error solo se permiten numeros";
+        
+        }
+       
+    }
     public function generarnum($id){
         
         do{
@@ -81,6 +117,7 @@ class AcepSolicitud extends Component
     }
 
     public function crearcredito($id){
+        //Esta funcion es solo para cuando ya tiene el numero de cliente
         //Doy de alta el credito para pasar la solicitud a clientes aceptados
         do{
             $num_credito = rand(1,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9);
@@ -108,7 +145,10 @@ class AcepSolicitud extends Component
         Solicitud_Credito::where('user_id','=',$id)->delete();
     }
     public function render()
-    {
+    {    
         return view('livewire.backoffice.acep-solicitud');
+    }
+    public function clear(){
+        $this->reset(['monto','confirmacion','maximo']);
     }
 }

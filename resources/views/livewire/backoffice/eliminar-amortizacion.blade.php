@@ -13,12 +13,12 @@
                 <div class="modal-body" style="border: none;">
                     <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Confirmación </h5>                       
                     <div class="container-fluid">
-                        <div wire:loading wire:target="eliminar"  class="alert container-fluid mt-1" role="alert" style="background-color: #39A935;">
+                        <div wire:loading wire:target="eliminar"  class="alert container-fluid mt-1" role="alert" style="background-color: #EAF9EA;">
                             <center>
-                                <i class="fa-regular fa-clock" style="color: #ffffff; display:inline-block;"></i>
-                                <h4 style="color:white; font-size:15px; display:inline-block;">Cargando...</h4>
+                                <i class="fa-regular fa-clock" style="color: #38a937; display:inline-block;"></i>
+                                <h4 style="color:#38a937; font-size:15px; display:inline-block;">Cargando...</h4>
                             </center>
-                                <h4 style="color:white; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
+                                <h4 style="color:#F29100; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
                         </div>
                         <div class="row">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">

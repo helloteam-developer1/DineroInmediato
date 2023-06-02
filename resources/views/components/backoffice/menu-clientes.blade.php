@@ -47,7 +47,7 @@
                                     @endif
                                 </th>
                                 <th scope="col">
-                                    @if (Request::is('credito-finalizado'))
+                                    @if (Request::is('credito-finalizado') || Request::is('busqueda/credito/finalizado'))
                                         <img src="{{ asset('img/backoffices/CRE_FIN_NAR.svg') }}" id="imgFinalizadoNaranja" 
                                         class="posision mt-2" width="70" alt="">
                                         <h4>
@@ -62,7 +62,7 @@
                                     @endif        
                                 </th>
                                 <th scope="col">
-                                    @if (Request::is('cartera-vencida'))
+                                    @if (Request::is('cartera-vencida')|| Request::is('busqueda-cartera-vencida'))
                                         <img src="{{ asset('img/backoffices/CAR_VEN_NAR.png') }}" id="imgCarteraNaranja" class="posision"
                                             width="60" alt="">
                                         <h4>

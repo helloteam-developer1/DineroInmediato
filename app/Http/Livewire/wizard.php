@@ -7,7 +7,7 @@ use App\Models\Calculadora;
 use App\Models\Empresas;
 use App\Models\Solicitud_Credito;
 use App\Models\User;
-
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -262,6 +262,8 @@ class wizard extends Component
     }
 
     public function enviarsolicitud($id,$opcion){
+        $fecha = Carbon::now();
+        $fecha = $fecha->format('Y-m-d');
         if($opcion==1){
             //Falta información por eso opcion 2 en documentación
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
@@ -269,8 +271,9 @@ class wizard extends Component
             'monto'=> $consulta[0]->prestamo,
             'user_id'=>$id,
             'estado'=> '1',
-            'mensaje' => 'Documentación faltante,favor de subir la documentación para continuar con el proceso.',
-            'documentacion' => 3
+            'mensaje' => 'Documentación faltante, favor de subir la documentación para continuar con el proceso.',
+            'documentacion' => 3,
+            'fecha_solicitud' => $fecha
         ]);
         }else{
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
@@ -278,7 +281,8 @@ class wizard extends Component
             'monto'=> $consulta[0]->prestamo,
             'user_id'=>$id,
             'estado'=> '0',
-            'documentacion' => null
+            'documentacion' => null,
+            'fecha_solicitud' => $fecha
             ]);
         }
         

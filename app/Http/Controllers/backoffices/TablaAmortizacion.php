@@ -5,33 +5,31 @@ namespace App\Http\Controllers\backoffices;
 use App\Http\Controllers\Controller;
 use App\Models\Amortizacion;
 use App\Models\Credito;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class TablaAmortizacion extends Controller
 {
-    public function tablaAmortizacion($user){
-        $credito  = Credito::where('user_id','=',$user)->value('num_credito');
-        $tabla = Amortizacion::where('num_credito','=',$credito)->paginate(5);
-        return view('backoffices.clientes.tablaAmortizacion', ['tabla'=>$tabla,'num_credito'=>$credito,'paginacion'=>1]);
+    //Vista principal de la tabla a mortización
+    public function tablaAmortizacion($num_credito){
+        
+        $tabla = Amortizacion::where('num_credito','=',$num_credito)->paginate(5);
+        //$tabla = Credito::where('user_id','=',$user)->join('amortizacion','credito.num_credito','=','amortizacion.num_credito')->paginate(5);
+        return view('backoffices.clientes.tablaAmortizacion', ['tabla'=>$tabla,'num_credito'=>$num_credito,'termino'=>'','paginacion'=>0]);
     }
-
+    
     public function busqueda(Request $request){
-        $validate = $request->validate([
+        $request->validate([
             'num_credito' => 'required',
-            'termino' => 'required'
+            'termino' => 'required',
         ]);
-
-        $termino = $request->termino;
+        
         $num_credito = $request->num_credito;
-        $consulta1 = collect('');
-        $consulta2 = collect('');
-        $consulta3 = collect('');
-        $consulta4 = collect('');
-        $consulta5 = collect('');
-        $consulta6 = collect('');
-        $consulta7 = collect('');
-
+        $termino = str_replace(",","",$request->termino);
         $consulta1 = Amortizacion::where('num_credito','=', $num_credito)
         ->where('numero_pagos','=',$termino)->orderBy('numero_pagos', 'desc')->get();
         
@@ -52,49 +50,63 @@ class TablaAmortizacion extends Controller
         
         $consulta7 = Amortizacion::where('num_credito','=', $num_credito)->
         where('pago_total_men','=',$termino)->orderBy('numero_pagos', 'desc')->get();
-        
-        $tabla = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5)->
-        concat($consulta6)->concat($consulta7);
-        $tabla1 = $tabla->unique('id_amortizacion');
-        return view('backoffices.clientes.tablaAmortizacion',['tabla'=>$tabla1,'num_credito'=>$num_credito,'paginacion'=>0]);
-    }
 
+        $consulta8 = Amortizacion::where('num_credito','=', $num_credito)->
+        where('prox_pago','=',$termino)->orderBy('numero_pagos', 'desc')->get();
+
+        $tabla = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5)->
+        concat($consulta6)->concat($consulta7)->concat($consulta8);
+        $tabla = $tabla->unique('id_amortizacion');
+        
+        return view('backoffices.clientes.tablaAmortizacion', ['tabla'=>$tabla,'num_credito'=>$num_credito,'termino'=>$termino,'paginacion'=>1]);
+        
+        
+
+    }
+    //Vista para poder editar un registro
     public function view($t){
         $tabla = Amortizacion::where('id_amortizacion','=',$t)->first();
         return view('backoffices.clientes.edit-amortizacion', compact('tabla'));
     }
-
+    //actualización de un registro
     public function update(Request $request,$id){
         
         $validate = $request->validate([
             'num_credito' => 'required|min:6|numeric',
-            'numero_pagos' =>'required|regex:[^[:punct:$]+[0-9]+([,][0-9]+)?$]',
+            'numero_pagos' =>'required|regex:[^[0-9]+([,][0-9]+)?$]',
             'prox_pago' => 'required|date',
-            'interes_anual' => 'required|regex:[^[:punct:$]+[0-9]+([,][0-9]+)?$]',
-            'pag_capital' => 'required|regex:[^[:punct:$]+[0-9]+([,][0-9]+)?$]',
-            'interes_ordinarios' => 'required|regex:[^[:punct:$]+[0-9]+([,][0-9]+)?$]',
-            'iva_io' => 'required|regex:[^[:punct:$]+[0-9]+([,][0-9]+)?$]',
-            'comisiones' => 'required|regex:[^[:punct:$]+[0-9]+([,][0-9]+)?$]',
-            'pago_total_men' => 'required|regex:[^[:punct:$]+[0-9]+([,][0-9]+)?$]'
+            'interes_anual' => 'required|regex:[^[0-9]+([,][0-9]+)?$]',
+            'pag_capital' => 'required|regex:[^[0-9]+([,][0-9]+)?$]',
+            'interes_ordinarios' => 'required|regex:[^[0-9]+([,][0-9]+)?$]',
+            'iva_io' => 'required|regex:[^[0-9]+([,][0-9]+)?$]',
+            'comisiones' => 'required|regex:[^[0-9]+([,][0-9]+)?$]',
+            'pago_total_men' => 'required|regex:[^[0-9]+([,][0-9]+)?$]'
         ]);
-
+        //quito las comas y los convierto a numeros
+        $num_pagos = str_replace(',',"",$request->numero_pagos);
+        $interes_anual = str_replace(',',"",$request->interes_anual);
+        $pag_capital = str_replace(',',"",$request->pag_capital);
+        $interes_ordinarios = str_replace(',',"",$request->interes_ordinarios);
+        $iva_io = str_replace(',',"",$request->iva_io);
+        $comisiones = str_replace(',',"",$request->comisiones);
+        $pago_total_men = str_replace(',',"",$request->pago_total_men);
         if(Amortizacion::where('id_amortizacion','=',$id)->exists()){
             $num_cred = Amortizacion::where('id_amortizacion','=',$id)->value('num_credito');
             if($request->num_credito==$num_cred){
                 Amortizacion::where('id_amortizacion','=',$id)->update([
                     'num_credito' => $request->num_credito,
-                    'numero_pagos' => $request->numero_pagos,
+                    'numero_pagos' => $num_pagos,
                     'prox_pago' => $request->prox_pago,
-                    'interes_anual' => $request->interes_anual,
-                    'pag_capital' => $request->pag_capital,
-                    'interes_ordinarios' => $request->interes_ordinarios,
-                    'iva_io' => $request->iva_io,
-                    'comisiones' => $request->comisiones,
-                    'pago_total_men' => $request->pago_total_men
+                    'interes_anual' =>$interes_anual,
+                    'pag_capital' =>$pag_capital,
+                    'interes_ordinarios' => $interes_ordinarios,
+                    'iva_io' => $iva_io,
+                    'comisiones' =>$comisiones,
+                    'pago_total_men' =>$pago_total_men
                 ]);
                 session()->flash('success');
                 $i = Credito::where('num_credito','=',$request->num_credito)->value('user_id');
-                return redirect()->route('tablaAmortizacion',$i);
+                return redirect()->route('tablaAmortizacion',$num_cred);
             }else{
                 session()->flash('error');
                 return back();
@@ -104,4 +116,5 @@ class TablaAmortizacion extends Controller
             return back();
         }
     }
+
 }

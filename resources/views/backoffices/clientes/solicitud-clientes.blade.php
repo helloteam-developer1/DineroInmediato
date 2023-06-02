@@ -8,7 +8,7 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
                             <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
-                            <form method="POST" action="{{route('busqueda')}}" id="formulario">
+                            <form method="" action="{{route('busqueda')}}" id="formulario">
                                 @csrf
                                 @error('fecha_inicio')
                                     <span style="color:red;">{{$message}}</span>
@@ -25,10 +25,10 @@
 
                                 <div class="input-group">
                                     <p class="my-2 mx-2">De</p> <input type="date" class="mx-3" placeholder="" name="fecha_inicio" id="fecha_inicio"> <img
-                                        src="{{ asset('img/backoffices/CALENDARIO.PNG') }}"class="my-2 mx-2" width="30"
+                                        src="{{ asset('img/backoffices/CALENDARIO.png') }}"class="my-2 mx-2" width="30"
                                         height="30" alt="">
                                     <p class="mx-3 my-2">a</p> <input type="date" class="mx-3" placeholder="" name="fecha_termino" id="fecha_termino"><img
-                                        src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-2" width="30"
+                                        src="{{ asset('img/backoffices/CALENDARIO.png') }}" class="my-2 mx-2" width="30"
                                         height="30" alt="">
                                     <div class="input-wrapper">
                                         <input type="search" name="busqueda" id="" class="ms-1"
@@ -148,7 +148,7 @@
                             </div>
                             <div style="float:right; margin-top:10px;">
                                 @if($consulta!=null)
-                                    {{$consulta->links('backoffices.components.paginate')}}
+                                    {{$consulta->appends(['busqueda'=>$busqueda,'fecha_inicio'=>$fecha_inicio,'fecha_termino'=>$fecha_termino])}}
                                 @endif
                             </div>
                         </div>
