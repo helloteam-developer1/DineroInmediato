@@ -111,19 +111,20 @@
     </style>
 </head>
 
-@switch($estatus)
-  @case(1)
-    <body onload="openmodalmarcha()">
-  @break
-  @case(2)
-    <body onload="openmodalsolicitar()">
-  @break
-  @case(3)
-  <body onload="openmodalsolicitudp()">
-  @break
-  @default
-    <body>
-@endswitch
+@if(session('success'))
+    <body onload="openmodal()">
+    @php
+        $estado = 2;
+    @endphp
+    @include('appCliente.modales.modal')
+@else
+    @if (!empty($estado))
+        <body onload="openmodal()">
+        @include('appCliente.modales.modal')
+    @else
+        <body>
+    @endif 
+@endif
 
 <livewire:app-cliente.menu-cliente/>
 
@@ -136,122 +137,29 @@
         Crédito disponible
     </p>
     <div class="row mb-3 justify-content-center">
-        <div class="col-sm-4" style="margin-bottom: 20px;">
-          <form action="{{route('solicitar')}}" method="POST">
-            @csrf
-            <select class="form-select" id="validationCustom04" aria-label="monto" name="monto" required>
-                <option value="" selected>Monto Solicitado</option>
-                @while ($i<=4900)
-                    <option value="{{$i=$i+100;}}">{{$i}}</option>
-                @endwhile
-            </select>
-            @error('monto')
-              <p style="border: #39A935; color:red;">{{$message}}</p>
-            @enderror
-        </div>
-    </div>
-    <div class="row mb-3 justify-content-center">
         <div class="col-sm-4">
-            <center>
-                <!-- Button trigger modal -->
-                <button type="submit" class="btn " style="background-color: #39a935; color: #ffffff;">
-                    Solicitar crédito
-                </button>
-            </center>
-          </form>
-            <!-- Modal Credito en Marcha-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header" style="border: none;">
-                            <h1 class="modal-title col-11 text-center p-medium" id="exampleModalLabel"
-                                style="color: #4A9D22; font-size: 50px;">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitar crédito
-                            </h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body ms-5 me-5">
-                            <hr>
-
-                            <p style="color:#da8b0c; font-size:20px;">Crédito en marcha</p>
-                            <p class="p-regular" style="font-size: 20px; color:#474747;">
-                                Para solicitar un nuevo crédito usted debe liquidar el crédito. Anticipe pagos para
-                                liquidar su préstamo actual y solicite uno nuevo.
-                            </p>
-
-
-
-                        </div>
-                        <div class="modal-footer justify-content-center" style="border: none">
-                            <button class="btn btn-primary p-medium" type="button"
-                                style="background-color: #39A935; font-size: 20px; color: #FFFFFF;" data-bs-dismiss="modal">
-                                Aceptar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{--Modal solicitud enviada--}}
-            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header" style="border: none;">
-                            <h1 class="modal-title col-11 text-center p-medium" id="exampleModalLabel"
-                                style="color: #4A9D22; font-size: 50px;">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitar crédito
-                            </h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body ms-5 me-5">
-                            <hr>
-                            <p class="p-regular" style="font-size: 20px; color:#474747;">
-                              Se envíara esta solicitud al back offices del administrador para que apruebe o
-                              no dicha solicitud.
-                            </p>
-                          </div>
-                        <div class="modal-footer justify-content-center" style="border: none">
-                            <button class="btn btn-primary p-medium" type="button"
-                                style="background-color: #39A935; font-size: 20px; color: #FFFFFF;"data-bs-dismiss="modal" >
-                                Aceptar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header" style="border: none;">
-                            <h1 class="modal-title col-11 text-center p-medium" id="exampleModalLabel"
-                                style="color: #4A9D22; font-size: 50px;">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitud de crédito pendiente.
-                            </h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body ms-5 me-5">
-                            <hr>
-                            <p class="p-regular" style="font-size: 20px; color:#474747;">
-                              Tenemos una solicitud de crédito pendiente, por favor se paciente.<br />
-                              Mantente al pendiente de la aplicación, te notificaremos por correo electrónico
-                              si tu crédito fue aprobado y qué línea de crédito te hemos otorgado.
-                            </p>
-                          </div>
-                        <div class="modal-footer justify-content-center" style="border: none">
-                            <button class="btn btn-primary p-medium" type="button"
-                                style="background-color: #39A935; font-size: 20px; color: #FFFFFF;"data-bs-dismiss="modal" >
-                                Aceptar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <form action="{{route('solicitar')}}" method="POST">
+                @csrf
+                <select class="form-select" id="validationCustom04" aria-label="monto" name="monto">
+                    <option value="" selected>Monto Solicitado</option>
+                    @php
+                        $i=0;
+                    @endphp
+                    @while ($i<=4900)
+                        <option value="{{$i=$i+100;}}">${{number_format($i)}}</option>
+                    @endwhile
+                </select>
+                @error('monto')
+                    <span style="border: #39A935; color:red;">{{$message}}</span>
+                @enderror
+                <center>
+                    <br />
+                    <!-- Button trigger modal -->
+                    <button type="submit" class="btn" style="background-color: #39a935; color: #ffffff;">
+                        Solicitar crédito
+                    </button>
+                </center>
+            </form>
         </div>
     </div>
 </div>
@@ -261,17 +169,10 @@
 {{-- @include('components.landing.cuerpo._fotter') --}}
 {{-- @include('components.landing.cuerpo._fotterClienteBootstrapResponsivo') --}}
 @include('components.landing.cuerpo._fotterClienteBootstrap')
-<script>
-    function openmodalmarcha() {
+<script>  
+    function openmodal(){
         $('#exampleModal').modal('show');
     }
-    function openmodalsolicitar(){
-        $('#exampleModal2').modal('show');
-    }
-    function openmodalsolicitudp(){
-        $('#exampleModal3').modal('show');
-    }
-
 </script>
 
 <!-- JavaScript Libraries -->

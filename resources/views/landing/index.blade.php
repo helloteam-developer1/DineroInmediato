@@ -99,8 +99,8 @@
         $(document).on('click', '#btnSig', function (e) {
             prestamo = $('#prestamo').val();
             tiempo = $('#tiempo').val();
-            console.log(prestamo);
-            console.log(tiempo);
+            //console.log(prestamo);
+            //console.log(tiempo);
             $('.divcalculadoraItems').hide();
             $('.divcalculadoraItemsDos').show() ;
 

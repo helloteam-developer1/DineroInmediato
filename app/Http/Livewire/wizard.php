@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -153,11 +154,29 @@ class wizard extends Component
         $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->id_us).'-'.$this->comp_dom->getClientOriginalName();
         $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->id_us).'-'.$this->foto_cine->getClientOriginalName();
         
-        $ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
+        /*$ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
         $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
         $ruta3= $this->comp_dom->storeAs("posts/",$nombre_comp_dom,'public_posts',0644);
-        $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);
-        
+        $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);*/
+        //Ine Frente
+        $path_if = public_path('posts'.'/'.$nombre_ine_frente);
+        $comp_if = Image::make($this->ine_frente->getRealPath());
+        $comp_if->save($path_if,40);
+        //Ine Reverso
+        $path_ir = public_path('posts'.'/'.$nombre_ine_reverso);
+        $comp_ir = Image::make($this->ine_reverso->getRealPath());
+        $comp_ir->save($path_ir,40);
+        //Comprobante de Domicilio
+        $path_comp_d = public_path('posts'.'/'.$nombre_comp_dom);
+        $comp_comp_d = Image::make($this->comp_dom->getRealPath());
+        $comp_comp_d->save($path_comp_d,40);
+        //Foto con INE
+        $path_fc = public_path('posts'.'/'.$nombre_foto_cine);
+        $comp_fc = Image::make($this->foto_cine->getRealPath());
+        $comp_fc->save($path_fc,40);
+
+
+
         $password = Hash::make($this->password);
         $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
         $fecha_nacimiento = $this->year.'-'.$this->mes.'-'.$this->dia;
@@ -172,10 +191,10 @@ class wizard extends Component
             'telefono_contacto' => $this->telefono_contacto,
             'email' => $this->email,
             'password' => $password,
-            'ine_frente' => $ruta1,
-            'ine_reverso' =>$ruta2,
-            'comp_dom' => $ruta3,
-            'foto_cine' => $ruta4,
+            'ine_frente' => '/posts'.'/'.$nombre_ine_frente,
+            'ine_reverso' => '/posts'.'/'.$nombre_ine_reverso,
+            'comp_dom' => '/posts'.'/'.$nombre_comp_dom,
+            'foto_cine' => '/posts'.'/'.$nombre_foto_cine,
             'prestamo' =>  $consulta[0]->prestamo,
             'tiempo' => $consulta[0]->tiempo,
             'trabajo' => $consulta[0]->trabajo,

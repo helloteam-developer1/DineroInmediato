@@ -68,57 +68,6 @@ class AppClienteController extends Controller
         */
         return view('appCliente.clienteDocuInfor',['estado'=> $estado, 'mensaje' => $mensaje, 'opcion' => $opcion,'documentacion'=>$documentacion]);
     }
-    /* Vista Solicitar Credito*/
-    public function solicitar(){
-        //ciclo for de prestamo
-        $i=0;
-
-        //pregunto obtengo el credito actual 
-        $credito = Credito::where('user_id','=',Auth::user()->id)->orderby('created_at','desc')->value('estado');
-        if(Solicitud_Credito::where('user_id','=',Auth::user()->id)->exists()){
-            return view('appCliente.clienteSoliNueva',['i'=>$i, 'estatus'=>3]);
-        }else{
-            if($credito==2){
-                return view('appCliente.clienteSoliNueva',['i'=>$i, 'estatus'=>null]);
-            }
-            if($credito==1 || $credito==0){
-                return view('appCliente.clienteSoliNueva',['i'=>$i, 'estatus'=>1]);
-            }
-        }
-        
-        
-
-    }
-    /*Store de Vista Solicitar Credito*/
-    public function store(Request $request){
-        
-        //valido si el usuario tenga un credito activo
-        $estado = Credito::where('user_id','=',Auth::user()->id)->orderby('created_at','desc')->first();
-        if($estado->estado == 0 || $estado->estado==1){
-            return view('appCliente.clienteSoliNueva',['i'=>0,'estatus'=>1]);
-        }else{
-            $con = Solicitud_Credito::where('user_id', Auth::user()->id)->exists();
-            //si no hay solicitudes activas, registra la solicitud
-            if($con==false){
-                $request->validate([
-                    'monto' => 'required|numeric'
-                ],[
-                    'monto.required' => 'Se requiere ingresar un monto.',
-                    'monto.numeric' => 'Solo se permiten números, ingresa un monto valido.'
-                ]);
-
-                Solicitud_Credito::create([
-                    'monto' => $request->monto,
-                    'user_id'=> Auth::user()->id,
-                    'estado' => 0,
-                    'fecha_solicitud' => Carbon::now()->format('Y-m-d')
-                ]);
-                return view('appCliente.clienteSoliNueva',['i'=>0,'estatus'=>2]);
-            }else{
-                return view('appCliente.clienteSoliNueva',['i'=>0,'estatus'=>3]);
-            }
-        }
-    }
     /*Vista mi prestamo */
     public function miprestamo(){
         $credito = Credito::where('user_id', Auth::user()->id)->where('estado','=',0)->orderby('created_at','desc')->first();
@@ -140,9 +89,6 @@ class AppClienteController extends Controller
             Notificaciones::where('user_id', '=', Auth::user()->id)->update(['estado' => 1]);
             return view('appCliente.clienteNotificaciones',['notificaciones'=>$notificaciones,'id'=>null]);
         }
-
-
-
     }
     //eliminar notificaciones
     public function destroy($id){
