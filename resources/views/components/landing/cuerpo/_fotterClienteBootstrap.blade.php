@@ -170,11 +170,19 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="input-group flex-nowrap">
                                 <input type="email" class="form-control" name="email" style="color: #9ca3af;" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+                                @error('email')
+                                    <br />
+                                    <span style="color:red;">{{$message}}</span>
+                                @enderror
                               </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="form-floating mt-3">
                                 <textarea class="form-control footer-textarea" name="comentario" style="height: 120px" placeholder="Comentario" id=""></textarea>
+                                @error('comentario')
+                                    <br/>
+                                    <span style="color:red;">{{$message}}</span>
+                                @enderror
                                 <label for="floatingTextarea">Comentario</label>
                               </div>
                             </div>

@@ -30,43 +30,24 @@ class AppClienteController extends Controller
 
     /* Dashboard Documentación e información*/
     public function index(){
-    
-        $num_cliente = Auth::user()->num_cliente;
-        $id_user = Auth::user()->id;
-        $mensaje = null;
-        $estado = null;
-        $opcion = null;
-        $documentacion = null;
-        if($num_cliente!=null){
-            $credito= Credito::where('user_id', '=' , $id_user)->orderBy('estado','ASC')->first();
-            if($credito->estado == 2){
-                return view('appCliente.clienteDocuInfor',['estado'=> null, 'mensaje' => null, 'opcion' => null,'documentacion'=>null]);
-            }
-            if($credito->estado==1){
-                $estado = $credito->estado();
-                $opcion = 4;
-            }else{
-                $estado = $credito->estado();
-                $opcion = 3;
-            }
-            $documentacion = 1;
-        }else{
-            $solicitud = Solicitud_Credito::where('user_id', '=', $id_user)->get();
-            if(count($solicitud)>=1){
-                $estado = $solicitud[0]->estado();
-                $opcion = $solicitud[0]->estado;
-                $mensaje = $solicitud[0]->mensaje;
-                $documentacion = $solicitud[0]->documentacion;
-            }
+        $documentacion = null; $estado= null;
+        $solicitud = Solicitud_Credito::select(['documentacion','estado'])->where('user_id','=',Auth::user()->id)->first();
+        if(!empty($solicitud)){
+            $documentacion = $solicitud->documentacion;
+            $estado = $solicitud->estado;
         }
-        /*
-        0 Credito en revisión
-        1 Falta Información que completar o es incorrecta
-        2 Linea de credito rechazada
-        3 Linea de credito aprobada
-        4 Credito vencido o impago
-        */
-        return view('appCliente.clienteDocuInfor',['estado'=> $estado, 'mensaje' => $mensaje, 'opcion' => $opcion,'documentacion'=>$documentacion]);
+
+        $credito = Credito::select(['estado'])->where('user_id','=',Auth::user()->id)->orderBy('user_id','DESC')->first();
+        if(!empty($credito)){
+           if($credito->estado==2){
+                $documentacion = null;
+                $estado = null;
+           }else{
+                $documentacion = 1;
+                $estado = 3;
+           }
+        }
+        return view('appCliente.clienteDocuInfor',['documentacion'=>$documentacion,'estado'=>$estado]);
     }
     /*Vista mi prestamo */
     public function miprestamo(){

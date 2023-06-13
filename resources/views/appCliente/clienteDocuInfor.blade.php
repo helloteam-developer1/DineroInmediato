@@ -165,14 +165,18 @@
     </style>
 </head>
 {{-- Si existe un estado abre la modal con dicho estado --}}
-@if ($estado != null)
+@if (session()->has('estado'))
+    <body onload="correo()">
+    @include('appCliente.mail.modalemail')
+@else
     <body onload="openmodal()">
-  @else
-    <body>
 @endif
+    
+
 {{-- Componente Modal que muestra el estado del credito si existe una solicitud --}}
-<x-appClienteComponentes.modal.modalEstatusCredito opcion="{{ $opcion }}" estado="{{ $estado }}"
-    mensaje="{{ $mensaje }}" />
+{{-- <x-appClienteComponentes.modal.modalEstatusCredito opcion="{{ $opcion }}" estado="{{ $estado }}"
+    mensaje="{{ $mensaje }}" />   --}}
+<x-modal-estado-solicitud></x-modal-estado-solicitud>
 {{-- Menú Cliente --}}
 
 <livewire:app-cliente.menu-cliente />
@@ -182,9 +186,6 @@
         información.</h1>
 
     <br />
-    <!-- <h1 class="text-3xl font-bold text-center" style="color: #F5A733;">
-
-    </h1> -->
 </div>
 
 <div class="container">
@@ -378,17 +379,17 @@
                 </button>
             </h2>
 
-            @if ($estado == 'Falta información que completar o es incorrecta')
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            @if ($estado==1)
+                <div id="collapseThree" class="accordion-collapse show" aria-labelledby="headingThree"
                     data-bs-parent="#accordionExample">
                 @else
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#accordionExample">
             @endif
-
+            
             <div class="accordion-body" style="margin-left: 120px;">
                 {{-- Formulario subir img --}}
-                <livewire:app-cliente.documentacion />
+                <livewire:app-cliente.documentacion /> 
 
             </div>
         </div>
@@ -405,7 +406,7 @@
                 Información personal de forma de pago
             </button>
         </h2>
-        @if ($opcion == 3)
+        @if ($estado == 3)
             <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
                 data-bs-parent="#accordionExample">
             @else
@@ -417,7 +418,6 @@
         </div>
     </div>
 </div>
-
 
 {{-- Cobro --}}
 
@@ -431,6 +431,9 @@
 <script>
     function openmodal() {
         $('#exampleModal').modal('show');
+    }
+    function correo() {
+        $('#exampleModal2').modal('show');
     }
     Livewire.on('registro',function(){
         Swal.fire({

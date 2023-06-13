@@ -17,7 +17,9 @@ class clientesController extends Controller
 {
     //vista solicitudes de crédito
     public function solicitud(){
-        $consulta = User::join('solicitud_creditos','users.id','=','solicitud_creditos.user_id')->latest('solicitud_creditos.fecha_solicitud')->paginate(5);
+        $datos = ['id','ine_frente','ine_reverso','comp_dom','foto_cine',
+            'nombre','trabajo','ingreso','nomina','credito', 'curp', 'fecha_nacimiento','empresa_trabajo', 'rama_empresa','telefono_contacto', 'email','monto','user_id'];
+        $consulta = User::select($datos)->join('solicitud_creditos','users.id','=','solicitud_creditos.user_id')->latest('solicitud_creditos.fecha_solicitud')->paginate(5);
         return view('backoffices.clientes.solicitud-clientes',['consulta'=>$consulta,'busqueda'=>'','fecha_inicio'=>'','fecha_termino'=>'']);
     }
     ///Filtro de busqueda Solicitud de Clientes

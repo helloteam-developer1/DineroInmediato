@@ -111,8 +111,11 @@
 
           </div>
           <div class="col">
-              @if ($documentacion==1 || $documentacion==3 || $documentacion==4)
-              <a class="btn btn-Guardar" wire:click="subirIMG">Guardar</a>
+              @if ($documentacion==1)
+                <a class="btn btn-Guardar" >Guardar</a>
+              @endif
+              @if ( $documentacion==3 || $documentacion==4)
+                <a class="btn btn-Guardar" wire:click="subirIMG">Guardar</a>
               @endif
               @if ($documentacion==2)
               <!-- Button trigger modal -->

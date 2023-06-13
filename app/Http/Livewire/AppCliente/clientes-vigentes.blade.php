@@ -24,10 +24,10 @@
                                 
                                 <div class="input-group">
                                     <p class="my-2 mx-2">De</p> <input type="date" class="mx-3" placeholder="" name="fecha_inicio" id="fecha_inicio"> <img
-                                    src=" {{asset('img/backoffices/CALENDARIO.png')}} " class="my-2 mx-2" width="30"
+                                    src="{{ asset('img/backoffices/CALENDARIO.PNG') }}"class="my-2 mx-2" width="30"
                                     height="30" alt="">
                                 <p class="mx-3 my-2">a</p> <input type="date" class="mx-3" placeholder="" name="fecha_termino" id="fecha_termino"><img
-                                src="{{asset('img/backoffices/CALENDARIO.png')}}" class="my-2 mx-2" width="30"
+                                src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-2" width="30"
                                     height="30" alt="">
                                 <div class="input-wrapper">
                                     <input type="search" name="busqueda" id="" class="ms-1"

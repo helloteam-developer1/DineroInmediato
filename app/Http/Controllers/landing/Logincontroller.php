@@ -18,7 +18,7 @@ class LoginController extends Controller
 
     public function store(Request $request){
         //telefono de contacto
-        if(is_numeric($request->credencial)){
+        /* if(is_numeric($request->credencial)){
             $request->validate(
                 [
                  'credencial' => 'required|digits:10',
@@ -39,9 +39,9 @@ class LoginController extends Controller
                 }
             }
             return back()->with('status', 'Credenciales Incorrectas');
-        }
+        } */
         //correo electronico
-        else{
+        //else{
             $request->validate(
                 ['credencial' => 'required|email',
                 'password' => 'required|min:8']
@@ -57,7 +57,7 @@ class LoginController extends Controller
                 }
             }
             return redirect()->route('login')->with('status', 'Credenciales Incorrectas');
-        }
+        //}
     
        
     }
