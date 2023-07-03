@@ -29,8 +29,8 @@
                     @endif 
                     <!--Input Fecha de nacimiento-->
                     <div class="row fecha">
-                        <div class="col-12 flex-left">
-                            * Fecha de nacimiento
+                        <div class="col-12 flex-left mb-1">
+                            * Fecha de nacimiento (YYYY-MM-DD)
                         </div>
                     </div> 
                     {{--Inptus Fecha--}}

@@ -50,7 +50,7 @@
                 </div>
                 <div class="row empresa">
                     <div class="col-sm empresa">
-                        <input type="text" class="form-control"  pattern="[a-zA-Z ]{2,254}" placeholder="* Municipio" wire:model.defer="municipio" maxlength="40" required><br/>
+                        <input type="text" class="form-control"  pattern="[a-zA-Z ]{2,254}" placeholder="* Municipio/Alcaldia" wire:model.defer="municipio" maxlength="40" required><br/>
                         @error('municipio')
                             <span style="color:brown;">{{$message}}</span>
                         @enderror
