@@ -81,7 +81,7 @@
                 </div>
                 <div class="mb-4 mx-3">
 
-                    <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancerlar</button>
+                    <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
 
 
                     <button type="button" class="btn btn-guardar"

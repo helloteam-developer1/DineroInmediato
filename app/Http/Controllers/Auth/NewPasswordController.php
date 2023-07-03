@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
@@ -33,34 +35,42 @@ class NewPasswordController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'token' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => [ 'required',
-            'confirmed',
-            'max:20',
-            'min:8',
-            'regex:/^[A-Za-z0-9]+$/u'],
-        ]);
+        $password =  User::where('email','=',$request->email)->value('password');
 
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user) use ($request) {
-                $user->forceFill([
-                    'password' => Hash::make($request->password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+        if(Hash::check($request->password,$password)){
+            return back()->withErrors(['password' => 'El password no ha sufrido cambios.']);
+        }else{
+            $request->validate([
+                'token' => ['required'],
+                'email' => ['required', 'email'],
+                'password' => [ 'required',
+                'confirmed',
+                'max:20',
+                'min:8',
+                'regex:/^[A-Za-z0-9]+$/u'],
+            ]);
+    
+            $status = Password::reset(
+                $request->only('email', 'password', 'password_confirmation', 'token'),
+                function ($user) use ($request) {
+                    $user->forceFill([
+                        'password' => Hash::make($request->password),
+                        'remember_token' => Str::random(60),
+                    ])->save();
+    
+                    event(new PasswordReset($user));
+                }
+            );
+    
+            // If the password was successfully reset, we will redirect the user back to
+            // the application's home authenticated view. If there is an error we can
+            // redirect them back to where they came from with their error message.
+            return $status == Password::PASSWORD_RESET
+                        ? redirect()->route('cambio_password')->with('status', 'Se ha creado tu nueva contraseña con éxito, ya puedes ingresar nuevamente a nuestra aplicación.')
+                        : back()->withInput($request->only('email'))
+                                ->withErrors(['email' => __($status)]);
+        }
+        
 
-                event(new PasswordReset($user));
-            }
-        );
-
-        // If the password was successfully reset, we will redirect the user back to
-        // the application's home authenticated view. If there is an error we can
-        // redirect them back to where they came from with their error message.
-        return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('cambio_password')->with('status', 'Se ha creado tu nueva contraseña con éxito, ya puedes ingresar nuevamente a nuestra aplicación.')
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
     }
 }

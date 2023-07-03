@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Mail;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
+use Monolog\Processor\UidProcessor;
 
 class wizard extends Component
 {
@@ -26,10 +26,14 @@ class wizard extends Component
     public $currentStep = 1;
 
     /*first step */
-    public $nombre, $curp , $dia,$mes,$year, $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
+    public $nombre, $curp , $dia,$mes,$year,$limite=31,$empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
     /*Second step */
-    public $telefono_contacto, $email, $password, $password_confirmation, $confirmacion;
+    public $email, $password, $password_confirmation, $confirmacion;
     /*Three step*/
+    public $telefono_contacto, $calle, $numero,$num_int, $colonia,$cp,$municipio,$estado;
+
+    /*Four step*/
+    
     public $ine_frente; 
     public $ine_reverso; 
     public $comp_dom; 
@@ -70,6 +74,27 @@ class wizard extends Component
         $empresas = Empresas::get();
         return view('livewire.registroJCST.wizard', ['empresas' => $empresas,'year_adult'=>$year_adult, 'year_limit'=>$year_limit]);
     }
+
+    public function updatedMes(){
+            $this->reset('limite');
+            if(empty($this->year%4)){
+                if($this->mes == '02'){
+                    $this->limite = 29;
+                }
+            }else{
+                if($this->mes== '02'){
+                    $this->limite = 28;
+                }else{
+                    $this->limite = 31;
+                }
+                
+            }
+        
+    }
+
+    public function updatedYear(){
+        $this->reset(['mes','limite']);
+    }
   
     public function firstStepSubmit()
     {
@@ -90,12 +115,13 @@ class wizard extends Component
                 'curp.unique' => 'El CURP ya esta registrado, por favor verificalo.'
             ]
         );    
-        $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
 
-        if($consulta){
-           $this->currentStep = 2;
-           $successMessage = '';
-            $errorMessage = '';
+        if(Calculadora::where('nombre','=',$this->id_us)->exists()){
+
+            $this->currentStep = 2;
+            $this->reset(['successMessage','errorMessage']);
+                    
+            
         }else{
             $this->errorMessage = "No has llenado la calculadora previamente o tus datos son erroneos.";
         }
@@ -112,7 +138,6 @@ class wizard extends Component
         Telefono, email, contraseña,
         */ 
         $validatedData = $this->validate([
-            'telefono_contacto' => 'required|numeric|digits_between:10,10',
             'email' => 'unique:users,email|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users|required',
             'password' => [
                 'required',
@@ -121,13 +146,34 @@ class wizard extends Component
                 'min:8',
                 'regex:/^[A-Za-z0-9]+$/u'
             ]
-            ],
-            [
-            'telefono_contacto.digits_between' => 'El telefono de contacto debe tener 10 digitos.'
             ]);
         
         $this->currentStep = 3;
         
+    }
+
+    public function threeStepSubmit(){
+        $rules = [
+            'telefono_contacto' => 'required|numeric|digits_between:10,10',
+            'calle' => 'required|regex:/^[\pL\s\-]+$/u',
+            'numero' => 'required|numeric|max:1000',
+            'colonia' => 'required|regex:/^[\pL\s\-]+$/u',
+            'cp'=> 'required|digits_between:5,5|numeric',
+            'municipio' => 'required|regex:/^[a-zA-Z\s.]+$/',
+            'estado' => 'required|regex:/^[a-zA-Z\s.]+$/'
+        ];
+        if($this->num_int){
+          $rules = array_merge($rules,[
+            'num_int' => 'regex: /^[a-zA-Z0-9-]+$/'
+          ]); 
+        }
+
+        $validatedData = $this->validate($rules,
+        [
+        'telefono_contacto.digits_between' => 'El telefono de contacto debe tener 10 digitos.',
+        'num_int.regex' => 'El numero interior es invalido.'
+        ]);
+        $this->currentStep = 4;
     }
 
     public function submitForm()
@@ -149,10 +195,10 @@ class wizard extends Component
             ],
         );
         
-        $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($this->id_us).'-'.$this->ine_frente->getClientOriginalName();
-        $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($this->id_us).'-'.$this->ine_reverso->getClientOriginalName();
-        $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->id_us).'-'.$this->comp_dom->getClientOriginalName();
-        $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->id_us).'-'.$this->foto_cine->getClientOriginalName();
+        $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($this->id_us).'.'.$this->ine_frente->getClientOriginalExtension();
+        $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($this->id_us).'.'.$this->ine_reverso->getClientOriginalExtension();
+        $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->id_us).'.'.$this->comp_dom->getClientOriginalExtension();
+        $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->id_us).'.'.$this->foto_cine->getClientOriginalExtension();
         
         /*$ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
         $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
@@ -190,6 +236,7 @@ class wizard extends Component
             'banco_nomina' => $this->banco_nomina,
             'telefono_contacto' => $this->telefono_contacto,
             'email' => $this->email,
+            'direccion' => $this->calle.', '.$this->numero.', '.$this->colonia.', '.$this->cp.','.$this->municipio.','.$this->estado,
             'password' => $password,
             'ine_frente' => '/posts'.'/'.$nombre_ine_frente,
             'ine_reverso' => '/posts'.'/'.$nombre_ine_reverso,
@@ -224,7 +271,6 @@ class wizard extends Component
         }
     }
     
-
     public function submitFormsinIMG()
     {  
         $validatedData = $this->validate(
@@ -246,6 +292,7 @@ class wizard extends Component
                 'telefono_contacto' => $this->telefono_contacto,
                 'email' => $this->email,
                 'password' => $password,
+                'direccion' => $this->calle.', '.$this->numero.', '.$this->colonia.', '.$this->cp.','.$this->municipio.','.$this->estado,
                 'ine_frente' => null,
                 'ine_reverso' => null,
                 'comp_dom' =>  null,

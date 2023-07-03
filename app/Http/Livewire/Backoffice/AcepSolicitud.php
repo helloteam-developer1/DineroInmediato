@@ -57,10 +57,12 @@ class AcepSolicitud extends Component
         $signo = str_replace("$","",$this->monto);
         $nuevo = str_replace(",","",$signo);
          if(is_numeric($nuevo)){
-            if($nuevo>=99999){
-                $this->maximo = "El monto no puede superar los $100,000";
+            if($nuevo>=100000){
+                $this->maximo = "El monto no puede superar los $100,000.00";
+                $this->monto = '$'.number_format(100000,2);
+            }else{
+                $this->monto = '$'.number_format($nuevo,2);
             }            
-            $this->monto = '$'.number_format($nuevo,2);
         }else{           
             $this->maximo = "Error solo se permiten numeros";
         }
@@ -71,10 +73,12 @@ class AcepSolicitud extends Component
         $sin = str_replace("$","",$this->confirmacion);
         $nuevo1 = str_replace(",","",$sin);
         if(is_numeric($nuevo1)){
-            if($nuevo1>=99999){
-                $this->maximo = "El monto no puede superar los $100,000";
+            if($nuevo1>=100000){
+                $this->maximo = "El monto no puede superar los $100,000.00";
+                $this->confirmacion = '$'.number_format(100000,2);
+            }else{
+                $this->confirmacion = '$'.number_format($nuevo1,2);
             }
-            $this->confirmacion = '$'.number_format($nuevo1,2);
         }else{
             $this->maximo = "Error solo se permiten numeros";
         

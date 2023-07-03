@@ -45,7 +45,7 @@ Route::middleware('guest')->group(function () {
     
     })->name('home');
     
-    Route::get('/recover1', function(){
+    Route::get('/recover-password', function(){
         return view('landing.sesion.recover-step1');
     })->name('recover1');
     Route::get('/recover2', function(){

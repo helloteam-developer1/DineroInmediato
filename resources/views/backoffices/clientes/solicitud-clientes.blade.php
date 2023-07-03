@@ -134,12 +134,12 @@
                                                 @endforeach
                                             @else
                                                 <tr class="table-light">
-                                                    <th colspan="12">Sin Registros</th>
+                                                    <th colspan="13">Sin Registros</th>
                                                 </tr>
                                             @endif
                                         @else
                                             <tr class="table-light">
-                                                <th colspan="12">Sin Registros</th>
+                                                <th colspan="13">Sin Registros</th>
                                             </tr>
                                         @endif
                                     </tbody>

@@ -40,19 +40,6 @@
             background: #F29100;
             float: right;
         }
-        .btn-cancelar:hover{
-            color: 
-            white;
-            background: 
-            #39A935;
-            font-size: 1.3rem;
-        }
-        .btn-guardar:hover{
-            color:white;
-            background: #F29100;
-            float: right;
-            font-size: 1.3rem;
-        }
         .titulo-alert {
             color: #39A935;
             margin-top: 10px;

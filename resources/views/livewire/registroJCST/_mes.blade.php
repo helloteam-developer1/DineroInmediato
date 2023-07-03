@@ -1,4 +1,4 @@
-<select class="form-select" name="mes" wire:model.defer="mes" required>
+<select class="form-select" name="mes" wire:model="mes" required>
     <option selected>Mes</option>
     <option value="01">Enero</option>
     <option value="02">Febrero</option>

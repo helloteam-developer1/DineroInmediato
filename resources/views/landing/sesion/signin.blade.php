@@ -112,7 +112,7 @@
     </style>
 </head>
 
-<body >
+<body>
     {{-- <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 shadow">
         <a href="index.html" class="navbar-brand p-0">
             <img src="{{ asset('img/logo.png')}}" width="180"  class="d-inline-block align-text-top ml-10" style="margin-top: 40px;">
@@ -137,10 +137,24 @@
     <div class="content cent" >
         <center>
             @if (session('status'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <p>{{session('status')}}</p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-            </div>
+                <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title center" id="staticBackdropLabel">Error de Credenciales</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            Las credenciales ingresadas no coincideen con nuestra base de datos.
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <script>
+                    $( document ).ready(function() {
+                        $('#modal').modal('toggle')
+                    });
+                </script>
             @endif
             <div>
                @livewire('landing.sigin')

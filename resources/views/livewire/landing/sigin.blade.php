@@ -1,4 +1,27 @@
 <div>
+    @if ($errors->any())
+            <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title center" id="staticBackdropLabel">Inicio de sesión.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                    </div>
+                    <div class="modal-body">
+                        @foreach ($errors->all() as $error)
+                            <h4 class="text-danger mb-3">{{ $error }}</h4>
+                        @endforeach
+                    </div>
+                </div>
+                </div>
+            </div>
+            <script>
+                $( document ).ready(function() {
+                    $('#modal').modal('toggle')
+                });
+            </script>
+    @endif
+
     <form action="{{route('login.store')}}" method="POST">
         @csrf
         <p class="texto-solicita-verde Medium Carot">Inicio de sesión</p>

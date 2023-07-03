@@ -7,11 +7,7 @@
                 
                 <div class="row empresa">
                     <p class="titulo-naranja">Datos para Iniciar sesión</p>
-                    <p class="titulo-campo">Campos (*)</p>
-                    <input class="form-control" type="tel" placeholder="* Teléfono de contacto a 10 digitos" name="telefono_contacto" wire:model.defer="telefono_contacto" name="telefono_contacto" maxlength="10" required>
-                    @if ($errors->has('telefono_contacto'))
-                        <span style="color:brown;">{{ $errors->first('telefono_contacto') }}</span>
-                    @endif
+                    <p class="titulo-campo">Datos obligatorios (*)</p>
                 </div>
                 <div class="row empresa">
                     <input type="text" class="form-control" placeholder="* Correo electrónico" wire:model.defer="email" name="email" maxlength="50" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required><br/>

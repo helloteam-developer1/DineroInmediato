@@ -24,6 +24,9 @@
                     @if ($errors->has('curp'))
                         <span style="color:brown;">{{ $errors->first('curp') }}</span>
                     @endif 
+                    @if ($errors->has('CURP'))
+                        <span style="color:brown;">{{ $errors->first('CURP') }}</span>
+                    @endif 
                     <!--Input Fecha de nacimiento-->
                     <div class="row fecha">
                         <div class="col-12 flex-left">
@@ -33,14 +36,18 @@
                     {{--Inptus Fecha--}}
                     <div class="row fecha-i">
                         <div class="col-4">
-                            @include('livewire.registroJCST._dia')
-                        </div>
+                            @include('livewire.registroJCST._year')
+                        </div> 
                         <div class="col-4">
                             @include('livewire.registroJCST._mes')
                         </div>
                         <div class="col-4">
-                            @include('livewire.registroJCST._year')
+                            @include('livewire.registroJCST._dia')
                         </div>
+                                                   
+                        @error('bisiesto')
+                            <span class="text-red-500">{{$message}}</span>
+                        @enderror
                     </div>
                     <!--Empresa donde trabajas -->    
                     <div class="row empresa" >

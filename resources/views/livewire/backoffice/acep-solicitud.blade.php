@@ -43,7 +43,7 @@
                                             </label>
                                             <input type="text" name="number" id=""
                                                 class="form-control money" placeholder="$2500"
-                                                wire:model.debounce.1s="monto">
+                                                wire:model.debounce.1s="monto" maxlength="6">
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
@@ -57,7 +57,7 @@
                                                 <span style="color:#38a937;">{{--'$'.number_format($confirmacion)--}}</span>
                                                 @endif</label>
                                                 <input type="text" name="" id="" class="form-control money"
-                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion" >
+                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="6">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
@@ -88,14 +88,14 @@
                                             wire:click="aceptar({{$user->id}})" disabled>Guardar</button>
                                         @else
                                             @if ($monto == $confirmacion)
-                                            @if (empty($maximo))
-                                                <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
-                                                wire:click="aceptar({{$user->id}})" >Guardar</button>
-                                            @else
-                                                <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
-                                                disabled >Guardar</button>                                                
-                                            @endif
-                                                
+                                                @if (empty($maximo))
+                                                    <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
+                                                    wire:click="aceptar({{$user->id}})" >Guardar</button>
+                                                @else
+                                                    <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
+                                                    disabled >Guardar</button>                                                
+                                                @endif
+                                                    
                                             @else
                                                 <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
                                                  disabled>Guardar</button>

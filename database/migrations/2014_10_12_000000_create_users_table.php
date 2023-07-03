@@ -23,9 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('rama_empresa');
             $table->string('antiguedad');
             $table->string('banco_nomina');
-            $table->string('telefono_contacto');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('telefono_contacto');
+            $table->string('direccion');
             $table->string('ine_frente')->nullable();
             $table->string('ine_reverso')->nullable(); 
             $table->string('comp_dom')->nullable(); 

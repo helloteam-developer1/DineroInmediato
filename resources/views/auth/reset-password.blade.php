@@ -2,15 +2,68 @@
 <x-guest-layout>
     <p class="texto-solicita-verde" style="padding-bottom: 25px; padding-top:15px;">Recuperar contraseña</p>
         <center>
-            <x-auth-validation-errors  :errors="$errors" />
-                @if(session('errors'))
-                    <script>
-                        alert(session('errors'));
-                    </script>   
-                @endif
-        
+            @error('password')
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title center" id="staticBackdropLabel">Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            {{$message}}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <script>
+                    $( document ).ready(function() {
+                        $('#staticBackdrop').modal('toggle')
+                    });
+                </script>
+            @enderror
+            @error('email')
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title center" id="staticBackdropLabel">Email</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            {{$message}}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <script>
+                    $( document ).ready(function() {
+                        $('#staticBackdrop').modal('toggle')
+                    });
+                </script>
+            @enderror
+            @error('password')
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title center" id="staticBackdropLabel">Token</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            {{$message}}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <script>
+                    $( document ).ready(function() {
+                        $('#staticBackdrop').modal('toggle')
+                    });
+                </script>
+            @enderror
 
-            <div class="row" style="width:100%;">
+            <div class="row mb-5 w-75">
                 <div class="col-2"></div>
                 <div class="col-8">
                     <form method="POST" action="{{ route('password.update') }}" >
@@ -36,7 +89,7 @@
                                                 name="password_confirmation" required />
                         </div>
                         
-                        <center><button class="btn btn-verde btn-md" style="margin-top: 30px; ">Envíar</button></center>
+                        <center><button class="btn btn-verde btn-md" style="margin-top: 30px; ">Cambiar password</button></center>
                     </form>
                 </div>
                 <div class="col-2"></div>
