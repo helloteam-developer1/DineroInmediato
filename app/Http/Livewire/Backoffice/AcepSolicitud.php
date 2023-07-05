@@ -79,6 +79,9 @@ class AcepSolicitud extends Component
             }else{
                 $this->confirmacion = '$'.number_format($nuevo1,2);
             }
+            if($this->monto!=$this->confirmacion){
+                $this->addError('igual','Los montos no son iguales');
+            }
         }else{
             $this->maximo = "Error solo se permiten numeros";
         

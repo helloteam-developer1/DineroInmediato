@@ -39,7 +39,7 @@ class CarteraVencidaController extends Controller
             ->orwhere('nombre','=',$termino)->orwhere('telefono','=',$termino)->orwhere('email','=',$termino)
             ->orwherebetween('created_at',[$fecha_inicio,$fecha_termino])
             ->paginate(5);
-            return view('backoffices.clientes.cartera-vencida',compact('consulta'));
+            return view('backoffices.clientes.cartera-vencida',compact('consulta','termino','fecha_inicio','fecha_termino'));
         }
         
     }

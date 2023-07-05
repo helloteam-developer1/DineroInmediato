@@ -22,13 +22,13 @@
                 </div>
                 <div class="row">
                     <div class="col-sm">
-                        <input type="numeric" pattern="[01]{8}" class="form-control" placeholder="* Numero Exterior" wire:model.defer="numero" name="email" maxlength="4" required><br/>
+                        <input type="numeric" pattern="[01]{8}" class="form-control" placeholder="* Número Exterior" wire:model.defer="numero" name="email" maxlength="4" required><br/>
                         @error('numero')
                             <span style="color:brown">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="col-sm">
-                        <input type="numeric" pattern="[A-Za-z0-9_-]" class="form-control" placeholder="Numero Interior" wire:model.defer="num_int" name="num_int" maxlength="4" required><br/>
+                        <input type="numeric" pattern="[A-Za-z0-9_-]" class="form-control" placeholder="Número Interior" wire:model.defer="num_int" name="num_int" maxlength="4" required><br/>
                         @error('num_int')
                             <span style="color:brown">{{$message}}</span>
                         @enderror
@@ -42,7 +42,7 @@
                         @enderror
                     </div>
                     <div class="col-sm">
-                        <input type="numeric" class="form-control" placeholder="* Codigo Postal" wire:model.defer="cp" name="cp" maxlength="5" required><br/>
+                        <input type="numeric" class="form-control" placeholder="* Código Postal" wire:model.defer="cp" name="cp" maxlength="5" required><br/>
                         @error('cp')
                             <span style="color:brown;">{{$message}}</span>
                         @enderror
@@ -50,7 +50,7 @@
                 </div>
                 <div class="row empresa">
                     <div class="col-sm empresa">
-                        <input type="text" class="form-control"  pattern="[a-zA-Z ]{2,254}" placeholder="* Municipio/Alcaldia" wire:model.defer="municipio" maxlength="40" required><br/>
+                        <input type="text" class="form-control"  pattern="[a-zA-Z ]{2,254}" placeholder="* Municipio/Alcaldía" wire:model.defer="municipio" maxlength="40" required><br/>
                         @error('municipio')
                             <span style="color:brown;">{{$message}}</span>
                         @enderror

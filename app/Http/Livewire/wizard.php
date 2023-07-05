@@ -155,12 +155,12 @@ class wizard extends Component
     public function threeStepSubmit(){
         $rules = [
             'telefono_contacto' => 'required|numeric|digits_between:10,10',
-            'calle' => 'required|regex:/^[\pL\s\-]+$/u',
-            'numero' => 'required|numeric|max:1000',
-            'colonia' => 'required|regex:/^[\pL\s\-]+$/u',
+            'calle' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
+            'numero' => 'required|numeric|digits_between:1,6',
+            'colonia' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
             'cp'=> 'required|digits_between:5,5|numeric',
-            'municipio' => 'required|regex:/^[a-zA-Z\s.]+$/',
-            'estado' => 'required|regex:/^[a-zA-Z\s.]+$/'
+            'municipio' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
+            'estado' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/'
         ];
         if($this->num_int){
           $rules = array_merge($rules,[

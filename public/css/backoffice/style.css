@@ -45,7 +45,9 @@ body{
     background-color: var(--gris);
     color: var(--blanco);
 }
-
+.filtro-busqueda{
+  display: flex; margin-bottom: 10px;
+}
 .content{
     margin-top: 50px;
     margin-bottom: 50px;
@@ -225,6 +227,15 @@ body{
     width: 100px;
     height: 40px;
     background-color: #38a937;
+    color: white
+  }
+  .boton-danger{
+    width: 100px;
+    height: 40px;
+    background-color: brown;
+    color: white
+  }
+  .boton-danger:hover{
     color: white
   }
   .buton-color{

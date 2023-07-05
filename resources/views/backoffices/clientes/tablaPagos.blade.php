@@ -16,7 +16,9 @@
                             @csrf
                             <div class="input-group">
                                 <div class="input-wrapper">
-                                    <input type="search" name="termino" id="" class="ms-1 mt-2" placeholder="Buscar">
+                                    <input type="search" name="termino" id="" class="ms-1 mt-2" placeholder="Buscar" @isset($termino)
+                                        value="{{$termino}}"
+                                    @endisset>
                                     <input type="text" name="num_credito" value="{{$num_credito}}" hidden>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" style="top: 60%;"
                                             viewBox="0 0 20 20" fill="currentColor">

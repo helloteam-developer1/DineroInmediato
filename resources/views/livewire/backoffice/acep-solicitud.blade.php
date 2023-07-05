@@ -43,10 +43,15 @@
                                             </label>
                                             <input type="text" name="number" id=""
                                                 class="form-control money" placeholder="$2500"
-                                                wire:model.debounce.1s="monto" maxlength="6">
+                                                wire:model.debounce.1s="monto" maxlength="8">
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
+                                            @if (!empty($maximo))
+                                            <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
+                                            @else
+                                                <span></span>
+                                            @endif
                                         </div>
                                         <div class="mt-4">
                                             <label for="" class="pb-2">Confirmado de crédito
@@ -57,13 +62,13 @@
                                                 <span style="color:#38a937;">{{--'$'.number_format($confirmacion)--}}</span>
                                                 @endif</label>
                                                 <input type="text" name="" id="" class="form-control money"
-                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="6">
+                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="8">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
                                         </div>    
                                             @if (!empty($maximo))
-                                            <i class="fa-solid fa-triangle-exclamation" style="color: #e00000;"></i><span style="color:red;">{{$maximo}}</span>
+                                            <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
                                             @else
                                                 <span></span>
                                             @endif

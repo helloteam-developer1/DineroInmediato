@@ -33,15 +33,15 @@ class CreditoFinalizadoController extends Controller
         if(!empty($request->busqueda)){
             if( $request->busqueda == 'Vigente' || $request->busqueda == 'vigente'){
                 $consulta = CreditoFinalizado::where('credito_actual','=','1')->paginate(5);
-                return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>'','fecha_termino'=>'']);
+                return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>$request->fecha_inicio,'fecha_termino'=>$request->fecha_termino]);
             }
             if($request->busqueda=='Inactivo' || $request->busqueda == 'inactivo'){
                 $consulta = CreditoFinalizado::where('credito_actual','=','0')->paginate(5);
-                return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>'','fecha_termino'=>'']); 
+                return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>$request->fecha_inicio,'fecha_termino'=>$request->fecha_termino]); 
             }
             $consulta = CreditoFinalizado::orwhere('nombre','=',$request->busqueda)
             ->orwhere('num_creditos_fin','=',$request->busqueda)->paginate(5);
-            return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>'','fecha_termino'=>'']); 
+            return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>'','fecha_termino'=>$request->fecha_termino]); 
         }  
         if(!empty($request->fecha_inicio)&& !empty($request->fecha_termino)){
             $request->validate([
@@ -49,7 +49,7 @@ class CreditoFinalizadoController extends Controller
                 'fecha_termino' => 'date'
             ]);
             $consulta = CreditoFinalizado::whereBetween('created_at',[$request->fecha_inicio,$request->fecha_termino])->paginate(5);
-            return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>'','fecha_termino'=>'' ]);
+            return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>$request->fecha_inicio,'fecha_termino'=>$request->fecha_termino]);
         }
         
     }
@@ -84,7 +84,7 @@ class CreditoFinalizadoController extends Controller
             
 
             
-            return view('backoffices.clientes.historialPagos', ['pagos'=>$pagos,'id'=> $user,'paginacion'=>0]);
+            return view('backoffices.clientes.historialPagos', ['pagos'=>$pagos,'id'=> $user,'busqueda'=>$request->busqueda,'paginacion'=>0]);
         }else{
             
             $pagos = Credito::where('user_id','=',$user)->join('pagos_credito','credito.num_credito','=','pagos_credito.num_credito')

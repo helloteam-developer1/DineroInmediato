@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-2">
                     @if ($ine_frente)
-                        <img src="{{ $ine_frente->temporaryUrl() }}" width="10%" height="auto" />
+                        <img src="{{ $ine_frente->temporaryUrl() }}" width="75%" height="auto" />
                     @endif
                 </div>
                 <div class="col-5">
@@ -74,7 +74,7 @@
                     <a class="btn btn-gris" onclick="document.getElementById('getFileine_frente').click()">Adjuntar
                         archivo</a>
                     <input type='file' id="getFileine_frente" style="display: none" name="ine_frente"
-                        wire:model.defer="ine_frente" accept=".jpg, .jpeg, .png">
+                        wire:model.defer="ine_frente" accept="image/*" >
                 </div>
             </div>
             <br />
@@ -95,7 +95,7 @@
                     <a class="btn btn-gris" onclick="document.getElementById('getFileine_reverso').click()">Adjuntar
                         archivo</a>
                     <input type='file' id="getFileine_reverso" style="display:none" name="ine_reverso"
-                        wire:model.defer="ine_reverso" accept=".jpg, .jpeg, .png">
+                        wire:model.defer="ine_reverso" accept="image/*">
                 </div>
             </div>
             <br />
@@ -115,7 +115,7 @@
                 <div class="col-5">
                     <a class="btn btn-gris" onclick="document.getElementById('getFilecomp_dom').click()">Adjuntar archivo</a>
                     <input type='file' id="getFilecomp_dom" style="display:none" name="comp_dom"
-                        wire:model.defer="comp_dom" accept=".jpg, .jpeg, .png">
+                        wire:model.defer="comp_dom" accept="image/*">
                 </div>
             </div>
             <br />
@@ -136,7 +136,7 @@
                     <a class="btn btn-gris" onclick="document.getElementById('getFilefoto_cine').click()">Adjuntar
                         archivo</a>
                     <input type='file' id="getFilefoto_cine" style="display:none" name="foto_cine"
-                        wire:model.defer="foto_cine" accept=".jpg, .jpeg, .png">
+                        wire:model.defer="foto_cine" accept="image/*">
                 </div>
             </div>
             <br />

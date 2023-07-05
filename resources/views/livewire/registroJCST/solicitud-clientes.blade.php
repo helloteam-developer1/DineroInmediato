@@ -9,7 +9,6 @@
                         <div class="row">
                             <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
                             <form method="" action="{{route('busqueda')}}" id="formulario">
-                                
                                 @csrf
                                 @error('fecha_inicio')
                                     <span style="color:red;">{{$message}}</span>
@@ -24,10 +23,10 @@
                                     <br />
                                 @enderror
 
-                                <div class="filtro-busqueda">
+                                <div class="input-group">
                                     <p class="my-2 mx-2">De</p> 
                                     <input type="date" class="mx-3" placeholder="" name="fecha_inicio" id="fecha_inicio" 
-                                    @isset($fecha_inicio)
+                                        @isset($fecha_inicio)
                                             value="{{$fecha_inicio}}"
                                         @endisset
                                     > 
@@ -52,14 +51,11 @@
                                             <path fill-rule="evenodd"
                                                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                                 clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        <button type="submit" class="btn boton-color px-2 ms-4 rounded">Buscar</button>                                    
-                                        @if (Request::is('busqueda'))
-                                            <a href="{{route('dashboard.backoffice')}}" class="btn boton-danger px-2 ms-4 rounded">Regresar</a>                                    
-                                        @endif                                      
+                                        </svg>
                                     </div>
-                                </form>
+                                    <button type="submit" class="btn boton-color px-2 ms-4 rounded">Buscar</button>
+                                </div>
+                            </form>
                             </div>
                         </div>
                     </div>

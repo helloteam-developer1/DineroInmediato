@@ -37,7 +37,7 @@ class TablaPagos extends Controller
         $pagos = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5)->concat($consulta6);
         
         $pagos2 =$pagos->unique('id_pago');
-        return view('backoffices.clientes.tablaPagos', ['tabla' => $pagos2,'num_credito'=> $request->num_credito,'paginate'=>0]);
+        return view('backoffices.clientes.tablaPagos', ['tabla' => $pagos2,'num_credito'=> $request->num_credito,'termino'=>$request->termino,'paginate'=>0]);
 
     }
     public function editar($id){

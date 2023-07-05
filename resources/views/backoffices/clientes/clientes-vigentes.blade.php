@@ -22,16 +22,23 @@
                                     <br />
                                 @enderror
                                 
-                                <div class="input-group">
-                                    <p class="my-2 mx-2">De</p> <input type="date" class="mx-3" placeholder="" name="fecha_inicio" id="fecha_inicio"> <img
+                                <div class="filtro-busqueda">
+                                    <p class="my-2 mx-2">De</p> <input type="date" class="mx-3" placeholder="" name="fecha_inicio" id="fecha_inicio" @isset($fecha_inicio)
+                                        value="{{$fecha_inicio}}"
+                                    @endisset> <img
                                     src=" {{asset('img/backoffices/CALENDARIO.png')}} " class="my-2 mx-2" width="30"
                                     height="30" alt="">
-                                <p class="mx-3 my-2">a</p> <input type="date" class="mx-3" placeholder="" name="fecha_termino" id="fecha_termino"><img
+                                <p class="mx-3 my-2">a</p> <input type="date" class="mx-3" placeholder="" name="fecha_termino" id="fecha_termino"
+                                @isset($fecha_termino)
+                                    value="{{$fecha_termino}}"
+                                @endisset><img
                                 src="{{asset('img/backoffices/CALENDARIO.png')}}" class="my-2 mx-2" width="30"
                                     height="30" alt="">
                                 <div class="input-wrapper">
                                     <input type="search" name="busqueda" id="" class="ms-1"
-                                        placeholder="Buscar" >
+                                        placeholder="Buscar" @isset($busqueda)
+                                            value="{{$busqueda}}"
+                                        @endisset>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20"
                                         fill="currentColor">
                                         <path fill-rule="evenodd"
@@ -40,6 +47,9 @@
                                     </svg>
                                 </div>
                                 <button type="submit" class="btn boton-color px-2 ms-4 rounded">Buscar</button>
+                                @if (Request::is('cliente-vigentes/busqueda'))
+                                    <a href="{{route('dashboard.clientesvig')}}" class="btn boton-danger px-2 ms-4 rounded">Regresar</a>                                    
+                                @endif  
                             </div>
                         </form>
                         </div>
