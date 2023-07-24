@@ -37,7 +37,7 @@ class Notificacion extends Component
                 'user_id' => $u,
                 'titulo_notf' => 'Titulo de prueba desde el backoffice',
                 'sub_notf' => 'Subtitulo de notificación desde el backoffice',
-                'cuerpo' => 'cuerpo de notificación desde el backoffice',
+                'cuerpo' => $this->mensaje,
                 'fecha_envio' => Carbon::now(),
                 'estado' => 0
             ]);  
