@@ -55,7 +55,8 @@
                                                 onclick="this.closest('form').submit()">
                                                 <img class="me-2"
                                                     src="{{ asset('img/assets/aplicacionCliente/Grupo 948.png') }}"
-                                                    alt="">
+                                                    width="20"
+                                                    alt="No se encontro icono cerrar sesión BackOffice">
                                                 Cerrar Sesión
                                             </a>
                                         </form>
