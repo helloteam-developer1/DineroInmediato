@@ -57,7 +57,7 @@
                         @enderror
                         <div class="mb-4 mx-3" style="margin-top:20px;">
                           <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancerlar</button>
-                          <button type="submit" class="btn btn-guardar" wire:click="registroP()">Guardar</button>
+                          <button type="submit" class="btn btn-guardar" wire:loading.attr="disabled" wire:click="registroP()">Guardar</button>
                         </div>
                 </div>
             </div>

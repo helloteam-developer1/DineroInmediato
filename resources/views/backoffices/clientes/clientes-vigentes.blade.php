@@ -88,7 +88,7 @@
                                                 <p class="encabezado-tabla-medio">Tabla de Amortización</p>
                                             </th>
                                             <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-medio">Núm Parcilidades</p>
+                                                <p class="encabezado-tabla-medio">Núm de pagos (Parcilidades)</p>
                                             </th>
                                             <th scope="col" class="px-5">
                                                 <p class="encabezado-tabla-medio">Tabla de Pago</p>
@@ -115,13 +115,26 @@
                                                     <td>{{$c->num_cliente}}</td>
                                                     <td>{{$c->nombre}}</td>
                                                     <td>{{$c->monto_aut}}</td>
-                                                    <td>{{ $c->tarjeta_reg }}</td>
+                                                    <td>
+                                                        @if (empty($c->tarjeta_reg))
+                                                            Sin Registro
+                                                        @else
+                                                            {{$c->tarjeta_reg}}
+                                                        @endif
+
+                                                    </td>
                                                     <td>
                                                         <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaAmortizacion/{{$c->credito_num}}'">
                                                             Ver
                                                         </button>
                                                     </td>
-                                                    <td>{{$c->num_pagos}}</td>
+                                                    <td>
+                                                        @if (empty($c->num_pagos))
+                                                            Sin registros
+                                                        @else
+                                                            {{$c->num_pagos}}
+                                                        @endif
+                                                    </td>
                                                 
                                                     <td>
                                                         <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaPagos/{{$c->credito_num}}'">
@@ -129,7 +142,11 @@
                                                         </button>
                                                     </td>
                                                     <td>
-                                                        {{$c->num_pagos_rest}}
+                                                        @if (empty($c->num_pagos_rest))
+                                                            Sin registros
+                                                        @else
+                                                            {{$c->num_pagos_rest}}
+                                                        @endif
                                                     </td>
                                                     <td>
                                                         @livewire('backoffice.carteravencida',['user'=>$c->id,'num_credito'=>$c->num_credito], key($c->id))

@@ -23,7 +23,7 @@ class TablaAmortizacion extends Component
         $ahora = Carbon::now()->format('Y');
         
         $this->fecha_inicio= $ahora.'-01-01';
-        $this->fecha_termino= $ahora.'-12-31'; 
+        $this->fecha_termino= ($ahora+1).'-12-31'; 
     }
 
     public function updatingBusqueda(){
@@ -39,7 +39,7 @@ class TablaAmortizacion extends Component
             
             if(empty($this->busqueda)){
                 $tabla = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
-                where('num_credito','=', $num_credito)->orderBy('numero_pagos', 'desc')->paginate(5);
+                where('num_credito','=', $num_credito)->orderBy('id_amortizacion', 'asc')->paginate(5);
                 
             }else{
                 $consulta1 = collect('');

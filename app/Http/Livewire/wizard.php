@@ -26,7 +26,11 @@ class wizard extends Component
     public $currentStep = 1;
 
     /*first step */
-    public $nombre, $curp , $dia,$mes,$year,$limite=31,$empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
+    public $nombre, $curp;
+    /* Fecha año bisiesto */
+    public $dia,$mes,$year,$limite=31;
+
+    public $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
     /*Second step */
     public $email, $password, $password_confirmation, $confirmacion;
     /*Three step*/
@@ -70,7 +74,6 @@ class wizard extends Component
         $year_actual = date('y');
         $year_adult = ($year_actual-18)+2000;
         $year_limit = (2000+$year_actual)-79;
-        $year_limit;
         $empresas = Empresas::get();
         return view('livewire.registroJCST.wizard', ['empresas' => $empresas,'year_adult'=>$year_adult, 'year_limit'=>$year_limit]);
     }
@@ -87,9 +90,7 @@ class wizard extends Component
                 }else{
                     $this->limite = 31;
                 }
-                
             }
-        
     }
 
     public function updatedYear(){
@@ -106,7 +107,7 @@ class wizard extends Component
                 'mes'=> 'required',
                 'year' => 'required',
                 'empresa_trabajo' => 'required|min:5|max:40|regex:/^[\pL\s\-]+$/u',
-                'antiguedad' => 'required|',
+                'antiguedad' => 'required',
                 'rama_empresa'=> 'required|min:5|max:250',
                 'banco_nomina'=> 'required|min:3|max:35',
                 'curp' => 'required|min:18|max:18|unique:users,curp',

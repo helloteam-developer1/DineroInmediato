@@ -103,9 +103,13 @@ class TablaAmortizacion extends Controller
                     'iva_io' => $iva_io,
                     'comisiones' =>$comisiones,
                     'pago_total_men' =>$pago_total_men
-                ]);
+                ]); 
+
+                $fecha_inicio = Amortizacion::where('num_credito','=',$num_cred)->orderby('id_amortizacion','asc')->value('prox_pago');
+                $fecha_termino = Amortizacion::where('num_credito','=',$num_cred)->orderby('id_amortizacion','desc')->value('prox_pago');
+                Credito::where('num_credito','=',$request->num_credito)->update(['fecha_termino'=>$fecha_termino,'fecha_inicio'=>$fecha_inicio]);
+
                 session()->flash('success');
-                $i = Credito::where('num_credito','=',$request->num_credito)->value('user_id');
                 return redirect()->route('tablaAmortizacion',$num_cred);
             }else{
                 session()->flash('error');

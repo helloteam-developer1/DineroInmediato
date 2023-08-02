@@ -27,7 +27,13 @@
                                     </div>
                                     @error('igual')
                                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> Los montos no son iguales.
+                                            <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    @enderror
+                                    @error('cero')
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     @enderror
@@ -47,8 +53,12 @@
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
+                                            @error('cero')
+                                                <span style="color:red;">{{$message}}</span>
+                                            @enderror
                                             @if (!empty($maximo))
-                                            <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
+                                                <br />
+                                                <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
                                             @else
                                                 <span></span>
                                             @endif
@@ -56,19 +66,19 @@
                                         <div class="mt-4">
                                             <label for="" class="pb-2">Confirmado de crédito
                                                     aprobado: 
-                                                @if (empty($confirmacion))
-                                                @else
-                                                
-                                                <span style="color:#38a937;">{{--'$'.number_format($confirmacion)--}}</span>
-                                                @endif</label>
+                                            </label>
                                                 <input type="text" name="" id="" class="form-control money"
                                                     placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="8">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
+                                                @error('cero')
+                                                    <span style="color:red;">{{$message}}</span>
+                                                @enderror
                                         </div>    
                                             @if (!empty($maximo))
-                                            <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
+                                                <br />
+                                                <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
                                             @else
                                                 <span></span>
                                             @endif
@@ -88,24 +98,17 @@
                                         <button type="button" class="btn px-4 my-2"
                                             style="background-color: #38a937; color:white; margin-right: 350px;"
                                             data-bs-dismiss="modal" wire:click="clear">Cancelar</button>
-                                        @if (empty($monto) || empty($confirmacion))
-                                            <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
-                                            wire:click="aceptar({{$user->id}})" disabled>Guardar</button>
-                                        @else
-                                            @if ($monto == $confirmacion)
-                                                @if (empty($maximo))
+                                        
                                                     <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
-                                                    wire:click="aceptar({{$user->id}})" >Guardar</button>
-                                                @else
-                                                    <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
-                                                    disabled >Guardar</button>                                                
-                                                @endif
-                                                    
-                                            @else
-                                                <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
-                                                 disabled>Guardar</button>
-                                            @endif
-                                        @endif
+                                                    @if ($errors->any())
+                                                        
+                                                        
+                                                        disabled
+                                                    @else
+                                                        wire:click="aceptar({{$user->id}})"
+                                                    @endif
+                                                    >Guardar</button>
+                                        
                                     </div>
                                 </div>
                             </div>

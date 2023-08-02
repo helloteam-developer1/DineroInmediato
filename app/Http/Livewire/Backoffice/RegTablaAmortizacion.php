@@ -24,6 +24,20 @@ class RegTablaAmortizacion extends Component
         'pago_t_mensual' => 'required|numeric'
     ];
 
+  /*   protected $messages = [
+        'num_credito.required' =>'El número de crédito es requerido.',
+        'num_credito.min' => 'El número de crédito debe tener minimo 6 caracteres'
+        'num_credito.numeric' => 
+        'num_credito.num_pagos' =>'required|numeric',
+        'interes_anual' => 'required|numeric',
+        'prox_pago' => 'required|date',
+        'pago_capital' => 'required|numeric',
+        'interes_o' => 'required|numeric',
+        'iva_io' => 'required|numeric',
+        'comisiones' => 'required|numeric',
+        'pago_t_mensual' => 'required|numeric'
+    ]; */
+
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -62,6 +76,7 @@ class RegTablaAmortizacion extends Component
             'fecha_inicio'=> $primero->prox_pago,
             'fecha_termino' =>$ultimo->prox_pago
         ]);
-        $this->emit('registro');
+        session()->flash('registro','El registro se creo con exito');
+        $this->emit('registro',$num_credito);
     }
 }

@@ -16,6 +16,7 @@ class AcepSolicitud extends Component
     public $user, $monto,$confirmacion, $monto_modificado;
     public $success='',$maximo="";
     public $monto_sol=0;
+
     public function mount(User $user){
         $this->user = $user;
         $this->monto_sol = Solicitud_Credito::where('user_id','=',$user->id)->value('monto');
@@ -28,7 +29,6 @@ class AcepSolicitud extends Component
     ];
     
     public function aceptar($id){
-
         $this->validate();
         if($this->monto == $this->confirmacion){
            if(strcmp($this->monto,$this->confirmacion)==0){
@@ -41,15 +41,16 @@ class AcepSolicitud extends Component
                 $this->generarnum($id);         
             }
            }
+           $this->emit('alert');
+           $this->reset(['monto','confirmacion']);
         }else{
             $this->addError('igual','Los montos no son iguales.');
         }
-        $this->emit('alert');
-        $this->reset(['monto','confirmacion']);
     }
 
     public function updated($propertyName){
         $this->reset('maximo');
+        $this->resetErrorBag();
         $this->validateOnly($propertyName);
     }
     public function updatedMonto(){
@@ -59,10 +60,20 @@ class AcepSolicitud extends Component
          if(is_numeric($nuevo)){
             if($nuevo>=100000){
                 $this->maximo = "El monto no puede superar los $100,000.00";
+                $this->addError('maximo','El monto');
                 $this->monto = '$'.number_format(100000,2);
-            }else{
-                $this->monto = '$'.number_format($nuevo,2);
-            }            
+            }
+            else{
+                if($nuevo<=0){
+                    $this->addError('cero','El monto no puede ser menor a 0');
+                }else{                    
+                    $this->monto = '$'.number_format($nuevo,2);
+                    if(strcmp($this->monto,$this->confirmacion)!==0){
+                        $this->addError('igual','Los montos no son iguales');
+                    }
+                }
+            }
+
         }else{           
             $this->maximo = "Error solo se permiten numeros";
         }
@@ -75,12 +86,17 @@ class AcepSolicitud extends Component
         if(is_numeric($nuevo1)){
             if($nuevo1>=100000){
                 $this->maximo = "El monto no puede superar los $100,000.00";
+                $this->addError('maximo','El monto');
                 $this->confirmacion = '$'.number_format(100000,2);
             }else{
-                $this->confirmacion = '$'.number_format($nuevo1,2);
-            }
-            if($this->monto!=$this->confirmacion){
-                $this->addError('igual','Los montos no son iguales');
+                if($nuevo1<=0){
+                    $this->addError('cero','El monto confirmación puede ser menor a 0');
+                }else{
+                    $this->confirmacion = '$'.number_format($nuevo1,2);
+                    if(strcmp($this->monto,$this->confirmacion)!==0){
+                        $this->addError('igual','Los montos no son iguales');
+                    }
+                }
             }
         }else{
             $this->maximo = "Error solo se permiten numeros";

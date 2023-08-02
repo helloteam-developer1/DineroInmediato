@@ -232,15 +232,34 @@
                             </tr>
                             <tr>
                                 <td class="border text-center">{{$credito->monto_aut;}}</td>
-                                <td class="border text-center">{{$credito->fecha_inicio;}}</td>
+                                <td class="border text-center">
+                                    @if (empty($credito->fecha_inicio))
+                                        En proceso
+                                    @else
+                                        {{--Revisar que se modifique la fecha de termino y de inicio--}}
+                                        {{$credito->fecha_inicio;}}
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th class="border text-center" scope="col">Número de pagos</th>
                                 <th class="border text-center" scope="col">Fecha de término del crédito</th>
                             </tr>
                             <tr>
-                                <td class="border text-center">{{$credito->num_pagos;}}</td>
-                                <td class="border text-center">{{$credito->fecha_termino;}}</td>
+                                <td class="border text-center">
+                                    @if (empty($credito->num_pagos))
+                                        En proceso
+                                    @else
+                                        {{$credito->num_pagos;}}
+                                    @endif
+                                </td>
+                                <td class="border text-center">
+                                    @if (empty($credito->fecha_termino))
+                                        En proceso
+                                    @else
+                                        {{$credito->fecha_termino;}}
+                                    @endif
+                                </td>
                             </tr>
                             @else
                             <tr>

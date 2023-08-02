@@ -13,10 +13,10 @@ class RegTablapagos extends Component
     public $num_credito, $n_credito;
     public $numero_pagos, $fecha_pago,$monto_pago,$saldo_insoluto=0,$pago_rest=0,$resta_pagar=0;
     protected $rules = [
-        'n_credito' => 'required',
+        'n_credito' => 'required|exists:credito,num_credito',
         'numero_pagos' => 'required|numeric',
         'fecha_pago' => 'required|date',
-        'monto_pago' => 'required|numeric',
+        'monto_pago' => 'required|numeric'
     ];
     public function updated($propertyName)
     {
@@ -47,7 +47,7 @@ class RegTablapagos extends Component
                     $this->registro();
                 }
                 $this->pagosrestantes();    
-                $this->emit('registro');
+                $this->emit('registroP',$this->num_credito);
             }
         }
     }

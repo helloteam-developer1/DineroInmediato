@@ -99,30 +99,51 @@
                 location.reload();
             }, 1600);
         });
-        Livewire.on('registro', function() {
+        Livewire.on('registro', num_credito => {
             Swal.fire({
                 icon: 'success',
                 title: 'Registro con Exito',
-                footer:'Espere...',
+                timer: 1800,
+                footer: 'Espere...',
                 showConfirmButton: false,
-                timer: 1500,
+            }).then((result)=>{
+                window.location.href='http://dineroinmediato.test/tablaAmortizacion/'+num_credito    
             });
-            setTimeout(() => {
-                location.reload();
-            }, 1600);
         });
-        Livewire.on('eliminar', function() {
+        Livewire.on('registroP', num_credito => {
             Swal.fire({
                 icon: 'success',
-                title: 'Registro Eliminado con Exito!',
-                footer:'Espere...',
+                title: 'Registro creado con Exito',
+                timer: 1800,
+                footer: 'Espere...',
                 showConfirmButton: false,
-                timer: 1500,
+            }).then((result)=>{
+                window.location.href='http://dineroinmediato.test/tablaPagos/'+num_credito    
             });
-            setTimeout(() => {
-                location.reload();
-            }, 1600);
         });
+        Livewire.on('eliminar', num_credito => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro eliminado con Exito',
+                timer: 1800,
+                footer: 'Espere...',
+                showConfirmButton: false,
+            }).then((result)=>{
+                window.location.href='http://dineroinmediato.test/tablaAmortizacion/'+num_credito    
+            });
+        });
+        Livewire.on('eliminarP', num_credito => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro eliminado con Exito',
+                timer: 1800,
+                footer: 'Espere...',
+                showConfirmButton: false,
+            }).then((result)=>{
+                window.location.href='http://dineroinmediato.test/tablaPagos/'+num_credito    
+            });
+        });
+        
         Livewire.on('error_p', function() {
             Swal.fire({
                 icon: 'error',

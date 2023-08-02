@@ -128,7 +128,7 @@
                     @if (Request::is('busqueda/Amortizacion'))
                         <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                             <button type="button" class="btn px-5 my-3 "
-                                style="background-color: #28a937; color:white; font-size: 20px;" onClick="history.go(-1); return false;">Volver</button>
+                                style="background-color: #28a937; color:white; font-size: 20px;" onclick="window.location.href='{{route('tablaAmortizacion',$num_credito)}}'">Volver</button>
                         </div>
                     @else
                         <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">

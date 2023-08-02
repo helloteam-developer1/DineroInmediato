@@ -26,6 +26,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-10 offset-md-3 offset-lg-1">
                                             <p class="text-secondary" style="font-size: 18px;">¿Estás seguro de eliminar el registro?</p>
                                             <p style="color: red; "> Esta acción no se podrá deshacer.</p>
+                                            <p>{{$mensaje}}</p>
                                         </div>
                                     </div>
                                 </div>
