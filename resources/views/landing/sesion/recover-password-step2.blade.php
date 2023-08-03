@@ -118,7 +118,7 @@ function loaded() {
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content" style="margin: 40px;">
         
-         <center><h1 class="titulo-modal" id="exampleModalLabel">Cambio Exitoso</h1></center>
+         <center><h1 class="titulo-modal" id="exampleModalLabel">Cambio con éxito</h1></center>
        
         <div class="modal-body" >
           <p>Se ha creado tu contraseña con éxito, ya puedes ingresar nuevamente a nuestra aplicación.</p>

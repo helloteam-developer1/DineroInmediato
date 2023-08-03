@@ -48,7 +48,14 @@ class NewPasswordController extends Controller
                 'max:20',
                 'min:8',
                 'regex:/^[A-Za-z0-9]+$/u'],
-            ]);
+            ],
+            [  
+                'password.required' => 'Todos los campos son obligatorios',
+                'token.required' => 'El token ya fue utilizado por favor solicita uno nuevo',
+                'password.confirmed' => 'Las contraseñas no coinciden favor de volver a intenterlo',
+
+            ]
+        );
     
             $status = Password::reset(
                 $request->only('email', 'password', 'password_confirmation', 'token'),

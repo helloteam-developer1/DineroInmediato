@@ -29,7 +29,7 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request)
     {
-        if(is_numeric($request->campo)){
+        /* if(is_numeric($request->campo)){
 
             $request->validate(
                 [
@@ -59,7 +59,7 @@ class PasswordResetLinkController extends Controller
                 
             }
             
-        }else{
+        }else{ */
             $request->validate(
                 [
                     'campo' => ['email','required'],
@@ -87,7 +87,7 @@ class PasswordResetLinkController extends Controller
                                     ->withErrors(['email' => __($status)]);
                 
                 
-            }
+           /*  } */
         }
         /*
         */

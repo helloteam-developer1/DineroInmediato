@@ -40,6 +40,25 @@
     @livewireScripts
 
     <style>
+        .closeModal{
+            font-size: 2rem;
+        }
+        .modal-title{
+             font-size: 2.5rem;
+        }
+        .acept{
+            background: #38A937;
+            font-size: 28px
+        }
+        .modal-body{
+            font-size: 22px;
+        }
+        .titulo-modal{
+            color:#38A937;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
         .solicita:hover{
             background: #da8b0c !important;
 
@@ -50,7 +69,7 @@
             background: #f5a82d !important;
             color: white;
         }
-        .btn-verde:{
+        .btn-verde{
             background: #38A937
         }
         .btn-verde:hover{
