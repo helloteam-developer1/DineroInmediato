@@ -13,7 +13,7 @@
                                 @if ($message=='Todos los campos son obligatorios')
                                     Campos obligatorios
                                 @else
-                                    Contraseña invalida
+                                    Contraseña inválida
                                 @endif
                                 @enderror
                                 @error('token')
