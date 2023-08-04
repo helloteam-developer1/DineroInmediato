@@ -1,3 +1,36 @@
+<style>
+        /* Estilo para la tabla */
+    .table {
+    font-size: 12px; /* Tamaño de fuente general de la tabla */
+    }
+
+    /* Estilo para el encabezado de la tabla */
+    .table thead th {
+    padding: 0.1rem 0.02rem; /* Espaciado interno del encabezado */
+    }
+
+    /* Estilo para las celdas de datos de la tabla */
+    .table tbody td {
+    padding: 0.1rem 0.02rem; /* Espaciado interno de las celdas */
+    }
+
+    .table td,
+    .table th {
+    text-align: center;
+    vertical-align: middle;
+    }
+    
+    input[type="date"] {
+        text-align: center;
+        height: 90px; /* Altura deseada para la caja de entrada */
+        font-size: 13px; /* Tamaño de fuente deseado para la caja de entrada */
+        padding: 6px; /* Espacio interno deseado para la caja de entrada */
+        min-width: 110px; /* Ancho deseado para la caja de entrada */
+        max-width: 110px; /* Ancho deseado para la caja de entrada */
+}
+</style>
+
+
 @extends('backoffices.layouts.base')
     @section('titulo', 'Clientes Vigentes')
     @section('contenido')
@@ -69,40 +102,40 @@
                                 <table class="table table-striped table-bordered border-secondary" >
                                     <thead>
                                         <tr class="table-secondary">
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Número de Crédito</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Número de Cliente</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-pequeño">Nombre</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">linea de Crédito Aut</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Tarjeta de Nóm Reg</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Tabla de Amortización</p>
                                             </th>
-                                            <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-medio">Núm de pagos (Parcilidades)</p>
+                                            <th scope="col" class="">
+                                                <p class="encabezado-tabla-medio">Núm Parcilidades</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Tabla de Pago</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Número de Pagos Rest</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla">Enviar Cartera Vencida</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Más Información</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Finalizar Crédito</p>
                                             </th>
                                         </tr>
