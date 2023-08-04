@@ -21,7 +21,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-                                        <table class="table table-striped table-bordered border-secondary">
+                                        <table class="table table-striped table-bordered ">
                                             <thead>
                                                 <tr>
                                                     <th scope="col" class="text-center" style="font-size: 20px">
