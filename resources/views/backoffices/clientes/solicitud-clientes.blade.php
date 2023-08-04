@@ -1,3 +1,35 @@
+<style>
+        /* Estilo para la tabla */
+    .table {
+    font-size: 12px; /* Tamaño de fuente general de la tabla */
+    }
+
+    /* Estilo para el encabezado de la tabla */
+    .table thead th {
+    padding: 0.1rem 0.02rem; /* Espaciado interno del encabezado */
+    }
+
+    /* Estilo para las celdas de datos de la tabla */
+    .table tbody td {
+    padding: 0.1rem 0.02rem; /* Espaciado interno de las celdas */
+    }
+
+    .table td,
+    .table th {
+    text-align: center;
+    vertical-align: middle;
+    }
+    
+    input[type="date"] {
+        text-align: end;
+    height: 90px; /* Altura deseada para la caja de entrada */
+    font-size: 13px; /* Tamaño de fuente deseado para la caja de entrada */
+    padding: 6px; /* Espacio interno deseado para la caja de entrada */
+    min-width: 110px; /* Ancho deseado para la caja de entrada */
+    max-width: 110px; /* Ancho deseado para la caja de entrada */
+}
+</style>
+
 @extends('backoffices.layouts.base')
     @section('titulo', 'Solicitud de Clientes')
     @section('contenido')
@@ -7,7 +39,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
-                            <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
+                            <div class="col-8 col-sm-10 col-md-12 col-lg-12 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
                             <form method="" action="{{route('busqueda')}}" id="formulario">
                                 
                                 @csrf
@@ -69,32 +101,32 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 ">
                             <div class="table-responsive text-center">
                                 <!--inicio tabla de solicitudes--->
                                 <table class="table table-striped table-bordered border-secondary" id="tabla-Solicitud">
                                     <thead>
                                         <tr class="table-secondary">
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio"></p>Nombre
                                             </th>
-                                            <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-pequeño"></p>Ocupación Profesional
+                                            <th scope="col" class="">
+                                                <p class="encabezado-tabla-medio"></p>Ocupación Profesional
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio"></p>Ingreso Mensual
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio"></p>¿Cuenta con nomina?
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio"></p>¿Cuenta con un crédito hipotecario?
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-pequeño"></p>CURP
                                             </th>
-                                            <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-pequeño"></p>Fecha de Nacimiento
+                                            <th scope="col" class="">
+                                                <p class="encabezado-tabla-medio"></p>Fecha de Nacimiento
                                             </th>
                                             <th scope="col" class="px-5">
                                                 <p class="encabezado-tabla-pequeño"></p>Nombre de la empresa
