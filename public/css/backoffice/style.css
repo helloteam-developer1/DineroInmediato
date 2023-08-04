@@ -18,7 +18,7 @@
 }
 /* variables de colores */
 :root {
-    --green: #06da3b;
+    --green: #34AD54;
     --gray: #E9E7E7;
     --naranja: #f29100;
     --blanco: #fff;
@@ -430,6 +430,9 @@ body{
       }
     .boton-movil-gris{
         margin-left: 100px;
+      }
+      .h1{
+        font-size: 1rem;
       }
   }
   @media(max-width: 575px){
