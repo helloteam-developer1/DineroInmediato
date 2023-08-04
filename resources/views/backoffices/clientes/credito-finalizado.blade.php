@@ -1,3 +1,35 @@
+<style>
+        /* Estilo para la tabla */
+    .table {
+    font-size: 12px; /* Tamaño de fuente general de la tabla */
+    }
+
+    /* Estilo para el encabezado de la tabla */
+    .table thead th {
+    padding: 0.1rem 0.02rem; /* Espaciado interno del encabezado */
+    }
+
+    /* Estilo para las celdas de datos de la tabla */
+    .table tbody td {
+    padding: 0.1rem 0.02rem; /* Espaciado interno de las celdas */
+    }
+
+    .table td,
+    .table th {
+        text-align: center;
+    vertical-align: middle;
+    }
+    
+    input[type="date"] {
+        text-align: center;
+    height: 90px; /* Altura deseada para la caja de entrada */
+    font-size: 13px; /* Tamaño de fuente deseado para la caja de entrada */
+    padding: 6px; /* Espacio interno deseado para la caja de entrada */
+    min-width: 110px; /* Ancho deseado para la caja de entrada */
+    max-width: 110px; /* Ancho deseado para la caja de entrada */
+}
+</style>
+    
     @extends('backoffices.layouts.base')
     @section('titulo', 'Clientes')
     @section('icono')
@@ -61,7 +93,7 @@
                 </div>
             </div>
         <!--Fin del apartado de busqueda-->
-        <div class="container-fluid mt-5">
+        
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
@@ -71,19 +103,19 @@
                                 <table class="table table-striped table-bordered border-secondary" >
                                     <thead>
                                         <tr class="table-secondary">
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Nombre</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Núm de crédito</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Crédito Activo</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla-medio">Historial de pago</p>
                                             </th>
-                                            <th scope="col" class="px-5">
+                                            <th scope="col" class="">
                                                 <p class="encabezado-tabla">Historial de montos Auto</p>
                                             </th>
                                         </tr>
@@ -126,7 +158,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     @endsection
     
     
