@@ -2,8 +2,10 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
+        <button type="button" class="btn-close ms-auto mt-4 me-4" data-bs-dismiss="modal" aria-label="Close"></button>
+
             <div class="modal-header" style="border: none;">
-                <h1 class="modal-title col-11 text-center p-medium" id="exampleModalLabel" style="color: #4A9D22; font-size: 50px;">
+                <h1 class="modal-title col-11 text-center p-medium" id="exampleModalLabel" style="color: #4A9D22; font-size: 1.8rem;">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     @switch($estado)
                         @case(1)
@@ -18,14 +20,14 @@
                         @default
                     @endswitch
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               
             </div>
             <div class="modal-body ms-5 me-5">
                 <hr>
                 @if ($estado==1)
                     <p style="color:#da8b0c; font-size:20px;">Crédito en marcha</p>
                 @endif
-                <p class="p-regular" style="font-size: 20px; color:#474747;">
+                <p class="p-regular" style="font-size: 1.2rem; color:#474747; text-align: justify;">
                     @switch($estado)
                         @case(1)
                                 Para solicitar un nuevo crédito usted debe liquidar el crédito. Anticipe pagos para
