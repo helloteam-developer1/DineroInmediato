@@ -1,3 +1,11 @@
+<style>
+    .label-izquierda {
+    text-align: left;
+    
+    width: 100%;
+    }
+</style>
+
 <div>
 
     <button class="btn boton-color boton-aceptar-solic" data-bs-toggle="modal" data-bs-target="#AceptarSolicitud{{$user->id}}" >Aceptar Solicitud</button>
@@ -42,10 +50,10 @@
                                             <p>{{$success}}</p>
                                         @endif
                                         <div>
-                                            <label for="" class="pb-2">Monto solicitado: <span style="color:#39A935; font-weight:800;">${{number_format($monto_sol)}}</span></label>
+                                            <label for="" class="pb-2 label-izquierda">Monto solicitado: <span style="color:#39A935; font-weight:800;">${{number_format($monto_sol)}}</span></label>
                                         </div>
                                         <div class="mt-4">
-                                            <label for="" class="pb-2">Monto de crédito aprobado: 
+                                            <label for="" class="pb-2 label-izquierda">Monto de crédito aprobado: 
                                             </label>
                                             <input type="text" name="number" id=""
                                                 class="form-control money" placeholder="$2500"
@@ -64,7 +72,7 @@
                                             @endif
                                         </div>
                                         <div class="mt-4">
-                                            <label for="" class="pb-2">Confirmado de crédito
+                                            <label for="" class="pb-2 label-izquierda">Confirmado de crédito
                                                     aprobado: 
                                             </label>
                                                 <input type="text" name="" id="" class="form-control money"
