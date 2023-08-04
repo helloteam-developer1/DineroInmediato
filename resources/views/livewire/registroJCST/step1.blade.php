@@ -1,11 +1,19 @@
 <div class="container">
     <div class="row setup-content {{ $currentStep != 1 ? 'displayNone' : '' }} justify-content-center" id="step-1" >
                     
-        <div class="cab">
-            <p class="texto">Tu tienes una línea de crédito pre aprobada con nosotros, está línea de crédito se debe verificar por expertos, 
-                para ello te solicitaremos una serie de documentos que puedes ingresar en el momento de tu registro o más adelante.</p>
-            <p class="titulo-naranja">Llena tu registro para continuar</p>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-lg-10 text-lg-center">
+                <div class="cab">
+                    <p class="texto">Tu tienes una línea de crédito pre aprobada con nosotros, está línea de crédito se debe verificar por expertos, 
+                        para ello te solicitaremos una serie de documentos que puedes ingresar en el momento de tu registro o más adelante.</p>
+                    <p class="titulo-naranja text-md">Llena tu registro para continuar</p>
+                </div>
+            </div>
+            <div class="col-1"></div>
         </div>
+
+
         
     
         {{--Inicio de campos del Formulario --}}
@@ -112,8 +120,8 @@
                         </div>
                     </div>
                     <div>
-                        <a class="btn btn-cont btn-md btn-block"  style="float: left; margin-bottom: 10px;" onclick="window.location.href='{{route('home')}}'">Regresar</a>
                         <a class="btn btn-reg btn-md btn-block"  wire:click="firstStepSubmit" style="float: right; margin-bottom:10px;">Continuar</a>
+                        <a class="btn btn-cont btn-md btn-block"  style="float: left; margin-bottom: 10px;" onclick="window.location.href='{{route('home')}}'">Regresar</a>
                     </div>
                 
         
