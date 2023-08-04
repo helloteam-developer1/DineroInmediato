@@ -36,8 +36,9 @@
             </div>
                 <div class="row">
                     <div>
-                        <a class="btn btn-cont btn-md btn-block"  style="float: left ;margin-bottom: 10px" wire:click="back(1)">Regresar</a>
                         <a class="btn btn-reg btn-md btn-block"  wire:click="secondStepSubmit" style="float: right; margin-bottom: 10px">Continuar</a>
+                        <a class="btn btn-cont btn-md btn-block"  style="float: left ;margin-bottom: 10px" wire:click="back(1)">Regresar</a>
+                        
                     </div>
                 </div>
                 

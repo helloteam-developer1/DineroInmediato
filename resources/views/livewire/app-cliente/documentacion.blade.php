@@ -1,10 +1,32 @@
+<style>
+  @media screen and (min-width: 768px) {
+            .img-large {
+                width: 100%;
+                margin-right: 10px;
+                height: auto;
+            }
+        }
+
+        /* Estilos para pantallas pequeñas (menores a 768px) */
+        @media screen and (max-width: 767px) {
+            .img-small {
+                width: 100%;
+                
+                height: auto;
+            }
+        }
+
+</style>
 <div>
     <!--Mensajes para el usuario-->
     @if (session()->has('inefrente'))
+    <div style="display:flex; justify-content:center; align-items:center; flex-direction:colum;">
       <div class="alert alert-success">
         {{session('inefrente')}}
-         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right;"></button>
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
+    </div>
+      
     @endif
     @if (session()->has('inereverso'))
       <div class="alert alert-success">
@@ -13,10 +35,7 @@
       </div>
     @endif
     @if (session()->has('comp_dom'))
-      <div class="alert alert-success">
-        {{session('comp_dom')}}
-         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right;"></button>
-      </div>
+      
     @endif
     @if (session()->has('fotocine'))
       <div class="alert alert-success">
@@ -33,37 +52,41 @@
       </center>
     @enderror
     
-    <div class="row">
+    <div style="  justify-content:center; align-items:center; flex-direction:row;">
       
         {{-- alerta de carga ine frente --}}
-        <div wire:loading wire:target="ine_frente" class="alerta alert" role="alert">
+        
+          <div wire:loading wire:target="ine_frente" class="alerta alert" role="alert" style="width: 80%;">
             <center>
-                <p class="titulo-alert">Espera estamos cargando Ine Frente...</p>
-                <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
+              <p class="titulo-alert">Espera estamos cargando Ine Frente...</p>
+              <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
-        </div>
+            
+          </div>
+       
+    
         {{-- alerta de carga reverso --}}
-        <div wire:loading wire:target="ine_reverso" class="alerta alert" role="alert">
+        <div wire:loading wire:target="ine_reverso" class="alerta alert" role="alert" style="width: 80%;">
             <center>
                 <p class="titulo-alert">Espera estamos cargando Ine Reverso...</p>
                 <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
         {{-- alerta de carga comprobante de docmicilio --}}
-        <div wire:loading wire:target="comp_dom" class="alerta alert" role="alert">
+        <div wire:loading wire:target="comp_dom" class="alerta alert" role="alert" style="width: 80%;">
             <center>
                 <p class="titulo-alert">Espera estamos cargando comprobante de domicilio...</p>
                 <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
         {{-- alerta de carga foto con ine --}}
-        <div wire:loading wire:target="foto_cine" class="alerta alert" role="alert">
+        <div wire:loading wire:target="foto_cine" class="alerta alert" role="alert" style="width: 80%;">
             <center>
                 <p class="titulo-alert">Espera estamos cargando foto con ine...</p>
                 <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
-        <div wire:loading wire:target="subirIMG" class="alerta alert" role="alert">
+        <div wire:loading wire:target="subirIMG" class="alerta alert" role="alert" style="width: 80%;">
           <center>
               <p class="titulo-alert">Cargando...</p>
               <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
@@ -88,35 +111,42 @@
       @default
         @include('appCliente.documentacion.documentacionrevision')
     @endswitch
-    <div class="container" style="margin: 20px;">
-      <div class="row mb-3 j ustify-content-center">
-          <div class="col-8">
+    
+        <div class="row mb-2 justify-content-start">
+          <div class="col">
             @switch($documentacion)
-              @case(1)
-                <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%" height="auto">
+            @case(1)
+                <img src="img/assets/aplicacionCliente/Grupo 117.png" alt=""  class="img-large img-small">
                 <span>La información es correcta y ha sido verificada.</span>
               @break
+
               @case(3)
-                <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" style="margin-right: 5px;" width="6%" height="auto">
-                <span>Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
+              <div class="row justify-content-end align-items-center">
+                  <div class="col-lg-1 col-2 ml-auto"> <!-- Columna para la imagen en pantallas grandes y medianas -->
+                      <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" class="img-large img-small">
+                  </div>
+                  <div class="col-lg-11 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
+                  <span style="border-color: red;">Favor de subir un documento válido, actual o vigente.</span>
+                  </div>
+              </div> 
               @break
               @case(2)
-                <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="6%" height="auto">
-                <span style="border-color: red;">X Favor de subir un documento válido, actual o vigente.</span>
+                <img src="img/assets/aplicacionCliente/Grupo 444.png" alt=""  class="img-large img-small"">
+                <span style="border-color: red;">Favor de subir un documento válido, actual o vigente.</span>
               @break
               @default
               
             @endswitch
-
+          <br>
 
           </div>
-          <div class="col">
-              @if ($documentacion==1)
-                <a class="btn btn-Guardar" >Guardar</a>
-              @endif
-              @if ( $documentacion==3 || $documentacion==4)
-                <a class="btn btn-Guardar" wire:click="subirIMG">Guardar</a>
-              @endif
+          <div class="col-lg-2 col-12 ">
+            @if ($documentacion == 1)
+                <a class="btn btn-Guardar btn-block w-100">Guardar</a>
+            @endif
+            @if ($documentacion == 3 || $documentacion == 4)
+                <a class="btn btn-Guardar btn-block w-100" wire:click="subirIMG">Guardar</a>
+            @endif
               @if ($documentacion==2)
               <!-- Button trigger modal -->
                 <button type="button" class="btn btn-Guardar" data-bs-toggle="modal" data-bs-target="#ModalDias">
@@ -142,6 +172,6 @@
                 </div>
               @endif
           </div>
-      </div>
-  </div>
+        </div>
+  
 </div>

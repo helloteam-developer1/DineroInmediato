@@ -27,7 +27,7 @@
               <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
-        <input type="password" id="actual" class="form-control" placeholder="* Contraseña Actual" wire:model.defer="actual" name="actual" maxlength="50" required style="margin-bottom: 15px;">
+        <input type="password" id="actual" class="form-control" placeholder="* Contraseña Actual" wire:model.defer="actual" name="actual" maxlength="50" required style="margin-bottom: 5px;">
         @if ($errors->has('actual'))
             <span style="color:brown;">{{ $errors->first('actual') .$actual}}</span>
         @endif 

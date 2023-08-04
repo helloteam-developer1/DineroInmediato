@@ -1,3 +1,11 @@
+<style>
+    .table {
+    font-size: 12px; /* Tamaño de fuente general de la tabla */
+    }
+
+
+</style>
+
 @extends('backoffices.layouts.base')
     @section('titulo', 'Clientes Vigentes')
     @section('contenido')

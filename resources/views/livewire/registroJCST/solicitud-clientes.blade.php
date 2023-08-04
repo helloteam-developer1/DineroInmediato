@@ -80,15 +80,7 @@
                                             <th scope="col" class="px-5">
                                                 <p class="encabezado-tabla-medio"></p>Ingreso Mensual
                                             </th>
-                                            <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-medio"></p>¿Cuenta con nomina?
-                                            </th>
-                                            <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-medio"></p>¿Cuenta con un crédito hipotecario?
-                                            </th>
-                                            <th scope="col" class="px-5">
-                                                <p class="encabezado-tabla-pequeño"></p>CURP
-                                            </th>
+                                            
                                             <th scope="col" class="px-5">
                                                 <p class="encabezado-tabla-pequeño"></p>Fecha de Nacimiento
                                             </th>

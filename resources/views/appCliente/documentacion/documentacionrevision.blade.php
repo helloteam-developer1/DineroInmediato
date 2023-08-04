@@ -1,4 +1,13 @@
-<h1>Credito en Revision</h1>
+<style>
+    @media (min-width: 992px) {
+    .mover-derecha {
+        margin-left: 230px;
+    }
+}
+</style>
+
+<h1 class="texto-carotSans--Medium titulo mover-derecha" style="color: #4A9D22; font-size: 2rem;">Credito en Revision</h1>
+
 <div class="row mb-3 justify-content-center">
     <label for="inputEmail3" class="col-sm-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; font-size: 20px;">INE Frente</label>
     <div class="col-sm-2">

@@ -6,13 +6,15 @@
                 <div class="row empresa">
                     <p class="titulo-naranja">Datos de contacto</p>
                     <p class="titulo-campo">Datos obligatorios(*)</p>
-                    <input class="form-control" type="tel" placeholder="* Teléfono de contacto a 10 digitos" name="telefono_contacto" wire:model.defer="telefono_contacto" name="telefono_contacto" maxlength="10" required>
-                    @if ($errors->has('telefono_contacto'))
-                        <span style="color:brown;">{{ $errors->first('telefono_contacto') }}</span>
-                    @endif
+                    <div class="col-sm">
+                        <input class="form-control" type="tel" placeholder="* Teléfono de contacto a 10 digitos" name="telefono_contacto" wire:model.defer="telefono_contacto" name="telefono_contacto" maxlength="10" required>
+                        @if ($errors->has('telefono_contacto'))
+                            <span style="color:brown;">{{ $errors->first('telefono_contacto') }}</span>
+                        @endif
+                    </div>
                 </div>
                 <div class="row empresa">
-                    <p style="font-size: 1.5rem; color:#da8b0c;">Dirección:</p>
+                    <p class="titulo-naranja text-left" style="font-size: 1.5rem;">Dirección</p>
                     <div class="col">
                         <input type="text" class="form-control"  pattern="[a-zA-Z ]{2,254}" placeholder="* Calle" wire:model.defer="calle" name="calle" maxlength="30" required><br/>
                         @error('calle')
@@ -35,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-sm mb-4">
                         <input type="text" class="form-control"  pattern="[a-zA-Z ]{2,254}" placeholder="* Colonia" wire:model.defer="colonia" name="colonia" maxlength="72" required><br/>
                         @error('colonia')
                             <span style="color:brown;">{{$message}}</span>
@@ -75,8 +77,8 @@
                 </div>
                  <div class="row">
                     <div>
-                        <a class="btn btn-cont btn-md btn-block"  style="float: left ;margin-bottom: 10px" wire:click="back(2)">Regresar</a>
                         <a class="btn btn-reg btn-md btn-block"  wire:click="threeStepSubmit" style="float: right; margin-bottom: 10px">Continuar</a>
+                        <a class="btn btn-cont btn-md btn-block"  style="float: left ;margin-bottom: 10px" wire:click="back(2)">Regresar</a>
                     </div>
                 </div>
                     
