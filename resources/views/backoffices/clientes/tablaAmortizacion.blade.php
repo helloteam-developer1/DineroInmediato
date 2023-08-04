@@ -1,3 +1,32 @@
+<style>
+        /* Estilo para la tabla */
+    .table {
+    font-size: 10px; /* Tamaño de fuente general de la tabla */
+    
+    }
+
+    /* Estilo para el encabezado de la tabla */
+    .table thead th {
+    padding: 0.0rem 0.0rem; /* Espaciado interno del encabezado */
+    text-align: center;
+    vertical-align: middle;
+    }
+
+    /* Estilo para las celdas de datos de la tabla */
+    .table tbody td {
+    padding: 0.0rem 0.0rem; /* Espaciado interno de las celdas */
+    
+    }
+
+    .table th,
+    .table  td{
+    text-align: center;
+    vertical-align: middle;
+    
+    }
+    
+</style>
+
 @extends('backoffices.layouts.basesinmenu')
 @section('titulo', 'Tabla de Amortización')
 @section('icono')
@@ -40,7 +69,7 @@
     <!-- fin apartado de busqueda-->
 
     <!-- inicio tabla de elementos buscados-->
-    <div class="container-fluid mt-5">
+    <div class="container-fluid ">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
@@ -51,17 +80,17 @@
                                 id="tabla-amortizacion">
                                 <thead>
                                     <tr class="table-light">
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de cred</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de pago </p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Interes Anual (CAT) </p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Próximo pago </p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Pago a capital</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Interés ordinarios</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-medio">IVA interés ordinario</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Comisiones</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Pago total mensual</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Editar</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Eliminar fila</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Núm de cred</p></th>
+                                        <th scope="col" class="px-1"><p class="">Núm de pago </p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Interes Anual (CAT) </p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Próximo pago </p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Pago a capital</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Interés ordinarios</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">IVA interés ordinario</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Comisiones</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Pago total mensual</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Editar</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Eliminar fila</p></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,7 +108,7 @@
                                                 <td>{{number_format($t->pago_total_men)}}</td>    
                                                 <td>
                                                     <a href="{{route('editarAmortizacion',$t->id_amortizacion)}}">
-                                                        <img src="{{ asset('img/backoffices/Grupo 783.png') }}" style="cursor: pointer;"  class="my-3" width="40" alt="">
+                                                        <img src="{{ asset('img/backoffices/Grupo 783.png') }}" style="cursor: pointer;"  class="" width="30" alt="">
                                                     </a>
                                                 </td>
                                                 <td>
