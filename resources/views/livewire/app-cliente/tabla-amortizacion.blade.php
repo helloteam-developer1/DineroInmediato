@@ -1,34 +1,4 @@
-<style>
-    /* Estilos para las cajas de entrada de fecha en pantallas grandes */
-    /* Estilos para las cajas de entrada de fecha en pantallas grandes */
 
-    /* Estilos para las cajas de entrada de fecha en dispositivos móviles */
-    @media (max-width: 767px) {
-        input[type="date"] {
-            text-align: center;
-            height: 40px; /* Altura deseada para la caja de entrada en móviles */
-            font-size: 10px; /* Tamaño de fuente deseado para la caja de entrada en móviles */
-            padding: 4px; /* Espacio interno deseado para la caja de entrada en móviles */
-            min-width: 80px; /* Ancho deseado para la caja de entrada en móviles */
-            max-width: 80px; /* Ancho deseado para la caja de entrada en móviles */
-        }
-    }
-
-    @media (max-width: 767px) {
-    .imagen-estilo {
-        width: 80%; /* Ancho deseado para la imagen en dispositivos móviles */
-        height: auto; /* Para mantener la proporción de la imagen */
-    }
-    @media (max-width: 767px) {
-        .btn-lg {
-            width: 100%;
-        }
-    }
-}
-
-
-
-</style>
 
 <div>
     <div class="container">
@@ -40,7 +10,7 @@
         <br>
 
         <div class="d-flex flex-column flex-lg-row justify-content-center">
-            <div class="row g-3">
+            <div class="row g-1">
                 <div class="col-auto ">
                     <label for="inputPassword6" class="col-form-label fw-bold">De</label>
                 </div>
