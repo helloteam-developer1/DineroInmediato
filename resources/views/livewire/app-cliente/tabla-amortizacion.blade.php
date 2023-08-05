@@ -15,7 +15,7 @@
                     <label for="inputPassword6" class="col-form-label fw-bold">De</label>
                 </div>
                 <div class="col-auto">
-                    <input type="date" id="inputPassword6" class="form-control" style="width: 123px;"
+                    <input type="date" id="inputPassword6" class="form-control" style="width: 130px;"
                     aria-describedby="passwordHelpInline" wire:model.debounce.900ms="fecha_inicio">
 
                 </div>
@@ -28,7 +28,7 @@
                 </div>
                 
                 <div class="col-auto ">
-                    <input type="date" id="inputPassword6" class="form-control" style="width: 123px;"
+                    <input type="date" id="inputPassword6" class="form-control" style="width: 130px;"
                         aria-describedby="passwordHelpInline" wire:model.debounce.900ms="fecha_termino">
                 </div>
                 <div class="col-auto px-0 py-0">
