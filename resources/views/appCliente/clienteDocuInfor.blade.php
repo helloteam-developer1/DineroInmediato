@@ -205,8 +205,8 @@
             {
                 text-align: start;
                 height: 35px; /* Altura deseada para la caja de entrada */
-                min-width: 230px; /* Ancho deseado para la caja de entrada */
-                max-width: 230px; /* Ancho deseado para la caja de entrada */
+                min-width: 200px; /* Ancho deseado para la caja de entrada */
+                max-width: 200px; /* Ancho deseado para la caja de entrada */
             }
         }
         
