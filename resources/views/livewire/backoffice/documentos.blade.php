@@ -13,7 +13,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 </div>
-                <div class="modal-body" style="border: none;">
+                <div class="modal-body" style="border: none; vertical-align: middle;">
                     <h5 class="modal-title text-center" id="staticBackdropLabel"
                         style="font-size: 35px; color:#38a937;">Documentos {{ $user->nombre }}</h5>
                     <div class="container-fluid mt-5">
@@ -32,7 +32,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="pt-3" style="font-weight: bold">INE frente</td>
+                                                    <td class="pt-3" style="font-weight: bold "">INE frente</td>
                                                     <td style="text-align: center;">
                                                         
                                                         @if (!empty($user->ine_frente))
@@ -40,11 +40,11 @@
                                                             <a wire:click="export('{{ $user->ine_frente }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="" style="float: left;">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
                                                                 <a style="cursor: pointer; ">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="" style="float:left; ">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
                                                         
@@ -57,11 +57,11 @@
                                                             <a wire:click="export('{{ $user->ine_reverso }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="" style="float:left;">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="" style="float:left;">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
                                                     </td>
@@ -74,11 +74,11 @@
                                                             <a wire:click="export('{{ $user->comp_dom }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="" style="float:left;">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="" style="float:left;">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
                                                     </td>
@@ -90,11 +90,11 @@
                                                             <a wire:click="export('{{ $user->foto_cine }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="" style="float:left;">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="" style="float:left;">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
                                                     </td>
