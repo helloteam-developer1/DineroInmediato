@@ -205,8 +205,8 @@
             {
                 text-align: start;
                 height: 35px; /* Altura deseada para la caja de entrada */
-                min-width: 200px; /* Ancho deseado para la caja de entrada */
-                max-width: 200px; /* Ancho deseado para la caja de entrada */
+                min-width: 180px; /* Ancho deseado para la caja de entrada */
+                max-width: 180px; /* Ancho deseado para la caja de entrada */
             }
         }
         
@@ -367,6 +367,7 @@
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Nombre de la
                                 empresa</label>
                             <div class="col-sm-4">
+                            <br>
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
                                     id="inputEmail3" value="{{ Auth::user()->empresa_trabajo }}">
                             </div>
