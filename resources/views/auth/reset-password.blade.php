@@ -51,19 +51,28 @@
                             <x-input id="email" class="form-control" type="hidden" name="email" :value="old('email', $request->email)" required  autofocus />
                         </div>
 
-                        <!-- Password -->
-                        <div class="mt-4">
-                            <input id="password" class="form-control"  placeholder="Contraseña nueva" type="password" name="password" required />
-                        </div>
 
-                        <!-- Confirm Password -->
-                        <div class="mt-4">
-                            <input id="password_confirmation" class="form-control"  placeholder="Contraseña nueva"
-                                                type="password"
-                                                name="password_confirmation" required/>
+
+
+                        <div class="row empresa">
+                            <input type="password" id="password" class="form-control" placeholder="* Nueva Contraseña" wire:model.defer="password" name="password" maxlength="50" required>
+                            
+                            <input type="password" id="password2"class="form-control" placeholder="* Confirmación de contraseña" wire:model.defer="password_confirmation" name="password_confirmation" maxlength="50" required style="margin-top:15px;">
+                            @if ($errors->has('password'))
+                                <span style="color:brown;">{{ $errors->first('password') }}</span>
+                            @endif 
+                            <div class="center">
+                                <button type="button" class="btn btn-cambio" wire:click="cambiar">Aceptar</button>       
+                            </div>
+
+                            <div>
+                                <center>
+                                    <button class="btn btn-naranja btn-md" style="float: right; background: #da8b0c;" type="submit">Recuperar contraseña</button> 
+                                    <button type="button" class="btn btn-cambio" wire:click="cambiar" style="float: left;">Cancelar</button>    
+                                </center>
+                            </div>
+
                         </div>
-                        
-                        <center><button class="btn btn-verde btn-md" style="margin-top: 30px; ">Cambiar password</button></center>
                     </form>
                 </div>
                 <div class="col-2"></div>

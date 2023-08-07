@@ -1,11 +1,3 @@
-<style>
-    .label-izquierda {
-    text-align: left;
-    display: block;
-    width: 100%;
-    }
-</style>
-
 <div>
     <button class="btn boton-color boton-rechazar-solic" data-bs-toggle="modal" data-bs-target="#RechazarSolicitud{{$user->id}}">Rechazar Solicitud</button>
 

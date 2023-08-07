@@ -217,6 +217,37 @@
         .mover-derecha {
             margin-left: 100px;
         }}
+
+
+        
+    /* Estilos para las cajas de entrada de fecha en pantallas grandes */
+    /* Estilos para las cajas de entrada de fecha en pantallas grandes */
+
+    /* Estilos para las cajas de entrada de fecha en dispositivos móviles */
+    @media (max-width: 767px) {
+        input[type="date"] {
+            text-align: center;
+            height: 40px; /* Altura deseada para la caja de entrada en móviles */
+            font-size: 10px; /* Tamaño de fuente deseado para la caja de entrada en móviles */
+            padding: 4px; /* Espacio interno deseado para la caja de entrada en móviles */
+            min-width: 77px; /* Ancho deseado para la caja de entrada en móviles */
+            max-width: 77px; /* Ancho deseado para la caja de entrada en móviles */
+        }
+    }
+
+    @media (max-width: 767px) {
+    .imagen-estilo {
+        width: 75%; /* Ancho deseado para la imagen en dispositivos móviles */
+        height: auto; /* Para mantener la proporción de la imagen */
+    }
+    @media (max-width: 767px) {
+        .btn-lg {
+            width: 100%;
+        }
+    }
+}
+
+
     </style>
 </head>
 

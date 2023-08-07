@@ -44,12 +44,26 @@
         width: 50%;
         
       }
+      .btn-naranja{
+        background-color: #f29100;
+        color: white;
+        height:auto; 
+        width: 50%;
+        margin-top: 20px;
+      }
+
       @media (max-width:400px){
         .btn-cambio{
           margin-top: 10px;
           background-color: #39A935;
-          color: red;
           width: 100%;
+        }
+
+        .btn-naranja{
+          background-color: #f29100;
+          color: white;
+          width: 100%;
+          
         }
       }
 

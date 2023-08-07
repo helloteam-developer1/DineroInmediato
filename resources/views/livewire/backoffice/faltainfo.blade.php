@@ -1,10 +1,4 @@
-<style>
-    .label-izquierda {
-    text-align: left;
-    display: block;
-    width: 100%;
-    }
-</style>
+
 
 <div>
     <button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo{{$user->id}}">

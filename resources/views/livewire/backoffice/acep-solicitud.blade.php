@@ -1,13 +1,4 @@
-<style>
-    .label-izquierda {
-    text-align: left;
-    
-    width: 100%;
-    }
-</style>
-
 <div>
-
     <button class="btn boton-color boton-aceptar-solic" data-bs-toggle="modal" data-bs-target="#AceptarSolicitud{{$user->id}}" >Aceptar Solicitud</button>
     {{--Modal Aceptar Solicitud--}}
     <div class="modal fade" wire:ignore.self id="AceptarSolicitud{{$user->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

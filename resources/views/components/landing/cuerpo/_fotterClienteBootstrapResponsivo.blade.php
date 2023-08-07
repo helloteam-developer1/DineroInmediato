@@ -167,7 +167,7 @@
       <ul class="nav flex-column">
         <li class="nav-item mb-2" style="color: #518B27;">
           <a href="#" data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="nav-link p-0 texto-carotSans--Light" style="color: #FFFFFF; font-size: 20px;">
-            Términos y condiciones 20
+            Términos y condiciones
           </a>
         </li>
         <li class="nav-item mb-4">

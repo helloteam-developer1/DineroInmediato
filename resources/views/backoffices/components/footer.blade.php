@@ -10,7 +10,9 @@
                             <p class="footer-p ms-3"> Información legal</p>
                             <a href="#" style="width: 100%;" class="footer-enlaces mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#terminosYcondiciones">Terminos y Condiciones</a><br>
                             <a href="#" style="width: 100%;" class="footer-enlaces mt-4 ms-3" data-bs-toggle="modal" data-bs-target="#politicaYprivacidad">Politica y Aviso de Privacidad</a><br>
-                            <br><strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong>
+                            <br><strong style="color: white;" class="mt-4 ms-3">Número de avíso de COFEPRIS</strong>
+                            <br><strong style="color: white;" class="mt-4 ms-3">2315052002C00837</strong>
+                            
                             <p class="mt-4 ms-3" style="font-size: 20px; font-weight: bold;">¿Te gusta la pagina?</p>
                             <img src="{{ asset('img/backoffices/Grupo 63.png') }}" width="150" class="ms-3 ms-3" alt="">
                         </div>

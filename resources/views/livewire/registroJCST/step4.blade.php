@@ -16,7 +16,7 @@
 
     .link-t-l:hover {
         text-decoration: none;
-        font-size: 13.3px;
+        font-size: 13px;
         color: var(--naranja);
     }
 </style>
@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-12 col-md-2">
                     @if ($ine_frente)
-                        <img src="{{ $ine_frente->temporaryUrl() }}" width="75%" height="auto" />
+                        <img src="{{ $ine_frente->temporaryUrl() }}" width="90%" height="auto" />
                     @endif
                 </div>
                 <div class="col-6 col-md-4">
@@ -115,7 +115,7 @@
             <div class="row">
                 <div class="col-12 col-md-2">
                     @if ($ine_reverso)
-                        <img src="{{ $ine_reverso->temporaryUrl() }}" width="75%" height="auto" />
+                        <img src="{{ $ine_reverso->temporaryUrl() }}" width="90%" height="auto" />
                     @endif
                 </div>
                 <div class="col-6 col-md-4">
@@ -136,7 +136,7 @@
             <div class="row">
             <div class="col-12 col-md-2">
                     @if ($comp_dom)
-                        <img src="{{ $comp_dom->temporaryUrl() }}" width="75%" height="auto" />
+                        <img src="{{ $comp_dom->temporaryUrl() }}" width="90%" height="auto" />
                     @endif
                 </div>
                 <div class="col-6 col-md-4">
@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col-12 col-md-2">
                     @if ($foto_cine)
-                        <img src="{{ $foto_cine->temporaryUrl() }}" width="75%" height="auto" />
+                        <img src="{{ $foto_cine->temporaryUrl() }}" width="90%" height="auto" />
                     @endif
                 </div>
                 <div class="col-6 col-md-4">
@@ -203,12 +203,12 @@
             </div>
             <br>
             <div class="row" >
-                <div class="col-12 col-md-3"></div>
+                <div class="col-12 col-md-4"></div>
                 <div class="col-12 col-md-6">
                     <div>
-                        <p class="text-start" for="flexCheckDefault">
-                            Al hacer clic en "Continuar", estarás aceptando el
-                            <span data-bs-toggle="modal" class="link-t-l" data-bs-target="#politicaPrivacidad" style="margin-right: 5px;">AVISO DE PRIVACIDAD,</span>
+                        <p class="text-justify" for="flexCheckDefault">
+                            Al hacer clic en "Continuar", estarás aceptando el 
+                            <span data-bs-toggle="modal" class="link-t-l" data-bs-target="#politicaPrivacidad" >AVISO DE PRIVACIDAD,</span>
                             <span data-bs-toggle="modal" class="link-t-l" data-bs-target="#terminosCondiciones">TÉRMINOS Y CONDICIONES</span>
                         </p>
                     </div>
@@ -247,9 +247,9 @@
             {{--Botones regresa, continuar, con. sin documentación--}}
             <div class="row">
                 <div class="d-grid gap-2 d-md-flex botones">
-                    <button class="btn btn-reg btn-block" wire:click="submitForm" id="condoc" style="margin-bottom: 10px;">Continuar</button>
-                    <button class="btn btn-con-doc btn-block" wire:click="submitFormsinIMG" id="sindoc" style="margin-bottom: 10px;">Continuar sin documentación</button>
                     <button class="btn btn-cont btn-block" wire:click="back(3)" style="margin-bottom: 10px;">Regresar</button>
+                    <button class="btn btn-con-doc btn-block" wire:click="submitFormsinIMG" id="sindoc" style="margin-bottom: 10px;">Continuar sin documentación</button>
+                    <button class="btn btn-reg btn-block" wire:click="submitForm" id="condoc" style="margin-bottom: 10px;">Continuar</button>
                 </div>
             
             </div>
