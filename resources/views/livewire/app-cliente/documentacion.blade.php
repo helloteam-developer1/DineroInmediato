@@ -37,7 +37,7 @@
       
         {{-- alerta de carga ine frente --}}
         
-          <div wire:loading wire:target="ine_frente" class="alerta alert" role="alert" style="width: 80%;">
+          <div wire:loading wire:target="ine_frente" class="alerta alert" role="alert" style="width: 100%;">
             <center>
               <p class="titulo-alert">Espera estamos cargando Ine Frente...</p>
               <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
@@ -47,27 +47,27 @@
        
     
         {{-- alerta de carga reverso --}}
-        <div wire:loading wire:target="ine_reverso" class="alerta alert" role="alert" style="width: 80%;">
+        <div wire:loading wire:target="ine_reverso" class="alerta alert" role="alert" style="width: 100%;">
             <center>
                 <p class="titulo-alert">Espera estamos cargando Ine Reverso...</p>
                 <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
         {{-- alerta de carga comprobante de docmicilio --}}
-        <div wire:loading wire:target="comp_dom" class="alerta alert" role="alert" style="width: 80%;">
+        <div wire:loading wire:target="comp_dom" class="alerta alert" role="alert" style="width: 100%;">
             <center>
                 <p class="titulo-alert">Espera estamos cargando comprobante de domicilio...</p>
                 <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
         {{-- alerta de carga foto con ine --}}
-        <div wire:loading wire:target="foto_cine" class="alerta alert" role="alert" style="width: 80%;">
+        <div wire:loading wire:target="foto_cine" class="alerta alert" role="alert" style="width: 100%;">
             <center>
                 <p class="titulo-alert">Espera estamos cargando foto con ine...</p>
                 <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
-        <div wire:loading wire:target="subirIMG" class="alerta alert" role="alert" style="width: 80%;">
+        <div wire:loading wire:target="subirIMG" class="alerta alert" role="alert" style="width: 100%;">
           <center>
               <p class="titulo-alert">Cargando...</p>
               <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
@@ -75,23 +75,27 @@
       </div>
 
     </div>
-   
-    @switch($documentacion)
-      @case(1)
-        @include('appCliente.documentacion.documentacionexitosa')
-      @break
-      @case(2)
-        @include('appCliente.documentacion.formularioimg')
-      @break
-      @case(3)
-        @include('appCliente.documentacion.formularioimg')
-      @break
-      @case(4)
-        @include('appCliente.documentacion.formularioimg')
-      @break
-      @default
-        @include('appCliente.documentacion.documentacionrevision')
-    @endswitch
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6">
+          @switch($documentacion)
+            @case(1)
+              @include('appCliente.documentacion.documentacionexitosa')
+            @break
+            @case(2)
+              @include('appCliente.documentacion.formularioimg')
+            @break
+            @case(3)
+              @include('appCliente.documentacion.formularioimg')
+            @break
+            @case(4)
+              @include('appCliente.documentacion.formularioimg')
+            @break
+            @default
+              @include('appCliente.documentacion.documentacionrevision')
+          @endswitch
+      </div>
+    </div>
+    
     
         <div class="row mb-2 justify-content-start">
           <div class="col">
