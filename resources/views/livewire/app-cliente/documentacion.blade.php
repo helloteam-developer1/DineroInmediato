@@ -1,22 +1,3 @@
-<style>
-  @media screen and (min-width: 768px) {
-            .img-large {
-                width: 100%;
-                margin-right: 10px;
-                height: auto;
-            }
-        }
-
-        /* Estilos para pantallas pequeñas (menores a 768px) */
-        @media screen and (max-width: 767px) {
-            .img-small {
-                width: 100%;
-                
-                height: auto;
-            }
-        }
-
-</style>
 <div>
     <!--Mensajes para el usuario-->
     @if (session()->has('inefrente'))
