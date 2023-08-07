@@ -1,8 +1,8 @@
 
 {{--Boton para subir img--}}
 <div class="row mb-4 justify-content-start">
-  <label for="inputEmail3" class="col-4 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">INE Frente</label>
-  <div class="col-2">
+  <label for="inputEmail3" class="col-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">INE Frente</label>
+  <div class="col-3">
     @if ($ine_frente)
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#INEFrenteModalIMG">
           Vista previa
@@ -25,7 +25,7 @@
       </div>
     @endif
   </div>
-  <div class="col-6">
+  <div class="col-4 justify-content-start">
       <img src="{{Auth::user()->ine_frente}}" style="width: 10%; height:auto;">
       <a class="btn btn-gris" onclick="document.getElementById('getFileIneFrente').click()">Adjuntar archivo</a>
       <input type='file' id="getFileIneFrente" style="display:none" name="ine_frente" wire:model="ine_frente">
@@ -37,8 +37,8 @@
 
 
   <div class="row mb-4 justify-content-center">
-    <label for="inputEmail3" class="col-4 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">INE Reverso</label>
-    <div class="col-2">
+    <label for="inputEmail3" class="col-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">INE Reverso</label>
+    <div class="col-3">
       
       @if ($ine_reverso)
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#INEReversoModalIMG">
@@ -62,7 +62,7 @@
         </div>
       @endif
     </div>
-      <div class="col-6">
+      <div class="col-4">
         <img src="{{Auth::user()->ine_reverso}}" style="width: 10%; height:auto;">
         <a class="btn btn-gris" onclick="document.getElementById('getFileIneReverso').click()">Adjuntar archivo</a>
         <input type='file' id="getFileIneReverso" style="display:none" name="ine_reverso" wire:model="ine_reverso">
@@ -72,8 +72,8 @@
       @endif
   </div>
   <div class="row mb-4 justify-content-center">
-    <label for="inputEmail3" class="col-4 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">Comprobante de domicilio</label>
-    <div class="col-2">
+    <label for="inputEmail3" class="col-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">Comprobante de domicilio</label>
+    <div class="col-3">
       @if ($comp_dom)
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ComproDomicilioIMG">
           Vista previa
@@ -96,7 +96,7 @@
         </div>
       @endif
     </div>
-      <div class="col-6">
+      <div class="col-4">
         <img src="{{Auth::user()->comp_dom}}" style="width: 10%; height:auto;">
         <a class="btn btn-gris" onclick="document.getElementById('getFileComp').click()">Adjuntar archivo</a>
         <input type='file' id="getFileComp" style="display:none" name="comp_dom" wire:model="comp_dom">
@@ -106,8 +106,8 @@
       @endif
   </div>
   <div class="row mb-4 justify-content-center">
-    <label for="inputEmail3" class="col-4 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">Foto con INE</label>
-    <div class="col-2">
+    <label for="inputEmail3" class="col-5 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">Foto con INE</label>
+    <div class="col-3">
       @if ($foto_cine)
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FotoConINEIMG">
           Vista previa
@@ -130,7 +130,7 @@
         </div>
       @endif
     </div>
-      <div class="col-6">
+      <div class="col-4">
         <img src="{{Auth::user()->foto_cine}}" style="width: 10%; height:auto;">
         <a class="btn btn-gris" onclick="document.getElementById('getFileCURP').click()">Adjuntar archivo</a>
         <input type='file' id="getFileCURP" style="display:none" name="foto_cine" wire:model="foto_cine">
