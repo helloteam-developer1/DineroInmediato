@@ -8,7 +8,7 @@
     
     .with-margin-right {
       
-      margin-left: 10%;
+      margin-left: 50px;
     }
 
     @media (max-width: 767px) {
@@ -42,7 +42,7 @@
         <div class="container-fluid">
             {{--Logo Dinero Inmediato--}}
             <a class="navbar-brand" href="{{route('dashboard')}}">
-                <img src="{{ asset('img/assets/aplicacionCliente/Grupo 24.png') }}" width="120" class="ms-3 my-2 me-auto" />
+                <img src="{{ asset('img/assets/aplicacionCliente/Grupo 24.png') }}" width="100" class="ms-3 my-2 me-auto" />
             </a>
             {{--Boton DropDawn de notificaciones--}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -52,21 +52,21 @@
             </button>
             {{--Listado de Notificaciones --}}
             <div class="collapse navbar-collapse justify-content-center with-margin-right" id="navbarSupportedContent" >
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+                <ul class="navbar-nav me-auto mb-1 mb-lg-0" >
 
 
-                    <li>
-                        <a  class="{{ Request::is('miPrestamo') ? 'active' : null }} d-flex align-items-center" aria-current="page" href="{{ route('miPrestamo') }}">
-                            <div class="row ">
-                                <div class="col-auto">
-                                    <img class="img-fluid" style="margin-left: 10px;" src="{{ asset('img/assets/aplicacionCliente/Grupo 946.png') }}" alt="">
-                                </div>
-                                <div class="col">
-                                    &nbsp; Mi préstamo
-                                </div>
+                <li>
+                    <a class="{{ Request::is('miPrestamo') ? 'active' : null }}" aria-current="page" href="{{ route('miPrestamo') }}">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-auto">
+                                <img class="img-fluid" style="margin-left: 10px;" src="{{ asset('img/assets/aplicacionCliente/Grupo 946.png') }}" alt="">
                             </div>
-                        </a>
-                    </li>
+                            <div class="col">
+                                Mi préstamo
+                            </div>
+                        </div>
+                    </a>
+                </li>
 
 
 
@@ -147,7 +147,7 @@
                         <a class="{{ Request::is('dashboard') ? 'active' : null }} d-flex align-items-center" aria-current="page" href="{{ route('dashboard') }}">
                             <div class="row">
                                 <div class="col-auto">
-                                    <img class="col align-items-center" style="margin-left: 15px;" src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg') }}" alt="">
+                                    <img class="col align-items-center" style="margin-left: 10px;" src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg') }}" alt="">
                                 </div> 
                                 <div class="col ms-2 ms-sm-0">
                                 Documentación e información
