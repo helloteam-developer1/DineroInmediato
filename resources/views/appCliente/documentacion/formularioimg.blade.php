@@ -1,13 +1,6 @@
-<style>
-    @media (min-width: 992px) {
-        .col-form-label {
-            font-size: 20px;
-        }
-    }
-</style>
 
 {{--Boton para subir img--}}
-<div class="row mb-4 justify-content-center">
+<div class="row mb-4 justify-content-start">
   <label for="inputEmail3" class="col-4 col-form-label fw-bold" style="font-family: Carot Sans; color: #3C3C3B; ">INE Frente</label>
   <div class="col-2">
     @if ($ine_frente)
