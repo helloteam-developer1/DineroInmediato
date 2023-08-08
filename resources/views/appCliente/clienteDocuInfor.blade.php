@@ -208,8 +208,15 @@
                 min-width: 180px; /* Ancho deseado para la caja de entrada */
                 max-width: 180px; /* Ancho deseado para la caja de entrada */
             }
+            #inputEmail33 {
+            margin-top: 25px; /* Puedes ajustar este valor según tus preferencias */
+            }
+            #inputEmail32 {
+            margin-top: 15px; /* Puedes ajustar este valor según tus preferencias */
+            }
         }
         
+
     </style>
 </head>
 {{-- Si existe un estado abre la modal con dicho estado --}}
@@ -367,9 +374,8 @@
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Nombre de la
                                 empresa</label>
                             <div class="col-sm-4">
-                            <br>
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                    id="inputEmail3" value="{{ Auth::user()->empresa_trabajo }}">
+                                    id="inputEmail33" value="{{ Auth::user()->empresa_trabajo }}">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -377,7 +383,7 @@
                                 empresa</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                    id="inputEmail3" value="{{ Auth::user()->rama_empresa }}">
+                                    id="inputEmail33" value="{{ Auth::user()->rama_empresa }}">
                             </div>
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Ingreso mensual</label>
                             <div class="col-sm-4">
@@ -390,12 +396,12 @@
                                 hipotecario</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                    id="inputEmail3" value="{{ Auth::user()->credito }}">
+                                    id="inputEmail32" value="{{ Auth::user()->credito }}">
                             </div>
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Tarjeta de Nómina</label>
                             <div class="col-sm-4">
                               <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                  id="inputEmail3" value="{{ Auth::user()->credito }}">
+                                  id="inputEmail32" value="{{ Auth::user()->credito }}">
                             </div>
                         </div>
                         
