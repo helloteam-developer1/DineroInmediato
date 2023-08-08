@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="col-auto ">      
-                    <img src="../img/CALENDARIO.svg" class="imagen-estilo" alt="">
+                    <img src="../img/CALENDARIO.svg" class="imagen-estilo" alt=""  style="width: 85%;">
                 </div>
                 <div class="col-auto px-0 py-0">
                     <label for="inputPassword6" class="col-form-label fw-bold">a</label>
@@ -29,7 +29,7 @@
                         aria-describedby="passwordHelpInline" wire:model.debounce.900ms="fecha_termino">
                 </div>
                 <div class="col-auto px-0 py-0">
-                    <img src="../img/CALENDARIO.svg" class="imagen-estilo" alt="">
+                    <img src="../img/CALENDARIO.svg" class="imagen-estilo" alt="" style="width: 85%;">
                 </div>
 
                 
