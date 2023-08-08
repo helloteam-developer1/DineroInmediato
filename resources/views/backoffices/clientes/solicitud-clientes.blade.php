@@ -65,7 +65,7 @@
                                     > 
                                     <img src="{{ asset('img/backoffices/CALENDARIO.png') }}"class="my-2 mx-2" width="30" height="30" alt="">
 
-                                    <p class="mx-3 my-2">a</p> 
+                                    <p class="mx-2 my-2">a</p> 
                                     <input type="date" class="mx-3" placeholder="" name="fecha_termino" id="fecha_termino" 
                                         @isset($fecha_termino)
                                             value="{{$fecha_termino}}"
@@ -74,19 +74,19 @@
                                     <img src="{{ asset('img/backoffices/CALENDARIO.png') }}" class="my-2 mx-2" width="30" height="30" alt="">
 
                                     <div class="input-wrapper">
-                                        <input type="search" name="busqueda" id="" class="ms-1"
+                                        <input type="search" name="busqueda" id="" class="mx-3"
                                             placeholder="Buscar" 
                                             @isset($busqueda)
                                                 value="{{$busqueda}}"
                                             @endisset >
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20"
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="-2 0 20 20" 
                                             fill="currentColor">
-                                            <path fill-rule="evenodd"
+                                            <path fill-rule="evenodd" 
                                                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                                 clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <button type="submit" class="btn boton-color px-2 ms-4 rounded">Buscar</button>                                    
+                                        <button type="submit" class="btn boton-color px-2 ms-4 rounded ">Buscar</button>                                    
                                         @if (Request::is('busqueda'))
                                             <a href="{{route('dashboard.backoffice')}}" class="btn boton-danger px-2 ms-4 rounded">Regresar</a>                                    
                                         @endif                                      
