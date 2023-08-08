@@ -10,8 +10,7 @@
                             <p class="footer-p ms-3"> Información legal</p>
                             <a href="#" style="width: 100%;" class="footer-enlaces mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#terminosYcondiciones">Terminos y Condiciones</a><br>
                             <a href="#" style="width: 100%;" class="footer-enlaces mt-4 ms-3" data-bs-toggle="modal" data-bs-target="#politicaYprivacidad">Politica y Aviso de Privacidad</a><br>
-                            <br><strong style="color: white;" class="mt-4 ms-3">Número de avíso de COFEPRIS</strong>
-                            <br><strong style="color: white;" class="mt-4 ms-3">2315052002C00837</strong>
+          
                             
                             <p class="mt-4 ms-3" style="font-size: 20px; font-weight: bold;">¿Te gusta la pagina?</p>
                             <img src="{{ asset('img/backoffices/Grupo 63.png') }}" width="150" class="ms-3 ms-3" alt="">
@@ -180,15 +179,26 @@
                                 <label for="floatingTextarea">Comentario</label>
                               </div>
                             </div>
+                            <div style="text-align: right; margin-top: 10px;">
+                                <button class="btn btn-verde text-white" style="font-size: 15px; width: 100px;"><strong>Enviar</strong></button>
+                            </div>
+
                             <!--Comentado<div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <input type="submit" value="Enviar">
                             </div>-->
                         </form>
                     </div>
                 </div>
-                {{--  fin footer apartado Contactanos --}}
+                    <div class="col-span-4 text-white text-center mt-4"> 
+                        <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong>
+                        <br>
+                        <strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong>
+                    </div>
+                    <br><br><br><br>
+                </div>  
+                
             </div>
-
+            
 
                 <div class="d-flex flex-column-reverse">
                     <div class="flex-column-reverse" id="movil">
