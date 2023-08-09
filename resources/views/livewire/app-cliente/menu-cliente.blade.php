@@ -8,8 +8,26 @@
     
     .with-margin-right {
       
-      margin-left: 50px;
+      margin-left: 30px;
     }
+
+    /* Estilos generales para todas las pantallas */
+    
+
+    /* Estilos para pantallas grandes (mayor o igual a 992px) */
+    @media (min-width: 992px) {
+        
+
+        .row.d-flex.align-items-center {
+            margin-top: 20px; /* Margen superior en pantallas grandes */
+        }
+
+        .col-lg {
+            font-size: 1.2rem; /* Tamaño de letra en pantallas grandes */
+        }
+
+    }
+
 
     @media (max-width: 767px) {
         .collapse.navbar-collapse {
@@ -32,7 +50,7 @@
         .with-margin-right {
       
         margin-left: 30%;
-    }
+        }
     }
 </style>
 
@@ -51,15 +69,29 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             {{--Listado de Notificaciones --}}
-            <div class="collapse navbar-collapse justify-content-center with-margin-right" id="navbarSupportedContent" >
+            <div  style=" margin-top: 30px;" class="collapse navbar-collapse justify-content-center with-margin-right" id="navbarSupportedContent" >
                 <ul class="navbar-nav me-auto mb-1 mb-lg-0" >
 
 
                 <li>
                     <a class="{{ Request::is('miPrestamo') ? 'active' : null }}" aria-current="page" href="{{ route('miPrestamo') }}">
+                    
+                        <div class="row ">
+                            <div class="col-auto">
+                                <img class="col align-items-center" style="margin-left: 7px;" src="{{ asset('img/assets/aplicacionCliente/Grupo 264.png') }}" alt="">
+                            </div>
+                            <div class="col">
+                            Mi préstamo
+                            </div>
+                        </div>
+                    </a>
+                </li><br>
+
+                <li>
+                    <a class="{{ Request::is('miPrestamo') ? 'active' : null }}" aria-current="page" href="{{ route('miPrestamo') }}">
                         <div class="row d-flex align-items-center">
                             <div class="col-auto">
-                                <img class="img-fluid" style="margin-left: 10px;" src="{{ asset('img/assets/aplicacionCliente/Grupo 946.png') }}" alt="">
+                                <img class="col" style="margin-left: 10px;" src="{{ asset('img/assets/aplicacionCliente/Grupo 946.png') }}" alt="">
                             </div>
                             <div class="col">
                                 Mi préstamo
@@ -67,7 +99,6 @@
                         </div>
                     </a>
                 </li>
-
 
 
 
