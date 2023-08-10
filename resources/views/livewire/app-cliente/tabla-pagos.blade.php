@@ -3,6 +3,8 @@
         <br />
         <h1 class="text-3xl font-bold text-datgencred text-center" style="color: #F27C00; font-size: 1.6rem;">
             Tabla de pagos
+        <h1 class="text-center" style="color: #F5A733;">
+            Tabla de pagoss
         </h1>
         <br>
         
@@ -60,9 +62,11 @@
 
             </div>
         </div>
+
         
         <br>
 
+        <br />
         <div class="table-responsive">
             <table class="table table-striped" id="tablapagos">
                 <thead>
@@ -70,6 +74,7 @@
                         <th class="border text-center" scope="col">Pago número</th>
                         <th class="border text-center" scope="col">Fecha de pago</th>
                         <th class="border text-center" scope="col">Monto de pago</th>
+
                         <th class="border text-center d-none d-md-table-cell" scope="col">Saldo insoluto</th>
                         <th class="border text-center d-none d-md-table-cell" scope="col"># pagos restantes</th>
                         <th class="border text-center d-none d-md-table-cell" scope="col">Resta por pagar</th>
@@ -80,12 +85,26 @@
                     <tbody>
                         <tr>
                             <td colspan="7" class="border text-center">Sin registros.</td>
+                        <th class="border text-center" scope="col">Saldo insoluto</th>
+                        <th class="border text-center" scope="col"># pagos restantes</th>
+                        <th class="border text-center" scope="col">Resta por pagar</th>
+                        <th class="border text-center" scope="col">Numero de credito</th>
+                        <!-- <td class="" style="border: none;">
+                    </td> -->
+                </tr>
+                </thead>
+                
+                @if ($pagos==null)
+                    <tbody>
+                        <tr>
+                            <th colspan="7" class="border text-center">Sin registros.</th>
                         </tr>
                     </tbody>
                 @else
                     <tbody>
                         @if ($pagos->count())
                             @foreach ($pagos as $p)
+
                                 <tr>
                                     <td class="border text-center">{{$p->numero_pagos}}</td>
                                     <td class="border text-center">{{$p->fecha_pago}}</td>
@@ -104,6 +123,31 @@
                     </tbody>
                 @endif
             </table>
+
+                                    <tr>
+                                        <th class="border text-center">{{$p->numero_pagos}}</th>
+                                        <th class="border text-center">{{$p->fecha_pago}}</th>
+                                        <th class="border text-center">{{$p->monto_pago}}</th>
+                                        <th class="border text-center">{{$p->saldo_insoluto}}</th>
+                                        <th class="border text-center">{{$p->pago_rest}}</th>
+                                        <th class="border text-center">{{$p->resta_pagar}}</th>
+                                        <th class="border text-center">{{$p->num_credito}}</th>
+                                    </tr>
+                            @endforeach
+                        @else
+                        <tr>
+                            <th class="border text-center" colspan="7">Sin registros.</th>
+                        </tr>
+                        @endif
+                        
+                    </tbody>
+                @endif
+            </table>
+          </div>
+        
+
+        <div class="row">
+
         </div>
 
         

@@ -108,6 +108,9 @@
                                     @endforeach
                                     <li>
                                         <a href="{{ route('cliente-notificaciones', 0) }}" class="btn btn-secondary btn-block" style="background-color: #39A935;">Ver todas las notificaciones.</a>
+                                        <a href="{{ route('cliente-notificaciones', 0) }}"
+                                            class="btn btn-secondary btn-block" style="background-color: #39A935; width: 100%;">Ver
+                                            todas las notificaciones.</a>
                                     </li>
                                 @else
                                     <li>
