@@ -8,8 +8,11 @@
                     <div class="col-12 col-sm-12 col-md-6 col-lg-4">
                         <div class="container-fluid my-5">
                             <p class="footer-p ms-3"> Información legal</p>
-                            <a href="#" style="width: 100%;" class="footer-enlaces mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#terminosYcondiciones">Terminos y Condiciones 20</a><br>
+                            <a href="#" style="width: 100%;" class="footer-enlaces mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#terminosYcondiciones">Terminos y Condiciones</a><br>
                             <a href="#" style="width: 100%;" class="footer-enlaces mt-4 ms-3" data-bs-toggle="modal" data-bs-target="#politicaYprivacidad">Politica y Aviso de Privacidad</a><br>
+                            <a href="#" style="width: 100%;" class="footer-enlaces mt-4 ms-3" data-bs-toggle="modal" data-bs-target="#politicaYprivacidad">Número de avíso de COFEPRIS</a><br>
+                            <a href="#" style="width: 100%;" class="footer-enlaces mt-4 ms-3" data-bs-toggle="modal" data-bs-target="#politicaYprivacidad">2315052002C00837</a><br>
+                            <br><strong style="color: white;"></strong>
                             <p class="mt-4 ms-3" style="font-size: 20px; font-weight: bold;">¿Te gusta la pagina?</p>
                             <img src="{{ asset('img/backoffices/Grupo 63.png') }}" width="150" class="ms-3 ms-3" alt="">
                         </div>
@@ -165,15 +168,24 @@
                 <div class="col-12 col-sm-12 col-md- col-lg-4">
                     <div class="container-fluid my-5">
                         <p style="font-size: 20px; font-weight: bold;">Contactanos</p>
-                        <form action="">
+                        <form action="{{route('formulario.contacto')}}" method="POST">
+                            @csrf
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="input-group flex-nowrap">
-                                <input type="email" class="form-control" style="color: #9ca3af;" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+                                <input type="email" class="form-control" name="email" style="color: #9ca3af;" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+                                @error('email')
+                                    <br />
+                                    <span style="color:red;">{{$message}}</span>
+                                @enderror
                               </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="form-floating mt-3">
-                                <textarea class="form-control footer-textarea" style="height: 120px" placeholder="Comentario" id=""></textarea>
+                                <textarea class="form-control footer-textarea" name="comentario" style="height: 120px" placeholder="Comentario" id=""></textarea>
+                                @error('comentario')
+                                    <br/>
+                                    <span style="color:red;">{{$message}}</span>
+                                @enderror
                                 <label for="floatingTextarea">Comentario</label>
                               </div>
                             </div>
@@ -193,8 +205,9 @@
                         <div class="col-8 col-sm-6 col-md-6 col-lg-4 offset-2 offset-sm-3">
                             <div class="container-fluid my-2  text-center">
                                 <p class="footer-p ms-3"> Información legal</p>
-                                <a href="#" style="width: 100%;" class="footer-enlaces mt-3" data-bs-toggle="modal" data-bs-target="#terminosYcondicionesMovil">Terminos y Condiciones 20</a><br>
+                                <a href="#" style="width: 100%;" class="footer-enlaces mt-3" data-bs-toggle="modal" data-bs-target="#terminosYcondicionesMovil">Terminos y Condiciones </a><br>
                                 <a href="#" style="width: 100%;" class="footer-enlaces mt-4" data-bs-toggle="modal" data-bs-target="#politicaYprivacidadMovil">Politica y Aviso de Privacidad</a><br>
+                                <br><strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong>
                                 <p class="mt-4 ms-3" style="font-size: 20px; font-weight: bold;">¿Te gusta la pagina?</p>
                                 <img src="{{ asset('img/backoffices/Grupo 63.png') }}" width="150" class="ms-3 ms-3" alt="">
                             </div>
@@ -372,9 +385,7 @@
                 </div>
                 <div class="row">
                     {{--  inicio footer apartado pie de pagina --}}
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <p style="text-align: center; color: white;">2022 <i style="font-weight: bold;"> Dinero Inmediato</i> | Todos los derechos reservados</p>
-                    </div>
+                    
                     {{--  inicio footer apartado pie de pagina --}}
                 </div>
             </div>

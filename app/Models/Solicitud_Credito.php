@@ -17,7 +17,8 @@ class Solicitud_Credito extends Model
         'user_id', 
         'estado', 
         'mensaje',
-        'documentacion'
+        'documentacion',
+        'fecha_solicitud'
     ];
 
     public const ESTADO = [

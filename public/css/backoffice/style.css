@@ -18,7 +18,7 @@
 }
 /* variables de colores */
 :root {
-    --green: #06da3b;
+    --green: #34AD54;
     --gray: #E9E7E7;
     --naranja: #f29100;
     --blanco: #fff;
@@ -45,7 +45,9 @@ body{
     background-color: var(--gris);
     color: var(--blanco);
 }
-
+.filtro-busqueda{
+  display: flex; margin-bottom: 10px;
+}
 .content{
     margin-top: 50px;
     margin-bottom: 50px;
@@ -225,6 +227,15 @@ body{
     width: 100px;
     height: 40px;
     background-color: #38a937;
+    color: white
+  }
+  .boton-danger{
+    width: 100px;
+    height: 40px;
+    background-color: brown;
+    color: white
+  }
+  .boton-danger:hover{
     color: white
   }
   .buton-color{
@@ -419,6 +430,9 @@ body{
       }
     .boton-movil-gris{
         margin-left: 100px;
+      }
+      .h1{
+        font-size: 1rem;
       }
   }
   @media(max-width: 575px){

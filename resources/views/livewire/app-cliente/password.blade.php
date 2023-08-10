@@ -27,15 +27,15 @@
               <p class="subt-alert">El tiempo de espera dependerá de la velocidad de tu internet.</p>
             </center>
         </div>
-        <input type="password" id="actual" class="form-control" placeholder="* Contraseña Actual" wire:model.defer="actual" name="actual" maxlength="50" required><br/>
+        <input type="password" id="actual" class="form-control" placeholder="* Contraseña Actual" wire:model.defer="actual" name="actual" maxlength="50" required style="margin-bottom: 5px;">
         @if ($errors->has('actual'))
             <span style="color:brown;">{{ $errors->first('actual') .$actual}}</span>
         @endif 
     </div>
     <div class="row empresa">
-        <input type="password" id="password" class="form-control empresa" placeholder="* Nueva Contraseña" wire:model.defer="password" name="password" maxlength="50" required>
+        <input type="password" id="password" class="form-control" placeholder="* Nueva Contraseña" wire:model.defer="password" name="password" maxlength="50" required>
         
-        <input type="password" id="password2"class="form-control" style="margin-top:20px;"placeholder="* Confirmación de contraseña" wire:model.defer="password_confirmation" name="password_confirmation" maxlength="50" required>
+        <input type="password" id="password2"class="form-control" placeholder="* Confirmación de contraseña" wire:model.defer="password_confirmation" name="password_confirmation" maxlength="50" required style="margin-top:15px;">
         @if ($errors->has('password'))
             <span style="color:brown;">{{ $errors->first('password') }}</span>
         @endif 

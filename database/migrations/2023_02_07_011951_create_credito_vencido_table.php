@@ -15,9 +15,10 @@ class CreateCreditoVencidoTable extends Migration
     {
         Schema::create('credito_vencido', function (Blueprint $table) {
             $table->id();
-            $table->biginteger('num_cliente');
-            $table->biginteger('telefono');
+            $table->string('num_cliente');
+            $table->string('telefono',20);
             $table->string('email');
+            $table->string('nombre');
             $table->unsignedBigInteger('num_credito');
             $table->timestamps();
 

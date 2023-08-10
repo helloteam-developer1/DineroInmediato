@@ -13,7 +13,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 </div>
-                <div class="modal-body" style="border: none;">
+                <div class="modal-body" style="border: none; vertical-align: middle;">
                     <h5 class="modal-title text-center" id="staticBackdropLabel"
                         style="font-size: 35px; color:#38a937;">Documentos {{ $user->nombre }}</h5>
                     <div class="container-fluid mt-5">
@@ -21,7 +21,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-                                        <table class="table table-striped table-bordered border-secondary">
+                                        <table class="table table-striped table-bordered ">
                                             <thead>
                                                 <tr>
                                                     <th scope="col" class="text-center" style="font-size: 20px">
@@ -32,20 +32,22 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="pt-3" style="font-weight: bold">INE frente</td>
-                                                    <td>
-
+                                                    <td class="pt-3" style="font-weight: bold "">INE frente</td>
+                                                    <td style="text-align: center;">
+                                                        
                                                         @if (!empty($user->ine_frente))
+
                                                             <a wire:click="export('{{ $user->ine_frente }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
-                                                                <a style="cursor: pointer;">
+                                                                <a style="cursor: pointer; ">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
+                                                        
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -55,11 +57,11 @@
                                                             <a wire:click="export('{{ $user->ine_reverso }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
                                                     </td>
@@ -72,11 +74,11 @@
                                                             <a wire:click="export('{{ $user->comp_dom }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
                                                     </td>
@@ -88,11 +90,11 @@
                                                             <a wire:click="export('{{ $user->foto_cine }}')"
                                                                 style="cursor: pointer;">
                                                                 <img src="{{ asset('img/backoffices/DESCARGAS.png') }}"
-                                                                    width="40" class="ms-5" alt="">
+                                                                    width="40" class="" alt="" style="float:center;">
                                                             @else
                                                                 <a style="cursor: pointer;">
                                                                     <img src="{{ asset('img/backoffices/Grupo 444.png') }}"
-                                                                        width="40" class="ms-5" alt="">
+                                                                        width="40" class="" alt="" style="float:center;">
                                                         @endif
                                                         </a>
                                                     </td>
@@ -112,10 +114,10 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
                                         <button type="button" class="btn px-4 my-2"
-                                            style="background-color: #38a937; color:white; margin-right: 160px;"
+                                            style="background-color: #38a937; color:white; float:left;"
                                             data-bs-dismiss="modal">Cerrar</button>
                                         <button type="button" class="btn px-4 my-2"
-                                            style="background-color: #f29100; color:white;">Volver</button>
+                                            style="background-color: #f29100; color:white; float:right;" data-bs-dismiss="modal">Volver</button>
                                     </div>
                                 </div>
                             </div>

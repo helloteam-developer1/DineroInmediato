@@ -3,10 +3,10 @@
 use App\Http\Controllers\landing\CalculadoraRegistro;
 use App\Http\Controllers\landing\ContactEmailController;
 use App\Http\Controllers\landing\RegisterController;
-use App\Http\Controllers\landing\LoginController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Livewire\Wizard;
+use App\Http\Controllers\landing\LoginController;
+use App\Http\Livewire\wizard;
 
 
 use Illuminate\Support\Facades\Route;
@@ -38,14 +38,14 @@ Route::resource('/registros-calculadora', CalculadoraRegistro::class);
 Route::middleware('guest')->group(function () {
     Route::GET('/',function(){
         //if ( env('APP_ENV') === 'local' ) {
-         return view('landing.index');
+        return view('landing.index');
         //}else {
           // return view('construccion');
         //}
     
     })->name('home');
     
-    Route::get('/recover1', function(){
+    Route::get('/recover-password', function(){
         return view('landing.sesion.recover-step1');
     })->name('recover1');
     Route::get('/recover2', function(){

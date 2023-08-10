@@ -7,9 +7,10 @@ use App\Models\Calculadora;
 use App\Models\Empresas;
 use App\Models\Solicitud_Credito;
 use App\Models\User;
-
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -17,18 +18,26 @@ use Illuminate\Support\Facades\Mail;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Monolog\Processor\UidProcessor;
 
-
-class Wizard extends Component
+class wizard extends Component
 {
     use WithFileUploads;
     public $currentStep = 1;
 
     /*first step */
-    public $nombre, $curp , $dia,$mes,$year, $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
+    public $nombre, $curp;
+    /* Fecha año bisiesto */
+    public $dia,$mes,$year,$limite=31;
+
+    public $empresa_trabajo, $antiguedad,$rama_empresa, $banco_nomina;
     /*Second step */
-    public $telefono_contacto, $email, $password, $password_confirmation, $confirmacion;
+    public $email, $password, $password_confirmation, $confirmacion;
     /*Three step*/
+    public $telefono_contacto, $calle, $numero,$num_int, $colonia,$cp,$municipio,$estado;
+
+    /*Four step*/
+    
     public $ine_frente; 
     public $ine_reverso; 
     public $comp_dom; 
@@ -65,9 +74,27 @@ class Wizard extends Component
         $year_actual = date('y');
         $year_adult = ($year_actual-18)+2000;
         $year_limit = (2000+$year_actual)-79;
-        $year_limit;
         $empresas = Empresas::get();
         return view('livewire.registroJCST.wizard', ['empresas' => $empresas,'year_adult'=>$year_adult, 'year_limit'=>$year_limit]);
+    }
+
+    public function updatedMes(){
+            $this->reset('limite');
+            if(empty($this->year%4)){
+                if($this->mes == '02'){
+                    $this->limite = 29;
+                }
+            }else{
+                if($this->mes== '02'){
+                    $this->limite = 28;
+                }else{
+                    $this->limite = 31;
+                }
+            }
+    }
+
+    public function updatedYear(){
+        $this->reset(['mes','limite']);
     }
   
     public function firstStepSubmit()
@@ -80,18 +107,22 @@ class Wizard extends Component
                 'mes'=> 'required',
                 'year' => 'required',
                 'empresa_trabajo' => 'required|min:5|max:40|regex:/^[\pL\s\-]+$/u',
-                'antiguedad' => 'required|',
+                'antiguedad' => 'required',
                 'rama_empresa'=> 'required|min:5|max:250',
-                'banco_nomina'=> 'required|min:3|max:30',
-                'curp' => 'required|min:18|max:18',
+                'banco_nomina'=> 'required|min:3|max:35',
+                'curp' => 'required|min:18|max:18|unique:users,curp',
+            ],
+            [
+                'curp.unique' => 'El CURP ya esta registrado, por favor verificalo.'
             ]
         );    
-        $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
 
-        if($consulta){
-           $this->currentStep = 2;
-           $successMessage = '';
-            $errorMessage = '';
+        if(Calculadora::where('nombre','=',$this->id_us)->exists()){
+
+            $this->currentStep = 2;
+            $this->reset(['successMessage','errorMessage']);
+                    
+            
         }else{
             $this->errorMessage = "No has llenado la calculadora previamente o tus datos son erroneos.";
         }
@@ -108,8 +139,7 @@ class Wizard extends Component
         Telefono, email, contraseña,
         */ 
         $validatedData = $this->validate([
-            'telefono_contacto' => 'required|numeric|digits_between:10,10',
-            'email' => 'regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users|required',
+            'email' => 'unique:users,email|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users|required',
             'password' => [
                 'required',
                 'confirmed',
@@ -117,13 +147,34 @@ class Wizard extends Component
                 'min:8',
                 'regex:/^[A-Za-z0-9]+$/u'
             ]
-            ],
-            [
-            'telefono_contacto.digits_between' => 'El telefono de contacto debe tener 10 digitos.'
             ]);
         
         $this->currentStep = 3;
         
+    }
+
+    public function threeStepSubmit(){
+        $rules = [
+            'telefono_contacto' => 'required|numeric|digits_between:10,10',
+            'calle' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
+            'numero' => 'required|numeric|digits_between:1,6',
+            'colonia' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
+            'cp'=> 'required|digits_between:5,5|numeric',
+            'municipio' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
+            'estado' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/'
+        ];
+        if($this->num_int){
+          $rules = array_merge($rules,[
+            'num_int' => 'regex: /^[a-zA-Z0-9-]+$/'
+          ]); 
+        }
+
+        $validatedData = $this->validate($rules,
+        [
+        'telefono_contacto.digits_between' => 'El telefono de contacto debe tener 10 digitos.',
+        'num_int.regex' => 'El numero interior es invalido.'
+        ]);
+        $this->currentStep = 4;
     }
 
     public function submitForm()
@@ -145,19 +196,37 @@ class Wizard extends Component
             ],
         );
         
-        $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($this->nombre).'-'.$this->ine_frente->getClientOriginalName();
-        $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($this->nombre).'-'.$this->ine_reverso->getClientOriginalName();
-        $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->nombre).'-'.$this->comp_dom->getClientOriginalName();
-        $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->nombre).'-'.$this->foto_cine->getClientOriginalName();
+        $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($this->id_us).'.'.$this->ine_frente->getClientOriginalExtension();
+        $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($this->id_us).'.'.$this->ine_reverso->getClientOriginalExtension();
+        $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->id_us).'.'.$this->comp_dom->getClientOriginalExtension();
+        $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->id_us).'.'.$this->foto_cine->getClientOriginalExtension();
         
-        $ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
+        /*$ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
         $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
         $ruta3= $this->comp_dom->storeAs("posts/",$nombre_comp_dom,'public_posts',0644);
-        $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);
-        
+        $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);*/
+        //Ine Frente
+        $path_if = public_path('posts'.'/'.$nombre_ine_frente);
+        $comp_if = Image::make($this->ine_frente->getRealPath());
+        $comp_if->save($path_if,40);
+        //Ine Reverso
+        $path_ir = public_path('posts'.'/'.$nombre_ine_reverso);
+        $comp_ir = Image::make($this->ine_reverso->getRealPath());
+        $comp_ir->save($path_ir,40);
+        //Comprobante de Domicilio
+        $path_comp_d = public_path('posts'.'/'.$nombre_comp_dom);
+        $comp_comp_d = Image::make($this->comp_dom->getRealPath());
+        $comp_comp_d->save($path_comp_d,40);
+        //Foto con INE
+        $path_fc = public_path('posts'.'/'.$nombre_foto_cine);
+        $comp_fc = Image::make($this->foto_cine->getRealPath());
+        $comp_fc->save($path_fc,40);
+
+
+
         $password = Hash::make($this->password);
         $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
-        $fecha_nacimiento = $this->dia.'/'.$this->mes.'/'.$this->year;
+        $fecha_nacimiento = $this->year.'-'.$this->mes.'-'.$this->dia;
         $newuser = User::create([
             'nombre' => $this->id_us,
             'curp' => $this->curp,
@@ -168,11 +237,12 @@ class Wizard extends Component
             'banco_nomina' => $this->banco_nomina,
             'telefono_contacto' => $this->telefono_contacto,
             'email' => $this->email,
+            'direccion' => $this->calle.', '.$this->numero.', '.$this->colonia.', '.$this->cp.','.$this->municipio.','.$this->estado,
             'password' => $password,
-            'ine_frente' => $ruta1,
-            'ine_reverso' =>$ruta2,
-            'comp_dom' => $ruta3,
-            'foto_cine' => $ruta4,
+            'ine_frente' => '/posts'.'/'.$nombre_ine_frente,
+            'ine_reverso' => '/posts'.'/'.$nombre_ine_reverso,
+            'comp_dom' => '/posts'.'/'.$nombre_comp_dom,
+            'foto_cine' => '/posts'.'/'.$nombre_foto_cine,
             'prestamo' =>  $consulta[0]->prestamo,
             'tiempo' => $consulta[0]->tiempo,
             'trabajo' => $consulta[0]->trabajo,
@@ -202,7 +272,6 @@ class Wizard extends Component
         }
     }
     
-
     public function submitFormsinIMG()
     {  
         $validatedData = $this->validate(
@@ -212,7 +281,7 @@ class Wizard extends Component
 
             $password = Hash::make($this->password);
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
-            $fecha_nacimiento = $this->dia.'/'.$this->mes.'/'.$this->year;
+            $fecha_nacimiento = $this->year.'-'.$this->mes.'-'.$this->dia;
             $newuser =User::create([
                 'nombre' => $this->id_us,
                 'curp' => $this->curp,
@@ -224,6 +293,7 @@ class Wizard extends Component
                 'telefono_contacto' => $this->telefono_contacto,
                 'email' => $this->email,
                 'password' => $password,
+                'direccion' => $this->calle.', '.$this->numero.', '.$this->colonia.', '.$this->cp.','.$this->municipio.','.$this->estado,
                 'ine_frente' => null,
                 'ine_reverso' => null,
                 'comp_dom' =>  null,
@@ -259,6 +329,8 @@ class Wizard extends Component
     }
 
     public function enviarsolicitud($id,$opcion){
+        $fecha = Carbon::now();
+        $fecha = $fecha->format('Y-m-d');
         if($opcion==1){
             //Falta información por eso opcion 2 en documentación
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
@@ -266,7 +338,9 @@ class Wizard extends Component
             'monto'=> $consulta[0]->prestamo,
             'user_id'=>$id,
             'estado'=> '1',
-            'documentacion' => 3
+            'mensaje' => 'Documentación faltante, favor de subir la documentación para continuar con el proceso.',
+            'documentacion' => 3,
+            'fecha_solicitud' => $fecha
         ]);
         }else{
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
@@ -274,7 +348,8 @@ class Wizard extends Component
             'monto'=> $consulta[0]->prestamo,
             'user_id'=>$id,
             'estado'=> '0',
-            'documentacion' => null
+            'documentacion' => null,
+            'fecha_solicitud' => $fecha
             ]);
         }
         

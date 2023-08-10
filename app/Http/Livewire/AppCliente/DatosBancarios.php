@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\AppCliente;
 
 use App\Models\InformacionPago;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -72,9 +73,11 @@ class DatosBancarios extends Component
                 'fecha_yy' => $this->fecha_yy,
                 'user_id' => Auth::user()->id,
             ]);
+            User::where('id','=',Auth::user()->id)->update(['tarjeta_reg'=>'SI']);
             if($registro){
                 $this->mensaje = "Registro con Exito";
                 $this->fail = null;
+                $this->emit('registro');
             }else{
                 $this->mensaje = "Por el momento no podemos registrar tu datos, intentalo mas tarde.";
             }

@@ -16,12 +16,12 @@ class CreateInformacionDePagoTable extends Migration
         Schema::create('informacion_de_pago', function (Blueprint $table) {
             $table->bigIncrements('id_pago');
             $table->string('titular');
-            $table->integer('num_cuenta');
+            $table->string('num_cuenta');
             $table->string('banco');
-            $table->integer('clave_inter');
-            $table->integer('num_tarjeta');
-            $table->integer('fecha_mm');
-            $table->integer('fecha_yy');
+            $table->string('clave_inter');
+            $table->string('num_tarjeta');
+            $table->smallInteger('fecha_mm');
+            $table->smallInteger('fecha_yy');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

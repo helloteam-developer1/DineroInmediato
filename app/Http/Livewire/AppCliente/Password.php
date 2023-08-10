@@ -36,7 +36,11 @@ class Password extends Component
                     'confirmed',
                 ],
             ],
-            ['password.required' => 'El campo Nueva contraseña es requerido.',]
+            [
+                'password.required' => 'El campo Nueva contraseña es requerido.',
+                'actual.required' => 'El campo Contraseña actual es requerido.',
+                'actual.min' => 'El campo Contraseña actual no puede ser menos de 8 caracteres'
+            ]
         );
         //Si la contraseña es correcta cambiamos el password y enviamos el correo.
         $op = Hash::check($this->actual,Auth::user()->password);

@@ -23,7 +23,7 @@ class TablaAmortizacion extends Component
         $ahora = Carbon::now()->format('Y');
         
         $this->fecha_inicio= $ahora.'-01-01';
-        $this->fecha_termino= $ahora.'-12-31'; 
+        $this->fecha_termino= ($ahora+1).'-12-31'; 
     }
 
     public function updatingBusqueda(){
@@ -32,59 +32,56 @@ class TablaAmortizacion extends Component
 
     public function render(){
         $tabla = [];
-        $credito = Credito::where('user_id', Auth::user()->id)->get();
+        $credito = Credito::where('user_id', Auth::user()->id)->where('estado','=',0)->get();
         
         if($credito->count()){
             $num_credito = $credito[0]->num_credito;
             
             if(empty($this->busqueda)){
                 $tabla = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
-                where('num_credito','=', $num_credito)->orderBy('numero_pagos', 'desc')->paginate(5);
+                where('num_credito','=', $num_credito)->orderBy('id_amortizacion', 'asc')->paginate(5);
                 
             }else{
+                $consulta1 = collect('');
+                $consulta2 = collect('');
+                $consulta3 = collect('');
+                $consulta4 = collect('');
+                $consulta5 = collect('');
+                $consulta6 = collect('');
+                $consulta7 = collect('');
 
                 $consulta1 = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
                 where('num_credito','=', $num_credito)->
-                where('numero_pagos','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->paginate(3);
-                if($consulta1->count()){
-                    $tabla = $consulta1;
-                }
+                where('numero_pagos','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
                 $consulta2 = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
                 where('num_credito','=', $num_credito)->
-                where('interes_anual','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->paginate(3);
-                if($consulta2->count()){
-                    $tabla = $consulta2;
-                }
+                where('interes_anual','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
                 $consulta3 = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
                 where('num_credito','=', $num_credito)->
-                where('pag_capital','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->paginate(3);
-                if($consulta3->count()){
-                    $tabla = $consulta3;
-                }
+                where('pag_capital','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
                 $consulta4 = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
                 where('num_credito','=', $num_credito)->
-                where('interes_ordinarios','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->paginate(3);
-                if($consulta4->count()){
-                    $tabla = $consulta4;
-                }
+                where('interes_ordinarios','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
                 $consulta5 = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
                 where('num_credito','=', $num_credito)->
-                where('iva_io','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->paginate(3);
-                if($consulta5->count()){
-                    $tabla = $consulta5;
-                }
+                where('iva_io','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
                 $consulta6 = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
                 where('num_credito','=', $num_credito)->
-                where('comisiones','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->paginate(3);
-                if($consulta6->count()){
-                    $tabla = $consulta6;
-                }
+                where('comisiones','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
                 $consulta7 = Amortizacion::whereBetween('prox_pago',[$this->fecha_inicio,$this->fecha_termino])->
                 where('num_credito','=', $num_credito)->
-                where('pago_total_men','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->paginate(3);
-                if($consulta7->count()){
-                    $tabla = $consulta7;
-                }
+                where('pago_total_men','=',$this->busqueda)->orderBy('numero_pagos', 'desc')->get();
+                
+                $tabla = $consulta1->concat($consulta2)->concat($consulta3)->concat($consulta4)->concat($consulta5)->
+                concat($consulta6)->concat($consulta7);
+                $tabla1 = $tabla->unique('id_amortizacion');
+                return view('livewire.app-cliente.tabla-amortizacion2',['tabla' => $tabla1]);     
             }
 
         }

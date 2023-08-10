@@ -13,6 +13,6 @@ class ClientesAceptados extends Model
        'id_cliente_aceptado',
        'user_id',
        'credito_num',
-       'nombre'
+       'fecha'
     ];
 }

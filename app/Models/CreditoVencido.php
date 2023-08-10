@@ -12,8 +12,9 @@ class CreditoVencido extends Model
     protected $fillable = [
         'id',
         'num_cliente',
+        'num_credito',
         'telefono',
+        'nombre',
         'email',
-        'num_credito'
     ];
 }

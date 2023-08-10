@@ -1,11 +1,19 @@
 <div class="container">
     <div class="row setup-content {{ $currentStep != 1 ? 'displayNone' : '' }} justify-content-center" id="step-1" >
                     
-        <div class="cab">
-            <p class="texto">Tu tienes una línea de crédito pre aprobada con nosotros, está línea de crédito se debe verificar por expertos, 
-                para ello te solicitaremos una serie de documentos que puedes ingresar en el momento de tu registro o más adelante.</p>
-            <p class="titulo-naranja">Llena tu registro para continuar</p>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-lg-10 text-lg-center">
+                <div class="cab">
+                    <p class="texto">Tu tienes una línea de crédito pre aprobada con nosotros, está línea de crédito se debe verificar por expertos, 
+                        para ello te solicitaremos una serie de documentos que puedes ingresar en el momento de tu registro o más adelante.</p>
+                    <p class="titulo-naranja text-md">Llena tu registro para continuar</p>
+                </div>
+            </div>
+            <div class="col-1"></div>
         </div>
+
+
         
     
         {{--Inicio de campos del Formulario --}}
@@ -24,23 +32,30 @@
                     @if ($errors->has('curp'))
                         <span style="color:brown;">{{ $errors->first('curp') }}</span>
                     @endif 
+                    @if ($errors->has('CURP'))
+                        <span style="color:brown;">{{ $errors->first('CURP') }}</span>
+                    @endif 
                     <!--Input Fecha de nacimiento-->
                     <div class="row fecha">
-                        <div class="col-12 flex-left">
-                            * Fecha de nacimiento
+                        <div class="col-12 flex-left mb-1">
+                            * Fecha de nacimiento (YYYY-MM-DD)
                         </div>
                     </div> 
                     {{--Inptus Fecha--}}
                     <div class="row fecha-i">
                         <div class="col-4">
-                            @include('livewire.registroJCST._dia')
-                        </div>
+                            @include('livewire.registroJCST._year')
+                        </div> 
                         <div class="col-4">
                             @include('livewire.registroJCST._mes')
                         </div>
                         <div class="col-4">
-                            @include('livewire.registroJCST._year')
+                            @include('livewire.registroJCST._dia')
                         </div>
+                                                   
+                        @error('bisiesto')
+                            <span class="text-red-500">{{$message}}</span>
+                        @enderror
                     </div>
                     <!--Empresa donde trabajas -->    
                     <div class="row empresa" >
@@ -105,8 +120,8 @@
                         </div>
                     </div>
                     <div>
-                        <a class="btn btn-cont btn-md btn-block"  style="float: left; margin-bottom: 10px;" onclick="window.location.href='{{route('home')}}'">Regresar</a>
                         <a class="btn btn-reg btn-md btn-block"  wire:click="firstStepSubmit" style="float: right; margin-bottom:10px;">Continuar</a>
+                        <a class="btn btn-cont btn-md btn-block"  style="float: left; margin-bottom: 10px;" onclick="window.location.href='{{route('home')}}'">Regresar</a>
                     </div>
                 
         

@@ -112,7 +112,7 @@
     </style>
 </head>
 
-<body >
+<body>
     {{-- <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 shadow">
         <a href="index.html" class="navbar-brand p-0">
             <img src="{{ asset('img/logo.png')}}" width="180"  class="d-inline-block align-text-top ml-10" style="margin-top: 40px;">
@@ -137,31 +137,27 @@
     <div class="content cent" >
         <center>
             @if (session('status'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <p>{{session('status')}}</p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-            </div>
+                <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title center" id="staticBackdropLabel">Error de Credenciales</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            Las credenciales ingresadas no coincideen con nuestra base de datos.
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <script>
+                    $( document ).ready(function() {
+                        $('#modal').modal('toggle')
+                    });
+                </script>
             @endif
             <div>
-               <form action="{{route('login.store')}}" method="POST">
-                    @csrf
-                    <p class="texto-solicita-verde Medium Carot">Inicio de sesión</p>
-                    <input name="credencial" type="text" placeholder="Correo electrónico o teléfono" class="form-control Carot ExtraLight" >
-                    @error('credencial')
-                        <p class="error-message">{{ $message }}</p>
-                    @enderror
-                    <br />
-                    <input name="password" type="password" placeholder="Contraseña" class="form-control Carot ExtraLight"  >
-                    @error('password')
-                        <p class="error-message">{{ $message }}</p>
-                    @enderror
-                    <center><p class="text-green Carot Sans" style="padding-top:20px; padding-bottom:20px;">¿Olvidaste tu contraseña?. <a href="{{route('recover1')}}" class="vinculo" style=" text-decoration: underline; ">Haz clic aquí para recuperarla</a></p></center>
-                    <div>
-                        <a  class="btn btn-verde btn-md btn-block" href="{{route('home')}}" style="float: left;">Regresar</a>
-                        <button  class="btn btn-naranja btn-md " style="float: right; background:#da8b0c
-                        ;" type="submit">Continuar</button>
-                    </div>
-                </form>
+               @livewire('landing.sigin')
             </div>        
         </center>
     

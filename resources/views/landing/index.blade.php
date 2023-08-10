@@ -1,37 +1,14 @@
 @extends('landing.layouts.app')
 @section('content')
 
-    <style>
-        .divEncima{
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: red
-        }
-
-        .divCalculadora{
-            padding-left: 10%; /* 144px */
-            padding-right: 10%; /* 144px */
-        }
-
-        @media screen and (max-width: 1024px) {
-            #ImgIndex{
-                display: none;
-            }
-
-            .divCalculadora{
-                padding-left: 1.25rem; /* 20px */
-                padding-right: 1.25rem; /* 20px */
-            }
-        }
-    </style>
     @push('css')
         <link rel="stylesheet" href="{{ asset('css/landing/modals.css') }}">
+        <link href="{{ asset('css/bem.css') }}" rel="stylesheet">
     @endpush
 
 
     <section class="">
-        <div class="grid grid-cols-2" style="background: #A5D541">
+        <div class="grid grid-cols-2" style="background: var(--greenback);">
             <div
                 class=" divcalculadoraItems drop-shadow-lg row-span-3 bg-white grid grid-rows-7 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 ml-10 z-40 mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 divCalculadora ml-0 sm:ml-0 md:ml-0 lg:ml-10 xl:ml-10 pb-10">
                 @include('landing.components.content-calculadora')
@@ -45,7 +22,7 @@
                     <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex">
                 </div>
                 <div>
-                    <div class="w-full grid pb-4 px-2 " style=" background: #EBE7E8">
+                    <div class="w-full grid pb-4 px-2 " style=" background: var(--gray);">
 
                         <div class="col-span-3 text-center mt-3 mb-2 titulosMobile">
                             <p class="texto-solicita-negro">Solicita el prestamo en <br> <strong class="text-green">sencillos pasos</strong></p>
@@ -99,8 +76,8 @@
         $(document).on('click', '#btnSig', function (e) {
             prestamo = $('#prestamo').val();
             tiempo = $('#tiempo').val();
-            console.log(prestamo);
-            console.log(tiempo);
+            //console.log(prestamo);
+            //console.log(tiempo);
             $('.divcalculadoraItems').hide();
             $('.divcalculadoraItemsDos').show() ;
 

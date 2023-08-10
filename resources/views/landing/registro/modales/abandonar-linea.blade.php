@@ -60,19 +60,19 @@ style="background: rgba(0,0,0,.7);">
         
         if($('#op1').prop('checked')){
             nomina = "si";
-            console.log(nomina);
+            //console.log(nomina);
         }
         if($('#op2').prop('checked')){
             nomina = "no";
-            console.log(nomina);
+            //console.log(nomina);
         }
         if($('#op3').prop('checked')){
             credito = "si";
-            console.log(credito);
+            //console.log(credito);
         }
         if($('#op4').prop('checked')){
             credito = "no";
-            console.log(credito);
+            //console.log(credito);
         }
 
         $.ajax({
@@ -87,6 +87,8 @@ style="background: rgba(0,0,0,.7);">
                 console.log(id_user);
                 location.href = '/registro-usuarios/'+id_user;
             }
+        }).fail(function(){
+            alert('Error sin conexión!');
         });
       
         

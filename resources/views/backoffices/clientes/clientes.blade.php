@@ -84,7 +84,7 @@
                     <div class="col-8 col-sm-10 col-md-10 col-lg-8 offset-2 offset-sm-1 offset-md-2 offset-lg-2">
                         <div class="input-group">
                             <p class="my-2 mx-2">De</p> <input type="date" class="mx-3" placeholder=""> <img
-                                src="{{ asset('img/backoffices/CALENDARIO.PNG') }}"class="my-2 mx-2" width="30"
+                                src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-2" width="30"
                                 height="30" alt="">
                             <p class="mx-3 my-2">a</p> <input type="date" class="mx-3" placeholder=""><img
                                 src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-2" width="30"

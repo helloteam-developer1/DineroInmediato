@@ -1,42 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tabla de Amortización</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('img/backoffices/Grupo 979.png') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
-</head>
-
-<body>
+<style>
+        /* Estilo para la tabla */
+    .table {
+    font-size: 10px; /* Tamaño de fuente general de la tabla */
     
-    <x-backoffice.menu-backoffice />
+    }
 
+    /* Estilo para el encabezado de la tabla */
+    .table thead th {
+    padding: 0.0rem 0.0rem; /* Espaciado interno del encabezado */
+    text-align: center;
+    vertical-align: middle;
+    }
 
+    /* Estilo para las celdas de datos de la tabla */
+    .table tbody td {
+    padding: 0.0rem 0.0rem; /* Espaciado interno de las celdas */
+    
+    }
 
-    <!--inicio de titulo-->
-    <h1 class="text-center my-5">Tabla de Amortización</h1>
-    <!--fin de titulo-->
+    .table th,
+    .table  td{
+    text-align: center;
+    vertical-align: middle;
+    
+    }
+    
+</style>
 
-    <!-- inicio apartado de busqueda-->
+@extends('backoffices.layouts.basesinmenu')
+@section('titulo', 'Tabla de Amortización')
+@section('icono')
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/backoffices/CLIENTES.png') }}">
+@endsection
+@section('subtitulo', 'Tabla de Amortización')
+@section('contenido')
+    <!--Inicio del apartado de Busqueda-->
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-10 col-md-8 col-lg-5 offset-sm-2 offset-md-4 offset-lg-7">
-                        <div class="input-group">
-                            <div class="input-wrapper">
-                                <input type="search" name="" id="" class="ms-1 mt-2" placeholder="Buscar">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" style="top: 60%;" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                                </svg>
+                        <form action="{{route('busqueda_Amortizacion')}}" method="GET">
+                            @csrf
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <input type="search" name="termino" id="" class="ms-1 mt-2" placeholder="Buscar" @isset($termino)
+                                        value="{{$termino}}"
+                                    @endisset>
+                                    <input type="text" name="num_credito" value="{{$num_credito}}" hidden>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" style="top: 60%;" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <button type="submit" class="btn boton-color px-2  ms-5 mt-2 rounded">Buscar</button>
                             </div>
-                            <button type="button" class="btn boton-color px-2  ms-5 mt-2 rounded">Buscar</button>
-                        </div>
+                            @error('num_credito')
+                                <span style="color:red;">{{$message}}</span>
+                            @enderror
+                            @error('termino')
+                                <span style="color:red;">{{$message}}</span>
+                            @enderror
+                        </form>
                     </div>
                 </div>
             </div>
@@ -45,109 +69,58 @@
     <!-- fin apartado de busqueda-->
 
     <!-- inicio tabla de elementos buscados-->
-    <div class="container-fluid mt-5">
+    <div class="container-fluid ">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+                        @livewire('backoffice.reg-tabla-amortizacion', ['num_credito' =>$num_credito])
                         <div class="table-responsive text-center">
-                            <table class="table table-bordered border-secondary"
+                            <table class="table table-bordered border-secondary table-striped"
                                 id="tabla-amortizacion">
                                 <thead>
-                                    <tr class="table-secondary">
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de cre</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Núm de pago </p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Próximo pago </p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Pago a capital</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Interés ordinarios</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-medio">IVA interés ordinario</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Comisiones</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-medio">Pago total mensual</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Agregar fila</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Editar</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-pequeño">Eliminar fila</p></th>
+                                    <tr class="table-light">
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Núm de cred</p></th>
+                                        <th scope="col" class="px-1"><p class="">Núm de pago </p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Interes Anual (CAT) </p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Próximo pago </p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Pago a capital</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Interés ordinarios</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">IVA interés ordinario</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Comisiones</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Pago total mensual</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Editar</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-pequeño">Eliminar fila</p></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="table-light">
-                                        <td>0098</td>
-                                        <td>2</td>
-                                        <td>29/12/2022</td>
-                                        <td>200</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>550</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="" class="my-3" width="40" alt=""></td>
-                                    </tr>
-                                    <tr class="table-secondary">
-                                        <td>1209</td>
-                                        <td>4</td>
-                                        <td>29/03/2022</td>
-                                        <td>600</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>120</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
-                                    <tr class="table-light">
-                                        <td>0023</td>
-                                        <td>1</td>
-                                        <td>02/03/2023</td>
-                                        <td>500</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>150</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
-                                    <tr class="table-secondary">
-                                        <td>0237</td>
-                                        <td>5</td>
-                                        <td>09/10/2023</td>
-                                        <td>800</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>200</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
-                                    <tr class="table-light">
-                                        <td>0157</td>
-                                        <td>3</td>
-                                        <td>12/06/2023</td>
-                                        <td>4000</td>
-                                        <td>10%</td>
-                                        <td>8%</td>
-                                        <td>55</td>
-                                        <td>450</td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 822.png') }}" width="50"
-                                                alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/Grupo 783.png') }}" class="my-3"
-                                                width="40" alt=""></td>
-                                        <td><img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3"
-                                                width="30" alt=""></td>
-                                    </tr>
+                                    @if ($tabla->count())
+                                        @foreach ($tabla as $t)
+                                            <tr class="table-light">
+                                                <td>{{$t->num_credito}}</td>    
+                                                <td>{{$t->numero_pagos}}</td>    
+                                                <td>{{number_format($t->interes_anual)}}</td>
+                                                <td>{{$t->prox_pago}}</td>    
+                                                <td>{{number_format($t->pag_capital)}}</td>    
+                                                <td>{{number_format($t->interes_ordinarios)}}</td>    
+                                                <td>{{number_format($t->iva_io)}}</td>    
+                                                <td>{{number_format($t->comisiones)}}</td>        
+                                                <td>{{number_format($t->pago_total_men)}}</td>    
+                                                <td>
+                                                    <a href="{{route('editarAmortizacion',$t->id_amortizacion)}}">
+                                                        <img src="{{ asset('img/backoffices/Grupo 783.png') }}" style="cursor: pointer;"  class="" width="30" alt="">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    @livewire('backoffice.eliminar-amortizacion',['re' => $t->id_amortizacion,'num_credito'=>$t->num_credito], key($user->id))
+                                                </td>
+                                                </tr>
+                                        @endforeach
+                                    @else
+                                        <tr class="table-light">
+                                            <td colspan="11">Sin Registros</td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -164,16 +137,11 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#"><img class="flechaIzq" src="{{ asset('img/backoffices/Flecha Izquierda.png') }}" alt=""> Anterior</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<img class="flechaDer" src="{{ asset('img/backoffices/Flecha Derecha.png') }}" alt=""> </a></li>
-                            </ul>
-                        </nav>
+                        @if ($paginacion==0)
+                            @if ($tabla->count() || $tabla!=null)
+                                {{$tabla->appends(['termino'=>$termino])}}
+                            @endif
+                        @endif
                     </div>
                 </div>
             </div>
@@ -186,26 +154,27 @@
         <div class="row">
             <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1">
                 <div class="row">
-                    <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
-                        <button type="button" class="btn px-5 my-3 "
-                        style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
-                    </div>
+                    @if (Request::is('busqueda/Amortizacion'))
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                            <button type="button" class="btn px-5 my-3 "
+                                style="background-color: #28a937; color:white; font-size: 20px;" onclick="window.location.href='{{route('tablaAmortizacion',$num_credito)}}'">Volver</button>
+                        </div>
+                    @else
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
+                            <button type="button" class="btn px-5 my-3 "
+                            style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='{{route('dashboard.clientesvig')}}'">Volver</button>
+                        </div>
+                    @endif
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
                             style="background-color: #f29100; color:white; font-size: 20px;">Guardar</button>
-                    </div>
+                    </div>                        
+                    
                 </div>
             </div>
         </div>
     </div>
     <!--fin de botones-->
-
-    @extends('backoffices.components.footer')
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('js/backoffice/menuBurger.js') }}"></script>
-</body>
-
-</html>
+@endsection
+    
+   

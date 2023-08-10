@@ -1,5 +1,4 @@
 <div>
-
     <button class="btn boton-color boton-aceptar-solic" data-bs-toggle="modal" data-bs-target="#AceptarSolicitud{{$user->id}}" >Aceptar Solicitud</button>
     {{--Modal Aceptar Solicitud--}}
     <div class="modal fade" wire:ignore.self id="AceptarSolicitud{{$user->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -14,19 +13,26 @@
                 </div>
                 <div class="modal-body" style="border: none;">
                     <h5 class="modal-title text-center" id="staticBackdropLabel"
-                        style="font-size: 35px; color:#38a937;">Aprobar crédito {{$user->nombre}}</h5>
+                        style="font-size: 35px; color:#38a937;">Aprobar crédito</h5>
                     <div class="container-fluid mt-5">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row">
-                                    <div wire:loading wire:target="aceptar"  class="alert " role="alert" style="background-color: #39A935;">
-                                        <i class="fa-regular fa-clock" style="color: #ffffff; display:inline-block;"></i>
-                                        <h4 style="color:white; font-size:15px; display:inline-block;">Cargando...</h4>
-                                       <h4 style="color:white; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
+                                    <!--Modal de Carga-->
+                                    <div wire:loading wire:target="aceptar"  class="alert " role="alert" style="background-color: #EAF9EA;">
+                                        <i class="fa-regular fa-clock" style="color: #38a937; display:inline-block;"></i>
+                                        <h4 style="color:#38a937; font-size:15px; display:inline-block;">Cargando...</h4>
+                                       <h4 style="color:#F29100; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
                                     </div>
                                     @error('igual')
                                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> Los montos no son iguales.
+                                            <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    @enderror
+                                    @error('cero')
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     @enderror
@@ -35,25 +41,47 @@
                                             <p>{{$success}}</p>
                                         @endif
                                         <div>
-                                            <label for="" class="pb-2">Monto de crédito aprobado</label>
-                                            <input type="number" name="number" id=""
-                                                class="form-control" placeholder="$2500" wire:model="monto" >
+                                            <label for="" class="pb-2 label-izquierda">Monto solicitado: <span style="color:#39A935; font-weight:800;">${{number_format($monto_sol)}}</span></label>
+                                        </div>
+                                        <div class="mt-4">
+                                            <label for="" class="pb-2 label-izquierda">Monto de crédito aprobado: 
+                                            </label>
+                                            <input type="text" name="number" id=""
+                                                class="form-control money" placeholder="$2500"
+                                                wire:model.debounce.1s="monto" maxlength="8">
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
+                                            @error('cero')
+                                                <span style="color:red;">{{$message}}</span>
+                                            @enderror
+                                            @if (!empty($maximo))
+                                                <br />
+                                                <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
+                                            @else
+                                                <span></span>
+                                            @endif
                                         </div>
                                         <div class="mt-4">
-                                            <label for="" class="pb-2">Confirmado de crédito
-                                                    aprobado</label>
-                                                <input type="number" name="" id="" class="form-control"
-                                                    placeholder="$2500" wire:model="confirmacion">
+                                            <label for="" class="pb-2 label-izquierda">Confirmado de crédito
+                                                    aprobado: 
+                                            </label>
+                                                <input type="text" name="" id="" class="form-control money"
+                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="8">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
+                                                @error('cero')
+                                                    <span style="color:red;">{{$message}}</span>
+                                                @enderror
                                         </div>    
-                                            @if (!empty($mensaje))
-                                                <p>{{$mensaje}}</p>
+                                            @if (!empty($maximo))
+                                                <br />
+                                                <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
+                                            @else
+                                                <span></span>
                                             @endif
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -68,9 +96,18 @@
                                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                                         <button type="button" class="btn px-4 my-2"
                                             style="background-color: #38a937; color:white; margin-right: 350px;"
-                                            data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn px-4 my-2"
-                                            style="background-color: #f29100; color:white;" wire:click="aceptar({{$user->id}})">Guardar</button>
+                                            data-bs-dismiss="modal" wire:click="clear">Cancelar</button>
+                                        
+                                                    <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
+                                                    @if ($errors->any())
+                                                        
+                                                        
+                                                        disabled
+                                                    @else
+                                                        wire:click="aceptar({{$user->id}})"
+                                                    @endif
+                                                    >Guardar</button>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -80,4 +117,6 @@
             </div>
         </div>
     </div>
+
+    
 </div>

@@ -1,3 +1,30 @@
+<style>
+        /* Estilo para la tabla */
+    .table {
+    font-size: 12px; /* Tamaño de fuente general de la tabla */
+    }
+
+    /* Estilo para el encabezado de la tabla */
+    .table thead th {
+    padding: 0.1rem 0.02rem; /* Espaciado interno del encabezado */
+    }
+
+    /* Estilo para las celdas de datos de la tabla */
+    .table tbody td {
+    padding: 0.1rem 0.02rem; /* Espaciado interno de las celdas */
+    vertical-align: middle;
+    }
+
+    .table th,
+    .table td {
+    text-align: center;
+    
+    }
+    
+
+</style>
+
+</head>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +37,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/backoffice/style.css') }}">
-
-</head>
+    
 <body>
   
     <x-backoffice.menu-backoffice />
 
 
     <!--inicio de titulo-->
-    <h1 class="text-center my-5">Más Información</h1>
+    <h1 class="text-center my-5 " style="font-size: 35px; color:#38a937;">Más Información</h1>
     <!--fin de titulo-->
 
     <!-- inicio tabla de elementos buscados-->
@@ -32,28 +58,32 @@
                                 id="tabla-amortizacion">
                                 <thead>
                                     <tr class="table-secondary">
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla pt-3">Ingreso mensual reportado</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla-big">¿Cuenta con un crédito hipotecario?</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla">CURP</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Fecha de nacimiento</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Nombre de la empresa</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Rama de la empresa</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Telefono de Contacto</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Correo electronico</p></th>
-                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Documentacion Adjunta</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio pt-3">Ingreso mensual reportado</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">¿Cuenta con un crédito hipotecario?</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">CURP</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">Fecha de nacimiento</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">Nombre de la empresa</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">Rama de la empresa</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">Telefono de Contacto</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">Correo electronico</p></th>
+                                        <th scope="col" class=""><p class="encabezado-tabla-medio">Documentacion Adjunta</p></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="table-light">
-                                        <td>12600</td>
-                                        <td>si</td>
-                                        <td>U084</td>
-                                        <td>12/07/23</td>
-                                        <td>Servicios Nac</td>
-                                        <td>Tecnologia</td>
-                                        <td>9735678923</td>
-                                        <td>holita@corr</td>
-                                        <td><button class="btn boton-color px-4 mx-4" data-bs-toggle="modal" data-bs-target="#VerDocumento">Ver</button></td>
+                                       @foreach ($user as $u)
+                                       <td>{{$u->ingreso}}</td>
+                                       <td>{{$u->credito}}</td>
+                                       <td>{{$u->curp}}</td>
+                                       <td>{{$u->fecha_nacimiento}}</td>
+                                       <td>{{$u->empresa_trabajo}}</td>
+                                       <td>{{$u->rama_empresa}}</td>
+                                       <td>{{$u->telefono_contacto}}</td>
+                                       <td>{{$u->email}}</td>
+                                       <td>
+                                           @livewire('backoffice.documentos',['user'=> $u], key($u->id))
+                                       </td>
+                                       @endforeach
                                     </tr>
                                 </tbody>
                             </table>
@@ -132,28 +162,6 @@
     </div>
     <!--fin de modal mostrar documento-->
 
-    <!--inicio de paginador-->
-    <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row">
-                    <div class="col-2 col-sm-8 col-md-2 col-lg-2 offset-sm-2 offset-md-6 offset-lg-8">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#"><img class="flechaIzq" src="{{ asset('img/backoffices/Flecha Izquierda.png') }}" alt=""> Anterior</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" aria-label="Next" href="#">Siguiente<img class="flechaDer" src="{{ asset('img/backoffices/Flecha Derecha.png') }}" alt=""> </a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--fin de paginador-->
 
     <!--inicio de botones-->
     <div class="container-fluid mt-5">
@@ -162,7 +170,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
-                        style="background-color: #38a937; color:white; font-size: 20px;"><a href="/clientes" style="text-decoration: none; color:white;">Volver</a></button>
+                        style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='/clientes-vigentes'">Volver</button>
                     </div>
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
@@ -175,7 +183,7 @@
     <!--fin de botones-->
 
     @extends('backoffices.components.footer')
-
+    @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

@@ -44,14 +44,45 @@
         width: 50%;
         
       }
+      .btn-naranja{
+        background-color: #f29100;
+        color: white;
+        height:auto; 
+        width: 50%;
+        margin-top: 20px;
+      }
+
       @media (max-width:400px){
         .btn-cambio{
           margin-top: 10px;
           background-color: #39A935;
-          color: red;
           width: 100%;
         }
+
+        .btn-naranja{
+          background-color: #f29100;
+          color: white;
+          width: 100%;
+          
+        }
       }
+
+
+      @media (max-width: 430px) {
+
+            .texto-carotSans--Regular {
+                font-size: .9rem;
+            }
+            .texto-carotSans--Medium{
+                font-size: 1.5rem;
+            }
+            .texto-carotSans--Light {
+                font-size: .8rem;
+            }            
+            
+            
+        }
+
         .solicita:hover{
             background: #da8b0c !important;
 
@@ -122,7 +153,7 @@
 
 <div class="container">
     <br>
-    <h1 class="text-center texto-carotSans--Medium" style="color: #4A9D22; font-size: 70px;">Recuperar contraseña</h1>
+    <h1 class="text-center texto-carotSans--Medium" style="color: #4A9D22; ">Recuperar contraseña</h1>
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">

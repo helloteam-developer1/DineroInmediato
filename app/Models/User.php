@@ -26,9 +26,10 @@ class User extends Authenticatable
         'rama_empresa',
         'antiguedad',
         'banco_nomina', 
-        'telefono_contacto', 
         'email', 
         'password', 
+        'telefono_contacto', 
+        'direccion',
         'ine_frente',
         'ine_reverso', 
         'comp_dom', 
@@ -39,6 +40,7 @@ class User extends Authenticatable
         'ingreso',
         'nomina',
         'credito',
+        'tarjeta_reg',
         'num_cliente',
         'rol'
     ];

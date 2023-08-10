@@ -17,7 +17,7 @@ class CalculadoraRegistro extends Controller
         $calculadora = new Calculadora();
         $calculadora->nombre = $request->nombre;
         $calculadora->trabajo = $request->trabajo;
-        $calculadora->ingreso = $request->ingreso;
+        $calculadora->ingreso = '$'.number_format($request->ingreso,2);
         $calculadora->nomina = $request->nomina;
         $calculadora->credito= $request->credito;
         $calculadora->prestamo = $request->prestamo;

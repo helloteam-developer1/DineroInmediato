@@ -17,13 +17,15 @@ class Credito extends Model
         'monto_aut',
         'fecha_inicio', 
         'num_pagos',
+        'num_pagos_rest',
         'fecha_termino', 
         'estado'
     ];
 
     public const ESTADO = [
         'Linea de Crédito Aprobada.', //0
-        'Credito Vencido Impago.' //1
+        'Credito Vencido Impago.', //1
+        'Finalizado'//2 
     ];
     public function estado(){
         return self::ESTADO[$this->estado];

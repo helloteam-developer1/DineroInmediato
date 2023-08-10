@@ -64,7 +64,7 @@
 
         }
         .texto-p{
-        font-size: 20px;
+        font-size: 22px;
         }
         .texto-solicita-verde{
                 font-size: 40px;
@@ -128,7 +128,7 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                 @if (session('success'))
+            @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <p>{{session('success')}}</p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
@@ -147,15 +147,15 @@
                 </div>
             @endif
             @if (session('email'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <p>{{session('email')}}</p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-            </div>
-        @endif
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p>{{session('email')}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                </div>
+            @endif
             <form action="{{route('password.email')}}" method="POST">
             @csrf
-            <p class="texto-solicita-verde" style="margin-bottom: 15px;">Recuperar contraseña</p>
-            <p class="texto-p">Escribe tu dirección de correo electrónico con el que te registraste y te haremos llegar las instrucciones para recuperar tu contraseña</p>
+            <p class="texto-solicita-verde " style="margin-bottom: 15px;" >Recuperar contraseña</p>
+            <p class="texto-p">Para recuperar tu contraseña, escribe tu correo electrónico y te enviaremos un correo lectrónico con las instrucciones para recuperarla</p>
             <br />
             <center>
                 <input type="text" class="form-control Carot ExtraLight" name="campo" placeholder="correo electrónico o telefono"  required>
@@ -165,7 +165,7 @@
             </center>
         
             <br />
-            <center><button type="submit" class="btn" style="background: #38A937; color:white;">Aceptar</button></center>
+            <center><button type="submit" class="btn" style="background: #38A937; color:white;">Recuperar Contraseña</button></center>
         </form>
             </div>
             <div class="col-2"></div>
